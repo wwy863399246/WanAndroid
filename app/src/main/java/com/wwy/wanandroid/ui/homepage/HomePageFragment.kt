@@ -10,15 +10,19 @@ import kotlinx.android.synthetic.main.fragment_home_page.*
  */
 class HomePageFragment : BaseFragment() {
     override fun getLayoutResId(): Int = R.layout.fragment_home_page
-    var mHomePageTabLayout = arrayOf("首页", "项目")
+
+
     override fun initData() {
+        val mHomePageTabLayout =
+            arrayOf(context!!.getString(R.string.home_page), context!!.getString(R.string.home_project))
         navigation_bar_view.setTabLayoutData(mHomePageTabLayout, home_page_viewpage)
     }
 
     override fun initView() {
-        
-//        var myFragmentPagerAdapter = MyFragmentPagerAdapter(this,)
-//
+        val firstPageFragment = FirstPageFragment()
+        val mainProjectFragment = MainProjectFragment()
+        val fragments = listOf<Fragment>(firstPageFragment, mainProjectFragment)
+        home_page_viewpage.adapter = MyFragmentPagerAdapter(this, fragments)
     }
 
 
