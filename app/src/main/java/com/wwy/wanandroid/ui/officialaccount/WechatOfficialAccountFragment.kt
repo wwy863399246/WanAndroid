@@ -1,6 +1,7 @@
-package com.wwy.wanandroid
+package com.wwy.wanandroid.ui.officialaccount
 
-import androidx.fragment.app.Fragment
+import com.wwy.wanandroid.BaseFragment
+import com.wwy.wanandroid.R
 
 /**
  *@创建者wwy

@@ -1,6 +1,9 @@
-package com.wwy.wanandroid
+package com.wwy.wanandroid.ui.homepage
 
 import androidx.fragment.app.Fragment
+import com.wwy.wanandroid.BaseFragment
+import com.wwy.wanandroid.adapter.MyFragmentPagerAdapter
+import com.wwy.wanandroid.R
 import kotlinx.android.synthetic.main.fragment_home_page.*
 
 /**

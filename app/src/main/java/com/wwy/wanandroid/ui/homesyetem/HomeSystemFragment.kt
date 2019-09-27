@@ -15,19 +15,19 @@ import kotlinx.android.synthetic.main.fragment_home_system.*
  *@创建时间 2019/9/17 11:58
  *@描述
  */
-class HomeSyetemFragment : BaseFragment() {
+class HomeSystemFragment : BaseFragment() {
     override fun getLayoutResId(): Int = R.layout.fragment_home_system
 
     override fun initData() {
         val mHomePageTabLayout =
             arrayOf(context!!.getString(R.string.home_system), context!!.getString(R.string.home_navigation))
-        navigation_bar_view.setTabLayoutData(mHomePageTabLayout, home_page_viewpage)
+        navigation_bar_view.setTabLayoutData(mHomePageTabLayout, home_syetem_viewpage)
     }
 
     override fun initView() {
-        val firstPageFragment = FirstPageFragment()
-        val mainProjectFragment = MainProjectFragment()
-        val fragments = listOf<Fragment>(firstPageFragment, mainProjectFragment)
+        val systemFragment = SystemFragment()
+        val navigationFragment = NavigationFragment()
+        val fragments = listOf<Fragment>(systemFragment, navigationFragment)
         home_syetem_viewpage.adapter = MyFragmentPagerAdapter(this, fragments)
     }
 

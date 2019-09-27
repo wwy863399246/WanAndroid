@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.google.android.material.tabs.TabLayoutMediator
 import com.wwy.wanandroid.R
 import kotlinx.android.synthetic.main.fragment_home_mine.view.*
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
@@ -37,6 +38,7 @@ class CustomNavigationBarView @JvmOverloads constructor(
     private var title_textStr: String? = null
     private var title_textId: Int = 0
     private var text_color: Int = 0
+    private var isShow_tablayout: Boolean = false
 
     init {
         val obtainStyledAttributes = context.obtainStyledAttributes(attrs, R.styleable.CustomNavigationBarView)
@@ -52,6 +54,8 @@ class CustomNavigationBarView @JvmOverloads constructor(
         title_textId = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_title_textId, 0)
         title_textStr = obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_title_textStr)
         text_color = obtainStyledAttributes.getColor(R.styleable.CustomNavigationBarView_text_color, 0)
+        isShow_tablayout =
+            obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_tablayout, false)
         initView()
         obtainStyledAttributes.recycle()
     }
@@ -86,15 +90,18 @@ class CustomNavigationBarView @JvmOverloads constructor(
         if (text_color != 0) {
             tv_title_text.setTextColor(text_color)
         }
-
+        if (isShow_tablayout) tl_navigationbar.visibility = View.VISIBLE else tl_navigationbar.visibility =
+            View.GONE
     }
 
-    fun setTabLayoutData(tablayoutTitle: Array<String>,viewPager2: ViewPager2) {
-        for (s in tablayoutTitle) {
-            tl_navigationbar.addTab(tl_navigationbar.newTab().setText(s))
-        }
+    fun setTabLayoutData(tablayoutTitle: Array<String>, viewPager2: ViewPager2) {
+        //viewpage2 tablayout 联动
+        TabLayoutMediator(tl_navigationbar, viewPager2) { tab, position ->
+            tab.text = tablayoutTitle[position]
+        }.attach()
         tl_navigationbar.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabReselected(p0: TabLayout.Tab?) {
+
             }
 
             override fun onTabUnselected(p0: TabLayout.Tab?) {

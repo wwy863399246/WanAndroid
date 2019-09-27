@@ -10,6 +10,7 @@
     <attr name="title_textStr" format="string"/><!-- title文本-->
     <attr name="title_textId" format="reference"/><!-- title文本-->
     <attr name="text_color" format="color"/> <!-- title文本 颜色-->
+    <attr name="isShow_tablayout" format="boolean"/> <!-- 是否显示tablayout-->
     <declare-styleable name="CustomNavigationBarView">
         <attr name="left_img"/>
         <attr name="isShow_left_img"/>
@@ -21,6 +22,7 @@
         <attr name="title_textStr"/>
         <attr name="title_textId"/>
         <attr name="text_color"/>
+        <attr name="isShow_tablayout"/>
     </declare-styleable>
 
 </resources>

@@ -22,9 +22,7 @@ abstract class BaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    abstract fun initData()
-
     abstract fun initView()
-
+    abstract fun initData()
     abstract fun getLayoutResId(): Int
 }

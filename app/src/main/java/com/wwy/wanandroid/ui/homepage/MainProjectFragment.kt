@@ -1,7 +1,7 @@
-package com.wwy.wanandroid
+package com.wwy.wanandroid.ui.homepage
 
-import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_home_page.*
+import com.wwy.wanandroid.BaseFragment
+import com.wwy.wanandroid.R
 
 /**
  *@创建者wwy

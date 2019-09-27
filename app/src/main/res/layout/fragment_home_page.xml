@@ -11,8 +11,9 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isShow_right_img1="true"
+            app:isShow_right_img1="false"
             app:isShow_right_img2="true"
+            app:isShow_tablayout="true"
             app:isShow_left_img="false"/>
     <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/home_page_viewpage"
