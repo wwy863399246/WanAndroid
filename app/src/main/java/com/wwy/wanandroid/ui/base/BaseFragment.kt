@@ -1,4 +1,4 @@
-package com.wwy.wanandroid
+package com.wwy.wanandroid.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 
 /**
  *@创建者wwy
- *@创建时间 2019/9/17 14:53
+ *@创建时间 2019/10/9 11:10
  *@描述
  */
 abstract class BaseFragment : Fragment() {
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(getLayoutResId(), container, false)
+        return inflater.inflate(setLayoutResId(), container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -22,7 +23,9 @@ abstract class BaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    abstract fun setLayoutResId(): Int
+
     abstract fun initView()
+
     abstract fun initData()
-    abstract fun getLayoutResId(): Int
 }

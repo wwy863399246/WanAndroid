@@ -1,13 +1,14 @@
-package com.wwy.wanandroid
+package com.wwy.wanandroid.ui.main
 
 import android.content.res.Resources
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.wwy.wanandroid.R
+import com.wwy.wanandroid.ui.base.BaseActivity
+import com.wwy.wanandroid.ui.base.BaseVMActivity
+import com.wwy.wanandroid.ui.homepage.FirstPageViewModel
 
 class MainActivity : BaseActivity() {
     override fun setLayoutId(): Int = R.layout.activity_main
@@ -24,7 +25,7 @@ class MainActivity : BaseActivity() {
             val dest: String = try {
                 resources.getResourceName(destination.id)
             } catch (e: Resources.NotFoundException) {
-                Integer.toString(destination.id)
+                destination.id.toString()
             }
         }
 

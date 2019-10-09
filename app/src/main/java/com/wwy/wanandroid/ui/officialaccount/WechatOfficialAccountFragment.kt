@@ -1,7 +1,8 @@
 package com.wwy.wanandroid.ui.officialaccount
 
-import com.wwy.wanandroid.BaseFragment
+import com.wwy.wanandroid.ui.base.BaseVMFragment
 import com.wwy.wanandroid.R
+import com.wwy.wanandroid.ui.base.BaseFragment
 
 /**
  *@创建者wwy
@@ -9,7 +10,7 @@ import com.wwy.wanandroid.R
  *@描述
  */
 class WechatOfficialAccountFragment : BaseFragment() {
-    override fun getLayoutResId(): Int = R.layout.fragment_wechat_official_account
+    override fun setLayoutResId(): Int = R.layout.fragment_wechat_official_account
 
     override fun initData() {
     }

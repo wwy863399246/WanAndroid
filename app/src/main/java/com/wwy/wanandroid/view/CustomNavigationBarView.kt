@@ -1,21 +1,16 @@
 package com.wwy.wanandroid.view
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
-import android.view.View.GONE
 import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.wwy.wanandroid.R
-import kotlinx.android.synthetic.main.fragment_home_mine.view.*
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
-import java.util.*
 
 
 /**
@@ -94,7 +89,7 @@ class CustomNavigationBarView @JvmOverloads constructor(
             View.GONE
     }
 
-    fun setTabLayoutData(tablayoutTitle: Array<String>, viewPager2: ViewPager2) {
+    fun setTabLayoutData(tablayoutTitle: Array<String?>, viewPager2: ViewPager2) {
         //viewpage2 tablayout 联动
         TabLayoutMediator(tl_navigationbar, viewPager2) { tab, position ->
             tab.text = tablayoutTitle[position]

@@ -1,13 +1,9 @@
 package com.wwy.wanandroid.ui.homesyetem
 
 import androidx.fragment.app.Fragment
-import com.wwy.wanandroid.BaseFragment
 import com.wwy.wanandroid.R
 import com.wwy.wanandroid.adapter.MyFragmentPagerAdapter
-import com.wwy.wanandroid.ui.homepage.FirstPageFragment
-import com.wwy.wanandroid.ui.homepage.MainProjectFragment
-import kotlinx.android.synthetic.main.fragment_home_page.*
-import kotlinx.android.synthetic.main.fragment_home_page.navigation_bar_view
+import com.wwy.wanandroid.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home_system.*
 
 /**
@@ -16,11 +12,11 @@ import kotlinx.android.synthetic.main.fragment_home_system.*
  *@描述
  */
 class HomeSystemFragment : BaseFragment() {
-    override fun getLayoutResId(): Int = R.layout.fragment_home_system
+    override fun setLayoutResId(): Int = R.layout.fragment_home_system
 
     override fun initData() {
         val mHomePageTabLayout =
-            arrayOf(context!!.getString(R.string.home_system), context!!.getString(R.string.home_navigation))
+            arrayOf(context?.getString(R.string.home_system), context?.getString(R.string.home_navigation))
         navigation_bar_view.setTabLayoutData(mHomePageTabLayout, home_syetem_viewpage)
     }
 

@@ -1,7 +1,8 @@
-package com.wwy.wanandroid
+package com.wwy.wanandroid.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 
 /**
  *@创建者wwy
@@ -13,22 +14,41 @@ import androidx.appcompat.app.AppCompatActivity
  * by lazy要求属性声明为val，即不可变变量，在java中相当于被final修饰。这意味着该变量一旦初始化后就不允许再被修改值了(基本类型是值不能被修改，对象类型是引用不能被修改)。{}内的操作就是返回唯一一次初始化的结果。
  * by lazy可以使用于类属性或者局部变量。
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseVMActivity<VM : BaseViewModel> : AppCompatActivity() {
+    private var mViewModel: VM? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
+        initVM()
         initView()
         initData()
+        startObserve()
     }
+
+    protected abstract fun setLayoutId(): Int
 
     abstract fun initData()
 
     abstract fun initView()
 
 
-    protected abstract fun setLayoutId(): Int
+    private fun initVM() {
+        providerVMClass()?.let { it ->
+            mViewModel = ViewModelProviders.of(this).get(it)
+            mViewModel.let { lifecycle::addObserver }
+        }
+    }
+
+    abstract fun startObserve()
+    /**
+     * [BaseViewModel]的实现类
+     */
+    open fun providerVMClass(): Class<VM>? = null
 
     override fun onDestroy() {
+        mViewModel?.let {
+            lifecycle.removeObserver(it)
+        }
         super.onDestroy()
     }
 

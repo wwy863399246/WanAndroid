@@ -1,12 +1,8 @@
 package com.wwy.wanandroid.ui.homesyetem
 
-import androidx.fragment.app.Fragment
-import com.wwy.wanandroid.BaseFragment
+import com.wwy.wanandroid.ui.base.BaseVMFragment
 import com.wwy.wanandroid.R
-import com.wwy.wanandroid.adapter.MyFragmentPagerAdapter
-import com.wwy.wanandroid.ui.homepage.FirstPageFragment
-import com.wwy.wanandroid.ui.homepage.MainProjectFragment
-import kotlinx.android.synthetic.main.fragment_home_page.*
+import com.wwy.wanandroid.ui.base.BaseFragment
 
 /**
  *@创建者wwy
@@ -14,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_home_page.*
  *@描述
  */
 class SystemFragment : BaseFragment() {
-    override fun getLayoutResId(): Int = R.layout.fragment_system
+    override fun setLayoutResId(): Int = R.layout.fragment_system
 
 
     override fun initData() {

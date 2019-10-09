@@ -1,9 +1,10 @@
 package com.wwy.wanandroid.ui.homepage
 
 import androidx.fragment.app.Fragment
-import com.wwy.wanandroid.BaseFragment
+import com.wwy.wanandroid.ui.base.BaseVMFragment
 import com.wwy.wanandroid.adapter.MyFragmentPagerAdapter
 import com.wwy.wanandroid.R
+import com.wwy.wanandroid.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home_page.*
 
 /**
@@ -12,12 +13,12 @@ import kotlinx.android.synthetic.main.fragment_home_page.*
  *@描述
  */
 class HomePageFragment : BaseFragment() {
-    override fun getLayoutResId(): Int = R.layout.fragment_home_page
+    override fun setLayoutResId(): Int = R.layout.fragment_home_page
 
 
     override fun initData() {
         val mHomePageTabLayout =
-            arrayOf(context!!.getString(R.string.home_page), context!!.getString(R.string.home_project))
+            arrayOf(context?.getString(R.string.home_page), context?.getString(R.string.home_project))
         navigation_bar_view.setTabLayoutData(mHomePageTabLayout, home_page_viewpage)
     }
 
@@ -27,6 +28,8 @@ class HomePageFragment : BaseFragment() {
         val fragments = listOf<Fragment>(firstPageFragment, mainProjectFragment)
         home_page_viewpage.adapter = MyFragmentPagerAdapter(this, fragments)
     }
+
+
 
 
 }

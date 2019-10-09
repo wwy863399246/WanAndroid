@@ -1,7 +1,7 @@
 package com.wwy.wanandroid.ui.homepage
 
-import com.wwy.wanandroid.BaseFragment
 import com.wwy.wanandroid.R
+import com.wwy.wanandroid.ui.base.BaseFragment
 
 /**
  *@创建者wwy
@@ -9,9 +9,10 @@ import com.wwy.wanandroid.R
  *@描述
  */
 class FirstPageFragment : BaseFragment() {
-    override fun getLayoutResId(): Int = R.layout.fragment_first_page
+    override fun setLayoutResId(): Int = R.layout.fragment_first_page
     override fun initView() {
     }
     override fun initData() {
+
     }
 }
