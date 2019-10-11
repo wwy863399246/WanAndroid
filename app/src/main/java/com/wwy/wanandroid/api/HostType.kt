@@ -6,6 +6,5 @@ package com.wwy.wanandroid.api
  *@描述
  */
 object HostType {
-    const val TYPE_COUNT = 7
     const val WAN_ANDROID = 1
 }

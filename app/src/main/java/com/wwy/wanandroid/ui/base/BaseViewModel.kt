@@ -1,72 +1,52 @@
 package com.wwy.wanandroid.ui.base
 
-import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.*
-import okhttp3.Dispatcher
-import timber.log.Timber
-import kotlin.coroutines.CoroutineContext
+import java.lang.Exception
 
 /**
  *@创建者wwy
  *@创建时间 2019/10/8 15:46
- *@描述
+ *@描述 协程处理网络请求回调
  */
-open class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
-    val mException: MutableLiveData<Throwable> = MutableLiveData()
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main
-    private val mLaunchManager: MutableList<Job> = mutableListOf()
-    protected fun launchOnUITryCatch(
-        tryBlock: suspend CoroutineScope.() -> Unit,
-        cacheBlock: suspend CoroutineScope.(Throwable) -> Unit,
-        finallyBlock: suspend CoroutineScope.() -> Unit,
-        handleCancellationExceptionManually: Boolean
-    ) {
-        launchOnUI {
-            tryCatch(tryBlock, cacheBlock, finallyBlock, handleCancellationExceptionManually)
+open class BaseViewModel : ViewModel(), LifecycleObserver {
+    private val mException by lazy { MutableLiveData<Exception>() }
+    private val finally by lazy { MutableLiveData<Boolean>() }
+    private val start by lazy { MutableLiveData<Boolean>() }
+
+    /**
+     * 运行在UI线程的协程 viewModelScope 已经实现了在onCleared取消协程
+     * @param isNeedProgressBar 是否需要进度条
+     */
+    fun launchUI(block: suspend CoroutineScope.() -> Unit, isNeedProgressBar: Boolean = false) = viewModelScope.launch {
+        try {
+            start.value = isNeedProgressBar
+            block()
+        } catch (e: Exception) {
+            mException.value = e
+        } finally {
+            finally.value = isNeedProgressBar
         }
     }
 
     /**
-     * add launch task to [mLaunchManager]
+     * 请求失败，出现异常
      */
-    private fun launchOnUI(block: suspend CoroutineScope.() -> Unit) {
-        val job = launch { block() }
-        mLaunchManager.add(job)
-        job.invokeOnCompletion { mLaunchManager.remove(job) }
-
+    fun getError(): LiveData<Exception> {
+        return mException
     }
 
-    private suspend fun tryCatch(
-        tryBlock: suspend CoroutineScope.() -> Unit,
-        catchBlock: suspend CoroutineScope.(Throwable) -> Unit,
-        finallyBlock: suspend CoroutineScope.() -> Unit,
-        handleCancellationExceptionManually: Boolean = false
-    ) {
-        coroutineScope {
-            try {
-                tryBlock()
-            } catch (e: Throwable) {
-                if (e !is CancellationException || handleCancellationExceptionManually) {
-                    mException.value = e
-                    catchBlock(e)
-                } else {
-                    throw e
-                }
-            } finally {
-                finallyBlock()
-            }
-        }
+    /**
+     * 请求完成，在此处做一些关闭操作
+     */
+    fun getFinally(): LiveData<Boolean> {
+        return finally
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestory() {
-        Timber.tag("wwy").d("onDestory")
-        clearLaunchTask()
-    }
-
-    private fun clearLaunchTask() {
-        mLaunchManager.clear()
+    /**
+     * 请求开始，在此处做一些准备操作
+     */
+    fun getStart(): LiveData<Boolean> {
+        return start
     }
 }

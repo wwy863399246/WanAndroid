@@ -2,10 +2,9 @@ package com.wwy.wanandroid.repository
 
 import com.wwy.wanandroid.repository.base.BaseRepository
 import com.wwy.wanandroid.api.HostType
-import com.wwy.wanandroid.api.HttpRepository
+import com.wwy.wanandroid.api.RetrofitClient
 import com.wwy.wanandroid.bean.Banner
 import com.wwy.wanandroid.bean.base.WanResponse
-import kotlinx.coroutines.Deferred
 
 /**
  *@创建者wwy
@@ -13,8 +12,8 @@ import kotlinx.coroutines.Deferred
  *@描述
  */
 class HomeRepository : BaseRepository() {
-    suspend fun getBanners(): Deferred<WanResponse<Banner>> {
-        return apiCall { HttpRepository.getDefault(HostType.WAN_ANDROID).getBanner() }
+    suspend fun getBanners(): WanResponse<List<Banner>> {
+        return apiCall { RetrofitClient.RetrofitClient(HostType.WAN_ANDROID).service.getBanner() }
     }
 
 

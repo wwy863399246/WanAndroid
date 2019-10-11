@@ -12,5 +12,5 @@ import retrofit2.http.GET
  */
 interface ApiService {
     @GET("/banner/json")
-    fun getBanner(): Deferred<WanResponse<Banner>>
+    suspend fun getBanner(): WanResponse<List<Banner>>
 }

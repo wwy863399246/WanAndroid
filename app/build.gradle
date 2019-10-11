@@ -51,5 +51,7 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha05'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    //动态权限
+    implementation 'com.qw:soulpermission:1.2.2_x'
 
 }

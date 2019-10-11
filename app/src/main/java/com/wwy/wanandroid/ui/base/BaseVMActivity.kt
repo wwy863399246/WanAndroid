@@ -2,7 +2,13 @@ package com.wwy.wanandroid.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.wwy.wanandroid.repository.base.BaseRepository
+import kotlinx.coroutines.TimeoutCancellationException
+import retrofit2.HttpException
+import timber.log.Timber
+import java.lang.Exception
 
 /**
  *@创建者wwy
@@ -14,24 +20,22 @@ import androidx.lifecycle.ViewModelProviders
  * by lazy要求属性声明为val，即不可变变量，在java中相当于被final修饰。这意味着该变量一旦初始化后就不允许再被修改值了(基本类型是值不能被修改，对象类型是引用不能被修改)。{}内的操作就是返回唯一一次初始化的结果。
  * by lazy可以使用于类属性或者局部变量。
  */
-abstract class BaseVMActivity<VM : BaseViewModel> : AppCompatActivity() {
-    private var mViewModel: VM? = null
+abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
+    private lateinit var mViewModel: VM
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(setLayoutId())
         initVM()
-        initView()
-        initData()
+        super.onCreate(savedInstanceState)
         startObserve()
     }
 
-    protected abstract fun setLayoutId(): Int
+    /**
+     * [BaseViewModel]的实现类
+     */
+    open fun providerVMClass(): Class<VM>? = null
 
-    abstract fun initData()
-
-    abstract fun initView()
-
-
+    /**
+     *  如果要只对非空值执行某个操作，安全调用操作符可以与 let 一起使用：
+     */
     private fun initVM() {
         providerVMClass()?.let { it ->
             mViewModel = ViewModelProviders.of(this).get(it)
@@ -39,14 +43,67 @@ abstract class BaseVMActivity<VM : BaseViewModel> : AppCompatActivity() {
         }
     }
 
-    abstract fun startObserve()
+    private fun startObserve() {
+        mViewModel.run {
+            getError().observe(this@BaseVMActivity, Observer {
+                requestError(it)
+            })
+            getStart().observe(this@BaseVMActivity, Observer {
+                requestStart(it)
+            })
+            getFinally().observe(this@BaseVMActivity, Observer {
+                requestFinally(it)
+            })
+        }
+
+    }
+
     /**
-     * [BaseViewModel]的实现类
+     * 请求完成 可以做完成之后的操作
+     * @param it 是否需要进度条
      */
-    open fun providerVMClass(): Class<VM>? = null
+    private fun requestFinally(it: Boolean?) {
+        it?.run {
+            when (it) {
+                true -> Timber.tag("wwywwy").d("需要")
+                false -> Timber.tag("wwywwy").d("不需要")
+            }
+        }
+    }
+
+    /**
+     * 请求开始 请求完成 可以做开始准备的操作
+     * @param it 是否需要进度条
+     */
+    open fun requestStart(it: Boolean?) {
+        it?.run {
+            when (it) {
+                true -> Timber.tag("wwywwy").d("需要")
+                false -> Timber.tag("wwywwy").d("不需要")
+            }
+        }
+    }
+
+    /**
+     * 常见异常处理
+     */
+    open fun requestError(it: Exception?) {
+        it?.run {
+            when (it) {
+                is HttpException -> {
+                }   //网络异常
+                is TimeoutCancellationException -> {
+                }  //请求超时
+                is BaseRepository.LogonFailureException -> {
+
+                }//登录已失效
+            }
+
+        }
+    }
 
     override fun onDestroy() {
-        mViewModel?.let {
+        mViewModel.let {
             lifecycle.removeObserver(it)
         }
         super.onDestroy()

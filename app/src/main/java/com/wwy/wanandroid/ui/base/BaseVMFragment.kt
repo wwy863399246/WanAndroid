@@ -7,6 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.wwy.wanandroid.repository.base.BaseRepository
+import kotlinx.coroutines.TimeoutCancellationException
+import retrofit2.HttpException
+import timber.log.Timber
+import java.lang.Exception
 
 
 /**
@@ -28,27 +33,76 @@ abstract class BaseVMFragment<VM : BaseViewModel> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    open fun startObserve() {
-        mViewModel.mException.observe(this, Observer { it?.let { onError(it) } })
-    }
-
+    open fun providerVMClass(): Class<VM>? = null
     private fun initVM() {
         providerVMClass()?.let {
             mViewModel = ViewModelProviders.of(this).get(it)
             lifecycle.addObserver(mViewModel)
         }
     }
-
-    open fun providerVMClass(): Class<VM>? = null
-
-    open fun onError(e: Throwable) {}
     abstract fun setLayoutResId(): Int
     abstract fun initView()
     abstract fun initData()
+    open fun startObserve() {
+        mViewModel.run {
+            getError().observe(this@BaseVMFragment, Observer {
+                requestError(it)
+            })
+            getStart().observe(this@BaseVMFragment, Observer {
+                requestStart(it)
+            })
+            getFinally().observe(this@BaseVMFragment, Observer {
+                requestFinally(it)
+            })
+        }
+    }
 
+    /**
+     * 请求完成 可以做完成之后的操作
+     * @param it 是否需要进度条
+     */
+    open fun requestFinally(it: Boolean?) {
+        it?.run {
+            when (it) {
+                true -> Timber.tag("wangwuyuan").d("需要->结束")
+                false -> Timber.tag("wangwuyuan").d("不需要")
+            }
+        }
+    }
+
+    /**
+     * 请求开始 请求完成 可以做开始准备的操作
+     * @param it 是否需要进度条
+     */
+    open fun requestStart(it: Boolean?) {
+        it?.run {
+            when (it) {
+                true -> Timber.tag("wangwuyuan").d("需要->开始")
+                false -> Timber.tag("wangwuyuan").d("不需要")
+            }
+        }
+    }
+
+    /**
+     * 常见异常处理
+     */
+    private fun requestError(it: Exception?) {
+        it?.run {
+            when (it) {
+                is HttpException -> {
+                }   //网络异常
+                is TimeoutCancellationException -> {
+                }  //请求超时
+                is BaseRepository.LogonFailureException -> {
+
+                }//登录已失效
+            }
+
+        }
+    }
 
     override fun onDestroy() {
-        mViewModel?.let {
+        mViewModel.let {
             lifecycle.removeObserver(it)
         }
         super.onDestroy()
