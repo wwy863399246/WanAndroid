@@ -47,7 +47,7 @@ abstract class BaseRetrofitClient {
         val response = chain.proceed(chain.request())
         val t2 = System.nanoTime()
         val contentType = response.body()?.contentType()
-        val content = response.body()?.string()
+        val content = response.body()!!.string()
         Timber.tag("wangwuyuan")
             .d("request url:" + request.url() + "\ntime:" + (t2 - t1) / 1e6 + "\nbody:" + content + "\n")
         response.newBuilder()

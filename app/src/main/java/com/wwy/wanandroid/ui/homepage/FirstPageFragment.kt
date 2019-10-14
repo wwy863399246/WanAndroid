@@ -22,7 +22,7 @@ class FirstPageFragment : BaseVMFragment<FirstPageViewModel>() {
     }
 
     override fun initData() {
-
+        mViewModel.getSystemParentList()
     }
 
     override fun startObserve() {
@@ -34,10 +34,15 @@ class FirstPageFragment : BaseVMFragment<FirstPageViewModel>() {
                     setBanner(it)
                 }
             })
+            mSystemParentList.observe(this@FirstPageFragment, Observer { it ->
+                it?.run {
+                    Toast.makeText(MyApplication.CONTEXT, "haha", Toast.LENGTH_LONG).show()
+                }
+            })
         }
     }
 
     private fun setBanner(bannerList: List<Banner>) {
-        Timber.tag("wangwuyuan").d(bannerList.toString())
+        Timber.tag("wangwuyuan").d(bannerList.get(0).title)
     }
 }

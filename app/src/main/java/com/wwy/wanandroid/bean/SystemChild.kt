@@ -1,10 +1,11 @@
-package luyao.wanandroid.model.bean
+package com.wwy.wanandroid.bean
 
 import java.io.Serializable
 
 /**
- * Created by Lu
- * on 2018/3/26 21:23
+ *@创建者wwy
+ *@创建时间 2019/10/8 11:26
+ *@描述
  */
 data class SystemChild(val child: List<SystemChild>,
                        val courseId: Int,

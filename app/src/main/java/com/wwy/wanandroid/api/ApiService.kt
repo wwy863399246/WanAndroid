@@ -1,6 +1,7 @@
 package com.wwy.wanandroid.api
 
 import com.wwy.wanandroid.bean.Banner
+import com.wwy.wanandroid.bean.SystemParent
 import com.wwy.wanandroid.bean.base.WanResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
@@ -13,4 +14,6 @@ import retrofit2.http.GET
 interface ApiService {
     @GET("/banner/json")
     suspend fun getBanner(): WanResponse<List<Banner>>
+    @GET("/tree/json")
+    suspend fun getSystemType(): WanResponse<List<SystemParent>>
 }
