@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -9,7 +8,7 @@ android {
     buildToolsVersion "29.0.0"
     defaultConfig {
         applicationId "com.wwy.wanandroid"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -49,9 +48,14 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:3.12.1"
     //日志
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    //lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-beta01'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     //动态权限
     implementation 'com.qw:soulpermission:1.2.2_x'
-
+    //添加Room的依赖
+    implementation 'androidx.room:room-runtime:2.2.0'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
 }

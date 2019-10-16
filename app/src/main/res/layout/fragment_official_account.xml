@@ -6,7 +6,7 @@
     <TextView
             android:id="@+id/tv_textview"
             android:textSize="20sp"
-            android:text="@string/wechat_official_account"
+            android:text="@string/official_account"
             android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

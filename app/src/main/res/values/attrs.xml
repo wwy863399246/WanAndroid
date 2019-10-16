@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="left_img" format="reference"/> <!--  左边图标-->
-    <attr name="isShow_left_img" format="boolean"/> <!--  是否显示左边图标-->
-    <attr name="right_img1" format="reference"/><!-- 右边图标1 -->
-    <attr name="isShow_right_img1" format="boolean"/><!--是否显示右边图标1 -->
-    <attr name="right_img2" format="reference"/><!-- 右边图标2 -->
-    <attr name="isShow_right_img2" format="boolean"/><!--是否显示右边图标2 -->
-    <attr name="right_img3" format="reference"/><!-- 右边图标3 -->
-    <attr name="title_textStr" format="string"/><!-- title文本-->
-    <attr name="title_textId" format="reference"/><!-- title文本-->
-    <attr name="text_color" format="color"/> <!-- title文本 颜色-->
-    <attr name="isShow_tablayout" format="boolean"/> <!-- 是否显示tablayout-->
+    <attr name="left_img" format="reference" /> <!--  左边图标-->
+    <attr name="left_textStr" format="reference" /> <!--  左边文本-->
+    <attr name="left_textId" format="reference" /><!-- 左边文本id-->
+    <attr name="isShow_left_img" format="boolean" /> <!--  是否显示左边图标-->
+    <attr name="right_img1" format="reference" /><!-- 右边图标1 -->
+    <attr name="isShow_right_img1" format="boolean" /><!--是否显示右边图标1 -->
+    <attr name="right_img2" format="reference" /><!-- 右边图标2 -->
+    <attr name="isShow_right_img2" format="boolean" /><!--是否显示右边图标2 -->
+    <attr name="right_img3" format="reference" /><!-- 右边图标3 -->
+    <attr name="isShow_right_img3" format="boolean" /><!--是否显示右边图标3 -->
+    <attr name="title_textStr" format="string" /><!-- title文本-->
+    <attr name="title_textId" format="reference" /><!-- title文本-->
+    <attr name="text_color" format="color" /> <!-- title文本 颜色-->
+    <attr name="isShow_tablayout" format="boolean" /> <!-- 是否显示tablayout-->
     <declare-styleable name="CustomNavigationBarView">
-        <attr name="left_img"/>
-        <attr name="isShow_left_img"/>
-        <attr name="right_img1"/>
-        <attr name="isShow_right_img1"/>
-        <attr name="right_img2"/>
-        <attr name="isShow_right_img2"/>
-        <attr name="right_img3"/>
-        <attr name="title_textStr"/>
-        <attr name="title_textId"/>
-        <attr name="text_color"/>
-        <attr name="isShow_tablayout"/>
+        <attr name="left_img" />
+        <attr name="left_textStr" />
+        <attr name="left_textId" />
+        <attr name="isShow_left_img" />
+        <attr name="right_img1" />
+        <attr name="isShow_right_img1" />
+        <attr name="right_img2" />
+        <attr name="isShow_right_img2" />
+        <attr name="right_img3" />
+        <attr name="isShow_right_img3" />
+        <attr name="title_textStr" />
+        <attr name="title_textId" />
+        <attr name="text_color" />
+        <attr name="isShow_tablayout" />
     </declare-styleable>
 
 </resources>

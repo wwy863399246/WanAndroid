@@ -31,9 +31,9 @@
 
     <fragment
             android:id="@+id/wechat_official_account"
-            android:label="@string/wechat_official_account"
-            android:name="com.wwy.wanandroid.ui.officialaccount.WechatOfficialAccountFragment"
-            tools:layout="@layout/fragment_wechat_official_account"/>
+            android:label="@string/official_account"
+            android:name="com.wwy.wanandroid.ui.officialaccount.OfficialAccountFragment"
+            tools:layout="@layout/fragment_official_account"/>
 
     <fragment
             android:id="@+id/home_mine"

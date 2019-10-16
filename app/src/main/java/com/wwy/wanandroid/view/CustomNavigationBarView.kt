@@ -23,69 +23,83 @@ class CustomNavigationBarView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
-    private var left_img: Int = 0
-    private var right_img1: Int = 0
-    private var right_img2: Int = 0
-    private var right_img3: Int = 0
-    private var isShow_left_img: Boolean = false
-    private var isShow_right_img1: Boolean = false
-    private var isShow_right_img2: Boolean = false
-    private var title_textStr: String? = null
-    private var title_textId: Int = 0
-    private var text_color: Int = 0
-    private var isShow_tablayout: Boolean = false
+    private var mLeftImg: Int = 0
+    private var mLeftTextStr: String? = null
+    private var mLeftTextId: Int = 0
+    private var mRightImg1: Int = 0
+    private var mRightImg2: Int = 0
+    private var mRightImg3: Int = 0
+    private var mShowLeftImg: Boolean = false
+    private var mShowRightImg1: Boolean = false
+    private var mShowRightImg2: Boolean = false
+    private var mShowRightImg3: Boolean = false
+    private var mTitleTextStr: String? = null
+    private var mTitleTextId: Int = 0
+    private var mTextColor: Int = 0
+    private var mShowTabLayout: Boolean = false
 
     init {
         val obtainStyledAttributes = context.obtainStyledAttributes(attrs, R.styleable.CustomNavigationBarView)
-        left_img = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_img, 0)
-        isShow_left_img = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_left_img, false)
-        right_img1 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img1, 0)
-        right_img2 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img2, 0)
-        isShow_right_img1 =
-            obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_right_img1, false)
-        isShow_right_img2 =
-            obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_right_img2, false)
-//        right_img3 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img3, 0)
-        title_textId = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_title_textId, 0)
-        title_textStr = obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_title_textStr)
-        text_color = obtainStyledAttributes.getColor(R.styleable.CustomNavigationBarView_text_color, 0)
-        isShow_tablayout =
-            obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_tablayout, false)
+        mLeftTextId = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_textId, 0)
+        mLeftTextStr = obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_left_textStr)
+        mLeftImg = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_img, 0)
+        mShowLeftImg = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_left_img, false)
+        mRightImg1 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img1, 0)
+        mRightImg2 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img2, 0)
+        mRightImg3 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img3, 0)
+        mShowRightImg1 = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_right_img1, false)
+        mShowRightImg2 = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_right_img2, false)
+        mRightImg3 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img3, 0)
+        mShowRightImg3 = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_right_img2, false)
+        mTitleTextId = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_title_textId, 0)
+        mTitleTextStr = obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_title_textStr)
+        mTextColor = obtainStyledAttributes.getColor(R.styleable.CustomNavigationBarView_text_color, 0)
+        mShowTabLayout = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_tablayout, false)
         initView()
         obtainStyledAttributes.recycle()
     }
 
     private fun initView() {
         View.inflate(context, R.layout.layout_custom_navigationbar_view, this)
-        if (left_img != 0) {
-            iv_back_navigationbar.setImageResource(left_img)
+        if (mLeftImg != 0) {
+            iv_back_navigationbar.setImageResource(mLeftImg)
         }
-        if (isShow_left_img) iv_back_navigationbar.visibility = View.VISIBLE else iv_back_navigationbar.visibility =
+        mLeftTextStr?.let {
+            tv_left_title.text = mLeftTextStr
+            tv_left_title.visibility = View.VISIBLE
+        }
+        if (mLeftTextId != 0) {
+            tv_left_title.setText(mLeftTextId)
+            tv_left_title.visibility = View.VISIBLE
+        }
+        if (mShowLeftImg) iv_back_navigationbar.visibility =
+            View.VISIBLE else iv_back_navigationbar.visibility =
             View.GONE
-        if (right_img1 != 0) {
-            iv_settings_navigationbar.setImageResource(right_img1)
+        if (mRightImg1 != 0) {
+            iv_settings_navigationbar.setImageResource(mRightImg1)
         }
-        if (isShow_right_img1) iv_settings_navigationbar.visibility =
+        if (mShowRightImg1) iv_settings_navigationbar.visibility =
             View.VISIBLE else iv_settings_navigationbar.visibility =
             View.GONE
-        if (right_img2 != 0) {
-            iv_search_navigationbar.setImageResource(right_img2)
+        if (mRightImg2 != 0) {
+            iv_search_navigationbar.setImageResource(mRightImg2)
         }
-        if (isShow_right_img2) iv_search_navigationbar.visibility =
+        if (mShowRightImg2) iv_search_navigationbar.visibility =
             View.VISIBLE else iv_search_navigationbar.visibility =
             View.GONE
-        if (title_textStr != null) {
-            findViewById<TextView>(R.id.tv_title_text).text = title_textStr
+        mTitleTextStr?.let {
+            tv_title_text.text = mTitleTextStr
             tv_title_text.visibility = View.VISIBLE
         }
-        if (title_textId != 0) {
-            tv_title_text.setText(title_textId)
+        if (mTitleTextId != 0) {
+            tv_title_text.setText(mTitleTextId)
             tv_title_text.visibility = View.VISIBLE
         }
-        if (text_color != 0) {
-            tv_title_text.setTextColor(text_color)
+        if (mTextColor != 0) {
+            tv_title_text.setTextColor(mTextColor)
         }
-        if (isShow_tablayout) tl_navigationbar.visibility = View.VISIBLE else tl_navigationbar.visibility =
+        if (mShowTabLayout) tl_navigationbar.visibility =
+            View.VISIBLE else tl_navigationbar.visibility =
             View.GONE
     }
 

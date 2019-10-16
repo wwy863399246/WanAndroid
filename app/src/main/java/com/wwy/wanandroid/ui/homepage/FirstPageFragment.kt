@@ -8,6 +8,7 @@ import com.wwy.wanandroid.bean.Banner
 import com.wwy.wanandroid.ui.base.BaseFragment
 import com.wwy.wanandroid.ui.base.BaseVMActivity
 import com.wwy.wanandroid.ui.base.BaseVMFragment
+import com.wwy.wanandroid.util.GlideImageLoader
 import timber.log.Timber
 
 /**
