@@ -1,5 +1,6 @@
 package com.wwy.wanandroid.view
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
@@ -18,11 +19,12 @@ import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
  *@创建时间 2019/9/18 13:58
  *@描述
  */
+@SuppressLint("NewApi")
 class CustomNavigationBarView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr) {
+) : Toolbar(context, attrs, defStyleAttr) {
     private var mLeftImg: Int = 0
     private var mLeftTextStr: String? = null
     private var mLeftTextId: Int = 0
@@ -56,6 +58,7 @@ class CustomNavigationBarView @JvmOverloads constructor(
         mTextColor = obtainStyledAttributes.getColor(R.styleable.CustomNavigationBarView_text_color, 0)
         mShowTabLayout = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_tablayout, false)
         initView()
+        setContentInsetsRelative(0, 0)
         obtainStyledAttributes.recycle()
     }
 
