@@ -16,8 +16,12 @@ class LoginRemoteDataSource : BaseRemoteDataSource() {
     suspend fun login(username: String, password: String) = apiCall(
         call = { requestLogin(username, password) }
     )
-    private suspend fun requestLogin(username: String, password: String): WanResponse<User> {
-        var login = RetrofitClient.RetrofitClient(HostType.WAN_ANDROID).service.login(username, password)
 
+    private suspend fun requestLogin(username: String, password: String): WanResponse<User> {
+        val login = RetrofitClient.RetrofitClient(HostType.WAN_ANDROID).service.login(username, password)
+        if(login.errorCode==0){
+            return login
+        }
+        return login
     }
 }
