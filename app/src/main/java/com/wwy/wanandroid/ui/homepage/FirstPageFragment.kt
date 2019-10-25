@@ -44,6 +44,6 @@ class FirstPageFragment : BaseVMFragment<FirstPageViewModel>() {
     }
 
     private fun setBanner(bannerList: List<Banner>) {
-        Timber.tag("wangwuyuan").d(bannerList.get(0).title)
+        Timber.tag("wangwuyuan").d(bannerList[0].title)
     }
 }

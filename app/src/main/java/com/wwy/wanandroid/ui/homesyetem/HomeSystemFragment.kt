@@ -24,7 +24,7 @@ class HomeSystemFragment : BaseFragment() {
         val systemFragment = SystemFragment()
         val navigationFragment = NavigationFragment()
         val fragments = listOf<Fragment>(systemFragment, navigationFragment)
-        home_syetem_viewpage.adapter = MyFragmentPagerAdapter(this, fragments)
+        home_syetem_viewpage.adapter = activity?.let { MyFragmentPagerAdapter(it, fragments) }
     }
 
 

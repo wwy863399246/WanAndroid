@@ -1,8 +1,10 @@
 package com.wwy.wanandroid.ui.homemine
 
+import android.content.Intent
 import com.wwy.wanandroid.ui.base.BaseVMFragment
 import com.wwy.wanandroid.R
 import com.wwy.wanandroid.ui.base.BaseFragment
+import com.wwy.wanandroid.ui.member.LoginActivity
 import com.wwy.wanandroid.util.GlideImageLoader
 import kotlinx.android.synthetic.main.fragment_home_mine.*
 
@@ -18,7 +20,10 @@ class HomeMineFragment : BaseFragment() {
     }
 
     override fun initView() {
-        activity?.let { GlideImageLoader().displayCircleImage(it,R.drawable.wwy,iv_user_icon) }
+        activity?.let { GlideImageLoader().displayCircleImage(it, R.drawable.wwy, iv_user_icon) }
+        iv_user_icon.setOnClickListener {
+            startActivity(Intent(activity, LoginActivity::class.java))
+        }
     }
 
 

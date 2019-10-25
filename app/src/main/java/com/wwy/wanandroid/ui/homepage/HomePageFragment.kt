@@ -26,7 +26,7 @@ class HomePageFragment : BaseFragment() {
         val firstPageFragment = FirstPageFragment()
         val mainProjectFragment = MainProjectFragment()
         val fragments = listOf(firstPageFragment, mainProjectFragment)
-        home_page_viewpage.adapter = MyFragmentPagerAdapter(this, fragments)
+        home_page_viewpage.adapter = activity?.let { MyFragmentPagerAdapter(it, fragments) }
     }
 
 

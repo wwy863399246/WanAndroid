@@ -1,6 +1,7 @@
 package com.wwy.wanandroid.adapter
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 /**
@@ -8,8 +9,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
  *@创建时间 2019/9/20 15:04
  *@描述
  */
-class MyFragmentPagerAdapter(fragment: Fragment, private val mFragments: List<Fragment>) :
-    FragmentStateAdapter(fragment) {
+class MyFragmentPagerAdapter( fragmentActivity: FragmentActivity,private val mFragments: List<Fragment>) :
+    FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount(): Int = mFragments.size
 

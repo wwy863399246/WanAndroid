@@ -3,6 +3,7 @@ package com.wwy.wanandroid.view
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.core.content.ContextCompat
@@ -110,19 +111,22 @@ class CustomNavigationBarView @JvmOverloads constructor(
         //viewpage2 tablayout 联动
         TabLayoutMediator(tl_navigationbar, viewPager2) { tab, position ->
             tab.text = tablayoutTitle[position]
+
         }.attach()
         tl_navigationbar.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabReselected(p0: TabLayout.Tab?) {
-
             }
 
             override fun onTabUnselected(p0: TabLayout.Tab?) {
             }
 
             override fun onTabSelected(p0: TabLayout.Tab?) {
+
             }
         })
+
     }
+
 
     //扩展函数
     fun Context.color(colorRes: Int) = ContextCompat.getColor(this, colorRes)
