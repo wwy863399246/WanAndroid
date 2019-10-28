@@ -21,7 +21,7 @@ import java.lang.Exception
  * by lazy可以使用于类属性或者局部变量。
  */
 abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
-    private lateinit var mViewModel: VM
+    protected lateinit var mViewModel: VM
     override fun onCreate(savedInstanceState: Bundle?) {
         initVM()
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
         }
     }
 
-    private fun startObserve() {
+    open fun startObserve() {
         mViewModel.run {
             getError().observe(this@BaseVMActivity, Observer {
                 requestError(it)
