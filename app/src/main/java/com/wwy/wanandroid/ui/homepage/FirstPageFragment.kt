@@ -20,7 +20,7 @@ class FirstPageFragment : BaseVMFragment<FirstPageViewModel>() {
     }
 
     override fun initData() {
-        mViewModel.getSystemParentList()
+        mViewModel.getArticleList(page = 1)
     }
 
     override fun startObserve() {
@@ -28,12 +28,13 @@ class FirstPageFragment : BaseVMFragment<FirstPageViewModel>() {
         mViewModel.apply {
             mBanner.observe(this@FirstPageFragment, Observer { it ->
                 it?.let {
-                    Toast.makeText(MyApplication.CONTEXT, "haha", Toast.LENGTH_LONG).show()
+                   // Toast.makeText(MyApplication.CONTEXT, "haha", Toast.LENGTH_LONG).show()
                     setBanner(it)
                 }
             })
-            mSystemParentList.observe(this@FirstPageFragment, Observer { it ->
-                it?.run {
+            mArticleList.observe(this@FirstPageFragment, Observer {
+                it?.let {
+                    Timber.tag("wwy").d(it.toString())
                     Toast.makeText(MyApplication.CONTEXT, "haha", Toast.LENGTH_LONG).show()
                 }
             })

@@ -1,7 +1,6 @@
 package com.wwy.wanandroid.ui.base
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.wwy.wanandroid.repository.base.BaseRepository
@@ -21,7 +20,7 @@ import java.lang.Exception
  * by lazy可以使用于类属性或者局部变量。
  */
 abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
-    protected lateinit var mViewModel: VM
+    lateinit var mViewModel: VM
     override fun onCreate(savedInstanceState: Bundle?) {
         initVM()
         super.onCreate(savedInstanceState)

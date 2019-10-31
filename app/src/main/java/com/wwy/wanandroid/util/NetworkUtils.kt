@@ -1,7 +1,6 @@
 package com.wwy.wanandroid.util
 
-import java.io.IOException
-import com.wwy.wanandroid.bean.base.Result
+import com.wwy.wanandroid.bean.base.ResultData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -10,7 +9,7 @@ import kotlinx.coroutines.withContext
  *@创建时间 2019/10/25 16:09
  *@描述 网络请求类
  */
-suspend fun <T : Any> safeApiCall(call: suspend () -> Result<T>): Result<T> {
+suspend fun <T : Any> safeApiCall(call: suspend () -> ResultData<T>): ResultData<T> {
     return withContext(Dispatchers.IO) { call.invoke() }
 }
 
