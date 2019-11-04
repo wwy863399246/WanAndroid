@@ -10,6 +10,6 @@ import kotlinx.coroutines.withContext
  *@描述 网络请求类
  */
 suspend fun <T : Any> safeApiCall(call: suspend () -> ResultData<T>): ResultData<T> {
-    return withContext(Dispatchers.IO) { call.invoke() }
+    return call()
 }
 

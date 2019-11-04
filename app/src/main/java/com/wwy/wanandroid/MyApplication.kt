@@ -3,6 +3,7 @@ package com.wwy.wanandroid
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import com.wwy.wanandroid.db.AppDatabase
 import timber.log.Timber
 import kotlin.properties.Delegates
 

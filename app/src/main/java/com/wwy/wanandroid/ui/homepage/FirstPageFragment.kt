@@ -6,6 +6,7 @@ import com.wwy.wanandroid.MyApplication
 import com.wwy.wanandroid.R
 import com.wwy.wanandroid.bean.Banner
 import com.wwy.wanandroid.ui.base.BaseVMFragment
+import kotlinx.android.synthetic.main.fragment_first_page.*
 import timber.log.Timber
 
 /**
@@ -16,7 +17,9 @@ import timber.log.Timber
 class FirstPageFragment : BaseVMFragment<FirstPageViewModel>() {
     override fun providerVMClass(): Class<FirstPageViewModel>? = FirstPageViewModel::class.java
     override fun setLayoutResId(): Int = R.layout.fragment_first_page
+    val adapter = FirstPageAdapter()
     override fun initView() {
+        firstPageRv.adapter = adapter
     }
 
     override fun initData() {
@@ -28,14 +31,13 @@ class FirstPageFragment : BaseVMFragment<FirstPageViewModel>() {
         mViewModel.apply {
             mBanner.observe(this@FirstPageFragment, Observer { it ->
                 it?.let {
-                   // Toast.makeText(MyApplication.CONTEXT, "haha", Toast.LENGTH_LONG).show()
                     setBanner(it)
                 }
             })
             mArticleList.observe(this@FirstPageFragment, Observer {
                 it?.let {
-                    Timber.tag("wwy").d(it.toString())
                     Toast.makeText(MyApplication.CONTEXT, "haha", Toast.LENGTH_LONG).show()
+                    adapter.submitList(it)
                 }
             })
         }

@@ -10,8 +10,9 @@ import java.io.Serializable
  *@创建时间 2019/10/8 11:26
  *@描述
  */
+@Entity
 data class Article(
-    val key: Long,
+    @PrimaryKey
     val id: Int,
     val author: String,
     var shareUser: String,
