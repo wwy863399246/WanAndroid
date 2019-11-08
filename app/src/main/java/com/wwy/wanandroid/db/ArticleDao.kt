@@ -1,13 +1,10 @@
 package com.wwy.wanandroid.db
 
-import androidx.lifecycle.LiveData
-import androidx.paging.Config
 import androidx.paging.DataSource
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import androidx.room.Update
 import com.wwy.wanandroid.bean.Article
+
 
 /**
  *@创建者wwy
@@ -25,5 +22,12 @@ interface ArticleDao {
 
     @Query("SELECT * FROM Article")
     fun loadAllProducts(): List<Article>
+
+    //删除全部数据
+    @Query("DELETE FROM Article")
+    fun deleteAll()
+
+    @Update
+    fun update(article: Article)
 
 }

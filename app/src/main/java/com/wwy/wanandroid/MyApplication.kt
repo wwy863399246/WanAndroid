@@ -3,6 +3,8 @@ package com.wwy.wanandroid
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import com.coder.zzq.smartshow.core.SmartShow
+import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.wwy.wanandroid.db.AppDatabase
 import timber.log.Timber
 import kotlin.properties.Delegates
@@ -23,5 +25,9 @@ class MyApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+        SmartShow.init(this)
+        SmartSnackbar.setting()
+            .backgroundColorRes(R.color.colorPrimary)
+            .dismissOnLeave(true)
     }
 }

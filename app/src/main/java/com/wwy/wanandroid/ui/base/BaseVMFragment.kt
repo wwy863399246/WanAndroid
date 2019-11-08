@@ -40,6 +40,7 @@ abstract class BaseVMFragment<VM : BaseViewModel> : Fragment() {
             lifecycle.addObserver(mViewModel)
         }
     }
+
     abstract fun setLayoutResId(): Int
     abstract fun initView()
     abstract fun initData()
@@ -101,10 +102,13 @@ abstract class BaseVMFragment<VM : BaseViewModel> : Fragment() {
         }
     }
 
+
     override fun onDestroy() {
         mViewModel.let {
             lifecycle.removeObserver(it)
         }
         super.onDestroy()
     }
+
+
 }

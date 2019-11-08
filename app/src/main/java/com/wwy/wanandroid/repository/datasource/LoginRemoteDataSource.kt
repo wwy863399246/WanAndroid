@@ -1,4 +1,4 @@
-package com.wwy.wanandroid.ui.member
+package com.wwy.wanandroid.repository.datasource
 
 import com.wwy.wanandroid.api.HostType
 import com.wwy.wanandroid.api.RetrofitClient

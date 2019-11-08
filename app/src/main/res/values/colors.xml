@@ -3,7 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="primary_text_color_white">#FFFFFF</color>
+    <color name="primary_white">#FFFFFF</color>
     <color name="primary_text_color_black">#212121</color>//主要文字颜色
     <color name="secondray_text_color">#757575</color>//次等文字颜色
     <color name="divider_color">#BDBDBD</color>//分割线颜色

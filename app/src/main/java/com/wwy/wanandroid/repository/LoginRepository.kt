@@ -2,7 +2,7 @@ package com.wwy.wanandroid.repository
 
 import com.wwy.wanandroid.bean.User
 import com.wwy.wanandroid.bean.base.ResultData
-import com.wwy.wanandroid.ui.member.LoginRemoteDataSource
+import com.wwy.wanandroid.repository.datasource.LoginRemoteDataSource
 
 /**
  *@创建者wwy

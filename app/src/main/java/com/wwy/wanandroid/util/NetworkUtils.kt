@@ -1,8 +1,6 @@
 package com.wwy.wanandroid.util
 
 import com.wwy.wanandroid.bean.base.ResultData
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 /**
  *@创建者wwy

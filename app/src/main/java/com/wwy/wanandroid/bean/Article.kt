@@ -10,9 +10,8 @@ import java.io.Serializable
  *@创建时间 2019/10/8 11:26
  *@描述
  */
-@Entity
+@Entity(primaryKeys = ["id","title"])
 data class Article(
-    @PrimaryKey
     val id: Int,
     val author: String,
     var shareUser: String,
@@ -20,6 +19,7 @@ data class Article(
     val chapterName: String,
     val superChapterName: String?,
     val niceDate: String,
+
     val originId: Int,
     val chapterId: Int,
     val envelopePic: String,

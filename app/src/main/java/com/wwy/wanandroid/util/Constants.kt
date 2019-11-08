@@ -1,3 +1,3 @@
 package com.wwy.wanandroid.util
 
-const val DATABASE_NAME = "user-db"
+const val DATABASE_NAME = "my-db"
