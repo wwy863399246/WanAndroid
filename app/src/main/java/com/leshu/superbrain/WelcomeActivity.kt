@@ -19,6 +19,7 @@ class WelcomeActivity : BaseActivity(), CoroutineScope by MainScope() {
     override fun setLayoutId(): Int = R.layout.activity_welcome
 
     override fun initView(savedInstanceState: Bundle?) {
+        startMainActivity()
     }
 
     override fun initData() {}
@@ -26,7 +27,6 @@ class WelcomeActivity : BaseActivity(), CoroutineScope by MainScope() {
     private fun startMainActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             delay(500)
-            mLoadingDialog?.dismiss()
             startActivity<MainActivity>()
             finish()
         }

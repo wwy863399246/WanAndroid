@@ -57,7 +57,6 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initData() {
-        SmartToast.show("热更新测试")
     }
 
 
