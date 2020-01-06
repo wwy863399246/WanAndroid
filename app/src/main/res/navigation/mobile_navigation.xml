@@ -19,26 +19,26 @@
             tools:ignore="UnusedNavigation">
     <fragment
             android:id="@+id/home_page"
-            android:name="com.wwy.wanandroid.ui.homepage.HomePageFragment"
+            android:name="com.leshu.superbrain.ui.homepage.HomePageFragment"
             android:label="@string/home_page"
             tools:layout="@layout/fragment_home_page"/>
 
     <fragment
             android:id="@+id/home_system"
             android:label="@string/home_system"
-            android:name="com.wwy.wanandroid.ui.homesyetem.HomeSystemFragment"
+            android:name="com.leshu.superbrain.ui.homesyetem.HomeSystemFragment"
             tools:layout="@layout/fragment_home_system"/>
 
     <fragment
             android:id="@+id/wechat_official_account"
             android:label="@string/official_account"
-            android:name="com.wwy.wanandroid.ui.officialaccount.OfficialAccountFragment"
+            android:name="com.leshu.superbrain.ui.officialaccount.OfficialAccountFragment"
             tools:layout="@layout/fragment_official_account"/>
 
     <fragment
             android:id="@+id/home_mine"
             android:label="@string/home_mine"
-            android:name="com.wwy.wanandroid.ui.homemine.HomeMineFragment"
+            android:name="com.leshu.superbrain.ui.homemine.HomeMineFragment"
             tools:layout="@layout/fragment_home_mine">
 
     </fragment>
