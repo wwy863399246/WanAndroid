@@ -2,7 +2,7 @@ package com.leshu.superbrain.ui.member
 
 import androidx.lifecycle.MutableLiveData
 import com.leshu.superbrain.data.bean.User
-import com.leshu.superbrain.repository.LoginRepository
+import com.leshu.superbrain.data.repository.LoginRepository
 import com.leshu.superbrain.ui.base.BaseViewModel
 import com.leshu.superbrain.data.bean.base.ResultData
 import timber.log.Timber

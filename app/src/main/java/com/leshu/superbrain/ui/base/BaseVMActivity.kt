@@ -3,7 +3,6 @@ package com.leshu.superbrain.ui.base
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.leshu.superbrain.repository.base.BaseRepository
 import kotlinx.coroutines.TimeoutCancellationException
 import retrofit2.HttpException
 import timber.log.Timber
@@ -93,9 +92,6 @@ abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
                 }   //网络异常
                 is TimeoutCancellationException -> {
                 }  //请求超时
-                is BaseRepository.LogonFailureException -> {
-
-                }//登录已失效
             }
 
         }

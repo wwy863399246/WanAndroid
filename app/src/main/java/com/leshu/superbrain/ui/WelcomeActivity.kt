@@ -1,8 +1,9 @@
-package com.leshu.superbrain
+package com.leshu.superbrain.ui
 
 import android.content.Intent
 import android.os.Bundle
 import com.coder.zzq.smartshow.dialog.LoadingDialog
+import com.leshu.superbrain.R
 import com.leshu.superbrain.ui.base.BaseActivity
 import com.leshu.superbrain.ui.main.MainActivity
 import kotlinx.coroutines.*

@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import com.leshu.superbrain.MyApplication
+import com.leshu.superbrain.app.MyApplication
 
 /**
  * 判断网络状态是否可用

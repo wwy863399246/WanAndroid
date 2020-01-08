@@ -3,7 +3,7 @@ package com.leshu.superbrain.data.db
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.leshu.superbrain.MyApplication
+import com.leshu.superbrain.app.MyApplication
 import com.leshu.superbrain.data.bean.Article
 
 /**

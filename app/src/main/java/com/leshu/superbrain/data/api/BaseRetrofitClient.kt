@@ -61,7 +61,7 @@ abstract class BaseRetrofitClient {
         return Retrofit.Builder()
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(ApiConstants().getHost(hostType))
+            .baseUrl(getHost(hostType))
             .build().create(serviceClass)
     }
 }

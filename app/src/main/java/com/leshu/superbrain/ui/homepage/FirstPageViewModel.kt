@@ -5,7 +5,7 @@ import androidx.lifecycle.Transformations
 import com.leshu.superbrain.data.bean.Article
 import com.leshu.superbrain.data.bean.BannerResponse
 import com.leshu.superbrain.data.bean.base.ResultData
-import com.leshu.superbrain.repository.HomeRepository
+import com.leshu.superbrain.data.repository.HomeRepository
 import com.leshu.superbrain.ui.base.BaseViewModel
 import com.leshu.superbrain.util.ListingModel
 import kotlinx.coroutines.Dispatchers

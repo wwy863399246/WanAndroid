@@ -1,4 +1,4 @@
-package com.leshu.superbrain.repository
+package com.leshu.superbrain.data.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.Config
@@ -7,7 +7,7 @@ import com.leshu.superbrain.data.bean.Article
 import com.leshu.superbrain.data.bean.BannerResponse
 import com.leshu.superbrain.data.bean.base.ResultData
 import com.leshu.superbrain.data.db.AppDatabase
-import com.leshu.superbrain.repository.datasource.HomeRemoteDataSource
+import com.leshu.superbrain.data.repository.datasource.HomeRemoteDataSource
 import com.leshu.superbrain.util.*
 
 /**

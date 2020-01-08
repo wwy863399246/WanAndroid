@@ -1,10 +1,12 @@
-package com.leshu.superbrain
+package com.leshu.superbrain.app
 
 import android.app.Application
 import android.content.Context
 import com.coder.zzq.smartshow.core.SmartShow
 import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.jeremyliao.liveeventbus.LiveEventBus
+import com.leshu.superbrain.BuildConfig
+import com.leshu.superbrain.R
 import timber.log.Timber
 import kotlin.properties.Delegates
 

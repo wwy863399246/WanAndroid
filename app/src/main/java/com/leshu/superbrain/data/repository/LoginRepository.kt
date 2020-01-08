@@ -1,8 +1,8 @@
-package com.leshu.superbrain.repository
+package com.leshu.superbrain.data.repository
 
 import com.leshu.superbrain.data.bean.User
 import com.leshu.superbrain.data.bean.base.ResultData
-import com.leshu.superbrain.repository.datasource.LoginRemoteDataSource
+import com.leshu.superbrain.data.repository.datasource.LoginRemoteDataSource
 import timber.log.Timber
 
 /**

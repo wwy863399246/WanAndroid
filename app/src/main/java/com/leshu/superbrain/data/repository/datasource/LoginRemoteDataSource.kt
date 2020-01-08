@@ -1,7 +1,7 @@
-package com.leshu.superbrain.repository.datasource
+package com.leshu.superbrain.data.repository.datasource
 
-import com.leshu.superbrain.data.api.HostType
 import com.leshu.superbrain.data.api.RetrofitClient
+import com.leshu.superbrain.data.api.WAN_ANDROID
 import com.leshu.superbrain.data.bean.User
 import com.leshu.superbrain.data.bean.base.ResultData
 import com.leshu.superbrain.util.safeApiCall
@@ -18,7 +18,7 @@ class LoginRemoteDataSource {
     )
 
     private suspend fun requestLogin(username: String, password: String): ResultData<User> {
-        val login = RetrofitClient.RetrofitClient(HostType.WAN_ANDROID).service.login(username, password)
+        val login = RetrofitClient(WAN_ANDROID).service.login(username, password)
         if (login.errorCode == 0) {
             return ResultData.Success(login.data)
         }

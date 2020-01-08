@@ -15,7 +15,7 @@
  *
  */
 
-package com.leshu.superbrain
+package com.leshu.superbrain.app
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager
