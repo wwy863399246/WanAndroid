@@ -26,4 +26,22 @@
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textSize">12sp</item>
     </style>
+
+    <!-- 应用启动页(StartingWindow)的theme -->
+    <style name="AppTheme.Splash" parent="@style/AppTheme">
+        <!--也可以设置成一张图片 -->
+        <item name="android:windowBackground">@drawable/splash_logo_welcome</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentTransitions">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+    </style>
+
+    <style name="AppTheme.Main" parent="@style/AppTheme">
+        <item name="android:windowBackground">@drawable/splash_logo_welcome</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentTransitions">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+    </style>
 </resources>

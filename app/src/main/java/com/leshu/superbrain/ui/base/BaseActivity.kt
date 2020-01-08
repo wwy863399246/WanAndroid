@@ -2,6 +2,7 @@ package com.leshu.superbrain.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.leshu.superbrain.R
 
 /**
  *@创建者wwy
@@ -17,6 +18,7 @@ abstract class BaseActivity : AppCompatActivity() {
         initView(savedInstanceState)
         initData()
     }
+
     abstract fun setLayoutId(): Int
     abstract fun initView(savedInstanceState: Bundle?)
 

@@ -16,7 +16,6 @@ import org.jetbrains.anko.startActivity
  *@描述
  */
 class WelcomeActivity : BaseActivity(), CoroutineScope by MainScope() {
-    private var mLoadingDialog: LoadingDialog? = null
     override fun setLayoutId(): Int = R.layout.activity_welcome
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -27,7 +26,7 @@ class WelcomeActivity : BaseActivity(), CoroutineScope by MainScope() {
 
     private fun startMainActivity() {
         GlobalScope.launch(Dispatchers.IO) {
-            delay(500)
+            //delay(500)
             startActivity<MainActivity>()
             finish()
         }
