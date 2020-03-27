@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.leshu.superbrain.vm.base.BaseViewModel
 import kotlinx.coroutines.TimeoutCancellationException
 import retrofit2.HttpException
 import timber.log.Timber

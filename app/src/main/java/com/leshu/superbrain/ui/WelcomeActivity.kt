@@ -25,13 +25,9 @@ class WelcomeActivity : BaseActivity(), CoroutineScope by MainScope() {
     override fun initData() {}
 
     private fun startMainActivity() {
-        GlobalScope.launch(Dispatchers.IO) {
-            //delay(500)
-            startActivity<MainActivity>()
-            finish()
-        }
+        startActivity<MainActivity>()
+        finish()
     }
-
 
     /**
      * 重启app
@@ -40,10 +36,5 @@ class WelcomeActivity : BaseActivity(), CoroutineScope by MainScope() {
         val launchIntent = packageManager.getLaunchIntentForPackage(application.packageName)
         launchIntent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(launchIntent)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        cancel()
     }
 }

@@ -1,4 +1,4 @@
-package com.leshu.superbrain.ui.base
+package com.leshu.superbrain.vm.base
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.*
@@ -27,6 +27,14 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
         } finally {
             finally.value = isNeedProgressBar
         }
+    }
+
+    /**
+     * 运行在UI线程的协程 viewModelScope 已经实现了在onCleared取消协程
+     * @param isNeedProgressBar 是否需要进度条
+     */
+    fun launchUI(block: suspend CoroutineScope.() -> Unit) = viewModelScope.launch {
+        block()
     }
 
     /**

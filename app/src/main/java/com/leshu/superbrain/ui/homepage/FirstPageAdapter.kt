@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.leshu.superbrain.R
 import com.leshu.superbrain.data.bean.Article
-import kotlinx.android.synthetic.main.first_page_item.view.*
+import kotlinx.android.synthetic.main.home_page_item.view.*
 
 /**
  *@创建者wwy
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.first_page_item.view.*
  */
 class FirstPageAdapter : PagedListAdapter<Article, FirstPageAdapter.ViewHolder>(FirstPageDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.first_page_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.home_page_item, parent, false)
         return ViewHolder(view)
     }
 

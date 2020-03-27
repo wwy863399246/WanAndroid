@@ -17,50 +17,47 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <!--        <TextView-->
-    <!--                android:id="@+id/item_home_top"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginStart="8dp"-->
-    <!--                android:layout_marginLeft="8dp"-->
-    <!--                android:paddingLeft="3dp"-->
-    <!--                android:paddingRight="3dp"-->
-    <!--                android:text="置顶"-->
-    <!--                android:textColor="@android:color/holo_red_light"-->
-    <!--                android:textSize="10dp"-->
-    <!--                app:layout_constraintBottom_toBottomOf="@+id/item_home_author"-->
-    <!--                app:layout_constraintStart_toEndOf="@+id/item_home_author"-->
-    <!--                app:layout_constraintTop_toTopOf="@+id/item_home_author" />-->
+<!--    <TextView-->
+<!--            android:id="@+id/item_home_top"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:paddingLeft="3dp"-->
+<!--            android:paddingRight="3dp"-->
+<!--            android:text="置顶"-->
+<!--            android:textColor="@android:color/holo_red_light"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/item_home_author"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/item_home_author"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/item_home_author" />-->
 
-    <!--        <TextView-->
-    <!--                android:id="@+id/item_home_new"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginStart="8dp"-->
-    <!--                android:layout_marginLeft="8dp"-->
-    <!--                android:paddingLeft="3dp"-->
-    <!--                android:paddingRight="3dp"-->
-    <!--                android:text="新"-->
-    <!--                android:textColor="@android:color/holo_red_light"-->
-    <!--                android:textSize="10dp"-->
-    <!--                app:layout_constraintBottom_toBottomOf="@+id/item_home_author"-->
-    <!--                app:layout_constraintStart_toEndOf="@+id/item_home_top"-->
-    <!--                app:layout_constraintTop_toTopOf="@+id/item_home_author" />-->
+<!--    <TextView-->
+<!--            android:id="@+id/item_home_new"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:paddingLeft="3dp"-->
+<!--            android:paddingRight="3dp"-->
+<!--            android:text="新"-->
+<!--            android:textColor="@android:color/holo_red_light"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/item_home_author"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/item_home_top"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/item_home_author" />-->
 
-    <!--        <TextView-->
-    <!--                android:id="@+id/item_home_type1"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginStart="8dp"-->
-    <!--                android:layout_marginLeft="8dp"-->
-    <!--                android:paddingLeft="3dp"-->
-    <!--                android:paddingRight="3dp"-->
-    <!--                android:text="问答"-->
-    <!--                android:textColor="@android:color/holo_green_dark"-->
-    <!--                android:textSize="10dp"-->
-    <!--                app:layout_constraintBottom_toBottomOf="@+id/item_home_author"-->
-    <!--                app:layout_constraintStart_toEndOf="@+id/item_home_new"-->
-    <!--                app:layout_constraintTop_toTopOf="@+id/item_home_author" />-->
+<!--    <TextView-->
+<!--            android:id="@+id/item_home_type1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:paddingLeft="3dp"-->
+<!--            android:paddingRight="3dp"-->
+<!--            android:text="问答"-->
+<!--            android:textColor="@android:color/holo_green_dark"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/item_home_author"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/item_home_new"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/item_home_author" />-->
 
 
     <TextView

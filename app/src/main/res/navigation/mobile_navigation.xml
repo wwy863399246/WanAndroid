@@ -21,7 +21,7 @@
             android:id="@+id/home_page"
             android:name="com.leshu.superbrain.ui.homepage.HomePageFragment"
             android:label="@string/home_page"
-            tools:layout="@layout/fragment_home_page"/>
+            tools:layout="@layout/fragment_main"/>
 
     <fragment
             android:id="@+id/home_system"

@@ -28,7 +28,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.member.LoginActivity" />
-        <activity android:name=".ui.main.MainActivity"/>
+        <activity android:name=".ui.main.MainActivity" />
+        <!-- 头条适配autosize -->
+        <meta-data
+                android:name="design_width_in_dp"
+                android:value="360" />
+        <meta-data
+                android:name="design_height_in_dp"
+                android:value="640" />
+        <!--适配华为（huawei）刘海屏-->
+        <meta-data
+                android:name="android.notch_support"
+                android:value="true" />
+        <!--适配小米（xiaomi）刘海屏-->
     </application>
 
 </manifest>

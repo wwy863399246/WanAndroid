@@ -1,6 +1,6 @@
 package com.leshu.superbrain.ui.homepage
 
-import com.leshu.superbrain.ui.base.BaseViewModel
+import com.leshu.superbrain.vm.base.BaseViewModel
 
 /**
  *@创建者wwy

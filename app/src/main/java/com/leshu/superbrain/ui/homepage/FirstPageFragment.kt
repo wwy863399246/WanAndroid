@@ -6,7 +6,7 @@ import com.leshu.superbrain.R
 import com.leshu.superbrain.data.bean.BannerResponse
 import com.leshu.superbrain.ui.base.BaseVMFragment
 import com.leshu.superbrain.util.*
-import kotlinx.android.synthetic.main.fragment_first_page.*
+import kotlinx.android.synthetic.main.fragment_home_page.*
 
 /**
  *@创建者wwy
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_first_page.*
  */
 class FirstPageFragment : BaseVMFragment<FirstPageViewModel>() {
     override fun providerVMClass(): Class<FirstPageViewModel>? = FirstPageViewModel::class.java
-    override fun setLayoutResId(): Int = R.layout.fragment_first_page
+    override fun setLayoutResId(): Int = R.layout.fragment_home_page
     private var page = 0
     private val adapter = FirstPageAdapter()
     override fun initView() {

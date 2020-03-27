@@ -3,6 +3,7 @@ package com.leshu.superbrain.ui.base
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.leshu.superbrain.vm.base.BaseViewModel
 import kotlinx.coroutines.TimeoutCancellationException
 import retrofit2.HttpException
 import timber.log.Timber

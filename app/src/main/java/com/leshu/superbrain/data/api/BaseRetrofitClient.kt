@@ -5,6 +5,7 @@ import com.leshu.superbrain.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
+import okhttp3.ResponseBody.Companion.toResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,7 +21,6 @@ abstract class BaseRetrofitClient {
 
     companion object {
         private const val TIME_OUT = 5
-
     }
 
     private val client: OkHttpClient
@@ -46,12 +46,12 @@ abstract class BaseRetrofitClient {
         val t1 = System.nanoTime()
         val response = chain.proceed(chain.request())
         val t2 = System.nanoTime()
-        val contentType = response.body()?.contentType()
-        val content = response.body()!!.string()
+        val contentType = response.body?.contentType()
+        val content = response.body?.string()
         Timber.tag("wwy")
-            .d("request url:" + request.url() + "\ntime:" + (t2 - t1) / 1e6 + "\nbody:" + content + "\n")
+            .d("request url:" + request.url + "\ntime:" + (t2 - t1) / 1e6 + "\nbody:" + content + "\n")
         response.newBuilder()
-            .body(ResponseBody.create(contentType, content))
+            .body(content?.toResponseBody(contentType))
             .build()
     }
 

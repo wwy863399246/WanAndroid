@@ -10,6 +10,7 @@ import com.leshu.superbrain.ui.officialaccount.OfficialAccountFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import android.os.Bundle
 import com.coder.zzq.smartshow.toast.SmartToast
+import com.leshu.superbrain.ui.homepage.MainFragment
 
 
 class MainActivity : BaseActivity() {
@@ -33,7 +34,7 @@ class MainActivity : BaseActivity() {
 
     override fun initView(savedInstanceState: Bundle?) {
         fragments.apply {
-            add(HomePageFragment())
+            add(MainFragment())
             add(HomeSystemFragment())
             add(OfficialAccountFragment())
             add(HomeMineFragment())
