@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.the-pig-of-jungle:toolkit:x1.0.4@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b04ddbb310a1a013a6306dc27fd53d55/jetified-toolkit-x1.0.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b04ddbb310a1a013a6306dc27fd53d55/jetified-toolkit-x1.0.4/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.the-pig-of-jungle/toolkit/x1.0.4/e03cf4f8e97a5f4efa36329a54eb504a27fd9ab1/toolkit-x1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

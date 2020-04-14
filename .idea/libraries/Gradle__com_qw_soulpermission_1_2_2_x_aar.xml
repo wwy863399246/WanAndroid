@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.qw:soulpermission:1.2.2_x@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df6e07bde5810747d90526988ecf704e/jetified-soulpermission-1.2.2_x/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df6e07bde5810747d90526988ecf704e/jetified-soulpermission-1.2.2_x/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.qw/soulpermission/1.2.2_x/2d849e1f2d8afd7b4f4e5e1094f99a47de3e066f/soulpermission-1.2.2_x-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.qw/soulpermission/1.2.2_x/48fb065dfa4adf0eaed86c092495c8d9490d1ef3/soulpermission-1.2.2_x-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

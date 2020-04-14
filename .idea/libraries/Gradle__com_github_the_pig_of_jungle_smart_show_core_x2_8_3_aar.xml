@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.the-pig-of-jungle.smart-show:core:x2.8.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ab416280af77d8be25f9c061bebb1797/jetified-core-x2.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ab416280af77d8be25f9c061bebb1797/jetified-core-x2.8.3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.the-pig-of-jungle.smart-show/core/x2.8.3/19c94361ffcd29847eb4a59d001b29b191d08488/core-x2.8.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
