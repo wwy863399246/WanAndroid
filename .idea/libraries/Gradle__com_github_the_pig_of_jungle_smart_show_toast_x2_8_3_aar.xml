@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.the-pig-of-jungle.smart-show:toast:x2.8.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f02c85859ed8dfb18937ed496ff33209/jetified-toast-x2.8.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f02c85859ed8dfb18937ed496ff33209/jetified-toast-x2.8.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e15d05bcf0e619cb927812ebf45ce4e5/jetified-toast-x2.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e15d05bcf0e619cb927812ebf45ce4e5/jetified-toast-x2.8.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
