@@ -6,6 +6,7 @@ import com.leshu.superbrain.data.bean.BannerResponse
 import com.leshu.superbrain.data.bean.User
 import com.leshu.superbrain.data.bean.base.ResultData
 import com.leshu.superbrain.data.repository.MainRepository
+import com.leshu.superbrain.util.ListModel
 import com.leshu.superbrain.vm.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -18,6 +19,7 @@ import kotlinx.coroutines.withContext
 class MainViewModel : BaseViewModel() {
     private val mainRepository by lazy { MainRepository() }
     val homeArticles: MutableLiveData<List<Article>> = MutableLiveData()
+    val listModel = MutableLiveData<ListModel<Article>>()
     fun loadBanner() = launchUI {
         val result = withContext(Dispatchers.IO) { mainRepository.getBanners() }
         if (result is ResultData.Success) {
@@ -25,10 +27,7 @@ class MainViewModel : BaseViewModel() {
         }
     }
 
-    fun loadHomeArticles(page: Int) = launchUI {
-        val result = withContext(Dispatchers.IO) { mainRepository.getHomeArticles(page) }
-        if (result is ResultData.Success) {
-            homeArticles.value = result.data
-        }
+    fun loadHomeArticles(isRefresh: Boolean = false) = launchUI {
+         withContext(Dispatchers.IO) { mainRepository.getHomeArticles(isRefresh,listModel) }
     }
 }

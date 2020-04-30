@@ -23,7 +23,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         CONTEXT = applicationContext
-        if (BuildConfig.DEBUG) {
+        if(BuildConfig.DEBUG){
             Timber.plant(Timber.DebugTree())
         }
         LiveEventBus.config()

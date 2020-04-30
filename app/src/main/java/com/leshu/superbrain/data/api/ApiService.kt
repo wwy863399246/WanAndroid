@@ -25,7 +25,7 @@ interface ApiService {
      * 获取首页文章数据
      */
     @GET("/article/list/{page}/json")
-    suspend fun getHomeArticles(@Path("page") page: Int): WanResponse<WanListResponse<MutableList<Article>>>
+    suspend fun getHomeArticles(@Path("page") page: Int): WanResponse<WanListResponse<List<Article>>>
     /**
      * 项目分类
      */

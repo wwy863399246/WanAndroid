@@ -83,7 +83,7 @@ dependencies {
     implementation 'me.jessyan:autosize:1.1.2'
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     //RecyclerViewAdapterHelper
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2'
     //分包 方法数超限制
     implementation 'androidx.multidex:multidex:2.0.1'
     //腾讯bug

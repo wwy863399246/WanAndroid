@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\e84832a85567280fd41931de37a148f2\\jetified-BaseRecyclerViewAdapterHelper-3.0.2\\res\\values-en\\values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,122,178,241",
+                        "endColumns": "66,55,62,52",
+                        "endOffsets": "117,173,236,289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\b065b6570e1aad2c32001b09fd408eee\\jetified-soulpermission-1.2.2_x\\res\\values-en\\values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,123,183,247,313,428,496,568,649,713,771,837",
+                        "endColumns": "67,59,63,65,114,67,71,80,63,57,65,67",
+                        "endOffsets": "118,178,242,308,423,491,563,644,708,766,832,900"
+                    },
+                    "to": {
+                        "startLines": "6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "294,362,422,486,552,667,735,807,888,952,1010,1076",
+                        "endColumns": "67,59,63,65,114,67,71,80,63,57,65,67",
+                        "endOffsets": "357,417,481,547,662,730,802,883,947,1005,1071,1139"
+                    }
+                }
+            ]
+        }
+    ]
+}

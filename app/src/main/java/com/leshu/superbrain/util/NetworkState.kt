@@ -16,6 +16,8 @@
 
 package com.leshu.superbrain.util
 
+import com.leshu.superbrain.data.bean.Article
+
 enum class Status {
     RUNNING,
     SUCCESS,
@@ -23,8 +25,8 @@ enum class Status {
     HIDDEN,
     EMPTY,
     END
-
 }
+
 @Suppress("DataClassPrivateConstructor")
 data class ListStatus private constructor(
     val status: Status
@@ -46,3 +48,12 @@ data class NetworkState private constructor(
         val FAILED = NetworkState(Status.FAILED)
     }
 }
+
+data class ListModel<T>(
+    val showSuccess: List<T>? = null,
+    val showLoading: Boolean = false,
+    val showError: String? = null,
+    val showEnd: Boolean = false, // 加载更多
+    val isRefresh: Boolean = false, // 刷新
+    val needLogin: Boolean? = false
+)

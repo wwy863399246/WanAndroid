@@ -18,30 +18,30 @@ import kotlinx.coroutines.withContext
  */
 class FirstPageViewModel : BaseViewModel() {
 
-    private val repository by lazy { HomeRepository() }
-    private val listingModel = MutableLiveData<ListingModel<Article>>()
-    val mBannerResponse: MutableLiveData<List<BannerResponse>> by lazy { MutableLiveData<List<BannerResponse>>().also { loadBanner() } }
-    val pagedList = Transformations.switchMap(listingModel) {
-        it.pagedList
-    }
-    val listStatus = Transformations.switchMap(listingModel) {
-        it.listStatus
-    }
-
-    fun getArticleList(page: Int, isNeedRefreshStatus: Boolean) {
-        launchUI({
-            //val result: LiveData<PagedList<Article>> = withContext(Dispatchers.IO) { repository.getHomeArticles(page) }
-            val articles = withContext(Dispatchers.IO) { repository.homeArticles(page, isNeedRefreshStatus) }
-            listingModel.value = articles
-        }, true)
-    }
-
-
-    private fun loadBanner() = launchUI({
-        val result = withContext(Dispatchers.IO) { repository.getBanners() }
-        if (result is ResultData.Success) {
-            mBannerResponse.value = result.data
-        }
-    }, false)
+//    private val repository by lazy { HomeRepository() }
+//    private val listingModel = MutableLiveData<ListingModel<Article>>()
+//    val mBannerResponse: MutableLiveData<List<BannerResponse>> by lazy { MutableLiveData<List<BannerResponse>>().also { loadBanner() } }
+//    val pagedList = Transformations.switchMap(listingModel) {
+//        it.pagedList
+//    }
+//    val listStatus = Transformations.switchMap(listingModel) {
+//        it.listStatus
+//    }
+//
+//    fun getArticleList(page: Int, isNeedRefreshStatus: Boolean) {
+//        launchUI({
+//            //val result: LiveData<PagedList<Article>> = withContext(Dispatchers.IO) { repository.getHomeArticles(page) }
+//            val articles = withContext(Dispatchers.IO) { repository.homeArticles(page, isNeedRefreshStatus) }
+//            listingModel.value = articles
+//        }, true)
+//    }
+//
+//
+//    private fun loadBanner() = launchUI({
+//        val result = withContext(Dispatchers.IO) { repository.getBanners() }
+//        if (result is ResultData.Success) {
+//            mBannerResponse.value = result.data
+//        }
+//    }, false)
 
 }
