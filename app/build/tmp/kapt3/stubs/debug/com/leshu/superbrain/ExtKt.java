@@ -2,7 +2,7 @@ package com.leshu.superbrain;
 
 import java.lang.System;
 
-@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 2, d1 = {"\u0000&\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u001a\u0016\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f\u001a\n\u0010\r\u001a\u00020\u000e*\u00020\u000f\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0004\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0010"}, d2 = {"DOWN_PATCH", "", "NEED_RESTART", "NO_PATCH", "SOPHIX_APP_KEY", "SOPHIX_APP_SECRET", "SOPHIX_RSA_SECRET", "chooseContact", "", "activity", "Landroid/app/Activity;", "requestCode", "", "packageInfo", "Landroid/content/pm/PackageInfo;", "Landroid/content/Context;", "app_debug"})
+@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 2, d1 = {"\u0000.\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u001a\u0016\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f\u001a\u0012\u0010\r\u001a\u00020\f*\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\f\u001a\u0012\u0010\r\u001a\u00020\f*\u00020\u00102\u0006\u0010\u000f\u001a\u00020\f\u001a\n\u0010\u0011\u001a\u00020\u0012*\u00020\u000e\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0004\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0013"}, d2 = {"DOWN_PATCH", "", "NEED_RESTART", "NO_PATCH", "SOPHIX_APP_KEY", "SOPHIX_APP_SECRET", "SOPHIX_RSA_SECRET", "chooseContact", "", "activity", "Landroid/app/Activity;", "requestCode", "", "color", "Landroid/content/Context;", "colorRes", "Landroid/view/View;", "packageInfo", "Landroid/content/pm/PackageInfo;", "app_debug"})
 public final class ExtKt {
     
     /**
@@ -31,5 +31,15 @@ public final class ExtKt {
     public static final android.content.pm.PackageInfo packageInfo(@org.jetbrains.annotations.NotNull()
     android.content.Context $this$packageInfo) {
         return null;
+    }
+    
+    public static final int color(@org.jetbrains.annotations.NotNull()
+    android.content.Context $this$color, int colorRes) {
+        return 0;
+    }
+    
+    public static final int color(@org.jetbrains.annotations.NotNull()
+    android.view.View $this$color, int colorRes) {
+        return 0;
     }
 }

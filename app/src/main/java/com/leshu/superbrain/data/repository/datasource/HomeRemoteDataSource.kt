@@ -3,6 +3,7 @@ package com.leshu.superbrain.data.repository.datasource
 import com.leshu.superbrain.data.api.RetrofitClient
 import com.leshu.superbrain.data.api.WAN_ANDROID
 import com.leshu.superbrain.data.bean.Article
+import com.leshu.superbrain.data.bean.Banner
 import com.leshu.superbrain.data.bean.BannerResponse
 import com.leshu.superbrain.data.bean.WanListResponse
 import com.leshu.superbrain.data.bean.base.ResultData
@@ -31,7 +32,7 @@ class HomeRemoteDataSource {
         return ResultData.Error(IOException("Failed to get homeArticles${homeArticles.errorMsg}"))
     }
 
-    private suspend fun requestBanners(): ResultData<List<BannerResponse>> {
+    private suspend fun requestBanners(): ResultData<List<Banner>> {
         val banner = RetrofitClient(WAN_ANDROID).service.getBanner()
         if (banner.errorCode == 0) {
             return ResultData.Success(banner.data)

@@ -2,10 +2,13 @@ package com.leshu.superbrain.data.repository
 
 import androidx.lifecycle.MutableLiveData
 import com.leshu.superbrain.data.bean.Article
+import com.leshu.superbrain.data.bean.Banner
 import com.leshu.superbrain.data.bean.BannerResponse
 import com.leshu.superbrain.data.bean.base.ResultData
 import com.leshu.superbrain.data.repository.datasource.HomeRemoteDataSource
 import com.leshu.superbrain.util.ListModel
+import com.leshu.superbrain.view.loadpage.LoadPageStatus
+import retrofit2.HttpException
 import timber.log.Timber
 
 /**
@@ -16,7 +19,7 @@ import timber.log.Timber
 class MainRepository {
     private var currentPage = 0
     private val homeRemoteDataSource by lazy { HomeRemoteDataSource() }
-    suspend fun getBanners(): ResultData<List<BannerResponse>> {
+    suspend fun getBanners(): ResultData<List<Banner>> {
         val bannerData = homeRemoteDataSource.getBanners()
         if (bannerData is ResultData.Success) {
             return bannerData
@@ -28,10 +31,19 @@ class MainRepository {
         isRefresh: Boolean = false,
         listModel: MutableLiveData<ListModel<Article>>?
     ) {
+        val loadPageStatus = MutableLiveData<LoadPageStatus>()
+        if (currentPage == 0) {
+            loadPageStatus.postValue(LoadPageStatus.Loading)  //开始加载
+            listModel?.postValue(ListModel(loadPageStatus = loadPageStatus))
+        }
         if (isRefresh) currentPage = 0
         val homeArticles = homeRemoteDataSource.getHomeArticles(currentPage)
         if (homeArticles is ResultData.Success) {
             val data = homeArticles.data
+            if (data.datas.isNullOrEmpty() && currentPage == 0) {
+                loadPageStatus.postValue(LoadPageStatus.Empty) //空界面
+                listModel?.postValue(ListModel(loadPageStatus = loadPageStatus))
+            }
             if (data.offset >= data.total) {//最后一页
                 listModel?.postValue(ListModel(showLoading = false, showEnd = true))
                 return
@@ -45,10 +57,12 @@ class MainRepository {
                 )
             )
         } else if (homeArticles is ResultData.Error) {
+            if (currentPage == 0) loadPageStatus.postValue(LoadPageStatus.Fail) //加载失败 这里可以区分失败原因，设置不同页面状态
             listModel?.postValue(
                 ListModel(
                     showLoading = false,
-                    showError = homeArticles.exception.message
+                    showError = homeArticles.exception.message,
+                    loadPageStatus = loadPageStatus
                 )
             )
         }

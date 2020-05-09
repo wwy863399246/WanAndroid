@@ -1,11 +1,18 @@
 package com.leshu.superbrain.ui.homemine
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.PorterDuff
+import android.graphics.drawable.ClipDrawable
+import android.graphics.drawable.ColorDrawable
+import android.view.Gravity
 import com.leshu.superbrain.R
+import com.leshu.superbrain.color
 import com.leshu.superbrain.ui.base.BaseFragment
 import com.leshu.superbrain.ui.member.LoginActivity
 import com.leshu.superbrain.util.GlideImageLoader
 import kotlinx.android.synthetic.main.fragment_home_mine.*
+
 
 /**
  *@创建者wwy
@@ -19,6 +26,10 @@ class HomeMineFragment : BaseFragment() {
     }
 
     override fun initView() {
+
+        progress.indeterminateTintList =
+            activity?.color(R.color.colorPrimary)?.let { ColorStateList.valueOf(it) }
+        progress.indeterminateTintMode = PorterDuff.Mode.SRC_ATOP
         activity?.let { GlideImageLoader().displayCircleImage(it, R.drawable.logo, iv_user_icon) }
         iv_user_icon.setOnClickListener {
             startActivity(Intent(activity, LoginActivity::class.java))
@@ -27,3 +38,4 @@ class HomeMineFragment : BaseFragment() {
 
 
 }
+

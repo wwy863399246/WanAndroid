@@ -4,13 +4,18 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnLoadMoreListener
-import com.chad.library.adapter.base.module.LoadMoreModule
+import com.coder.zzq.smartshow.toast.SmartToast
 import com.leshu.superbrain.R
 import com.leshu.superbrain.adapter.HomePageAdapter
+import com.leshu.superbrain.adapter.ImageAdapter
 import com.leshu.superbrain.ui.base.BaseVMFragment
+import com.leshu.superbrain.view.HomePageHeadView
+import com.leshu.superbrain.view.loadpage.*
 import com.leshu.superbrain.vm.MainViewModel
 import kotlinx.android.synthetic.main.fragment_home_page.*
-import timber.log.Timber
+import kotlinx.android.synthetic.main.layout_banner.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.toast
 
 /**
  *@创建者wwy
@@ -19,15 +24,20 @@ import timber.log.Timber
  */
 class HomePageFragment : BaseVMFragment<MainViewModel>(), OnLoadMoreListener {
     private val homePageAdapter = HomePageAdapter()
+    private val loadPageView: BasePageStateView = SimpleLoadPageView()
+    private lateinit var rootView: LoadPageView
     override fun providerVMClass(): Class<MainViewModel>? = MainViewModel::class.java
     override fun setLayoutResId(): Int = R.layout.fragment_home_page
-
-
     override fun initData() {
         refresh()
     }
 
     override fun initView() {
+        rootView = activity?.let { activity -> loadPageView.getRootView(activity) } as LoadPageView
+        rootView.failTextView().onClick {
+            refresh()
+        }
+
         firstPageRv.run {
             layoutManager = LinearLayoutManager(activity)
             adapter = homePageAdapter
@@ -36,8 +46,12 @@ class HomePageFragment : BaseVMFragment<MainViewModel>(), OnLoadMoreListener {
             loadMoreModule.setOnLoadMoreListener(this@HomePageFragment)
             isAnimationFirstOnly = true
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
+            activity?.let { addHeaderView(HomePageHeadView(it)) }
         }
-
+        refreshLayout.setOnRefreshListener {
+            refresh()
+        }
+        refreshLayout.setEnableLoadMore(false)
     }
 
     private fun refresh() {
@@ -46,19 +60,33 @@ class HomePageFragment : BaseVMFragment<MainViewModel>(), OnLoadMoreListener {
 
     override fun startObserve() {
         mViewModel.apply {
-            listModel.observe(this@HomePageFragment, Observer {
-                it.showLoading.let {
-
+            mListModel.observe(this@HomePageFragment, Observer {
+                it.loadPageStatus?.value?.let { loadPageStatus ->
+                    loadPageView.convert(
+                        rootView,
+                        loadPageStatus = loadPageStatus
+                    )
+                    homePageAdapter.setEmptyView(rootView)
                 }
+
                 it.showSuccess.let { list ->
                     homePageAdapter.run {
                         loadMoreModule.isEnableLoadMore = false
-                        if (it.isRefresh) setList(list) else addData(list!!)
+                        if (it.isRefresh) setList(list) else list?.let { list -> addData(list) }
                         loadMoreModule.isEnableLoadMore = true
                         loadMoreModule.loadMoreComplete()
+                        mViewModel.loadBanner()
                     }
+                    if (refreshLayout.isRefreshing) refreshLayout.finishRefresh()
                 }
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
+                it.showError.let {
+                    if (refreshLayout.isRefreshing) refreshLayout.finishRefresh()
+                }
+
+            })
+            mBanner.observe(this@HomePageFragment, Observer { it1 ->
+                banner?.adapter = activity?.let { ImageAdapter(it1, it) }
 
             })
         }
@@ -68,5 +96,13 @@ class HomePageFragment : BaseVMFragment<MainViewModel>(), OnLoadMoreListener {
         mViewModel.loadHomeArticles(false)
     }
 
+    override fun onStart() {
+        super.onStart()
+        banner?.start()
+    }
 
+    override fun onStop() {
+        super.onStop()
+        banner?.stop()
+    }
 }

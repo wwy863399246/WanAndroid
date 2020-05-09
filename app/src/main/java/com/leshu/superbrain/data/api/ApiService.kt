@@ -20,7 +20,7 @@ interface ApiService {
      * 获取banner数据
      */
     @GET("/banner/json")
-    suspend fun getBanner(): WanResponse<MutableList<BannerResponse>>
+    suspend fun getBanner(): WanResponse<MutableList<Banner>>
     /**
      * 获取首页文章数据
      */

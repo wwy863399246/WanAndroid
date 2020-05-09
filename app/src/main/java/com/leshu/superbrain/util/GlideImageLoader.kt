@@ -23,7 +23,18 @@ class GlideImageLoader {
         placeholder: Int = R.drawable.ic_img_code,
         error: Int = R.drawable.ic_img_code
     ) {
-        GlideApp.with(context).load(path).centerCrop().placeholder(placeholder).error(error).into(imageView)
+        GlideApp.with(context).load(path).centerCrop().placeholder(placeholder).error(error)
+            .into(imageView)
+    }
+
+    fun displayImage(
+        context: Context,
+        path: Any,
+        imageView: ImageView
+    ) {
+        GlideApp.with(context).load(path).centerCrop().placeholder(R.drawable.ic_img_code)
+            .error(R.drawable.ic_img_code)
+            .into(imageView)
     }
 
     //加载圆形图片
@@ -34,7 +45,8 @@ class GlideImageLoader {
         placeholder: Int = R.drawable.ic_img_code,
         error: Int = R.drawable.ic_img_code
     ) {
-        GlideApp.with(context).load(path).centerCrop().placeholder(placeholder).error(error).apply(RequestOptions.bitmapTransform(CircleCrop()))
+        GlideApp.with(context).load(path).centerCrop().placeholder(placeholder).error(error)
+            .apply(RequestOptions.bitmapTransform(CircleCrop()))
             .into(imageView)
     }
 
@@ -47,7 +59,8 @@ class GlideImageLoader {
         error: Int = R.drawable.ic_img_code,
         roundingRadius: Int = 8
     ) {
-        GlideApp.with(context).load(path).placeholder(placeholder).error(error).apply(RequestOptions().transform(CenterCrop(), RoundedCorners(roundingRadius)))
+        GlideApp.with(context).load(path).placeholder(placeholder).error(error)
+            .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(roundingRadius)))
             .into(imageView)
     }
 }

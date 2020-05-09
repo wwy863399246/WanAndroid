@@ -72,6 +72,10 @@
         "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\drawable\\ic_wechat_official_account.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_banner.xml.flat",
+        "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\layout\\layout_banner.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },

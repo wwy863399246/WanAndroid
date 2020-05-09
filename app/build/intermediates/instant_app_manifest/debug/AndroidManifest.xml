@@ -54,11 +54,6 @@
             android:authorities="com.leshu.superbrain.permission.provider"
             android:exported="false"
             android:multiprocess="true" />
-
-        <service
-            android:name="androidx.room.MultiInstanceInvalidationService"
-            android:exported="false" />
-
         <provider
             android:name="me.jessyan.autosize.InitProvider"
             android:authorities="com.leshu.superbrain.autosize-init-provider"

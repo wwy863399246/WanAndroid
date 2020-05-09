@@ -1,8 +1,6 @@
 package com.leshu.superbrain.data.db
 
 import androidx.paging.DataSource
-import androidx.room.*
-import androidx.room.Update
 import com.leshu.superbrain.data.bean.Article
 
 

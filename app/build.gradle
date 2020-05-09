@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.leshu.superbrain"
         minSdkVersion 21
@@ -13,6 +13,10 @@ android {
         versionCode 103
         versionName "1.0.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
     }
     kotlinOptions{
         jvmTarget = 1.8
@@ -57,24 +61,25 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-core:2.2.0-rc03'
     //动态权限
     implementation 'com.qw:soulpermission:1.2.2_x'
-    //添加Room的依赖
-    implementation 'androidx.room:room-runtime:2.2.3'
-    kapt "android.arch.persistence.room:compiler:2.2.3"
+//    //添加Room的依赖
+//    implementation 'androidx.room:room-runtime:2.2.3'
+//    kapt "android.arch.persistence.room:compiler:2.2.3"
     //paging
     implementation 'androidx.paging:paging-runtime-ktx:2.1.1'
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.10.0'
-    kapt 'com.github.bumptech.glide:compiler:4.10.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
     //底部UI框架
     //implementation 'com.github.wwy863399246:BottomBarLayoutKt:1.0.1'
     //banner
-    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'com.youth.banner:banner:2.0.8'
     //smart-show
     implementation('com.github.the-pig-of-jungle.smart-show:all:x2.8.3')
     //live bus
     implementation 'com.jeremyliao:live-event-bus-x:1.5.7'
     //Anko
-    implementation 'org.jetbrains.anko:anko-commons:0.10.8'
+//    implementation 'org.jetbrains.anko:anko-commons:0.10.8'
+    implementation "org.jetbrains.anko:anko:$anko_version"
     //ali 热更新
     //implementation 'com.aliyun.ams:alicloud-android-hotfix:3.2.12'
     //x5
@@ -89,4 +94,7 @@ dependencies {
     //腾讯bug
     //noinspection GradleDependency
     implementation 'com.tencent.bugly:crashreport:latest.release'
+    //下来刷新框架
+    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.0'      //核心必须依赖
+    implementation  'com.scwang.smart:refresh-header-classics:2.0.0'
 }

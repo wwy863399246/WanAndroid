@@ -166,6 +166,13 @@
         <flag name="dimensions" value="8"/>
         <flag name="groups" value="32"/>
     </attr>
+    <attr format="enum" name="layout_srlSpinnerStyle">
+        <enum name="Translate" value="0"/><!--平行移动-->
+        <enum name="Scale" value="1"/><!--拉伸形变-->
+        <enum name="FixedBehind" value="2"/><!--固定在背后-->
+        <enum name="FixedFront" value="3"/><!--固定在前面-->
+        <enum name="MatchLayout" value="4"/><!--填满布局-->
+    </attr>
     <attr format="reference" name="left_img"/>
     <attr format="reference" name="left_textId"/>
     <attr format="reference" name="left_textStr"/>
@@ -200,6 +207,33 @@
     <attr format="reference" name="showMotionSpec"/>
     <attr format="boolean" name="singleSelection"/>
     <attr format="reference" name="sliderStyle"/>
+    <attr format="color" name="srlAccentColor"/>
+    <attr format="enum" name="srlClassicsSpinnerStyle">
+        <enum name="Translate" value="0"/><!--平行移动-->
+        <enum name="Scale" value="1"/><!--拉伸形变-->
+        <enum name="FixedBehind" value="2"/><!--固定在背后-->
+    </attr>
+    <attr format="reference" name="srlDrawableArrow"/>
+    <attr format="dimension" name="srlDrawableArrowSize"/>
+    <attr format="dimension" name="srlDrawableMarginRight"/>
+    <attr format="reference" name="srlDrawableProgress"/>
+    <attr format="dimension" name="srlDrawableProgressSize"/>
+    <attr format="dimension" name="srlDrawableSize"/>
+    <attr format="boolean" name="srlEnableHorizontalDrag"/>
+    <attr format="integer" name="srlFinishDuration"/>
+    <attr format="color" name="srlPrimaryColor"/>
+    <attr format="reference" name="srlStyle"/>
+    <attr format="string" name="srlTextFailed"/>
+    <attr format="string" name="srlTextFinish"/>
+    <attr format="string" name="srlTextLoading"/>
+    <attr format="string" name="srlTextNothing"/>
+    <attr format="string" name="srlTextPulling"/>
+    <attr format="string" name="srlTextRefreshing"/>
+    <attr format="string" name="srlTextRelease"/>
+    <attr format="string" name="srlTextSecondary"/>
+    <attr format="dimension" name="srlTextSizeTime"/>
+    <attr format="dimension" name="srlTextSizeTitle"/>
+    <attr format="string" name="srlTextUpdate"/>
     <attr format="color" name="strokeColor"/>
     <attr format="dimension" name="strokeWidth"/>
     <attr format="reference" name="tabStyle"/>
@@ -325,6 +359,7 @@
     <color name="mtrl_textinput_hovered_box_stroke_color">#DE000000</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="notification_material_background_media_default_color">#ff424242</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -689,6 +724,10 @@
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
     <dimen name="sp_14">14sp</dimen>
+    <dimen name="subtitle_corner_radius">2dp</dimen>
+    <dimen name="subtitle_outline_width">2dp</dimen>
+    <dimen name="subtitle_shadow_offset">2dp</dimen>
+    <dimen name="subtitle_shadow_radius">2dp</dimen>
     <dimen name="test_mtrl_calendar_day_cornerSize">52dp</dimen>
     <dimen name="tooltip_corner_radius">2dp</dimen>
     <dimen name="tooltip_horizontal_padding">16dp</dimen>
@@ -752,11 +791,6 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
-    <item name="bannerContainer" type="id"/>
-    <item name="bannerDefaultImage" type="id"/>
-    <item name="bannerTitle" type="id"/>
-    <item name="bannerViewPager" type="id"/>
-    <item name="circleIndicator" type="id"/>
     <item name="custom_toast_msg" type="id"/>
     <item name="dataBinding" type="id"/>
     <item name="ghost_view" type="id"/>
@@ -766,7 +800,6 @@
     <item name="immersion_fits_layout_overlap" type="id"/>
     <item name="immersion_navigation_bar_view" type="id"/>
     <item name="immersion_status_bar_view" type="id"/>
-    <item name="indicatorInside" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="line1" type="id"/>
     <item name="line3" type="id"/>
@@ -774,8 +807,6 @@
     <item name="mtrl_child_content_container" type="id"/>
     <item name="mtrl_internal_children_alpha_tag" type="id"/>
     <item name="nav_controller_view_tag" type="id"/>
-    <item name="numIndicator" type="id"/>
-    <item name="numIndicatorInside" type="id"/>
     <item name="onAttachStateChangeListener" type="id"/>
     <item name="onDateChanged" type="id"/>
     <item name="parent_matrix" type="id"/>
@@ -791,6 +822,7 @@
     <item name="snackbar_action" type="id"/>
     <item name="snackbar_text" type="id"/>
     <item name="split_action_bar" type="id"/>
+    <item name="srl_tag" type="id"/>
     <item name="tag_accessibility_actions" type="id"/>
     <item name="tag_accessibility_clickable_spans" type="id"/>
     <item name="tag_accessibility_heading" type="id"/>
@@ -809,7 +841,6 @@
     <item name="textinput_prefix_text" type="id"/>
     <item name="textinput_suffix_text" type="id"/>
     <item name="title" type="id"/>
-    <item name="titleView" type="id"/>
     <item name="transition_current_scene" type="id"/>
     <item name="transition_layout_save" type="id"/>
     <item name="transition_position" type="id"/>
@@ -873,6 +904,8 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="app_name">Wan Android</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="banner_adapter_null_error">Banner setAdapter() 参数不能为空</string>
+    <string name="banner_adapter_use_error">你还没有调用 setAdapter() 方法</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
     <string name="brvah_load_complete">点击加载更多</string>
     <string name="brvah_load_end">没有更多数据</string>
@@ -895,6 +928,8 @@
     <string name="home_project">项目</string>
     <string name="home_system">体系</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
+    <string name="indicator_color_error">指示器的颜色只能设置成“@color/colorID or #000000”</string>
+    <string name="indicator_null_error">请先调用setIndicator()方法来设置指示器</string>
     <string name="login">登录</string>
     <string name="login_immediately">立即登录</string>
     <string description="Content description for new notification (no number count) [CHAR_LIMIT=NONE]" name="mtrl_badge_numberless_content_description">New notification</string>
@@ -953,6 +988,23 @@
     <string name="permission_storage">存储权限</string>
     <string name="permission_undefined">未知权限</string>
     <string name="search_menu_title">Search</string>
+    <string formatted="false" name="srl_component_falsify">%s falsify area,\n Represents the height[%.1fdp] of drag at run time,\n It does not show anything.</string>
+    <string name="srl_content_empty">The content view in SmartRefreshLayout is empty. Do you forget to add it in xml layout file?</string>
+    <string name="srl_footer_failed">Load Failed</string>
+    <string name="srl_footer_finish">Load Success</string>
+    <string name="srl_footer_loading">Loading…</string>
+    <string name="srl_footer_nothing">No More Data</string>
+    <string name="srl_footer_pulling">Pull Up To Load More</string>
+    <string name="srl_footer_refreshing">Wait For Refreshing…</string>
+    <string name="srl_footer_release">Release To Load More</string>
+    <string name="srl_header_failed">Refresh Failed</string>
+    <string name="srl_header_finish">Refresh Success</string>
+    <string name="srl_header_loading">Wait For Loading…</string>
+    <string name="srl_header_pulling">Pull Down To Refresh</string>
+    <string name="srl_header_refreshing">Refreshing…</string>
+    <string name="srl_header_release">Release To Refresh</string>
+    <string name="srl_header_secondary">Release To Second Floor</string>
+    <string name="srl_header_update">\'Last Update\' M-d HH:mm</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="user_id">ID: </string>
     <string name="user_ranking">排名: </string>
@@ -3207,6 +3259,43 @@
     <style name="ShapeAppearanceOverlay.TopRightDifferentCornerSize">
     <item name="cornerSizeTopRight">20px</item>
   </style>
+    <style name="SmartRefreshStyle">
+        <item name="srlPrimaryColor">@android:color/holo_blue_dark</item>
+        <item name="srlAccentColor">@android:color/white</item>
+        <item name="srlReboundDuration">300</item>
+        <item name="srlHeaderHeight">100dp</item>
+        <item name="srlFooterHeight">60dp</item>
+        <item name="srlHeaderInsetStart">0dp</item>
+        <item name="srlFooterInsetStart">0dp</item>
+        <item name="srlDragRate">0.5</item>
+        <item name="srlHeaderMaxDragRate">2.5</item>
+        <item name="srlFooterMaxDragRate">2.5</item>
+        <item name="srlHeaderTriggerRate">1</item>
+        <item name="srlFooterTriggerRate">1</item>
+        <!--<item name="srlEnableRefresh">true</item>-->
+        <!--<item name="srlEnableLoadMore">true</item>-->
+        <!--<item name="srlEnableHeaderTranslationContent">true</item>-->
+        <!--<item name="srlEnableFooterTranslationContent">true</item>-->
+        <!--<item name="srlHeaderTranslationViewId">-1</item>-->
+        <!--<item name="srlFooterTranslationViewId">-1</item>-->
+        <item name="srlEnablePreviewInEditMode">true</item>
+        <item name="srlEnableAutoLoadMore">true</item>
+        <item name="srlEnableOverScrollDrag">false</item>
+        <item name="srlEnableOverScrollBounce">true</item>
+        <item name="srlEnablePureScrollMode">false</item>
+        <item name="srlEnableNestedScrolling">true</item>
+        <item name="srlEnableScrollContentWhenLoaded">true</item>
+        <item name="srlEnableScrollContentWhenRefreshed">true</item>
+        <item name="srlEnableLoadMoreWhenContentNotFull">true</item>
+        <!--<item name="srlEnableFooterFollowWhenLoadFinished" format="boolean"/>-->
+        <item name="srlEnableFooterFollowWhenNoMoreData">false</item>
+        <item name="srlEnableClipHeaderWhenFixedBehind">true</item>
+        <item name="srlEnableClipFooterWhenFixedBehind">true</item>
+        <item name="srlDisableContentWhenRefresh">false</item>
+        <item name="srlDisableContentWhenLoading">false</item>
+        <!--<item name="srlFixedHeaderViewId" format="reference"/>-->
+        <!--<item name="srlFixedFooterViewId" format="reference"/>-->
+    </style>
     <style name="Test.ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Day" parent="">
     <item name="cornerFamily">rounded</item>
     <item name="cornerSize">@dimen/test_mtrl_calendar_day_cornerSize</item>
@@ -3319,12 +3408,17 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+    <style name="TextAppearance.Compat.Notification.Info.Media"/>
     <style name="TextAppearance.Compat.Notification.Line2" parent="TextAppearance.Compat.Notification.Info"/>
+    <style name="TextAppearance.Compat.Notification.Line2.Media" parent="TextAppearance.Compat.Notification.Info.Media"/>
+    <style name="TextAppearance.Compat.Notification.Media"/>
     <style name="TextAppearance.Compat.Notification.Time">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+    <style name="TextAppearance.Compat.Notification.Time.Media"/>
     <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
+    <style name="TextAppearance.Compat.Notification.Title.Media"/>
     <style name="TextAppearance.Design.CollapsingToolbar.Expanded" parent="TextAppearance.AppCompat.Display1">
     <item name="android:textColor">?android:attr/textColorPrimary</item>
   </style>
@@ -5431,16 +5525,42 @@
     <attr format="dimension" name="horizontalOffset"/>
     <attr format="dimension" name="verticalOffset"/>
   </declare-styleable>
-    <declare-styleable name="Banner"><attr format="integer" name="delay_time"/><attr format="integer" name="scroll_time"/><attr format="boolean" name="is_auto_play"/><attr format="color|reference" name="title_background"/><attr format="color" name="title_textcolor"/><attr format="dimension" name="title_textsize"/><attr format="dimension" name="title_height"/><attr format="dimension" name="indicator_width"/><attr format="dimension" name="indicator_height"/><attr format="dimension" name="indicator_margin"/><attr format="reference" name="indicator_drawable_selected"/><attr format="reference" name="indicator_drawable_unselected"/><attr format="reference" name="banner_layout"/><attr format="reference" name="banner_default_image"/><attr format="enum" name="image_scale_type">
-            <enum name="center" value="0"/>
-            <enum name="center_crop" value="1"/>
-            <enum name="center_inside" value="2"/>
-            <enum name="fit_center" value="3"/>
-            <enum name="fit_end" value="4"/>
-            <enum name="fit_start" value="5"/>
-            <enum name="fit_xy" value="6"/>
-            <enum name="matrix" value="7"/>
-        </attr></declare-styleable>
+    <declare-styleable name="Banner">
+        <attr format="integer" name="delay_time"/>
+        <attr format="boolean" name="is_auto_loop"/>
+        <attr format="boolean" name="is_infinite_loop"/>
+
+        <!--CircleIndicator-->
+        <attr format="dimension" name="indicator_normal_width"/>
+        <attr format="dimension" name="indicator_space"/>
+
+        <!--RoundLinesIndicator、RectangleIndicator-->
+        <attr format="dimension" name="indicator_height"/>
+        <attr format="dimension" name="indicator_radius"/>
+
+        <!-- 以下为公用属性 -->
+        <attr format="dimension" name="indicator_selected_width"/>
+
+        <attr format="reference|color" name="indicator_normal_color"/>
+        <attr format="reference|color" name="indicator_selected_color"/>
+        <attr format="dimension" name="indicator_margin"/>
+        <attr format="dimension" name="indicator_marginLeft"/>
+        <attr format="dimension" name="indicator_marginTop"/>
+        <attr format="dimension" name="indicator_marginRight"/>
+        <attr format="dimension" name="indicator_marginBottom"/>
+
+        <attr format="enum" name="indicator_gravity">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+
+        <attr name="banner_orientation">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+
+    </declare-styleable>
     <declare-styleable name="BottomAppBar">
     <!-- Background for the BottomAppBar. -->
     <attr name="backgroundTint"/>
@@ -5741,6 +5861,54 @@
     <attr format="reference" name="checkedChip"/>
 
   </declare-styleable>
+    <declare-styleable name="ClassicsFooter">
+        <attr name="srlClassicsSpinnerStyle"/>
+        <attr name="srlPrimaryColor"/>
+        <attr name="srlAccentColor"/>
+        <attr name="srlFinishDuration"/>
+        <attr name="srlTextSizeTitle"/>
+        <attr name="srlDrawableArrow"/>
+        <attr name="srlDrawableProgress"/>
+        <attr name="srlDrawableMarginRight"/>
+        <attr name="srlDrawableSize"/>
+        <attr name="srlDrawableArrowSize"/>
+        <attr name="srlDrawableProgressSize"/>
+
+        <attr name="srlTextPulling"/>
+        <attr name="srlTextRelease"/>
+        <attr name="srlTextLoading"/>
+        <attr name="srlTextRefreshing"/>
+        <attr name="srlTextFinish"/>
+        <attr name="srlTextFailed"/>
+        <attr name="srlTextNothing"/>
+
+    </declare-styleable>
+    <declare-styleable name="ClassicsHeader">
+        <attr name="srlClassicsSpinnerStyle"/>
+        <attr name="srlPrimaryColor"/>
+        <attr name="srlAccentColor"/>
+        <attr name="srlFinishDuration"/>
+        <attr name="srlDrawableArrow"/>
+        <attr name="srlDrawableProgress"/>
+        <attr name="srlDrawableMarginRight"/>
+        <attr name="srlDrawableSize"/>
+        <attr name="srlDrawableArrowSize"/>
+        <attr name="srlDrawableProgressSize"/>
+        <attr name="srlTextSizeTitle"/>
+        <attr name="srlTextSizeTime"/>
+        <attr format="dimension" name="srlTextTimeMarginTop"/>
+        <attr format="boolean" name="srlEnableLastTime"/>
+
+        <attr name="srlTextPulling"/>
+        <attr name="srlTextLoading"/>
+        <attr name="srlTextRelease"/>
+        <attr name="srlTextFinish"/>
+        <attr name="srlTextFailed"/>
+        <attr name="srlTextUpdate"/>
+        <attr name="srlTextSecondary"/>
+        <attr name="srlTextRefreshing"/>
+
+    </declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout">
     <!--  Specifies extra space on the start, top, end and bottom
           sides of the the expanded title text. Margin values should be positive. -->
@@ -6880,6 +7048,49 @@
     <!-- The height of the track. -->
     <attr format="dimension" name="trackHeight"/>
   </declare-styleable>
+    <declare-styleable name="SmartRefreshLayout">
+        <attr name="android:clipChildren"/>
+        <attr name="android:clipToPadding"/>
+        <attr name="srlPrimaryColor"/>
+        <attr name="srlAccentColor"/>
+        <attr format="integer" name="srlReboundDuration"/>
+        <attr format="dimension" name="srlHeaderHeight"/>
+        <attr format="dimension" name="srlFooterHeight"/>
+        <attr format="dimension" name="srlHeaderInsetStart"/>
+        <attr format="dimension" name="srlFooterInsetStart"/>
+        <attr format="float" name="srlDragRate"/>
+        <attr format="float" name="srlHeaderMaxDragRate"/>
+        <attr format="float" name="srlFooterMaxDragRate"/>
+        <attr format="float" name="srlHeaderTriggerRate"/>
+        <attr format="float" name="srlFooterTriggerRate"/>
+        <attr format="boolean" name="srlEnableRefresh"/>
+        <attr format="boolean" name="srlEnableLoadMore"/>
+        <attr format="boolean" name="srlEnableHeaderTranslationContent"/>
+        <attr format="boolean" name="srlEnableFooterTranslationContent"/>
+        <attr format="reference" name="srlHeaderTranslationViewId"/>
+        <attr format="reference" name="srlFooterTranslationViewId"/>
+        <attr format="boolean" name="srlEnablePreviewInEditMode"/>
+        <attr format="boolean" name="srlEnableAutoLoadMore"/>
+        <attr format="boolean" name="srlEnableOverScrollBounce"/>
+        <attr format="boolean" name="srlEnablePureScrollMode"/>
+        <attr format="boolean" name="srlEnableNestedScrolling"/>
+        <attr format="boolean" name="srlEnableScrollContentWhenLoaded"/>
+        <attr format="boolean" name="srlEnableScrollContentWhenRefreshed"/>
+        <attr format="boolean" name="srlEnableLoadMoreWhenContentNotFull"/>
+        <attr format="boolean" name="srlEnableFooterFollowWhenLoadFinished"/>
+        <attr format="boolean" name="srlEnableFooterFollowWhenNoMoreData"/>
+        <attr format="boolean" name="srlEnableClipHeaderWhenFixedBehind"/>
+        <attr format="boolean" name="srlEnableClipFooterWhenFixedBehind"/>
+        <attr format="boolean" name="srlEnableOverScrollDrag"/>
+        <attr format="boolean" name="srlDisableContentWhenRefresh"/>
+        <attr format="boolean" name="srlDisableContentWhenLoading"/>
+        <attr format="reference" name="srlFixedHeaderViewId"/>
+        <attr format="reference" name="srlFixedFooterViewId"/>
+    </declare-styleable>
+    <declare-styleable name="SmartRefreshLayout_Layout">
+        <attr name="layout_srlSpinnerStyle"/>
+        <attr format="color" name="layout_srlBackgroundColor"/>
+    </declare-styleable>
     <declare-styleable name="Snackbar">
     <!-- Style to use for Snackbars in this theme. -->
     <attr format="reference" name="snackbarStyle"/>

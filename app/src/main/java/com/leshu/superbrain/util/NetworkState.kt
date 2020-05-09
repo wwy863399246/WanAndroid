@@ -16,7 +16,9 @@
 
 package com.leshu.superbrain.util
 
+import androidx.lifecycle.LiveData
 import com.leshu.superbrain.data.bean.Article
+import com.leshu.superbrain.view.loadpage.LoadPageStatus
 
 enum class Status {
     RUNNING,
@@ -55,5 +57,6 @@ data class ListModel<T>(
     val showError: String? = null,
     val showEnd: Boolean = false, // 加载更多
     val isRefresh: Boolean = false, // 刷新
-    val needLogin: Boolean? = false
+    val needLogin: Boolean? = false,
+    val loadPageStatus: LiveData<LoadPageStatus>? = null
 )

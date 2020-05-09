@@ -8,6 +8,8 @@ import com.qw.soul.permission.SoulPermission
 import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageInfo
+import android.view.View
+import androidx.core.content.ContextCompat
 import com.qw.soul.permission.bean.Permission
 
 
@@ -32,3 +34,7 @@ fun chooseContact(activity: Activity, requestCode: Int) {
         })
 }
 fun Context.packageInfo(): PackageInfo = this.packageManager.getPackageInfo(this.packageName, 0)
+//扩展函数
+fun Context.color(colorRes: Int) = ContextCompat.getColor(this, colorRes)
+
+fun View.color(colorRes: Int) = context.color(colorRes)

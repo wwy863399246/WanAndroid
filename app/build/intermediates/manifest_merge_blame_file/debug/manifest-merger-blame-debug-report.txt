@@ -100,34 +100,26 @@
 54-->[com.qw:soulpermission:1.2.2_x] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b065b6570e1aad2c32001b09fd408eee\jetified-soulpermission-1.2.2_x\AndroidManifest.xml:15:13-37
 55            android:multiprocess="true" />
 55-->[com.qw:soulpermission:1.2.2_x] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b065b6570e1aad2c32001b09fd408eee\jetified-soulpermission-1.2.2_x\AndroidManifest.xml:16:13-40
-56
-57        <service
-57-->[androidx.room:room-runtime:2.2.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b6150cf8f44d0863c9c95c93c3ae4aeb\room-runtime-2.2.3\AndroidManifest.xml:25:9-27:40
-58            android:name="androidx.room.MultiInstanceInvalidationService"
-58-->[androidx.room:room-runtime:2.2.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b6150cf8f44d0863c9c95c93c3ae4aeb\room-runtime-2.2.3\AndroidManifest.xml:26:13-74
-59            android:exported="false" />
-59-->[androidx.room:room-runtime:2.2.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b6150cf8f44d0863c9c95c93c3ae4aeb\room-runtime-2.2.3\AndroidManifest.xml:27:13-37
-60
+56        <provider
+56-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:12:9-16:43
+57            android:name="me.jessyan.autosize.InitProvider"
+57-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:13:13-60
+58            android:authorities="com.leshu.superbrain.autosize-init-provider"
+58-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:14:13-74
+59            android:exported="false"
+59-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:15:13-37
+60            android:multiprocess="true" />
+60-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:16:13-40
 61        <provider
-61-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:12:9-16:43
-62            android:name="me.jessyan.autosize.InitProvider"
-62-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:13:13-60
-63            android:authorities="com.leshu.superbrain.autosize-init-provider"
-63-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:14:13-74
+61-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+62            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+62-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+63            android:authorities="com.leshu.superbrain.lifecycle-process"
+63-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
 64            android:exported="false"
-64-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:15:13-37
+64-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
 65            android:multiprocess="true" />
-65-->[me.jessyan:autosize:1.1.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3646e36f8587fc64771243242da8a38\jetified-autosize-1.1.2\AndroidManifest.xml:16:13-40
-66        <provider
-66-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-67            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-67-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-68            android:authorities="com.leshu.superbrain.lifecycle-process"
-68-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-69            android:exported="false"
-69-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-70            android:multiprocess="true" />
-70-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-71    </application>
-72
-73</manifest>
+65-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\389e7b48fb1188e06237cc7a3d447577\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+66    </application>
+67
+68</manifest>
