@@ -17,12 +17,12 @@ class LoginViewModel : BaseViewModel() {
     val user: MutableLiveData<User> = MutableLiveData()
     fun login(username: String, password: String) {
         Timber.tag("wangwuyuan").e("点击了")
-        launchUI({
+        launchUI {
             val result = repository.login(username, password)
             if (result is ResultData.Success) {
                 user.value = result.data
             }
-        }, true)
+        }
     }
 
 }

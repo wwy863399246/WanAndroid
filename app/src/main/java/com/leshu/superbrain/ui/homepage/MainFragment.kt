@@ -17,13 +17,13 @@ class MainFragment: BaseFragment() {
     override fun initData() {
         val mHomePageTabLayout =
             arrayOf(context?.getString(R.string.home_page), context?.getString(R.string.home_project))
-        navigation_bar_view.setTabLayoutData(mHomePageTabLayout, home_page_viewpage)
+        navigation_bar_view.setTabLayoutData(mHomePageTabLayout, home_page_vp)
     }
 
     override fun initView() {
         val firstPageFragment = HomePageFragment()
         val mainProjectFragment = MainProjectFragment()
         val fragments = listOf(firstPageFragment, mainProjectFragment)
-        home_page_viewpage.adapter = activity?.let { MyFragmentPagerAdapter(it, fragments) }
+        home_page_vp.adapter = activity?.let { MyFragmentPagerAdapter(it, fragments) }
     }
 }

@@ -13,4 +13,5 @@
     <string name="username">用户名</string>
     <string name="password">密码</string>
     <string name="go_to_register">去注册</string>
+    <string name="stick">置顶</string>
 </resources>

@@ -12,21 +12,21 @@ import com.leshu.superbrain.data.bean.Article
  *@创建时间 2020/1/15 10:48
  *@描述
  */
-class HomePageAdapter : BaseQuickAdapter<Article, BaseViewHolder>(R.layout.home_page_item),
+class HomePageAdapter : BaseQuickAdapter<Article, BaseViewHolder>(R.layout.item_home_page),
     LoadMoreModule {
 
     override fun convert(holder: BaseViewHolder, item: Article) {
         item.let {
             holder.setText(
-                R.id.item_home_author,
+                R.id.tvHomePageItemAuthor,
                 if (it.author.isNotEmpty()) it.author else it.shareUser
             )
-            holder.setText(R.id.item_home_content, Html.fromHtml(it.title))
+            holder.setText(R.id.tvHomePageItemContent, Html.fromHtml(it.title))
             holder.setText(
-                R.id.item_home_type2,
+                R.id.tvHomePageItemType,
                 Html.fromHtml("${it.superChapterName}·${it.chapterName}")
             )
-            holder.setText(R.id.item_home_date, it.niceDate)
+            holder.setText(R.id.tvHomePageItemDate, it.niceDate)
         }
     }
 }

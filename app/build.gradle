@@ -97,4 +97,7 @@ dependencies {
     //下来刷新框架
     implementation  'com.scwang.smart:refresh-layout-kernel:2.0.0'      //核心必须依赖
     implementation  'com.scwang.smart:refresh-header-classics:2.0.0'
+    //tablayout
+    implementation 'com.github.angcyo.DslTablayout:TabLayout:1.5.3'
+    implementation 'com.github.angcyo.DslTablayout:ViewPager2Delegate:1.5.3'
 }

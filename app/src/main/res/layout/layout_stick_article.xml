@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.leshu.superbrain.view.roundview.RoundTextView
+        android:id="@+id/rtvStick"
+        style="@style/ww_00_text_14"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:text="@string/stick"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@id/tvStickContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvStickContent"
+        app:rv_backgroundColor="@color/color_FFFFFF"
+        app:rv_cornerRadius="2dp"
+        app:rv_strokeColor="@color/colorPrimary"
+        app:rv_strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/tvStickContent"
+        style="@style/ww_00_text_16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="竟然还能这么用！Kotlin 的扩展函数和扩展属性（Extension Functions / Properties）"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rtvStick"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewDivision"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/color_1F000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStickContent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

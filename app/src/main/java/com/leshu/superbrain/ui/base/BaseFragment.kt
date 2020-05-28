@@ -12,15 +12,31 @@ import androidx.fragment.app.Fragment
  *@描述
  */
 abstract class BaseFragment : Fragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private var isLoaded = false
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(setLayoutResId(), container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onResume() {
+        super.onResume()
+        if (!isLoaded && !isHidden) {
+            onFragmentFirstVisible()
+            isLoaded = true
+        }
+    }
+
+    protected open fun onFragmentFirstVisible(){
         initView()
         initData()
-        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        isLoaded = false
     }
 
     abstract fun setLayoutResId(): Int

@@ -515,6 +515,10 @@ attr layout_scrollFlags
 attr layout_scrollInterpolator
 attr layout_srlBackgroundColor
 attr layout_srlSpinnerStyle
+attr layout_tab_convex_height
+attr layout_tab_height
+attr layout_tab_indicator_content_index
+attr layout_tab_width
 attr left_img
 attr left_textId
 attr left_textStr
@@ -622,6 +626,26 @@ attr right_img1
 attr right_img2
 attr right_img3
 attr rippleColor
+attr rv_backgroundColor
+attr rv_backgroundEndColor
+attr rv_backgroundPressColor
+attr rv_backgroundPressEndColor
+attr rv_backgroundPressStartColor
+attr rv_backgroundStartColor
+attr rv_cornerRadius
+attr rv_cornerRadius_BL
+attr rv_cornerRadius_BR
+attr rv_cornerRadius_TL
+attr rv_cornerRadius_TR
+attr rv_isRadiusHalfHeight
+attr rv_isRippleEnable
+attr rv_isWidthHeightEqual
+attr rv_strokeColor
+attr rv_strokeDashGap
+attr rv_strokeDashWidth
+attr rv_strokePressColor
+attr rv_strokeWidth
+attr rv_textPressColor
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
@@ -772,6 +796,91 @@ attr tabStyle
 attr tabTextAppearance
 attr tabTextColor
 attr tabUnboundedRipple
+attr tab_badge_anchor_child_index
+attr tab_badge_circle_offset_x
+attr tab_badge_circle_offset_y
+attr tab_badge_circle_radius
+attr tab_badge_gravity
+attr tab_badge_ignore_child_padding
+attr tab_badge_offset_x
+attr tab_badge_offset_y
+attr tab_badge_padding_bottom
+attr tab_badge_padding_left
+attr tab_badge_padding_right
+attr tab_badge_padding_top
+attr tab_badge_radius
+attr tab_badge_solid_color
+attr tab_badge_text
+attr tab_badge_text_color
+attr tab_badge_text_size
+attr tab_border_draw_item_background
+attr tab_border_drawable
+attr tab_border_item_background_height_offset
+attr tab_border_item_background_width_offset
+attr tab_border_radius_size
+attr tab_border_solid_color
+attr tab_border_stroke_color
+attr tab_border_stroke_width
+attr tab_convex_background
+attr tab_default_index
+attr tab_deselect_color
+attr tab_divider_drawable
+attr tab_divider_margin_bottom
+attr tab_divider_margin_left
+attr tab_divider_margin_right
+attr tab_divider_margin_top
+attr tab_divider_radius_size
+attr tab_divider_show_mode
+attr tab_divider_solid_color
+attr tab_divider_stroke_color
+attr tab_divider_stroke_width
+attr tab_divider_width
+attr tab_draw_badge
+attr tab_draw_border
+attr tab_draw_divider
+attr tab_draw_indicator
+attr tab_enable_gradient_color
+attr tab_enable_gradient_scale
+attr tab_enable_gradient_text_size
+attr tab_enable_ico_color
+attr tab_enable_ico_gradient_color
+attr tab_enable_selector_mode
+attr tab_enable_text_bold
+attr tab_enable_text_color
+attr tab_ico_deselect_color
+attr tab_ico_select_color
+attr tab_indicator_anim
+attr tab_indicator_color
+attr tab_indicator_content_index
+attr tab_indicator_dash_gap
+attr tab_indicator_dash_width
+attr tab_indicator_drawable
+attr tab_indicator_enable_flow
+attr tab_indicator_flow_step
+attr tab_indicator_gradient_colors
+attr tab_indicator_gradient_end_color
+attr tab_indicator_gradient_start_color
+attr tab_indicator_height
+attr tab_indicator_height_offset
+attr tab_indicator_radii
+attr tab_indicator_radius
+attr tab_indicator_shape
+attr tab_indicator_solid_color
+attr tab_indicator_stroke_color
+attr tab_indicator_stroke_width
+attr tab_indicator_style
+attr tab_indicator_width
+attr tab_indicator_width_offset
+attr tab_indicator_x_offset
+attr tab_indicator_y_offset
+attr tab_item_default_height
+attr tab_item_is_equ_width
+attr tab_item_width
+attr tab_max_scale
+attr tab_min_scale
+attr tab_select_color
+attr tab_text_max_size
+attr tab_text_min_size
 attr targetPackage
 attr textAllCaps
 attr textAppearanceBody1
@@ -917,6 +1026,15 @@ color checkbox_themeable_attribute_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color color_000000
+color color_1F000000
+color color_1F_F
+color color_42000000
+color color_4D_F
+color color_8A000000
+color color_B3_F
+color color_DE000000
+color color_FFFFFF
 color default_cancel_btn_color
 color default_edt_hint_color
 color default_text_color
@@ -962,7 +1080,6 @@ color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
-color divider_color
 color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
@@ -1055,19 +1172,16 @@ color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
 color primary_material_light
-color primary_text_color_black
 color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color primary_white
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
-color secondray_text_color
 color smart_show_light_gray
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
@@ -1603,6 +1717,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable shape_project_tab
 drawable smart_show_dialog_btn_bg
 drawable smart_show_emotion_toast_bg
 drawable smart_show_input_clear
@@ -1630,14 +1745,27 @@ id CTRL
 id FUNCTION
 id FixedBehind
 id FixedFront
+id LINE
+id MATCH_PARENT
 id META
 id MatchLayout
+id OVAL
+id RECTANGLE
+id RING
 id SHIFT
+id SHOW_DIVIDER_BEGINNING
+id SHOW_DIVIDER_END
+id SHOW_DIVIDER_MIDDLE
+id STYLE_BACKGROUND
+id STYLE_BOTTOM
+id STYLE_NONE
+id STYLE_TOP
 id SYM
 id Scale
 id TOP_END
 id TOP_START
 id Translate
+id WRAP_CONTENT
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1776,7 +1904,7 @@ id home
 id homeAsUp
 id home_mine
 id home_page
-id home_page_viewpage
+id home_page_vp
 id home_syetem_viewpage
 id home_system
 id horizontal
@@ -1790,15 +1918,11 @@ id immersion_status_bar_view
 id info
 id invisible
 id italic
-id item_home_author
-id item_home_content
-id item_home_date
-id item_home_type2
 id item_touch_helper_previous_elevation
+id ivBackNavigationBar
 id ivRen
-id iv_back_navigationbar
-id iv_search_navigationbar
-id iv_settings_navigationbar
+id ivSearchNavigationBar
+id ivSetNavigationBar
 id iv_user_icon
 id labeled
 id largeLabel
@@ -1807,6 +1931,7 @@ id line1
 id line3
 id listMode
 id list_item
+id llMainProjectLoadPageView
 id load_more_load_complete_view
 id load_more_load_end_view
 id load_more_load_fail_view
@@ -1881,6 +2006,8 @@ id right
 id right_icon
 id right_side
 id rounded
+id rtvStick
+id rvHomePageHeadView
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -1981,7 +2108,8 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
-id tl_navigationbar
+id tlMainProject
+id tlNavigationBar
 id top
 id topPanel
 id topbar_action
@@ -1992,11 +2120,17 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
-id tv_left_title
+id tvHomePageItemAuthor
+id tvHomePageItemContent
+id tvHomePageItemDate
+id tvHomePageItemType
+id tvLeftTitleNavigationBar
+id tvStickContent
+id tvTabLayoutTitle
+id tvTitleNavigationBar
 id tv_login_immediately
 id tv_prompt
 id tv_textview
-id tv_title_text
 id tv_user_id
 id tv_user_ranking
 id type_info_icon
@@ -2008,7 +2142,7 @@ id up
 id useLogo
 id userNameLayout
 id vertical
-id view_bottom
+id viewDivision
 id view_offset_helper
 id view_user_bg
 id visible
@@ -2107,10 +2241,12 @@ layout fragment_main_project
 layout fragment_navigation
 layout fragment_official_account
 layout fragment_system
-layout home_page_item
+layout item_home_page
 layout layout_banner
 layout layout_custom_navigationbar_view
 layout layout_emotion_toast
+layout layout_project_tab
+layout layout_stick_article
 layout list_item_click
 layout list_item_single_choice
 layout mtrl_alert_dialog
@@ -2322,6 +2458,7 @@ string srl_header_release
 string srl_header_secondary
 string srl_header_update
 string status_bar_notification_info_overflow
+string stick
 string user_id
 string user_ranking
 string username
@@ -3021,10 +3158,32 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style match_wrap
 style smart_show_dialog
 style smart_show_dialog_button
 style smart_show_virtual_toast_dialog
 style type_info_toast_anim
+style wrap_wrap
+style ww_00_text
+style ww_00_text_14
+style ww_00_text_16
+style ww_00_text_18
+style ww_ff_text
+style ww_ff_text_14
+style ww_ff_text_16
+style ww_ff_text_18
+style ww_se_00_text
+style ww_se_00_text_12
+style ww_se_00_text_14
+style ww_se_ff_text
+style ww_se_ff_text_12
+style ww_se_ff_text_14
+style ww_th_00_text
+style ww_th_00_text_12
+style ww_th_00_text_14
+style ww_th_ff_text
+style ww_th_ff_text_12
+style ww_th_ff_text_14
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -3067,6 +3226,8 @@ styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_a
 styleable CustomNavigationBarView isShow_left_img isShow_right_img1 isShow_right_img2 isShow_right_img3 isShow_tablayout left_img left_textId left_textStr right_img1 right_img2 right_img3 text_color title_textId title_textStr
 styleable DialogFragmentNavigator android_name
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
+styleable DslTabLayout tab_badge_anchor_child_index tab_badge_circle_offset_x tab_badge_circle_offset_y tab_badge_circle_radius tab_badge_gravity tab_badge_ignore_child_padding tab_badge_offset_x tab_badge_offset_y tab_badge_padding_bottom tab_badge_padding_left tab_badge_padding_right tab_badge_padding_top tab_badge_radius tab_badge_solid_color tab_badge_text tab_badge_text_color tab_badge_text_size tab_border_draw_item_background tab_border_drawable tab_border_item_background_height_offset tab_border_item_background_width_offset tab_border_radius_size tab_border_solid_color tab_border_stroke_color tab_border_stroke_width tab_convex_background tab_default_index tab_deselect_color tab_divider_drawable tab_divider_margin_bottom tab_divider_margin_left tab_divider_margin_right tab_divider_margin_top tab_divider_radius_size tab_divider_show_mode tab_divider_solid_color tab_divider_stroke_color tab_divider_stroke_width tab_divider_width tab_draw_badge tab_draw_border tab_draw_divider tab_draw_indicator tab_enable_gradient_color tab_enable_gradient_scale tab_enable_gradient_text_size tab_enable_ico_color tab_enable_ico_gradient_color tab_enable_selector_mode tab_enable_text_bold tab_enable_text_color tab_ico_deselect_color tab_ico_select_color tab_indicator_anim tab_indicator_color tab_indicator_content_index tab_indicator_dash_gap tab_indicator_dash_width tab_indicator_drawable tab_indicator_enable_flow tab_indicator_flow_step tab_indicator_gradient_colors tab_indicator_gradient_end_color tab_indicator_gradient_start_color tab_indicator_height tab_indicator_height_offset tab_indicator_radii tab_indicator_radius tab_indicator_shape tab_indicator_solid_color tab_indicator_stroke_color tab_indicator_stroke_width tab_indicator_style tab_indicator_width tab_indicator_width_offset tab_indicator_x_offset tab_indicator_y_offset tab_item_default_height tab_item_is_equ_width tab_item_width tab_max_scale tab_min_scale tab_select_color tab_text_max_size tab_text_min_size
+styleable DslTabLayout_Layout layout_tab_convex_height layout_tab_height layout_tab_indicator_content_index layout_tab_width
 styleable ExtendedFloatingActionButton elevation extendMotionSpec hideMotionSpec showMotionSpec shrinkMotionSpec
 styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavior_autoShrink
 styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
@@ -3111,6 +3272,11 @@ styleable PopupWindow android_popupBackground android_popupAnimationStyle overla
 styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RecyclerView android_orientation android_clipToPadding android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
+styleable RoundConstraintLayout rv_backgroundColor rv_backgroundEndColor rv_backgroundPressColor rv_backgroundPressEndColor rv_backgroundPressStartColor rv_backgroundStartColor rv_cornerRadius rv_cornerRadius_BL rv_cornerRadius_BR rv_cornerRadius_TL rv_cornerRadius_TR rv_isRadiusHalfHeight rv_isRippleEnable rv_isWidthHeightEqual rv_strokeColor rv_strokeDashGap rv_strokeDashWidth rv_strokePressColor rv_strokeWidth
+styleable RoundFrameLayout rv_backgroundColor rv_backgroundEndColor rv_backgroundPressColor rv_backgroundPressEndColor rv_backgroundPressStartColor rv_backgroundStartColor rv_cornerRadius rv_cornerRadius_BL rv_cornerRadius_BR rv_cornerRadius_TL rv_cornerRadius_TR rv_isRadiusHalfHeight rv_isRippleEnable rv_isWidthHeightEqual rv_strokeColor rv_strokeDashGap rv_strokeDashWidth rv_strokePressColor rv_strokeWidth
+styleable RoundLinearLayout rv_backgroundColor rv_backgroundEndColor rv_backgroundPressColor rv_backgroundPressEndColor rv_backgroundPressStartColor rv_backgroundStartColor rv_cornerRadius rv_cornerRadius_BL rv_cornerRadius_BR rv_cornerRadius_TL rv_cornerRadius_TR rv_isRadiusHalfHeight rv_isRippleEnable rv_isWidthHeightEqual rv_strokeColor rv_strokeDashGap rv_strokeDashWidth rv_strokePressColor rv_strokeWidth
+styleable RoundRelativeLayout rv_backgroundColor rv_backgroundEndColor rv_backgroundPressColor rv_backgroundPressEndColor rv_backgroundPressStartColor rv_backgroundStartColor rv_cornerRadius rv_cornerRadius_BL rv_cornerRadius_BR rv_cornerRadius_TL rv_cornerRadius_TR rv_isRadiusHalfHeight rv_isRippleEnable rv_isWidthHeightEqual rv_strokeColor rv_strokeDashGap rv_strokeDashWidth rv_strokePressColor rv_strokeWidth
+styleable RoundTextView rv_backgroundColor rv_backgroundEndColor rv_backgroundPressColor rv_backgroundPressEndColor rv_backgroundPressStartColor rv_backgroundStartColor rv_cornerRadius rv_cornerRadius_BL rv_cornerRadius_BR rv_cornerRadius_TL rv_cornerRadius_TR rv_isRadiusHalfHeight rv_isRippleEnable rv_isWidthHeightEqual rv_strokeColor rv_strokeDashGap rv_strokeDashWidth rv_strokePressColor rv_strokeWidth rv_textPressColor
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon

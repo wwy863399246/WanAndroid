@@ -34,7 +34,9 @@ data class Article(
     val tags: Any, // Not sure
     val userId: Int
 ) : Serializable
-
+/**
+ * Banner
+ */
 data class Banner(
     val desc: String,
     val id: Int,
@@ -44,4 +46,18 @@ data class Banner(
     val title: String,
     val type: Int,
     val url: String
+) : Serializable
+
+/**
+ * 项目分类
+ */
+data class ClassifyResponse(
+    val children: List<Any>?,
+    val courseId: Int,
+    val id: Int,
+    var name: String,
+    val order: Int,
+    val parentChapterId: Int,
+    val userControlSetTop: Boolean,
+    val visible: Int
 ) : Serializable

@@ -65,54 +65,54 @@ class CustomNavigationBarView @JvmOverloads constructor(
     private fun initView() {
         View.inflate(context, R.layout.layout_custom_navigationbar_view, this)
         if (mLeftImg != 0) {
-            iv_back_navigationbar.setImageResource(mLeftImg)
+            ivBackNavigationBar.setImageResource(mLeftImg)
         }
         mLeftTextStr?.let {
-            tv_left_title.text = mLeftTextStr
-            tv_left_title.visibility = View.VISIBLE
+            tvLeftTitleNavigationBar.text = mLeftTextStr
+            tvLeftTitleNavigationBar.visibility = View.VISIBLE
         }
         if (mLeftTextId != 0) {
-            tv_left_title.setText(mLeftTextId)
-            tv_left_title.visibility = View.VISIBLE
+            tvLeftTitleNavigationBar.setText(mLeftTextId)
+            tvLeftTitleNavigationBar.visibility = View.VISIBLE
         }
-        if (mShowLeftImg) iv_back_navigationbar.visibility =
-            View.VISIBLE else iv_back_navigationbar.visibility =
+        if (mShowLeftImg) ivBackNavigationBar.visibility =
+            View.VISIBLE else ivBackNavigationBar.visibility =
             View.GONE
         if (mRightImg1 != 0) {
-            iv_settings_navigationbar.setImageResource(mRightImg1)
+            ivSetNavigationBar.setImageResource(mRightImg1)
         }
-        if (mShowRightImg1) iv_settings_navigationbar.visibility =
-            View.VISIBLE else iv_settings_navigationbar.visibility =
+        if (mShowRightImg1) ivSetNavigationBar.visibility =
+            View.VISIBLE else ivSetNavigationBar.visibility =
             View.GONE
         if (mRightImg2 != 0) {
-            iv_search_navigationbar.setImageResource(mRightImg2)
+            ivSearchNavigationBar.setImageResource(mRightImg2)
         }
-        if (mShowRightImg2) iv_search_navigationbar.visibility =
-            View.VISIBLE else iv_search_navigationbar.visibility =
+        if (mShowRightImg2) ivSearchNavigationBar.visibility =
+            View.VISIBLE else ivSearchNavigationBar.visibility =
             View.GONE
         mTitleTextStr?.let {
-            tv_title_text.text = mTitleTextStr
-            tv_title_text.visibility = View.VISIBLE
+            tvTitleNavigationBar.text = mTitleTextStr
+            tvTitleNavigationBar.visibility = View.VISIBLE
         }
         if (mTitleTextId != 0) {
-            tv_title_text.setText(mTitleTextId)
-            tv_title_text.visibility = View.VISIBLE
+            tvTitleNavigationBar.setText(mTitleTextId)
+            tvTitleNavigationBar.visibility = View.VISIBLE
         }
         if (mTextColor != 0) {
-            tv_title_text.setTextColor(mTextColor)
+            tvTitleNavigationBar.setTextColor(mTextColor)
         }
-        if (mShowTabLayout) tl_navigationbar.visibility =
-            View.VISIBLE else tl_navigationbar.visibility =
+        if (mShowTabLayout) tlNavigationBar.visibility =
+            View.VISIBLE else tlNavigationBar.visibility =
             View.GONE
     }
 
     fun setTabLayoutData(tablayoutTitle: Array<String?>, viewPager2: ViewPager2) {
         //viewpage2 tablayout 联动
-        TabLayoutMediator(tl_navigationbar, viewPager2) { tab, position ->
+        TabLayoutMediator(tlNavigationBar, viewPager2) { tab, position ->
             tab.text = tablayoutTitle[position]
 
         }.attach()
-        tl_navigationbar.addOnTabSelectedListener(object : OnTabSelectedListener {
+        tlNavigationBar.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabReselected(p0: TabLayout.Tab?) {
             }
 
@@ -125,11 +125,5 @@ class CustomNavigationBarView @JvmOverloads constructor(
         })
 
     }
-
-
-    //扩展函数
-    fun Context.color(colorRes: Int) = ContextCompat.getColor(this, colorRes)
-
-    fun View.color(colorRes: Int) = context.color(colorRes)
 
 }

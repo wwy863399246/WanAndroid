@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\e84832a85567280fd41931de37a148f2\\jetified-BaseRecyclerViewAdapterHelper-3.0.2\\res\\values-en\\values-en.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\607ac48c5425b44f01e947fc402ee324\\jetified-BaseRecyclerViewAdapterHelper-3.0.2\\res\\values-en\\values-en.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

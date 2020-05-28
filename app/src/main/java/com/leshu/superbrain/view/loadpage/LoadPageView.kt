@@ -3,17 +3,13 @@ package com.leshu.superbrain.view.loadpage
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff
-import android.graphics.drawable.ClipDrawable
-import android.graphics.drawable.ColorDrawable
 import android.util.AttributeSet
 import android.view.Gravity
-import android.view.View
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.leshu.superbrain.R
-import com.leshu.superbrain.color
-import kotlinx.android.synthetic.main.fragment_home_mine.*
+import com.leshu.superbrain.ext.color
 import org.jetbrains.anko.*
 
 class LoadPageView @JvmOverloads constructor(
@@ -30,20 +26,21 @@ class LoadPageView @JvmOverloads constructor(
         verticalLayout {
             failText = textView {
                 textSize = 14f
-                textColor = color(R.color.secondray_text_color)
+                textColor = color(R.color.color_8A000000)
                 text = "加载错误,点我重试"
             }
             failText.layoutParams =
                 LayoutParams(wrapContent, wrapContent).also { gravity = Gravity.CENTER }
             noNetText = textView {
                 textSize = 14f
-                textColor = R.color.secondray_text_color
+                textColor = color(R.color.color_8A000000)
+                text = "网络错误,点我重试"
             }
             noNetText.layoutParams =
                 LayoutParams(wrapContent, wrapContent).also { gravity = Gravity.CENTER }
             emptyText = textView {
                 textSize = 14f
-                textColor = R.color.secondray_text_color
+                textColor = R.color.color_8A000000
                 text = "还木有数据哦"
             }
             emptyText.layoutParams =

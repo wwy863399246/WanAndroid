@@ -43,59 +43,7 @@ abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
     }
 
     open fun startObserve() {
-        mViewModel.run {
-            getError().observe(this@BaseVMActivity, Observer {
-                requestError(it)
-            })
-            getStart().observe(this@BaseVMActivity, Observer {
-                requestStart(it)
-            })
-            getFinally().observe(this@BaseVMActivity, Observer {
-                requestFinally(it)
-            })
-        }
 
-    }
-
-    /**
-     * 请求完成 可以做完成之后的操作
-     * @param it 是否需要进度条
-     */
-    private fun requestFinally(it: Boolean?) {
-        it?.run {
-            when (it) {
-                true -> Timber.tag("wwywwy").d("需要")
-                false -> Timber.tag("wwywwy").d("不需要")
-            }
-        }
-    }
-
-    /**
-     * 请求开始 请求完成 可以做开始准备的操作
-     * @param it 是否需要进度条
-     */
-    open fun requestStart(it: Boolean?) {
-        it?.run {
-            when (it) {
-                true -> Timber.tag("wwywwy").d("需要")
-                false -> Timber.tag("wwywwy").d("不需要")
-            }
-        }
-    }
-
-    /**
-     * 常见异常处理
-     */
-    open fun requestError(it: Exception?) {
-        it?.run {
-            when (it) {
-                is HttpException -> {
-                }   //网络异常
-                is TimeoutCancellationException -> {
-                }  //请求超时
-            }
-
-        }
     }
 
     override fun onDestroy() {

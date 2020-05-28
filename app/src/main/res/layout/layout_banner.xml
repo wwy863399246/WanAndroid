@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.youth.banner.Banner xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/banner"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="false"
+    android:orientation="vertical">
 
-</com.youth.banner.Banner>
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="16dp"
+         />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHomePageHeadView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/color_1F000000" />
+
+
+</LinearLayout>

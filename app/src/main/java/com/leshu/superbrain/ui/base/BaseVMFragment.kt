@@ -19,17 +19,18 @@ import java.lang.Exception
  *@创建时间 2019/9/17 14:53
  *@描述
  */
-abstract class BaseVMFragment<VM : BaseViewModel> : Fragment() {
+abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
     protected lateinit var mViewModel: VM
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(setLayoutResId(), container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initVM()
-        initView()
-        initData()
-        startObserve()
+
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -41,64 +42,13 @@ abstract class BaseVMFragment<VM : BaseViewModel> : Fragment() {
         }
     }
 
-    abstract fun setLayoutResId(): Int
-    abstract fun initView()
-    abstract fun initData()
-    open fun startObserve() {
-        mViewModel.run {
-            getError().observe(this@BaseVMFragment, Observer {
-                requestError(it)
-            })
-            getStart().observe(this@BaseVMFragment, Observer {
-                requestStart(it)
-            })
-            getFinally().observe(this@BaseVMFragment, Observer {
-                requestFinally(it)
-            })
-        }
+    override fun onFragmentFirstVisible() {
+        initVM()
+        super.onFragmentFirstVisible()
+        startObserve()
     }
 
-    /**
-     * 请求完成 可以做完成之后的操作
-     * @param it 是否需要进度条
-     */
-    open fun requestFinally(it: Boolean?) {
-        it?.run {
-            when (it) {
-                true -> Timber.tag("wangwuyuan").d("需要->结束")
-                false -> Timber.tag("wangwuyuan").d("不需要")
-            }
-        }
-    }
-
-    /**
-     * 请求开始 请求完成 可以做开始准备的操作
-     * @param it 是否需要进度条
-     */
-    open fun requestStart(it: Boolean?) {
-        it?.run {
-            when (it) {
-                true -> Timber.tag("wangwuyuan").d("需要->开始")
-                false -> Timber.tag("wangwuyuan").d("不需要")
-            }
-        }
-    }
-
-    /**
-     * 常见异常处理
-     */
-    private fun requestError(it: Exception?) {
-        it?.run {
-            when (it) {
-                is HttpException -> {
-                }   //网络异常
-                is TimeoutCancellationException -> {
-                }  //请求超时
-            }
-
-        }
-    }
-
+    open fun startObserve() {}
 
     override fun onDestroy() {
         mViewModel.let {

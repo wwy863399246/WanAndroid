@@ -3,8 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="primary_white">#FFFFFF</color>
-    <color name="primary_text_color_black">#212121</color>//主要文字颜色
-    <color name="secondray_text_color">#757575</color>//次等文字颜色
-    <color name="divider_color">#BDBDBD</color>//分割线颜色
+    <color name="color_000000">#000000</color>//黑色
+    <color name="color_DE000000">#DE000000</color>//主要黑色文字颜色
+    <color name="color_8A000000">#8A000000</color>//次等黑色文字颜色
+    <color name="color_42000000">#42000000</color>//禁用/提示黑色文字颜色
+    <color name="color_1F000000">#1F000000</color>//黑色分割颜色
+    <color name="color_FFFFFF">#FFFFFF</color>//白色背景或文字
+    <color name="color_B3_F">#B3FFFFFF</color>//次等白色文字颜色
+    <color name="color_4D_F">#4DFFFFFF</color>//禁用/提示白色文字颜色
+    <color name="color_1F_F">#1FFFFFFF</color>//白色分割线颜色
 </resources>

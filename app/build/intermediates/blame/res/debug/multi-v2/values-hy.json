@@ -4,6 +4,23 @@
             "outputFile": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hy\\values-hy.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\e402fd898233a3fe4adf141d1b275e2d\\core-1.2.0\\res\\values-hy\\values-hy.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "32",
+                        "startColumns": "4",
+                        "startOffsets": "3119",
+                        "endColumns": "100",
+                        "endOffsets": "3215"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\1163b087195aae7475630a59688ca90d\\navigation-ui-2.1.0\\res\\values-hy\\values-hy.xml",
                     "from": {
                         "startLines": "2,3",
@@ -35,23 +52,6 @@
                         "startOffsets": "105,213,313,423,512,618,735,817,898,989,1081,1176,1270,1371,1464,1559,1653,1744,1835,1917,2023,2129,2228,2338,2446,2547,2717,3037",
                         "endColumns": "107,99,109,88,105,116,81,80,90,91,94,93,100,92,94,93,90,90,81,105,105,98,109,107,100,169,96,81",
                         "endOffsets": "208,308,418,507,613,730,812,893,984,1076,1171,1265,1366,1459,1554,1648,1739,1830,1912,2018,2124,2223,2333,2441,2542,2712,2809,3114"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\7f464ad4e486d0c714a6d8a0a1f991d4\\core-1.1.0\\res\\values-hy\\values-hy.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "32",
-                        "startColumns": "4",
-                        "startOffsets": "3119",
-                        "endColumns": "100",
-                        "endOffsets": "3215"
                     }
                 }
             ]

@@ -30,5 +30,155 @@
         <attr name="text_color" />
         <attr name="isShow_tablayout" />
     </declare-styleable>
+    <!-- 圆角矩形背景色 -->
+    <attr name="rv_backgroundColor" format="color" />
+    <!-- 圆角矩形渐变开始背景色 -->
+    <attr name="rv_backgroundStartColor" format="color" />
+    <!-- 圆角矩形渐变结束背景色 -->
+    <attr name="rv_backgroundEndColor" format="color" />
+    <!-- 圆角矩形背景色press -->
+    <attr name="rv_backgroundPressColor" format="color" />
+    <!-- 圆角矩形渐变开始背景色press -->
+    <attr name="rv_backgroundPressStartColor" format="color" />
+    <!-- 圆角矩形渐变结束背景色press -->
+    <attr name="rv_backgroundPressEndColor" format="color" />
+    <!-- 圆角弧度,单位dp-->
+    <attr name="rv_cornerRadius" format="dimension" />
+    <!-- 圆角弧度,单位dp-->
+    <attr name="rv_strokeWidth" format="dimension" />
+    <!-- 圆角边框颜色-->
+    <attr name="rv_strokeColor" format="color" />
+    <!-- 圆角边框颜色press -->
+    <attr name="rv_strokePressColor" format="color" />
+    <!-- 圆角边框破折线的宽度 -->
+    <attr name="rv_strokeDashGap" format="dimension" />
+    <!-- 圆角边框空隙的宽度 -->
+    <attr name="rv_strokeDashWidth" format="dimension" />
+    <!-- 文字颜色press-->
+    <attr name="rv_textPressColor" format="color" />
+    <!-- 圆角弧度是高度一半-->
+    <attr name="rv_isRadiusHalfHeight" format="boolean" />
+    <!-- 圆角矩形宽高相等,取较宽高中大值-->
+    <attr name="rv_isWidthHeightEqual" format="boolean" />
+    <!-- 圆角弧度,单位dp,TopLeft-->
+    <attr name="rv_cornerRadius_TL" format="dimension" />
+    <!-- 圆角弧度,单位dp,TopRight-->
+    <attr name="rv_cornerRadius_TR" format="dimension" />
+    <!-- 圆角弧度,单位dp,BottomLeft-->
+    <attr name="rv_cornerRadius_BL" format="dimension" />
+    <!-- 圆角弧度,单位dp,BottomRight-->
+    <attr name="rv_cornerRadius_BR" format="dimension" />
+    <!-- 是否有Ripple效果,api21+有效-->
+    <attr name="rv_isRippleEnable" format="boolean" />
 
+    <declare-styleable name="RoundTextView">
+        <attr name="rv_backgroundColor" />
+        <attr name="rv_backgroundPressColor" />
+        <attr name="rv_cornerRadius" />
+        <attr name="rv_strokeWidth" />
+        <attr name="rv_strokeColor" />
+        <attr name="rv_strokePressColor" />
+        <attr name="rv_strokeDashGap" />
+        <attr name="rv_strokeDashWidth" />
+        <attr name="rv_textPressColor" />
+        <attr name="rv_isRadiusHalfHeight" />
+        <attr name="rv_isWidthHeightEqual" />
+        <attr name="rv_cornerRadius_TL" />
+        <attr name="rv_cornerRadius_TR" />
+        <attr name="rv_cornerRadius_BL" />
+        <attr name="rv_cornerRadius_BR" />
+        <attr name="rv_isRippleEnable" />
+        <attr name="rv_backgroundStartColor" />
+        <attr name="rv_backgroundEndColor" />
+        <attr name="rv_backgroundPressStartColor" />
+        <attr name="rv_backgroundPressEndColor" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundLinearLayout">
+        <attr name="rv_backgroundColor" />
+        <attr name="rv_backgroundPressColor" />
+        <attr name="rv_cornerRadius" />
+        <attr name="rv_strokeWidth" />
+        <attr name="rv_strokeColor" />
+        <attr name="rv_strokePressColor" />
+        <attr name="rv_strokeDashGap" />
+        <attr name="rv_strokeDashWidth" />
+        <attr name="rv_isRadiusHalfHeight" />
+        <attr name="rv_isWidthHeightEqual" />
+        <attr name="rv_cornerRadius_TL" />
+        <attr name="rv_cornerRadius_TR" />
+        <attr name="rv_cornerRadius_BL" />
+        <attr name="rv_cornerRadius_BR" />
+        <attr name="rv_isRippleEnable" />
+        <attr name="rv_backgroundStartColor" />
+        <attr name="rv_backgroundEndColor" />
+        <attr name="rv_backgroundPressStartColor" />
+        <attr name="rv_backgroundPressEndColor" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundRelativeLayout">
+        <attr name="rv_backgroundColor" />
+        <attr name="rv_backgroundPressColor" />
+        <attr name="rv_cornerRadius" />
+        <attr name="rv_strokeWidth" />
+        <attr name="rv_strokeColor" />
+        <attr name="rv_strokePressColor" />
+        <attr name="rv_strokeDashGap" />
+        <attr name="rv_strokeDashWidth" />
+        <attr name="rv_isRadiusHalfHeight" />
+        <attr name="rv_isWidthHeightEqual" />
+        <attr name="rv_cornerRadius_TL" />
+        <attr name="rv_cornerRadius_TR" />
+        <attr name="rv_cornerRadius_BL" />
+        <attr name="rv_cornerRadius_BR" />
+        <attr name="rv_isRippleEnable" />
+        <attr name="rv_backgroundStartColor" />
+        <attr name="rv_backgroundEndColor" />
+        <attr name="rv_backgroundPressStartColor" />
+        <attr name="rv_backgroundPressEndColor" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundFrameLayout">
+        <attr name="rv_backgroundColor" />
+        <attr name="rv_backgroundPressColor" />
+        <attr name="rv_cornerRadius" />
+        <attr name="rv_strokeWidth" />
+        <attr name="rv_strokeColor" />
+        <attr name="rv_strokePressColor" />
+        <attr name="rv_strokeDashGap" />
+        <attr name="rv_strokeDashWidth" />
+        <attr name="rv_isRadiusHalfHeight" />
+        <attr name="rv_isWidthHeightEqual" />
+        <attr name="rv_cornerRadius_TL" />
+        <attr name="rv_cornerRadius_TR" />
+        <attr name="rv_cornerRadius_BL" />
+        <attr name="rv_cornerRadius_BR" />
+        <attr name="rv_isRippleEnable" />
+        <attr name="rv_backgroundStartColor" />
+        <attr name="rv_backgroundEndColor" />
+        <attr name="rv_backgroundPressStartColor" />
+        <attr name="rv_backgroundPressEndColor" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundConstraintLayout">
+        <attr name="rv_backgroundColor" />
+        <attr name="rv_backgroundPressColor" />
+        <attr name="rv_cornerRadius" />
+        <attr name="rv_strokeWidth" />
+        <attr name="rv_strokeColor" />
+        <attr name="rv_strokePressColor" />
+        <attr name="rv_strokeDashGap" />
+        <attr name="rv_strokeDashWidth" />
+        <attr name="rv_isRadiusHalfHeight" />
+        <attr name="rv_isWidthHeightEqual" />
+        <attr name="rv_cornerRadius_TL" />
+        <attr name="rv_cornerRadius_TR" />
+        <attr name="rv_cornerRadius_BL" />
+        <attr name="rv_cornerRadius_BR" />
+        <attr name="rv_isRippleEnable" />
+        <attr name="rv_backgroundStartColor" />
+        <attr name="rv_backgroundEndColor" />
+        <attr name="rv_backgroundPressStartColor" />
+        <attr name="rv_backgroundPressEndColor" />
+    </declare-styleable>
 </resources>

@@ -3,11 +3,8 @@ package com.leshu.superbrain.ui.homemine
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff
-import android.graphics.drawable.ClipDrawable
-import android.graphics.drawable.ColorDrawable
-import android.view.Gravity
 import com.leshu.superbrain.R
-import com.leshu.superbrain.color
+import com.leshu.superbrain.ext.color
 import com.leshu.superbrain.ui.base.BaseFragment
 import com.leshu.superbrain.ui.member.LoginActivity
 import com.leshu.superbrain.util.GlideImageLoader

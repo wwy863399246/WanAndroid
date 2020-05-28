@@ -18,7 +18,6 @@ class LoginRepository  {
         if (result is ResultData.Success) {
             setLoggedInUser(result.data)
         }
-        Timber.tag("wangwuyuan").d(result.toString())
         return result
     }
     private fun setLoggedInUser(loggedInUser: User) {
