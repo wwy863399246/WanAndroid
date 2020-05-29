@@ -4,8 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import com.leshu.superbrain.data.bean.Article
 import com.leshu.superbrain.data.bean.Banner
 import com.leshu.superbrain.data.bean.base.ResultData
+import com.leshu.superbrain.data.repository.ArticleUserCase
 import com.leshu.superbrain.data.repository.MainRepository
 import com.leshu.superbrain.util.ListModel
+import com.leshu.superbrain.view.loadpage.LoadPageStatus
 import com.leshu.superbrain.vm.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,8 +19,10 @@ import kotlinx.coroutines.withContext
  */
 class MainViewModel : BaseViewModel() {
     private val mainRepository by lazy { MainRepository() }
+    private val articleUserCase by lazy { ArticleUserCase() }
     val mBanner: MutableLiveData<List<Banner>> = MutableLiveData()
     val mListModel = MutableLiveData<ListModel<Article>>()
+    private val loadPageStatus = MutableLiveData<LoadPageStatus>()
     val mStickArticles = MutableLiveData<List<Article>>()
     fun loadBanner() = launchUI {
         val result = withContext(Dispatchers.IO) { mainRepository.getBanners() }
@@ -28,7 +32,13 @@ class MainViewModel : BaseViewModel() {
     }
 
     fun loadHomeArticles(isRefresh: Boolean = false) = launchUI {
-        withContext(Dispatchers.IO) { mainRepository.getHomeArticles(isRefresh, mListModel) }
+        withContext(Dispatchers.IO) {
+            articleUserCase.getHomeArticleList(
+                isRefresh,
+                mListModel,
+                loadPageStatus
+            )
+        }
     }
 
     fun loadStickArticles() = launchUI {

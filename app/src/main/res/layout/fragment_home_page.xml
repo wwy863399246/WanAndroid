@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/firstPageRv"
+        android:id="@+id/ArticleRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_FFFFFF"

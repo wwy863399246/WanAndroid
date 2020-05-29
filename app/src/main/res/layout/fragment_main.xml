@@ -16,7 +16,7 @@
             app:isShow_tablayout="true"
             app:isShow_left_img="false"/>
     <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/home_page_vp"
+            android:id="@+id/homePageVp"
             app:layout_constraintTop_toBottomOf="@id/navigation_bar_view"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

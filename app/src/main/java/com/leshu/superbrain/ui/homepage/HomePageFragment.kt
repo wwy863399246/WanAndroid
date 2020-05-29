@@ -46,7 +46,7 @@ class HomePageFragment : BaseVMFragment<MainViewModel>(), OnLoadMoreListener {
             noNetTextView().onClick { refresh() }
         }
 
-        firstPageRv.run {
+        ArticleRv.run {
             layoutManager = LinearLayoutManager(activity)
             adapter = homePageAdapter
         }

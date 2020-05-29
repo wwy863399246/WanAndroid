@@ -30,7 +30,7 @@ abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        initVM()
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -43,7 +43,6 @@ abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
     }
 
     override fun onFragmentFirstVisible() {
-        initVM()
         super.onFragmentFirstVisible()
         startObserve()
     }

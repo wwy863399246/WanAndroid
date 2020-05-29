@@ -1735,6 +1735,7 @@ drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
+id ArticleRv
 id BOTTOM_END
 id BOTTOM_START
 id BaseQuickAdapter_databinding_support
@@ -1887,7 +1888,6 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
-id firstPageRv
 id fitToContents
 id fixed
 id fl_container
@@ -1902,9 +1902,9 @@ id groups
 id hideable
 id home
 id homeAsUp
+id homePageVp
 id home_mine
 id home_page
-id home_page_vp
 id home_syetem_viewpage
 id home_system
 id horizontal
@@ -2143,9 +2143,11 @@ id useLogo
 id userNameLayout
 id vertical
 id viewDivision
+id viewMainProject
 id view_offset_helper
 id view_user_bg
 id visible
+id vpMainProject
 id wechat_official_account
 id withText
 id wrap
@@ -2420,6 +2422,7 @@ string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
+string newest_project
 string official_account
 string password
 string password_toggle_content_description

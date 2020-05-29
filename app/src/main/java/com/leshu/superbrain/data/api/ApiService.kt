@@ -48,14 +48,14 @@ interface ApiService {
      * 根据分类id获取项目数据
      */
     @GET("/project/list/{page}/json")
-    fun getProjectDataByType(
+    suspend fun getProjectDataByType(
         @Path("page") pageNo: Int,
         @Query("cid") cid: Int
-    ): WanResponse<WanListResponse<MutableList<AriticleResponse>>>
+    ): WanResponse<WanListResponse<List<Article>>>
 
     /**
      * 获取最新项目数据
      */
     @GET("/article/listproject/{page}/json")
-    fun getProjecNewData(@Path("page") pageNo: Int): WanResponse<WanListResponse<MutableList<AriticleResponse>>>
+    suspend fun getProjecNewData(@Path("page") pageNo: Int): WanResponse<WanListResponse<List<Article>>>
 }

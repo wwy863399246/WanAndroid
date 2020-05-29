@@ -4,13 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/viewMainProject"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.angcyo.tablayout.DslTabLayout
         android:id="@+id/tlMainProject"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
         android:background="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewMainProject"
         app:tab_deselect_color="@color/color_B3_F"
         app:tab_draw_indicator="true"
         app:tab_indicator_anim="true"
@@ -19,10 +29,23 @@
         app:tab_indicator_enable_flow="true"
         app:tab_indicator_height="2dp"
         app:tab_indicator_radius="2dp"
-        app:tab_indicator_y_offset="1dp"
+        app:tab_indicator_y_offset="0dp"
         app:tab_indicator_style="STYLE_BOTTOM"
         app:tab_indicator_width="WRAP_CONTENT"
+        app:tab_enable_text_bold="true"
+        app:tab_enable_gradient_text_size="true"
+        app:tab_text_max_size="16sp"
+        app:tab_text_min_size="14sp"
         app:tab_select_color="@color/color_FFFFFF" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpMainProject"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewMainProject" />
 
     <com.leshu.superbrain.view.loadpage.LoadPageView
         android:id="@+id/llMainProjectLoadPageView"
