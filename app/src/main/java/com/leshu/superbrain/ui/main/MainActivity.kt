@@ -4,12 +4,10 @@ import androidx.fragment.app.Fragment
 import com.leshu.superbrain.R
 import com.leshu.superbrain.ui.base.BaseActivity
 import com.leshu.superbrain.ui.homemine.HomeMineFragment
-import com.leshu.superbrain.ui.homepage.HomePageFragment
 import com.leshu.superbrain.ui.homesyetem.HomeSystemFragment
-import com.leshu.superbrain.ui.officialaccount.OfficialAccountFragment
+import com.leshu.superbrain.ui.homeplaza.MainPlazaFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import android.os.Bundle
-import com.coder.zzq.smartshow.toast.SmartToast
 import com.leshu.superbrain.ui.homepage.MainFragment
 
 
@@ -36,7 +34,7 @@ class MainActivity : BaseActivity() {
         fragments.apply {
             add(MainFragment())
             add(HomeSystemFragment())
-            add(OfficialAccountFragment())
+            add(MainPlazaFragment())
             add(HomeMineFragment())
         }
         if (savedInstanceState == null) {
@@ -49,7 +47,7 @@ class MainActivity : BaseActivity() {
             when (menuItem.itemId) {
                 R.id.home_page -> setSelectedFragment(0)
                 R.id.home_system -> setSelectedFragment(1)
-                R.id.wechat_official_account -> setSelectedFragment(2)
+                R.id.home_plaza -> setSelectedFragment(2)
                 R.id.home_mine -> setSelectedFragment(3)
             }
 

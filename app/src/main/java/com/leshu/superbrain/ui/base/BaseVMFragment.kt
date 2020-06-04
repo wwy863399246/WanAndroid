@@ -21,13 +21,6 @@ import java.lang.Exception
  */
 abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
     protected lateinit var mViewModel: VM
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(setLayoutResId(), container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initVM()

@@ -24,7 +24,7 @@ class MainFragment : BaseFragment() {
                 context?.getString(R.string.home_page),
                 context?.getString(R.string.home_project)
             )
-        navigation_bar_view.setTabLayoutData(mHomePageTabLayout, homePageVp)
+        homePagNv.setTabLayoutData(mHomePageTabLayout, homePageVp)
     }
 
     override fun initView() {

@@ -14,18 +14,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@id/home_page"
-        android:icon="@drawable/ic_home_page"
+        android:icon="@drawable/ic_home_page_balck_24dp"
         android:title="@string/home_page" />
     <item
         android:id="@id/home_system"
-        android:icon="@drawable/ic_home_system"
+        android:icon="@drawable/ic_home_system_balck_24dp"
         android:title="@string/home_system" />
     <item
-        android:id="@id/wechat_official_account"
-        android:icon="@drawable/ic_wechat_official_account"
-        android:title="@string/official_account" />
+        android:id="@id/home_plaza"
+        android:icon="@drawable/ic_home_people_black_24dp"
+        android:title="@string/home_plaza" />
     <item
         android:id="@id/home_mine"
-        android:icon="@drawable/ic_home_mine"
+        android:icon="@drawable/ic_home_mine_balck_24dp"
         android:title="@string/home_mine" />
 </menu>

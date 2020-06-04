@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.paging:paging-common-ktx:2.1.2@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.paging/paging-common-ktx/2.1.2/3acd13bd21e696857fe39989070c1018ec79166a/paging-common-ktx-2.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.paging/paging-common-ktx/2.1.2/f995116e57c228fca8fc39934cefda9a399b272b/paging-common-ktx-2.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

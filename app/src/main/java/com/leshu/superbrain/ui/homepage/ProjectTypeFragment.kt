@@ -11,13 +11,13 @@ import com.leshu.superbrain.ui.base.BaseVMFragment
 import com.leshu.superbrain.view.loadpage.BasePageStateView
 import com.leshu.superbrain.view.loadpage.LoadPageView
 import com.leshu.superbrain.view.loadpage.SimpleLoadPageView
-import kotlinx.android.synthetic.main.fragment_home_page.*
+import com.leshu.superbrain.vm.HomeProjectViewModel
+import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import timber.log.Timber
 
-class ProjectTypeFragment : BaseVMFragment<ProjectViewModel>(), OnLoadMoreListener {
-    override fun providerVMClass(): Class<ProjectViewModel>? = ProjectViewModel::class.java
-    override fun setLayoutResId(): Int = R.layout.fragment_home_page
+class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreListener {
+    override fun providerVMClass(): Class<HomeProjectViewModel>? = HomeProjectViewModel::class.java
+    override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     private val cid by lazy { arguments?.getInt(CID) }// cid==0是最新项目 否项目分类
     private val homePageAdapter = HomePageAdapter()
     private val loadPageView: BasePageStateView = SimpleLoadPageView()

@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.angcyo.tablayout.delegate2.ViewPager2Delegate
-import com.coder.zzq.smartshow.toast.SmartToast
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.leshu.superbrain.R
 import com.leshu.superbrain.adapter.MyFragmentPagerAdapter
@@ -15,6 +14,7 @@ import com.leshu.superbrain.ext.inflate
 import com.leshu.superbrain.ui.base.BaseVMFragment
 import com.leshu.superbrain.view.loadpage.BasePageStateView
 import com.leshu.superbrain.view.loadpage.SimpleLoadPageView
+import com.leshu.superbrain.vm.HomeProjectViewModel
 import kotlinx.android.synthetic.main.fragment_main_project.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
@@ -23,9 +23,9 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
  *@创建时间 2019/9/17 11:58
  *@描述
  */
-class MainProjectFragment : BaseVMFragment<ProjectViewModel>() {
+class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
     private val mFragmentList = mutableListOf<Fragment>()
-    override fun providerVMClass(): Class<ProjectViewModel>? = ProjectViewModel::class.java
+    override fun providerVMClass(): Class<HomeProjectViewModel>? = HomeProjectViewModel::class.java
     override fun setLayoutResId(): Int = R.layout.fragment_main_project
     private val loadPageView: BasePageStateView = SimpleLoadPageView()
     override fun initView() {

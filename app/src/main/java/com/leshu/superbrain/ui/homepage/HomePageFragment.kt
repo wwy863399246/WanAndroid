@@ -1,6 +1,5 @@
 package com.leshu.superbrain.ui.homepage
 
-import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -14,27 +13,25 @@ import com.leshu.superbrain.data.bean.Article
 import com.leshu.superbrain.ui.base.BaseVMFragment
 import com.leshu.superbrain.view.HomePageHeadView
 import com.leshu.superbrain.view.loadpage.*
-import com.leshu.superbrain.vm.MainViewModel
-import kotlinx.android.synthetic.main.fragment_home_page.*
+import com.leshu.superbrain.vm.HomePageViewModel
+import kotlinx.android.synthetic.main.fragment_recycleview.*
 import kotlinx.android.synthetic.main.layout_banner.*
-import kotlinx.android.synthetic.main.layout_banner.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import timber.log.Timber
 
 /**
  *@创建者wwy
  *@创建时间 2019/9/17 11:58
  *@描述
  */
-class HomePageFragment : BaseVMFragment<MainViewModel>(), OnLoadMoreListener {
+class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener {
     private val homePageAdapter = HomePageAdapter()
     private val homePageStickAdapter = HomePageStickAdapter()
 
     private val loadPageView: BasePageStateView = SimpleLoadPageView()
     private lateinit var rootView: LoadPageView
     private lateinit var homePageHeadView: HomePageHeadView
-    override fun providerVMClass(): Class<MainViewModel>? = MainViewModel::class.java
-    override fun setLayoutResId(): Int = R.layout.fragment_home_page
+    override fun providerVMClass(): Class<HomePageViewModel>? = HomePageViewModel::class.java
+    override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     override fun initData() {
         refresh()
     }
