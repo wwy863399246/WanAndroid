@@ -14,13 +14,14 @@ import com.leshu.superbrain.view.loadpage.SimpleLoadPageView
 import com.leshu.superbrain.vm.HomeProjectViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreListener {
-    override fun providerVMClass(): Class<HomeProjectViewModel>? = HomeProjectViewModel::class.java
+    override fun initVM(): HomeProjectViewModel = getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     private val cid by lazy { arguments?.getInt(CID) }// cid==0是最新项目 否项目分类
     private val homePageAdapter = HomePageAdapter()
-    private val loadPageView: BasePageStateView = SimpleLoadPageView()
+    private val loadPageView : BasePageStateView = SimpleLoadPageView()
     private lateinit var rootView: LoadPageView
     private var i: Int = 0
 
@@ -37,16 +38,16 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
 
     override fun initView() {
         rootView = activity?.let { activity -> loadPageView.getRootView(activity) } as LoadPageView
-        rootView.run {
+        rootView.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }
 
-        ArticleRv.run {
+        ArticleRv.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = homePageAdapter
         }
-        homePageAdapter.run {
+        homePageAdapter.apply {
             loadMoreModule.setOnLoadMoreListener(this@ProjectTypeFragment)
             isAnimationFirstOnly = true
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
@@ -58,7 +59,7 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
     override fun startObserve() {
         mViewModel.apply {
             mProjectListModel.observe(this@ProjectTypeFragment, Observer {
-                if (it.isRefresh) refreshLayout.finishRefresh(it.showLoading)
+                if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
                     loadPageView.convert(
@@ -68,7 +69,8 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
                     homePageAdapter.setEmptyView(rootView)
                 }
                 it.showSuccess?.let { list ->
-                    homePageAdapter.run {
+                    homePageAdapter.apply {
+                        loadMoreModule.isEnableLoadMore = false
                         if (it.isRefresh) setList(list) else addData(list)
                         loadMoreModule.isEnableLoadMore = true
                         loadMoreModule.loadMoreComplete()
@@ -95,5 +97,6 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
     override fun onLoadMore() {
         cid?.let { mViewModel.loadProjectArticles(false, it) }
     }
+
 
 }

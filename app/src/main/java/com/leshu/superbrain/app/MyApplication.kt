@@ -9,6 +9,10 @@ import com.leshu.superbrain.BuildConfig
 import com.leshu.superbrain.R
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import timber.log.Timber
 import kotlin.properties.Delegates
 
@@ -26,8 +30,13 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         CONTEXT = applicationContext
-        if(BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
+        }
+        startKoin {
+            androidLogger(Level.INFO)
+            androidContext(this@MyApplication)
+            modules(appModule)
         }
         //设置全局的Header构建器
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->

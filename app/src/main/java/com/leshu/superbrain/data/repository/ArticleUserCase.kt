@@ -3,16 +3,13 @@ package com.leshu.superbrain.data.repository
 import androidx.lifecycle.MutableLiveData
 import com.leshu.superbrain.data.bean.Article
 import com.leshu.superbrain.data.bean.base.ResultData
-import com.leshu.superbrain.data.repository.datasource.HomeRemoteDataSource
-import com.leshu.superbrain.data.repository.datasource.ProjectRemoteDataSource
+import com.leshu.superbrain.data.repository.datasource.RemoteDataSource
 import com.leshu.superbrain.util.ListModel
 import com.leshu.superbrain.view.loadpage.LoadPageStatus
 import java.net.UnknownHostException
 
-class ArticleUserCase {
+class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
     private var currentPage = 0
-    private val homeRemoteDataSource by lazy { HomeRemoteDataSource() }
-    private val projectRemoteDataSource by lazy { ProjectRemoteDataSource() }
 
     sealed class ArticleType {
         object Home : ArticleType()                 // 首页
@@ -76,19 +73,20 @@ class ArticleUserCase {
         loadPageStatus: MutableLiveData<LoadPageStatus>,
         cid: Int = 0
     ) {
-        if (currentPage == 0) {//开始加载
-            loadPageStatus.postValue(LoadPageStatus.Loading)
-            listModel?.postValue(ListModel(loadPageStatus = loadPageStatus))
-        }
-        if (isRefresh) currentPage = 0
+        loadPageStatus.postValue(LoadPageStatus.Loading)
+        listModel?.postValue(ListModel(loadPageStatus = loadPageStatus))
+        if (isRefresh) currentPage = if (articleType is ArticleType.ProjectDetailList) 1 else 0
         val result = when (articleType) {
-            ArticleType.Home -> homeRemoteDataSource.getHomeArticles(currentPage)
-            ArticleType.Square -> homeRemoteDataSource.getHomeArticles(currentPage)
-            ArticleType.LatestProject -> projectRemoteDataSource.getLatestProjectList(currentPage)
-            ArticleType.ProjectDetailList -> projectRemoteDataSource.getProjectTypeDetailList(currentPage,cid)
-            ArticleType.Collection -> homeRemoteDataSource.getHomeArticles(currentPage)
-            ArticleType.SystemType -> homeRemoteDataSource.getHomeArticles(currentPage)
-            ArticleType.Blog -> homeRemoteDataSource.getHomeArticles(currentPage)
+            ArticleType.Home -> remoteDataSource.getHomeArticles(currentPage)
+            ArticleType.Square -> remoteDataSource.getSquareArticleList(currentPage)
+            ArticleType.LatestProject -> remoteDataSource.getLatestProjectList(currentPage)
+            ArticleType.ProjectDetailList -> remoteDataSource.getProjectTypeDetailList(
+                currentPage,
+                cid
+            )
+            ArticleType.Collection -> remoteDataSource.getHomeArticles(currentPage)
+            ArticleType.SystemType -> remoteDataSource.getHomeArticles(currentPage)
+            ArticleType.Blog -> remoteDataSource.getHomeArticles(currentPage)
         }
         if (result is ResultData.Success) {
             val data = result.data
@@ -96,7 +94,7 @@ class ArticleUserCase {
                 loadPageStatus.postValue(LoadPageStatus.Empty) //显示空界面
                 listModel?.postValue(
                     ListModel(
-                        showLoading = false,
+                        isRefreshSuccess = false,
                         loadPageStatus = loadPageStatus,
                         isRefresh = isRefresh
                     )
@@ -106,7 +104,7 @@ class ArticleUserCase {
             if (data.offset >= data.total) {//最后一页 showLoading 可以用来加载dialog
                 listModel?.postValue(
                     ListModel(
-                        showLoading = false,
+                        isRefreshSuccess = true,
                         showEnd = true,
                         isRefresh = isRefresh
                     )
@@ -116,7 +114,7 @@ class ArticleUserCase {
             currentPage++
             listModel?.postValue(
                 ListModel(
-                    showLoading = false,
+                    isRefreshSuccess = true,
                     showSuccess = result.data.datas,
                     isRefresh = isRefresh
                 )
@@ -129,7 +127,7 @@ class ArticleUserCase {
             }
             listModel?.postValue(
                 ListModel(
-                    showLoading = false,
+                    isRefreshSuccess = false,
                     showError = result.exception.message,
                     loadPageStatus = loadPageStatus,
                     isRefresh = isRefresh

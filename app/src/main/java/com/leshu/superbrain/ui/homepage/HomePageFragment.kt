@@ -17,6 +17,7 @@ import com.leshu.superbrain.vm.HomePageViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import kotlinx.android.synthetic.main.layout_banner.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
  *@创建者wwy
@@ -27,10 +28,10 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
     private val homePageAdapter = HomePageAdapter()
     private val homePageStickAdapter = HomePageStickAdapter()
 
-    private val loadPageView: BasePageStateView = SimpleLoadPageView()
+    private val loadPageView : BasePageStateView = SimpleLoadPageView()
     private lateinit var rootView: LoadPageView
     private lateinit var homePageHeadView: HomePageHeadView
-    override fun providerVMClass(): Class<HomePageViewModel>? = HomePageViewModel::class.java
+    override fun initVM(): HomePageViewModel =getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     override fun initData() {
         refresh()
@@ -38,16 +39,16 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
 
     override fun initView() {
         rootView = activity?.let { activity -> loadPageView.getRootView(activity) } as LoadPageView
-        rootView.run {
+        rootView.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }
 
-        ArticleRv.run {
+        ArticleRv.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = homePageAdapter
         }
-        homePageAdapter.run {
+        homePageAdapter.apply {
             homePageHeadView = HomePageHeadView(activity, homePageStickAdapter)
             loadMoreModule.setOnLoadMoreListener(this@HomePageFragment)
             isAnimationFirstOnly = true
@@ -66,7 +67,7 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
     override fun startObserve() {
         mViewModel.apply {
             mListModel.observe(this@HomePageFragment, Observer {
-                if (it.isRefresh) refreshLayout.finishRefresh(it.showLoading)
+                if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
                     loadPageView.convert(
@@ -126,4 +127,5 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
             }
         }
     }
+
 }

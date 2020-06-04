@@ -17,11 +17,12 @@ import kotlinx.coroutines.withContext
  *@创建时间 2019/11/12 9:31
  *@描述
  */
-class HomeProjectViewModel : BaseViewModel() {
-    private val projectRepository by lazy { ProjectRepository() }
-    private val articleUserCase by lazy { ArticleUserCase() }
-    val mMainProjectListModel = MutableLiveData<ListModel<ClassifyResponse>>()
+class HomeProjectViewModel(
+    private val projectRepository: ProjectRepository,
+    private val articleUserCase: ArticleUserCase
+) : BaseViewModel() {
 
+    val mMainProjectListModel = MutableLiveData<ListModel<ClassifyResponse>>()
     val mProjectListModel = MutableLiveData<ListModel<Article>>()
     private val mProjectLoadPageStatus = MutableLiveData<LoadPageStatus>()
     fun loadProjectClassify() = launchUI {

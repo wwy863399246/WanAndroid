@@ -1,4 +1,4 @@
-package com.leshu.superbrain.ui.member
+package com.leshu.superbrain.vm
 
 import androidx.lifecycle.MutableLiveData
 import com.leshu.superbrain.data.bean.User
@@ -12,8 +12,8 @@ import timber.log.Timber
  *@创建时间 2019/10/28 16:03
  *@描述
  */
-class LoginViewModel : BaseViewModel() {
-    private val repository by lazy { LoginRepository() }
+class LoginViewModel(private val repository: LoginRepository): BaseViewModel() {
+
     val user: MutableLiveData<User> = MutableLiveData()
     fun login(username: String, password: String) {
         Timber.tag("wangwuyuan").e("点击了")

@@ -57,5 +57,23 @@ interface ApiService {
      * 获取最新项目数据
      */
     @GET("/article/listproject/{page}/json")
-    suspend fun getProjecNewData(@Path("page") pageNo: Int): WanResponse<WanListResponse<List<Article>>>
+    suspend fun getProjectNewData(@Path("page") pageNo: Int): WanResponse<WanListResponse<MutableList<Article>>>
+
+    /**
+     * 获取广场数据
+     */
+    @GET("/user_article/list/{page}/json")
+    suspend fun getSquareArticleList(@Path("page") page: Int): WanResponse<WanListResponse<MutableList<Article>>>
+
+    /**
+     * 获取公众号分类
+     */
+    @GET("/wxarticle/chapters/json")
+    suspend fun getBlogType(): WanResponse<MutableList<ClassifyResponse>>
+
+    /**
+     * 获取公众号分类下的数据
+     */
+    @GET("/wxarticle/list/{id}/{page}/json")
+    fun getBlogArticle(@Path("id") id: Int, @Path("page") page: Int): WanResponse<WanListResponse<MutableList<Article>>>
 }

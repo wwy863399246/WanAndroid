@@ -2,7 +2,6 @@ package com.leshu.superbrain.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.leshu.superbrain.R
 
 /**
  *@创建者wwy
@@ -15,6 +14,10 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
+        initActivity(savedInstanceState)
+    }
+
+    protected open fun  initActivity(savedInstanceState: Bundle?) {
         initView(savedInstanceState)
         initData()
     }

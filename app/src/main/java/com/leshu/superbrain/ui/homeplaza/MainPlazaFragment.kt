@@ -1,11 +1,11 @@
 package com.leshu.superbrain.ui.homeplaza
 
+import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.leshu.superbrain.R
 import com.leshu.superbrain.adapter.MyFragmentPagerAdapter
 import com.leshu.superbrain.ui.base.BaseFragment
-import com.leshu.superbrain.ui.homepage.HomePageFragment
-import com.leshu.superbrain.ui.homepage.MainProjectFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_plaza.*
 
@@ -19,7 +19,10 @@ class MainPlazaFragment : BaseFragment() {
 
 
     override fun initView() {
-        val fragments = listOf(HomePlazaFragment(), MainWechatNumFragment())
+        LiveEventBus.get("MAIN_PLAZA_CUT").observe(this, Observer {
+            homePlazaVp.setCurrentItem(0, true)
+        })
+        val fragments = listOf(HomePlazaFragment(), MainWeChatNumFragment())
         homePlazaVp.adapter = activity?.let { MyFragmentPagerAdapter(it, fragments) }
         val mHomePlazaTabLayout =
             arrayOf(

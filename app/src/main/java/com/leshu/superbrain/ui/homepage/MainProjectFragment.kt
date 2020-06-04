@@ -17,6 +17,7 @@ import com.leshu.superbrain.view.loadpage.SimpleLoadPageView
 import com.leshu.superbrain.vm.HomeProjectViewModel
 import kotlinx.android.synthetic.main.fragment_main_project.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
  *@创建者wwy
@@ -24,9 +25,9 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
  *@描述
  */
 class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
-    private val mFragmentList = mutableListOf<Fragment>()
-    override fun providerVMClass(): Class<HomeProjectViewModel>? = HomeProjectViewModel::class.java
+    override fun initVM(): HomeProjectViewModel = getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_main_project
+    private val mFragmentList = mutableListOf<Fragment>()
     private val loadPageView: BasePageStateView = SimpleLoadPageView()
     override fun initView() {
         llMainProjectLoadPageView.failTextView().onClick { mViewModel.loadProjectClassify() }
@@ -44,6 +45,7 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
                     oldPosition = currentPosition
                 }
             }
+
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
@@ -57,20 +59,20 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
     }
 
     override fun initData() {
-        mViewModel.run {
+        mViewModel.apply {
             mMainProjectListModel.observe(this@MainProjectFragment, Observer { it ->
                 it.loadPageStatus?.value?.let { loadPageStatus ->
                     llMainProjectLoadPageView.visibility = View.VISIBLE
                     loadPageView.convert(llMainProjectLoadPageView, loadPageStatus)
                 }
-                it.showSuccess?.let {
+                it.showSuccess?.let { list ->
                     mFragmentList.clear()
                     val classifyResponse = ClassifyResponse(
                         null, 0, 0, getString(R.string.newest_project), 0, 0, false, 0
                     )
                     llMainProjectLoadPageView.visibility = View.GONE
                     tlMainProject.removeAllViews()
-                    it.toMutableList().apply {
+                    list.toMutableList().apply {
                         add(0, classifyResponse)
                         forEach {
                             tlMainProject.inflate(R.layout.layout_project_tab, false).apply {
@@ -89,4 +91,5 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
             })
         }
     }
+
 }

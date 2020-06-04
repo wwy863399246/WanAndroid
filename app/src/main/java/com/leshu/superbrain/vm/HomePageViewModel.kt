@@ -17,9 +17,7 @@ import kotlinx.coroutines.withContext
  *@创建时间 2020/1/13 14:24
  *@描述
  */
-class HomePageViewModel : BaseViewModel() {
-    private val mainRepository by lazy { MainRepository() }
-    private val articleUserCase by lazy { ArticleUserCase() }
+class HomePageViewModel(private val mainRepository : MainRepository, private val articleUserCase:ArticleUserCase) : BaseViewModel() {
     val mBanner: MutableLiveData<List<Banner>> = MutableLiveData()
     val mListModel = MutableLiveData<ListModel<Article>>()
     private val loadPageStatus = MutableLiveData<LoadPageStatus>()

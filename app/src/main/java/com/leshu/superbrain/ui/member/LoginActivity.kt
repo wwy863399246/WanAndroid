@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.leshu.superbrain.R
 import com.leshu.superbrain.ui.base.BaseVMActivity
+import com.leshu.superbrain.vm.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 import timber.log.Timber
 
 /**
@@ -13,12 +15,14 @@ import timber.log.Timber
  *@描述
  */
 class LoginActivity : BaseVMActivity<LoginViewModel>() {
-    override fun providerVMClass(): Class<LoginViewModel>? = LoginViewModel::class.java
     override fun setLayoutId(): Int = R.layout.activity_login
-
+    override fun initVM(): LoginViewModel = getViewModel()
     override fun initView(savedInstanceState: Bundle?) {
         loginButton.setOnClickListener {
-            mViewModel.login(userNameLayout.editText?.text.toString(), pswLayout.editText?.text.toString())
+            mViewModel.login(
+                userNameLayout.editText?.text.toString(),
+                pswLayout.editText?.text.toString()
+            )
         }
     }
 
@@ -28,11 +32,12 @@ class LoginActivity : BaseVMActivity<LoginViewModel>() {
     }
 
     override fun startObserve() {
-        super.startObserve()
         mViewModel.apply {
             user.observe(this@LoginActivity, Observer {
                 Timber.tag("wangwuyuan").d(user.value.toString())
             })
         }
     }
+
+
 }

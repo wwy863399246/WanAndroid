@@ -1,13 +1,7 @@
 package com.leshu.superbrain.ui.base
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.leshu.superbrain.vm.base.BaseViewModel
-import kotlinx.coroutines.TimeoutCancellationException
-import retrofit2.HttpException
-import timber.log.Timber
-import java.lang.Exception
 
 /**
  *@创建者wwy
@@ -21,36 +15,14 @@ import java.lang.Exception
  */
 abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
     lateinit var mViewModel: VM
-    override fun onCreate(savedInstanceState: Bundle?) {
-        initVM()
-        super.onCreate(savedInstanceState)
+
+    override fun initActivity(savedInstanceState: Bundle?) {
+        mViewModel = initVM()
         startObserve()
+        super.initActivity(savedInstanceState)
     }
 
-    /**
-     * [BaseViewModel]的实现类
-     */
-    open fun providerVMClass(): Class<VM>? = null
+    abstract fun initVM(): VM
 
-    /**
-     *  如果要只对非空值执行某个操作，安全调用操作符可以与 let 一起使用：
-     */
-    private fun initVM() {
-        providerVMClass()?.let { it ->
-            mViewModel = ViewModelProviders.of(this).get(it)
-            mViewModel.let { lifecycle::addObserver }
-        }
-    }
-
-    open fun startObserve() {
-
-    }
-
-    override fun onDestroy() {
-        mViewModel.let {
-            lifecycle.removeObserver(it)
-        }
-        super.onDestroy()
-    }
-
+    abstract fun startObserve()
 }

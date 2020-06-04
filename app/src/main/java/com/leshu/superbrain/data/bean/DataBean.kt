@@ -34,6 +34,7 @@ data class Article(
     val tags: Any, // Not sure
     val userId: Int
 ) : Serializable
+
 /**
  * Banner
  */
@@ -61,3 +62,4 @@ data class ClassifyResponse(
     val userControlSetTop: Boolean,
     val visible: Int
 ) : Serializable
+
