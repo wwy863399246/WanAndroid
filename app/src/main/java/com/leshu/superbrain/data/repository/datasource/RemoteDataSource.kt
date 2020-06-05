@@ -59,7 +59,7 @@ class RemoteDataSource {
      * 广场数据源
      *  @param getSquareArticleList 广场列表数据
      *  @param getBlogType 公众号分类
-     *  @param getProjectTypeDetailList 项目tab下数据
+     *  @param getBlogArticle 项目tab下数据
      */
     suspend fun getSquareArticleList(page: Int) = safeApiCall(
         call = { requestSquareArticleList(page) }
@@ -67,6 +67,10 @@ class RemoteDataSource {
 
     suspend fun getBlogType() = safeApiCall(
         call = { requestBlogType() }
+    )
+
+    suspend fun getBlogDataByType(id: Int, page: Int) = safeApiCall(
+        call = { requestBlogDataByType(id, page) }
     )
 
     private suspend fun requestSquareArticleList(page: Int): ResultData<WanListResponse<MutableList<Article>>> {
@@ -83,6 +87,17 @@ class RemoteDataSource {
             return ResultData.Success(blogType.data)
         }
         return ResultData.Error(IOException("Failed to get blogType${blogType.errorMsg}"))
+    }
+
+    private suspend fun requestBlogDataByType(
+        id: Int,
+        page: Int
+    ): ResultData<WanListResponse<MutableList<Article>>> {
+        val blogDataByType = RetrofitClient(WAN_ANDROID).service.getBlogDataByType(id, page)
+        if (blogDataByType.errorCode == 0) {
+            return ResultData.Success(blogDataByType.data)
+        }
+        return ResultData.Error(IOException("Failed to get blogDataByType${blogDataByType.errorMsg}"))
     }
 
     /**

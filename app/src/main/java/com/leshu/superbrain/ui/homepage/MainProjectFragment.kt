@@ -75,9 +75,11 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
                     list.toMutableList().apply {
                         add(0, classifyResponse)
                         forEach {
-                            tlMainProject.inflate(R.layout.layout_project_tab, false).apply {
-                                findViewById<TextView>(R.id.tvTabLayoutTitle)?.text = it.name
-                                tlMainProject.addView(this)
+                            tlMainProject?.let { tlMainProject ->
+                                tlMainProject.inflate(R.layout.layout_project_tab, false).apply {
+                                    findViewById<TextView>(R.id.tvTabLayoutTitle)?.text = it.name
+                                    tlMainProject.addView(this)
+                                }
                             }
                             mFragmentList.add(
                                 ProjectTypeFragment.newInstance(it.id)

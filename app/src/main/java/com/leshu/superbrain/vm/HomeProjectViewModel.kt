@@ -48,8 +48,6 @@ class HomeProjectViewModel(
                     )
                 }
             }
-
-
         }
     }
 

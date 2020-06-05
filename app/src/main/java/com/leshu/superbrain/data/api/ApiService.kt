@@ -75,5 +75,8 @@ interface ApiService {
      * 获取公众号分类下的数据
      */
     @GET("/wxarticle/list/{id}/{page}/json")
-    fun getBlogArticle(@Path("id") id: Int, @Path("page") page: Int): WanResponse<WanListResponse<MutableList<Article>>>
+    suspend fun getBlogDataByType(
+        @Path("id") id: Int,
+        @Path("page") page: Int
+    ): WanResponse<WanListResponse<MutableList<Article>>>
 }

@@ -86,7 +86,7 @@ class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
             )
             ArticleType.Collection -> remoteDataSource.getHomeArticles(currentPage)
             ArticleType.SystemType -> remoteDataSource.getHomeArticles(currentPage)
-            ArticleType.Blog -> remoteDataSource.getHomeArticles(currentPage)
+            ArticleType.Blog -> remoteDataSource.getBlogDataByType(cid,currentPage)
         }
         if (result is ResultData.Success) {
             val data = result.data

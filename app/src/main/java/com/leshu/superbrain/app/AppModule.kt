@@ -15,7 +15,7 @@ val viewModelModule = module {
     viewModel { HomePageViewModel(get(), get()) }
     viewModel { HomeProjectViewModel(get(), get()) }
     viewModel { HomePlazaViewModel(get()) }
-    viewModel { WeChatNumViewModel(get()) }
+    viewModel { WeChatNumViewModel(get(),get()) }
     viewModel { LoginViewModel(get()) }
 }
 val repositoryModule = module {

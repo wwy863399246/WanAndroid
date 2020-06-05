@@ -1,4 +1,4 @@
-package com.leshu.superbrain.ui.homepage
+package com.leshu.superbrain.ui.homeplaza
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -11,24 +11,24 @@ import com.leshu.superbrain.ui.base.BaseVMFragment
 import com.leshu.superbrain.view.loadpage.BasePageStateView
 import com.leshu.superbrain.view.loadpage.LoadPageView
 import com.leshu.superbrain.view.loadpage.SimpleLoadPageView
-import com.leshu.superbrain.vm.HomeProjectViewModel
+import com.leshu.superbrain.vm.WeChatNumViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreListener {
-    override fun initVM(): HomeProjectViewModel = getViewModel()
+class WeChatNumTypeFragment : BaseVMFragment<WeChatNumViewModel>(), OnLoadMoreListener {
+    override fun initVM(): WeChatNumViewModel = getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
-    private val cid by lazy { arguments?.getInt(CID) }// cid==0是最新项目 否项目分类
+    private val cid by lazy { arguments?.getInt(CID) }
     private val homePageAdapter = HomePageAdapter()
     private val loadPageView : BasePageStateView = SimpleLoadPageView()
     private lateinit var rootView: LoadPageView
     private var i: Int = 0
 
     companion object {
-        private const val CID = "projectCid"
-        fun newInstance(cid: Int): ProjectTypeFragment {
-            val fragment = ProjectTypeFragment()
+        private const val CID = "blogCid"
+        fun newInstance(cid: Int): WeChatNumTypeFragment {
+            val fragment = WeChatNumTypeFragment()
             val bundle = Bundle()
             bundle.putInt(CID, cid)
             fragment.arguments = bundle
@@ -48,7 +48,7 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
             adapter = homePageAdapter
         }
         homePageAdapter.apply {
-            loadMoreModule.setOnLoadMoreListener(this@ProjectTypeFragment)
+            loadMoreModule.setOnLoadMoreListener(this@WeChatNumTypeFragment)
             isAnimationFirstOnly = true
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
         }
@@ -58,7 +58,7 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
 
     override fun startObserve() {
         mViewModel.apply {
-            mProjectListModel.observe(this@ProjectTypeFragment, Observer {
+            mBlogDataByTypeModel.observe(this@WeChatNumTypeFragment, Observer {
                 if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
@@ -70,7 +70,6 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
                 }
                 it.showSuccess?.let { list ->
                     homePageAdapter.apply {
-                        loadMoreModule.isEnableLoadMore = false
                         if (it.isRefresh) setList(list) else addData(list)
                         loadMoreModule.isEnableLoadMore = true
                         loadMoreModule.loadMoreComplete()
@@ -91,11 +90,11 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
 
     private fun refresh() {
         homePageAdapter.loadMoreModule.isEnableLoadMore = false
-        cid?.let { mViewModel.loadProjectArticles(true, it) }
+        cid?.let { mViewModel.loadBlogDataByType(true, it) }
     }
 
     override fun onLoadMore() {
-        cid?.let { mViewModel.loadProjectArticles(false, it) }
+        cid?.let { mViewModel.loadBlogDataByType(false, it) }
     }
 
 

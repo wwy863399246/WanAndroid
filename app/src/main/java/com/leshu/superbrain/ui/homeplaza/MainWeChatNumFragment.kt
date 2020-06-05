@@ -80,7 +80,7 @@ class MainWeChatNumFragment : BaseVMFragment<WeChatNumViewModel>() {
                                 }
                             }
                             mFragmentList.add(
-                                ProjectTypeFragment.newInstance(it.id)
+                                WeChatNumTypeFragment.newInstance(it.id)
                             )
                         }
                     }
@@ -91,6 +91,4 @@ class MainWeChatNumFragment : BaseVMFragment<WeChatNumViewModel>() {
             })
         }
     }
-
-
 }
