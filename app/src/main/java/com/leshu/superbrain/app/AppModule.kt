@@ -17,6 +17,7 @@ val viewModelModule = module {
     viewModel { HomePlazaViewModel(get()) }
     viewModel { WeChatNumViewModel(get(),get()) }
     viewModel { LoginViewModel(get()) }
+    viewModel { SystemViewModel(get(),get()) }
 }
 val repositoryModule = module {
     single { RemoteDataSource() }
@@ -25,6 +26,7 @@ val repositoryModule = module {
     single { ArticleUserCase(get()) }
     single { ProjectRepository(get()) }
     single { LoginRepository(get()) }
+    single { SystemRepository(get()) }
 
 }
 val appModule = listOf(viewModelModule, repositoryModule)

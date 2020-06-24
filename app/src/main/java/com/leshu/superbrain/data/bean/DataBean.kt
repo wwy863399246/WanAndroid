@@ -53,13 +53,23 @@ data class Banner(
  * 项目分类
  */
 data class ClassifyResponse(
-    val children: List<Any>?,
+    val children: List<Children>?,
     val courseId: Int,
     val id: Int,
-    var name: String,
+    val name: String,
     val order: Int,
     val parentChapterId: Int,
     val userControlSetTop: Boolean,
     val visible: Int
 ) : Serializable
 
+data class Children(
+    val children: List<Any>,
+    val courseId: Int,
+    val id: Int,
+    val name: String,
+    val order: Int,
+    val parentChapterId: Int,
+    val userControlSetTop: Boolean,
+    val visible: Int
+) : Serializable

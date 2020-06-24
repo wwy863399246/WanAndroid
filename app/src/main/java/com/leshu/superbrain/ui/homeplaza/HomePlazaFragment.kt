@@ -19,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 /**
  *@创建者wwy
  *@创建时间 2020/6/1 11:35
- *@描述
+ *@描述 广场
  */
 class HomePlazaFragment : BaseVMFragment<HomePlazaViewModel>(), OnLoadMoreListener {
     private val homePageAdapter = HomePageAdapter()

@@ -79,4 +79,7 @@ interface ApiService {
         @Path("id") id: Int,
         @Path("page") page: Int
     ): WanResponse<WanListResponse<MutableList<Article>>>
+
+    @GET("/tree/json")
+    suspend fun getSystemType(): WanResponse<MutableList<ClassifyResponse>>
 }

@@ -147,6 +147,24 @@ class RemoteDataSource {
     }
 
     /**
+     * 体系数据源
+     *  @param getSystemType 体系tab
+     *  @param getLatestProjectList 最新项目列表数据
+     *  @param getProjectTypeDetailList 项目tab下数据
+     */
+    suspend fun getSystemType() = safeApiCall(
+        call = { requestSystemType() }
+    )
+
+    private suspend fun requestSystemType(): ResultData<List<ClassifyResponse>> {
+        val systemType = RetrofitClient(WAN_ANDROID).service.getSystemType()
+        if (systemType.errorCode == 0) {
+            return ResultData.Success(systemType.data)
+        }
+        return ResultData.Error(IOException("Failed to get systemType${systemType.errorMsg}"))
+    }
+
+    /**
      * 我的界面数据源
      * @param login 登录
      */

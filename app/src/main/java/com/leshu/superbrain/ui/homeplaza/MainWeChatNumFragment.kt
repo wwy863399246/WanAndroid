@@ -24,7 +24,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 /**
  *@创建者wwy
  *@创建时间 2020/6/1 11:43
- *@描述
+ *@描述 公众号主页
  */
 class MainWeChatNumFragment : BaseVMFragment<WeChatNumViewModel>() {
     override fun setLayoutResId(): Int = R.layout.fragment_main_project

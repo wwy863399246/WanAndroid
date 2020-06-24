@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_plaza.*
 /**
  *@创建者wwy
  *@创建时间 2019/9/17 11:58
- *@描述
+ *@描述 广场主页
  */
 class MainPlazaFragment : BaseFragment() {
     override fun setLayoutResId(): Int = R.layout.fragment_plaza

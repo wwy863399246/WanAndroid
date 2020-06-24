@@ -13,11 +13,6 @@ import com.leshu.superbrain.vm.base.BaseViewModel
 abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
     protected lateinit var mViewModel: VM
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     override fun onFragmentFirstVisible() {
         mViewModel = initVM()
         startObserve()
