@@ -12,8 +12,8 @@ import com.leshu.superbrain.adapter.MyFragmentPagerAdapter
 import com.leshu.superbrain.data.bean.ClassifyResponse
 import com.leshu.superbrain.ext.inflate
 import com.leshu.superbrain.ui.base.BaseVMFragment
-import com.leshu.superbrain.view.loadpage.BasePageStateView
-import com.leshu.superbrain.view.loadpage.SimpleLoadPageView
+import com.leshu.superbrain.view.loadpage.BasePageViewForStatus
+import com.leshu.superbrain.view.loadpage.SimplePageViewForStatus
 import com.leshu.superbrain.vm.HomeProjectViewModel
 import kotlinx.android.synthetic.main.fragment_main_project.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -28,11 +28,11 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
     override fun initVM(): HomeProjectViewModel = getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_main_project
     private val mFragmentList = mutableListOf<Fragment>()
-    private val loadPageView: BasePageStateView = SimpleLoadPageView()
+    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
     override fun initView() {
-        llMainProjectLoadPageView.failTextView().onClick { mViewModel.loadProjectClassify() }
+        llMainProjectloadPageViewForStatus.failTextView()
+            .onClick { mViewModel.loadProjectClassify() }
         ViewPager2Delegate(vpMainProject, tlMainProject)
-        mViewModel.loadProjectClassify()
         vpMainProject.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             private var currentPosition = 0     //当前滑动位置
             private var oldPosition = 0          //上一个滑动位置
@@ -59,18 +59,25 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
     }
 
     override fun initData() {
+        mViewModel.loadProjectClassify()
+    }
+
+    override fun startObserve() {
         mViewModel.apply {
             mMainProjectListModel.observe(this@MainProjectFragment, Observer { it ->
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    llMainProjectLoadPageView.visibility = View.VISIBLE
-                    loadPageView.convert(llMainProjectLoadPageView, loadPageStatus)
+                    llMainProjectloadPageViewForStatus.visibility = View.VISIBLE
+                    loadPageViewForStatus.convert(
+                        llMainProjectloadPageViewForStatus,
+                        loadPageStatus
+                    )
                 }
                 it.showSuccess?.let { list ->
                     mFragmentList.clear()
                     val classifyResponse = ClassifyResponse(
                         null, 0, 0, getString(R.string.newest_project), 0, 0, false, 0
                     )
-                    llMainProjectLoadPageView.visibility = View.GONE
+                    llMainProjectloadPageViewForStatus.visibility = View.GONE
                     tlMainProject.removeAllViews()
                     list.toMutableList().apply {
                         add(0, classifyResponse)

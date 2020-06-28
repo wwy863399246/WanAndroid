@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\37b4d006dad16ac26bd62a0dc67b285a\\jetified-refresh-footer-classics-2.0.0\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\ba78863660e87e92f0b53c4e19793eeb\\jetified-refresh-footer-classics-2.0.0\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa63201c3d1cd36b37579a20773c100d\\jetified-refresh-layout-kernel-2.0.0\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\76adde423077a3fdea67a11741e8c443\\jetified-refresh-layout-kernel-2.0.0\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -31,7 +31,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\583b77f72b9eec8d1482cc99247eb61d\\jetified-refresh-header-classics-2.0.0\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\b3c192cf0fbdcf78371a78e54a895504\\jetified-refresh-header-classics-2.0.0\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

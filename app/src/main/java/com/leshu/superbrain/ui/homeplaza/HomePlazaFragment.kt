@@ -8,9 +8,9 @@ import com.coder.zzq.smartshow.toast.SmartToast
 import com.leshu.superbrain.R
 import com.leshu.superbrain.adapter.HomePageAdapter
 import com.leshu.superbrain.ui.base.BaseVMFragment
-import com.leshu.superbrain.view.loadpage.BasePageStateView
-import com.leshu.superbrain.view.loadpage.LoadPageView
-import com.leshu.superbrain.view.loadpage.SimpleLoadPageView
+import com.leshu.superbrain.view.loadpage.BasePageViewForStatus
+import com.leshu.superbrain.view.loadpage.loadPageViewForStatus
+import com.leshu.superbrain.view.loadpage.SimplePageViewForStatus
 import com.leshu.superbrain.vm.HomePlazaViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -23,14 +23,14 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
  */
 class HomePlazaFragment : BaseVMFragment<HomePlazaViewModel>(), OnLoadMoreListener {
     private val homePageAdapter = HomePageAdapter()
-    private val loadPageView: BasePageStateView = SimpleLoadPageView()
-    private lateinit var rootView: LoadPageView
+    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private lateinit var rootView: loadPageViewForStatus
     override fun initVM(): HomePlazaViewModel = getViewModel()
 
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
 
     override fun initView() {
-        rootView = activity?.let { activity -> loadPageView.getRootView(activity) } as LoadPageView
+        rootView = activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as loadPageViewForStatus
         rootView.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
@@ -63,7 +63,7 @@ class HomePlazaFragment : BaseVMFragment<HomePlazaViewModel>(), OnLoadMoreListen
                 if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    loadPageView.convert(
+                    loadPageViewForStatus.convert(
                         rootView,
                         loadPageStatus = loadPageStatus
                     )

@@ -8,7 +8,7 @@ public final class ProjectTypeFragment extends com.leshu.superbrain.ui.base.Base
     private final com.leshu.superbrain.adapter.HomePageAdapter homePageAdapter = null;
     private final com.leshu.superbrain.view.loadpage.BasePageStateView loadPageView = null;
     private com.leshu.superbrain.view.loadpage.LoadPageView rootView;
-    private int i;
+    private int i = 0;
     private static final java.lang.String CID = "projectCid";
     public static final com.leshu.superbrain.ui.homepage.ProjectTypeFragment.Companion Companion = null;
     private java.util.HashMap _$_findViewCache;

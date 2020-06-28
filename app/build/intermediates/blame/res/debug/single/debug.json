@@ -64,12 +64,12 @@
         "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\drawable\\ic_home_people_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\layout\\activity_login.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_home_page_balck_24dp.xml.flat",
         "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\drawable\\ic_home_page_balck_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -160,12 +160,16 @@
         "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_pink_border.xml.flat",
+        "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\drawable\\shape_pink_border.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_system.xml.flat",
-        "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\layout\\fragment_system.xml"
+        "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_system.xml.flat",
+        "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\layout\\item_system.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home_mine.xml.flat",

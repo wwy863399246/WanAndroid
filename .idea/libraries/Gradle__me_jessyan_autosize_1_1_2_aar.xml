@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: me.jessyan:autosize:1.1.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/27202269e1a1d0d7601914af0326473c/jetified-autosize-1.1.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/27202269e1a1d0d7601914af0326473c/jetified-autosize-1.1.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26dc33706274956e6d2023998c8a2166/jetified-autosize-1.1.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26dc33706274956e6d2023998c8a2166/jetified-autosize-1.1.2/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.jessyan/autosize/1.1.2/bcac46692aa9efb0f558c720219a2d4142423260/autosize-1.1.2-javadoc.jar!/" />

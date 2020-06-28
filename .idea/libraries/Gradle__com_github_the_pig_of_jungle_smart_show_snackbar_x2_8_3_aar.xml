@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.the-pig-of-jungle.smart-show:snackbar:x2.8.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b1e017b4d04da0d654d4e117eb643b81/jetified-snackbar-x2.8.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b1e017b4d04da0d654d4e117eb643b81/jetified-snackbar-x2.8.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a4dbc1399bc724877ffd7e8edd2b9be/jetified-snackbar-x2.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a4dbc1399bc724877ffd7e8edd2b9be/jetified-snackbar-x2.8.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -12,7 +12,7 @@ import com.leshu.superbrain.R
 import com.leshu.superbrain.ext.color
 import org.jetbrains.anko.*
 
-class LoadPageView @JvmOverloads constructor(
+class loadPageViewForStatus @JvmOverloads constructor(
     context: Context?,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0

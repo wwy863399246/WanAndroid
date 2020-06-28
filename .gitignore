@@ -1,3 +1,4 @@
 *.jar
 app/build/
 .idea/assetWizardSettings.xml
+.gradle/

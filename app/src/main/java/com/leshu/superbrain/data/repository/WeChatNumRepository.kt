@@ -22,6 +22,7 @@ class WeChatNumRepository(private val weChatNumRemoteDataSource: RemoteDataSourc
             if (blogType.data.isNullOrEmpty()) {
                 loadPageStatus.postValue(LoadPageStatus.Empty)
                 listModel?.postValue(ListModel(loadPageStatus = loadPageStatus))
+                return
             }
             listModel?.postValue(
                 ListModel(

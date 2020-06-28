@@ -28,8 +28,8 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
     private val homePageAdapter = HomePageAdapter()
     private val homePageStickAdapter = HomePageStickAdapter()
 
-    private val loadPageView : BasePageStateView = SimpleLoadPageView()
-    private lateinit var rootView: LoadPageView
+    private val loadPageViewForStatus : BasePageViewForStatus = SimplePageViewForStatus()
+    private lateinit var rootView: loadPageViewForStatus
     private lateinit var homePageHeadView: HomePageHeadView
     override fun initVM(): HomePageViewModel =getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
@@ -38,7 +38,7 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
     }
 
     override fun initView() {
-        rootView = activity?.let { activity -> loadPageView.getRootView(activity) } as LoadPageView
+        rootView = activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as loadPageViewForStatus
         rootView.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
@@ -70,7 +70,7 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
                 if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    loadPageView.convert(
+                    loadPageViewForStatus.convert(
                         rootView,
                         loadPageStatus = loadPageStatus
                     )

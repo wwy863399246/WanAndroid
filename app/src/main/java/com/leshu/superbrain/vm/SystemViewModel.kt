@@ -1,8 +1,11 @@
 package com.leshu.superbrain.vm
 
+import androidx.lifecycle.MutableLiveData
+import com.leshu.superbrain.data.bean.ClassifyResponse
 import com.leshu.superbrain.data.bean.base.ResultData
 import com.leshu.superbrain.data.repository.ArticleUserCase
 import com.leshu.superbrain.data.repository.SystemRepository
+import com.leshu.superbrain.util.ListModel
 import com.leshu.superbrain.vm.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -16,11 +19,8 @@ class SystemViewModel(
     private val repository: SystemRepository,
     private val userCase: ArticleUserCase
 ) : BaseViewModel() {
+    val systemClassifyListModel= MutableLiveData<ListModel<ClassifyResponse>>()
     fun getSystemType() = launchUI {
-        var result = withContext(Dispatchers.IO) { repository.getSystemType() }
-        if(result is ResultData.Success){
-            
-        }
+        withContext(Dispatchers.IO) { repository.getSystemType(systemClassifyListModel) }
     }
-
 }

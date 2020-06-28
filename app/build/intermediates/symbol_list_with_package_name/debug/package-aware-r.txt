@@ -103,6 +103,8 @@ attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
+attr alignContent
+attr alignItems
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
@@ -301,6 +303,9 @@ attr dialogPreferredPadding
 attr dialogTheme
 attr displayOptions
 attr divider
+attr dividerDrawable
+attr dividerDrawableHorizontal
+attr dividerDrawableVertical
 attr dividerHorizontal
 attr dividerPadding
 attr dividerVertical
@@ -314,6 +319,7 @@ attr drawableTint
 attr drawableTintMode
 attr drawableTopCompat
 attr drawerArrowStyle
+attr drawerLayoutStyle
 attr dropDownListViewStyle
 attr dropdownListPreferredItemHeight
 attr editTextBackground
@@ -365,6 +371,8 @@ attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
 attr firstBaselineToTopHeight
+attr flexDirection
+attr flexWrap
 attr floatingActionButtonStyle
 attr font
 attr fontFamily
@@ -466,6 +474,7 @@ attr itemTextAppearance
 attr itemTextAppearanceActive
 attr itemTextAppearanceInactive
 attr itemTextColor
+attr justifyContent
 attr keylines
 attr labelBehavior
 attr labelStyle
@@ -474,6 +483,7 @@ attr lastBaselineToBottomHeight
 attr launchSingleTop
 attr layout
 attr layoutManager
+attr layout_alignSelf
 attr layout_anchor
 attr layout_anchorGravity
 attr layout_behavior
@@ -523,6 +533,9 @@ attr layout_constraintWidth_percent
 attr layout_dodgeInsetEdges
 attr layout_editor_absoluteX
 attr layout_editor_absoluteY
+attr layout_flexBasisPercent
+attr layout_flexGrow
+attr layout_flexShrink
 attr layout_goneMarginBottom
 attr layout_goneMarginEnd
 attr layout_goneMarginLeft
@@ -531,7 +544,12 @@ attr layout_goneMarginStart
 attr layout_goneMarginTop
 attr layout_insetEdge
 attr layout_keyline
+attr layout_maxHeight
+attr layout_maxWidth
+attr layout_minHeight
+attr layout_minWidth
 attr layout_optimizationLevel
+attr layout_order
 attr layout_scrollFlags
 attr layout_scrollInterpolator
 attr layout_srlBackgroundColor
@@ -540,6 +558,7 @@ attr layout_tab_convex_height
 attr layout_tab_height
 attr layout_tab_indicator_content_index
 attr layout_tab_width
+attr layout_wrapBefore
 attr left_img
 attr left_textId
 attr left_textStr
@@ -589,9 +608,11 @@ attr maxActionInlineWidth
 attr maxButtonHeight
 attr maxCharacterCount
 attr maxImageSize
+attr maxLine
 attr maxLines
 attr measureWithLargestChild
 attr menu
+attr mimeType
 attr minTouchTargetSize
 attr multiChoiceItemLayout
 attr navGraph
@@ -686,6 +707,9 @@ attr shapeAppearanceMediumComponent
 attr shapeAppearanceOverlay
 attr shapeAppearanceSmallComponent
 attr showAsAction
+attr showDivider
+attr showDividerHorizontal
+attr showDividerVertical
 attr showDividers
 attr showMotionSpec
 attr showText
@@ -897,6 +921,7 @@ attr tab_indicator_width
 attr tab_indicator_width_offset
 attr tab_indicator_x_offset
 attr tab_indicator_y_offset
+attr tab_item_auto_equ_width
 attr tab_item_default_height
 attr tab_item_is_equ_width
 attr tab_item_width
@@ -1314,6 +1339,7 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen def_drawer_elevation
 dimen def_height
 dimen default_dimension
 dimen design_appbar_elevation
@@ -1752,6 +1778,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable shape_pink_border
 drawable shape_project_tab
 drawable smart_show_dialog_btn_bg
 drawable smart_show_emotion_toast_bg
@@ -1863,6 +1890,7 @@ id async
 id auto
 id banner
 id barrier
+id baseline
 id beginning
 id bidirectional
 id blocking
@@ -1888,6 +1916,8 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id column
+id column_reverse
 id confirm_button
 id container
 id content
@@ -1928,6 +1958,8 @@ id filled
 id fitToContents
 id fixed
 id fl_container
+id flex_end
+id flex_start
 id floating
 id forever
 id fragment_container_view_tag
@@ -2029,6 +2061,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id nowrap
 id off
 id on
 id onAttachStateChangeListener
@@ -2054,7 +2087,9 @@ id right
 id right_icon
 id right_side
 id rounded
+id row
 id row_index_key
+id row_reverse
 id rtvStick
 id rvHomePageHeadView
 id save_non_transition_alpha
@@ -2108,6 +2143,9 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id space_around
+id space_between
+id space_evenly
 id spacer
 id split_action_bar
 id spread
@@ -2205,6 +2243,7 @@ id withText
 id withinBounds
 id wrap
 id wrap_content
+id wrap_reverse
 id zero_corner_chip
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
@@ -2297,8 +2336,8 @@ layout fragment_main_wechat
 layout fragment_navigation
 layout fragment_plaza
 layout fragment_recycleview
-layout fragment_system
 layout item_home_page
+layout item_system
 layout layout_banner
 layout layout_custom_navigationbar_view
 layout layout_emotion_toast
@@ -2926,6 +2965,7 @@ style TextAppearance_Widget_AppCompat_ExpandedMenu_Item
 style TextAppearance_Widget_AppCompat_Toolbar_Subtitle
 style TextAppearance_Widget_AppCompat_Toolbar_Title
 style TextInputLayout
+style TextStyle
 style Theme_AppCompat
 style Theme_AppCompat_CompactMenu
 style Theme_AppCompat_DayNight
@@ -3306,10 +3346,13 @@ styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_a
 styleable CustomNavigationBarView isShow_left_img isShow_right_img1 isShow_right_img2 isShow_right_img3 isShow_tablayout left_img left_textId left_textStr right_img1 right_img2 right_img3 text_color title_textId title_textStr
 styleable DialogFragmentNavigator android_name
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
-styleable DslTabLayout tab_badge_anchor_child_index tab_badge_circle_offset_x tab_badge_circle_offset_y tab_badge_circle_radius tab_badge_gravity tab_badge_ignore_child_padding tab_badge_offset_x tab_badge_offset_y tab_badge_padding_bottom tab_badge_padding_left tab_badge_padding_right tab_badge_padding_top tab_badge_radius tab_badge_solid_color tab_badge_text tab_badge_text_color tab_badge_text_size tab_border_draw_item_background tab_border_drawable tab_border_item_background_height_offset tab_border_item_background_width_offset tab_border_radius_size tab_border_solid_color tab_border_stroke_color tab_border_stroke_width tab_convex_background tab_default_index tab_deselect_color tab_divider_drawable tab_divider_margin_bottom tab_divider_margin_left tab_divider_margin_right tab_divider_margin_top tab_divider_radius_size tab_divider_show_mode tab_divider_solid_color tab_divider_stroke_color tab_divider_stroke_width tab_divider_width tab_draw_badge tab_draw_border tab_draw_divider tab_draw_indicator tab_enable_gradient_color tab_enable_gradient_scale tab_enable_gradient_text_size tab_enable_ico_color tab_enable_ico_gradient_color tab_enable_selector_mode tab_enable_text_bold tab_enable_text_color tab_ico_deselect_color tab_ico_select_color tab_indicator_anim tab_indicator_color tab_indicator_content_index tab_indicator_dash_gap tab_indicator_dash_width tab_indicator_drawable tab_indicator_enable_flow tab_indicator_flow_step tab_indicator_gradient_colors tab_indicator_gradient_end_color tab_indicator_gradient_start_color tab_indicator_height tab_indicator_height_offset tab_indicator_radii tab_indicator_radius tab_indicator_shape tab_indicator_solid_color tab_indicator_stroke_color tab_indicator_stroke_width tab_indicator_style tab_indicator_width tab_indicator_width_offset tab_indicator_x_offset tab_indicator_y_offset tab_item_default_height tab_item_is_equ_width tab_item_width tab_max_scale tab_min_scale tab_select_color tab_text_max_size tab_text_min_size
+styleable DrawerLayout elevation
+styleable DslTabLayout tab_badge_anchor_child_index tab_badge_circle_offset_x tab_badge_circle_offset_y tab_badge_circle_radius tab_badge_gravity tab_badge_ignore_child_padding tab_badge_offset_x tab_badge_offset_y tab_badge_padding_bottom tab_badge_padding_left tab_badge_padding_right tab_badge_padding_top tab_badge_radius tab_badge_solid_color tab_badge_text tab_badge_text_color tab_badge_text_size tab_border_draw_item_background tab_border_drawable tab_border_item_background_height_offset tab_border_item_background_width_offset tab_border_radius_size tab_border_solid_color tab_border_stroke_color tab_border_stroke_width tab_convex_background tab_default_index tab_deselect_color tab_divider_drawable tab_divider_margin_bottom tab_divider_margin_left tab_divider_margin_right tab_divider_margin_top tab_divider_radius_size tab_divider_show_mode tab_divider_solid_color tab_divider_stroke_color tab_divider_stroke_width tab_divider_width tab_draw_badge tab_draw_border tab_draw_divider tab_draw_indicator tab_enable_gradient_color tab_enable_gradient_scale tab_enable_gradient_text_size tab_enable_ico_color tab_enable_ico_gradient_color tab_enable_selector_mode tab_enable_text_bold tab_enable_text_color tab_ico_deselect_color tab_ico_select_color tab_indicator_anim tab_indicator_color tab_indicator_content_index tab_indicator_dash_gap tab_indicator_dash_width tab_indicator_drawable tab_indicator_enable_flow tab_indicator_flow_step tab_indicator_gradient_colors tab_indicator_gradient_end_color tab_indicator_gradient_start_color tab_indicator_height tab_indicator_height_offset tab_indicator_radii tab_indicator_radius tab_indicator_shape tab_indicator_solid_color tab_indicator_stroke_color tab_indicator_stroke_width tab_indicator_style tab_indicator_width tab_indicator_width_offset tab_indicator_x_offset tab_indicator_y_offset tab_item_auto_equ_width tab_item_default_height tab_item_is_equ_width tab_item_width tab_max_scale tab_min_scale tab_select_color tab_text_max_size tab_text_min_size
 styleable DslTabLayout_Layout layout_tab_convex_height layout_tab_height layout_tab_indicator_content_index layout_tab_width
 styleable ExtendedFloatingActionButton elevation extendMotionSpec hideMotionSpec showMotionSpec shrinkMotionSpec
 styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavior_autoShrink
+styleable FlexboxLayout alignContent alignItems dividerDrawable dividerDrawableHorizontal dividerDrawableVertical flexDirection flexWrap justifyContent maxLine showDivider showDividerHorizontal showDividerVertical
+styleable FlexboxLayout_Layout layout_alignSelf layout_flexBasisPercent layout_flexGrow layout_flexShrink layout_maxHeight layout_maxWidth layout_minHeight layout_minWidth layout_order layout_wrapBefore
 styleable FloatingActionButton android_enabled backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FlowLayout itemSpacing lineSpacing
@@ -3344,7 +3387,7 @@ styleable MenuItem android_icon android_enabled android_id android_checked andro
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow
 styleable NavAction android_id destination enterAnim exitAnim launchSingleTop popEnterAnim popExitAnim popUpTo popUpToInclusive
 styleable NavArgument android_name android_defaultValue argType nullable
-styleable NavDeepLink android_autoVerify uri
+styleable NavDeepLink android_autoVerify action mimeType uri
 styleable NavGraphNavigator startDestination
 styleable NavHost navGraph
 styleable NavHostFragment defaultNavHost

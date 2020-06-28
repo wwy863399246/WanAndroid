@@ -1,1 +1,6 @@
-[]
+{
+  "version": 1,
+  "applicationId": "com.leshu.superbrain",
+  "variantType": "BASE_APK",
+  "elements": []
+}

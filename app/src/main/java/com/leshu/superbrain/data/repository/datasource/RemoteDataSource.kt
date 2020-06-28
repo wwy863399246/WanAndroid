@@ -156,7 +156,7 @@ class RemoteDataSource {
         call = { requestSystemType() }
     )
 
-    private suspend fun requestSystemType(): ResultData<List<ClassifyResponse>> {
+    private suspend fun requestSystemType(): ResultData<MutableList<ClassifyResponse>> {
         val systemType = RetrofitClient(WAN_ANDROID).service.getSystemType()
         if (systemType.errorCode == 0) {
             return ResultData.Success(systemType.data)

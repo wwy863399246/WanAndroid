@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.scwang.smart:refresh-layout-kernel:2.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e729c6d121f9461e4988375840143dc7/jetified-refresh-layout-kernel-2.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e729c6d121f9461e4988375840143dc7/jetified-refresh-layout-kernel-2.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/76adde423077a3fdea67a11741e8c443/jetified-refresh-layout-kernel-2.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/76adde423077a3fdea67a11741e8c443/jetified-refresh-layout-kernel-2.0.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.scwang.smart/refresh-layout-kernel/2.0.0/65272c059016c6bd47cbfc821256dc8c653e18ff/refresh-layout-kernel-2.0.0-javadoc.jar!/" />

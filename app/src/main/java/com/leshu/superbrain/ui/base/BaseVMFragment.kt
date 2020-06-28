@@ -22,6 +22,6 @@ abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
 
     abstract fun initVM(): VM
 
-    open fun startObserve() {}
+    abstract fun startObserve()
 
 }
