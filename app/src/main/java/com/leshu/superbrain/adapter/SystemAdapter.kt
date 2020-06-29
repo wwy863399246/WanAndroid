@@ -1,12 +1,13 @@
 package com.leshu.superbrain.adapter
 
-import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.leshu.superbrain.R
 import com.leshu.superbrain.data.bean.ClassifyResponse
 import com.leshu.superbrain.ext.inflate
 import kotlinx.android.synthetic.main.item_system.view.*
+import kotlinx.android.synthetic.main.item_system_textview.view.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 /**
  *@创建者wwy
@@ -14,20 +15,38 @@ import kotlinx.android.synthetic.main.item_system.view.*
  *@描述
  */
 class SystemAdapter : BaseQuickAdapter<ClassifyResponse, BaseViewHolder>(R.layout.item_system) {
+    private lateinit var mListener: ListenerBuilder
     override fun convert(holder: BaseViewHolder, item: ClassifyResponse) {
         holder.itemView.apply {
+            flexBoxSystemItem.removeAllViews()
             tvSystemItemTitle.text = item.name
             item.children?.size?.let {
                 for (index in 0 until it) {
                     flexBoxSystemItem?.let { flexBoxSystemItem ->
                         flexBoxSystemItem.inflate(R.layout.item_system_textview, false).apply {
-                            findViewById<TextView>(R.id.tvSystemTypeText).text =
-                                item.children[index].name
+                            tvSystemTypeText.text = item.children[index].name
+                            tvSystemTypeText.tag = index
+                            tvSystemTypeText.onClick {
+                                if (::mListener.isInitialized) {
+                                    mListener.typeTextClick?.invoke(tvSystemTypeText.tag as Int)
+                                }
+                            }
                             flexBoxSystemItem.addView(this)
                         }
                     }
                 }
             }
+        }
+    }
+
+    fun registerListener(listenerBuilder: ListenerBuilder.() -> Unit) {
+        mListener = ListenerBuilder().also(listenerBuilder)
+    }
+
+    inner class ListenerBuilder {
+        internal var typeTextClick: ((tag: Int) -> Unit)? = null
+        fun onTypeTextClick(action: (tag: Int) -> Unit) {
+            typeTextClick = action
         }
     }
 }

@@ -3,14 +3,17 @@ package com.leshu.superbrain.ui.homesyetem
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.coder.zzq.smartshow.toast.SmartToast
 import com.leshu.superbrain.R
 import com.leshu.superbrain.adapter.SystemAdapter
 import com.leshu.superbrain.ui.base.BaseVMFragment
+import com.leshu.superbrain.view.SpacesItemDecoration
 import com.leshu.superbrain.view.loadpage.BasePageViewForStatus
 import com.leshu.superbrain.view.loadpage.loadPageViewForStatus
 import com.leshu.superbrain.view.loadpage.SimplePageViewForStatus
 import com.leshu.superbrain.vm.SystemViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
+import org.jetbrains.anko.dip
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -39,11 +42,17 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
 
         ArticleRv.apply {
             layoutManager = LinearLayoutManager(activity)
+            //  addItemDecoration(SpacesItemDecoration(dip(8), LinearLayoutManager.VERTICAL))
             adapter = systemAdapter
         }
         systemAdapter.apply {
             isAnimationFirstOnly = true
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
+            registerListener {
+                onTypeTextClick {
+                    SmartToast.show(it.toString())
+                }
+            }
         }
         refreshLayout.setOnRefreshListener { refresh() }
         refreshLayout.setEnableLoadMore(false)
@@ -56,6 +65,7 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
     override fun startObserve() {
         mViewModel.apply {
             systemClassifyListModel.observe(this@SystemFragment, Observer {
+                if (!it.isRefresh) refreshLayout.finishRefresh()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
                     loadPageViewForStatus.convert(rootView, loadPageStatus)
                     systemAdapter.setEmptyView(rootView)
@@ -63,6 +73,7 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
                 it.showSuccess?.let { list ->
                     systemAdapter.setList(list)
                 }
+                it.showError?.let { }//加载失败
             })
         }
     }
