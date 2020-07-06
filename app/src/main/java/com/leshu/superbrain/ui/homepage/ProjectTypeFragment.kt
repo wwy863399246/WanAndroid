@@ -42,9 +42,7 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }
-
         ArticleRv.apply {
-            layoutManager = LinearLayoutManager(activity)
             adapter = homePageAdapter
         }
         homePageAdapter.apply {

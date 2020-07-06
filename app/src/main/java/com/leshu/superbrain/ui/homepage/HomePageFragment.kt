@@ -45,7 +45,6 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
         }
 
         ArticleRv.apply {
-            layoutManager = LinearLayoutManager(activity)
             adapter = homePageAdapter
         }
         homePageAdapter.apply {

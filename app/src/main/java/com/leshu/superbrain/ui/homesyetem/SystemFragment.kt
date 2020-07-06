@@ -41,7 +41,6 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
         }
 
         ArticleRv.apply {
-            layoutManager = LinearLayoutManager(activity)
             //  addItemDecoration(SpacesItemDecoration(dip(8), LinearLayoutManager.VERTICAL))
             adapter = systemAdapter
         }

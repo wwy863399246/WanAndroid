@@ -37,7 +37,6 @@ class HomePlazaFragment : BaseVMFragment<HomePlazaViewModel>(), OnLoadMoreListen
         }
 
         ArticleRv.apply {
-            layoutManager = LinearLayoutManager(activity)
             adapter = homePageAdapter
         }
         homePageAdapter.apply {

@@ -79,7 +79,9 @@ interface ApiService {
         @Path("id") id: Int,
         @Path("page") page: Int
     ): WanResponse<WanListResponse<MutableList<Article>>>
-
+    /**
+     * 获取体系数据
+     */
     @GET("/tree/json")
     suspend fun getSystemType(): WanResponse<MutableList<ClassifyResponse>>
 }

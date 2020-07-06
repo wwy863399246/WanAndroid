@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:background="@color/color_FFFFFF"
         android:clipToPadding="false"
+        android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </com.scwang.smart.refresh.layout.SmartRefreshLayout>
