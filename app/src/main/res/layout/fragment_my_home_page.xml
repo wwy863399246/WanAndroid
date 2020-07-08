@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wwy.android.view.CustomNavigationBarView
+        android:id="@+id/navigationBarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShow_right_img1="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:left_textId="@string/home_mine" />
+
+    <View
+        android:id="@+id/viewUserBg"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigationBarView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivUserIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigationBarView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLoginImmediately"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/login_immediately"
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/tvUserId"
+        app:layout_constraintStart_toEndOf="@id/ivUserIcon"
+        app:layout_constraintTop_toTopOf="@id/ivUserIcon"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUserId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/user_id"
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/ivUserIcon"
+        app:layout_constraintStart_toStartOf="@id/tvLoginImmediately"
+        app:layout_constraintTop_toBottomOf="@id/tvLoginImmediately" />
+
+    <TextView
+        android:id="@+id/tvMyIntegral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我的积分"
+        app:layout_constraintStart_toStartOf="@id/ivUserIcon"
+        app:layout_constraintTop_toBottomOf="@id/viewUserBg" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

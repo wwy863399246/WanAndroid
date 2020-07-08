@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewMainProject" />
 
-    <com.leshu.superbrain.view.loadpage.loadPageViewForStatus
+    <com.wwy.android.view.loadpage.loadPageViewForStatus
         android:id="@+id/llMainProjectloadPageViewForStatus"
         android:layout_width="0dp"
         android:layout_height="0dp"

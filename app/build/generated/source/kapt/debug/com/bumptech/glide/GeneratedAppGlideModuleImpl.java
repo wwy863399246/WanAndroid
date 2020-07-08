@@ -3,7 +3,7 @@ package com.bumptech.glide;
 import android.content.Context;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.leshu.superbrain.app.MyGlideModule;
+import com.wwy.android.app.MyGlideModule;
 import java.util.Collections;
 import java.util.Set;
 
@@ -14,7 +14,7 @@ final class GeneratedAppGlideModuleImpl extends GeneratedAppGlideModule {
   public GeneratedAppGlideModuleImpl(Context context) {
     appGlideModule = new MyGlideModule();
     if (Log.isLoggable("Glide", Log.DEBUG)) {
-      Log.d("Glide", "Discovered AppGlideModule from annotation: com.leshu.superbrain.app.MyGlideModule");
+      Log.d("Glide", "Discovered AppGlideModule from annotation: com.wwy.android.app.MyGlideModule");
     }
   }
 

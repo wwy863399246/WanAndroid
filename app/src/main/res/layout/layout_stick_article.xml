@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.leshu.superbrain.view.roundview.RoundTextView
+    <com.wwy.android.view.roundview.RoundTextView
         android:id="@+id/rtvStick"
         style="@style/ww_00_text_14"
         android:layout_width="48dp"

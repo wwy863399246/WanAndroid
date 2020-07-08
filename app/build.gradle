@@ -87,6 +87,8 @@ dependencies {
     //屏幕适配 沉浸式
     implementation 'me.jessyan:autosize:1.1.2'
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    // kotlin扩展（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
     //RecyclerViewAdapterHelper
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2'
     //分包 方法数超限制
