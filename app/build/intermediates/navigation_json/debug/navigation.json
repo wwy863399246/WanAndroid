@@ -1,6 +1,11 @@
 [
   {
-    "name": "mobile_navigation",
+    "name": "navigation_main",
+    "navigationXmlIds": [],
+    "deepLinks": []
+  },
+  {
+    "name": "navigation_my",
     "navigationXmlIds": [],
     "deepLinks": []
   }

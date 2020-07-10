@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_my">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_my"
+    app:startDestination="@+id/myHomePageFragment">
+    <fragment
+        android:id="@+id/myHomePageFragment"
+        android:name="com.wwy.android.ui.homemine.MyHomePageFragment"
+        android:label="fragment_my_home_page"
+        tools:layout="@layout/fragment_my_home_page" >
+        <action
+            android:id="@+id/action_myHomePageFragment_to_myIntegralFragment"
+            app:destination="@id/myIntegralFragment"
+            app:enterAnim="@anim/login_slide_in_right"
+            app:exitAnim="@anim/login_slide_out_left"
+            app:popEnterAnim="@anim/login_slide_in_left"
+            app:popExitAnim="@anim/login_slide_out_right" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/myIntegralFragment"
+        android:name="com.wwy.android.ui.homemine.MyIntegralFragment"
+        android:label="fragment_my_integral"
+        tools:layout="@layout/fragment_my_integral" />
 </navigation>

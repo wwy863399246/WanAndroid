@@ -16,4 +16,15 @@
     <string name="go_to_register">去注册</string>
     <string name="stick">置顶</string>
     <string name="newest_project">最新项目</string>
+    <string name="my_">最新项目</string>
+    <string name="my_integral">我的积分</string>
+    <string name="integral_ranking">积分排行</string>
+    <string name="my_share">我的分享</string>
+    <string name="my_collect">我的收藏</string>
+    <string name="my_ku_tu">我的酷图</string>
+    <string name="my_tool">我的工具</string>
+    <string name="theme">主题风格</string>
+    <string name="nigh_mode">夜间模式</string>
+    <string name="open_source_licenses">开源协议</string>
+    <string name="project_home_page">项目主页</string>
 </resources>
