@@ -12,6 +12,7 @@
     <color name="color_B3_F">#B3FFFFFF</color>//次等白色文字颜色
     <color name="color_4D_F">#4DFFFFFF</color>//禁用/提示白色文字颜色
     <color name="color_1F_F">#1FFFFFFF</color>//白色分割线颜色
+    <color name="color_F5F5F5">#F5F5F5</color>//灰色背景
     <color name="color_DB4437">#DB4437</color>//红色
     <color name="color_FB7299">#FB7299</color>//粉色
     <color name="color_FF9800">#FF9800</color>//橙

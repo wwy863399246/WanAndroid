@@ -69,8 +69,6 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
-    //底部UI框架
-    //implementation 'com.github.wwy863399246:BottomBarLayoutKt:1.0.1'
     //banner
     implementation 'com.youth.banner:banner:2.0.8'
     //smart-show
@@ -80,8 +78,6 @@ dependencies {
     //Anko
 //    implementation 'org.jetbrains.anko:anko-commons:0.10.8'
     implementation "org.jetbrains.anko:anko:$anko_version"
-    //ali 热更新
-    //implementation 'com.aliyun.ams:alicloud-android-hotfix:3.2.12'
     //x5
     implementation files('libs/tbs_sdk_thirdapp_v4.3.0.1148_43697_sharewithdownloadwithfile_withoutGame_obfs_20190805_175505.jar')
     //屏幕适配 沉浸式
@@ -93,9 +89,6 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2'
     //分包 方法数超限制
     implementation 'androidx.multidex:multidex:2.0.1'
-    //腾讯bug
-    //noinspection GradleDependency
-    implementation 'com.tencent.bugly:crashreport:latest.release'
     //下来刷新框架
     implementation  'com.scwang.smart:refresh-layout-kernel:2.0.0'      //核心必须依赖
     implementation  'com.scwang.smart:refresh-header-classics:2.0.0'

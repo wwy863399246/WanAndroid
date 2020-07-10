@@ -8,10 +8,45 @@
         android:id="@+id/myHomePageFragment"
         android:name="com.wwy.android.ui.homemine.MyHomePageFragment"
         android:label="fragment_my_home_page"
-        tools:layout="@layout/fragment_my_home_page" >
+        tools:layout="@layout/fragment_my_home_page">
         <action
             android:id="@+id/action_myHomePageFragment_to_myIntegralFragment"
             app:destination="@id/myIntegralFragment"
+            app:enterAnim="@anim/login_slide_in_right"
+            app:exitAnim="@anim/login_slide_out_left"
+            app:popEnterAnim="@anim/login_slide_in_left"
+            app:popExitAnim="@anim/login_slide_out_right" />
+        <action
+            android:id="@+id/action_myHomePageFragment_to_myIntegralRankingFragment"
+            app:destination="@id/myIntegralRankingFragment"
+            app:enterAnim="@anim/login_slide_in_right"
+            app:exitAnim="@anim/login_slide_out_left"
+            app:popEnterAnim="@anim/login_slide_in_left"
+            app:popExitAnim="@anim/login_slide_out_right" />
+        <action
+            android:id="@+id/action_myHomePageFragment_to_myShareFragment"
+            app:destination="@id/myShareFragment"
+            app:enterAnim="@anim/login_slide_in_right"
+            app:exitAnim="@anim/login_slide_out_left"
+            app:popEnterAnim="@anim/login_slide_in_left"
+            app:popExitAnim="@anim/login_slide_out_right" />
+        <action
+            android:id="@+id/action_myHomePageFragment_to_myCollectFragment"
+            app:destination="@id/myCollectFragment"
+            app:enterAnim="@anim/login_slide_in_right"
+            app:exitAnim="@anim/login_slide_out_left"
+            app:popEnterAnim="@anim/login_slide_in_left"
+            app:popExitAnim="@anim/login_slide_out_right" />
+        <action
+            android:id="@+id/action_myHomePageFragment_to_myKuTuFragment"
+            app:destination="@id/myKuTuFragment"
+            app:enterAnim="@anim/login_slide_in_right"
+            app:exitAnim="@anim/login_slide_out_left"
+            app:popEnterAnim="@anim/login_slide_in_left"
+            app:popExitAnim="@anim/login_slide_out_right" />
+        <action
+            android:id="@+id/action_myHomePageFragment_to_myThemeFragment"
+            app:destination="@id/myThemeFragment"
             app:enterAnim="@anim/login_slide_in_right"
             app:exitAnim="@anim/login_slide_out_left"
             app:popEnterAnim="@anim/login_slide_in_left"
@@ -23,4 +58,29 @@
         android:name="com.wwy.android.ui.homemine.MyIntegralFragment"
         android:label="fragment_my_integral"
         tools:layout="@layout/fragment_my_integral" />
+    <fragment
+        android:id="@+id/myIntegralRankingFragment"
+        android:name="com.wwy.android.ui.homemine.MyIntegralRankingFragment"
+        android:label="fragment_my_integral_ranking"
+        tools:layout="@layout/fragment_my_integral_ranking" />
+    <fragment
+        android:id="@+id/myShareFragment"
+        android:name="com.wwy.android.ui.homemine.MyShareFragment"
+        android:label="fragment_my_share"
+        tools:layout="@layout/fragment_my_share" />
+    <fragment
+        android:id="@+id/myCollectFragment"
+        android:name="com.wwy.android.ui.homemine.MyCollectFragment"
+        android:label="fragment_my_collect"
+        tools:layout="@layout/fragment_my_collect" />
+    <fragment
+        android:id="@+id/myKuTuFragment"
+        android:name="com.wwy.android.ui.homemine.MyKuTuFragment"
+        android:label="fragment_my_ku_tu"
+        tools:layout="@layout/fragment_my_ku_tu" />
+    <fragment
+        android:id="@+id/myThemeFragment"
+        android:name="com.wwy.android.ui.homemine.MyThemeFragment"
+        android:label="fragment_my_theme"
+        tools:layout="@layout/fragment_my_theme" />
 </navigation>

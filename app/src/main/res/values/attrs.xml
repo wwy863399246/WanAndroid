@@ -13,7 +13,7 @@
     <attr name="title_textStr" format="string" /><!-- title文本-->
     <attr name="title_textId" format="reference" /><!-- title文本-->
     <attr name="text_color" format="color" /> <!-- title文本 颜色-->
-    <attr name="isShow_tablayout" format="boolean" /> <!-- 是否显示tablayout-->
+    <attr name="isShow_tab_layout" format="boolean" /> <!-- 是否显示tablayout-->
     <declare-styleable name="CustomNavigationBarView">
         <attr name="left_img" />
         <attr name="left_textStr" />
@@ -28,7 +28,7 @@
         <attr name="title_textStr" />
         <attr name="title_textId" />
         <attr name="text_color" />
-        <attr name="isShow_tablayout" />
+        <attr name="isShow_tab_layout" />
     </declare-styleable>
     <!-- 圆角矩形背景色 -->
     <attr name="rv_backgroundColor" format="color" />
@@ -180,5 +180,11 @@
         <attr name="rv_backgroundEndColor" />
         <attr name="rv_backgroundPressStartColor" />
         <attr name="rv_backgroundPressEndColor" />
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
     </declare-styleable>
 </resources>

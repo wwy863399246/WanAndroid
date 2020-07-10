@@ -1,213 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/color_F5F5F5">
 
-    <com.wwy.android.view.CustomNavigationBarView
-        android:id="@+id/navigationBarView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:isShow_right_img1="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:left_textId="@string/home_mine" />
+        android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/viewUserBg"
-        android:layout_width="0dp"
-        android:layout_height="96dp"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/navigationBarView" />
+        <com.wwy.android.view.CustomNavigationBarView
+            android:id="@+id/navigationBarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isShow_right_img1="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:left_textId="@string/home_mine" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivUserIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/navigationBarView" />
+        <View
+            android:id="@+id/viewUserBg"
+            android:layout_width="0dp"
+            android:layout_height="96dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/navigationBarView" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvLoginImmediately"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/login_immediately"
-        android:textColor="@color/color_FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/tvUserId"
-        app:layout_constraintStart_toEndOf="@id/ivUserIcon"
-        app:layout_constraintTop_toTopOf="@id/ivUserIcon"
-        app:layout_constraintVertical_chainStyle="packed" />
+        <com.wwy.android.view.circleImageview.CircleImageView
+            android:id="@+id/ivUserIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/avatar_1_raster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/navigationBarView" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvUserId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/user_id"
-        android:textColor="@color/color_FFFFFF"
-        android:textSize="14sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/ivUserIcon"
-        app:layout_constraintStart_toStartOf="@id/tvLoginImmediately"
-        app:layout_constraintTop_toBottomOf="@id/tvLoginImmediately" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLoginImmediately"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/login_immediately"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/tvUserId"
+            app:layout_constraintStart_toEndOf="@id/ivUserIcon"
+            app:layout_constraintTop_toTopOf="@id/ivUserIcon"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clIntegral"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/color_FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/tvMyIntegral"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewUserBg" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUserId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/user_id"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/ivUserIcon"
+            app:layout_constraintStart_toStartOf="@id/tvLoginImmediately"
+            app:layout_constraintTop_toBottomOf="@id/tvLoginImmediately" />
 
-
-    <TextView
-        android:id="@+id/tvMyIntegral"
-        style="@style/ww_00_text_16"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
-        android:drawableTop="@drawable/ic_my_integral"
-        android:drawablePadding="2dp"
-        android:paddingBottom="8dp"
-        android:text="@string/my_integral"
-        app:layout_constraintBottom_toBottomOf="@id/clIntegral"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/clIntegral" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clIntegral"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_FFFFFF"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewUserBg">
 
 
-    <TextView
-        android:id="@+id/tvMyIntegralRanking"
-        style="@style/ww_00_text_16"
-        android:layout_marginEnd="64dp"
-        android:drawableTop="@drawable/ic_integral_rank"
-        android:drawablePadding="2dp"
-        android:paddingBottom="8dp"
-        android:text="@string/integral_ranking"
-        app:layout_constraintBottom_toBottomOf="@id/tvMyIntegral"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvMyIntegral" />
-
-    <View
-        android:layout_width="1dp"
-        android:layout_height="16dp"
-        android:background="@color/color_1F000000"
-        app:layout_constraintBottom_toBottomOf="@id/tvMyIntegral"
-        app:layout_constraintEnd_toStartOf="@id/tvMyIntegralRanking"
-        app:layout_constraintStart_toEndOf="@id/tvMyIntegral"
-        app:layout_constraintTop_toTopOf="@id/tvMyIntegral" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clFunction"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/color_FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/tvTheme"
-        app:layout_constraintEnd_toEndOf="@id/clIntegral"
-        app:layout_constraintStart_toStartOf="@id/clIntegral"
-        app:layout_constraintTop_toBottomOf="@id/clIntegral" />
-
-    <TextView
-        android:id="@+id/tvMyShare"
-        style="@style/ww_00_text_14"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:drawableTop="@drawable/ic_outline_share"
-        android:drawablePadding="2dp"
-        android:text="@string/my_share"
-        app:layout_constraintEnd_toStartOf="@id/tvMyCollect"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="@id/clFunction"
-        app:layout_constraintTop_toTopOf="@id/clFunction" />
-
-    <TextView
-        android:id="@+id/tvMyCollect"
-        style="@style/ww_00_text_14"
-        android:drawableTop="@drawable/ic_my_collect"
-        android:drawablePadding="2dp"
-        android:text="@string/my_collect"
-        app:layout_constraintBottom_toBottomOf="@id/tvMyShare"
-        app:layout_constraintEnd_toStartOf="@id/tvMyKuTu"
-        app:layout_constraintStart_toEndOf="@id/tvMyShare"
-        app:layout_constraintTop_toTopOf="@id/tvMyShare" />
-
-    <TextView
-        android:id="@+id/tvMyKuTu"
-        style="@style/ww_00_text_14"
-        android:drawableTop="@drawable/ic_ku_tu"
-        android:drawablePadding="2dp"
-        android:text="@string/my_ku_tu"
-        app:layout_constraintBottom_toBottomOf="@id/tvMyShare"
-        app:layout_constraintEnd_toStartOf="@id/tvMyTool"
-        app:layout_constraintStart_toEndOf="@id/tvMyCollect"
-        app:layout_constraintTop_toTopOf="@id/tvMyShare" />
-
-    <TextView
-        android:id="@+id/tvMyTool"
-        style="@style/ww_00_text_14"
-        android:layout_marginEnd="16dp"
-        android:drawableTop="@drawable/ic_my_tool"
-        android:drawablePadding="2dp"
-        android:text="@string/my_tool"
-        app:layout_constraintBottom_toBottomOf="@id/tvMyShare"
-        app:layout_constraintEnd_toEndOf="@id/clFunction"
-        app:layout_constraintStart_toEndOf="@id/tvMyKuTu"
-        app:layout_constraintTop_toTopOf="@id/tvMyShare" />
-
-    <TextView
-        android:id="@+id/tvTheme"
-        style="@style/ww_00_text_14"
-        android:layout_marginTop="16dp"
-        android:drawableTop="@drawable/ic_theme"
-        android:drawablePadding="2dp"
-        android:paddingBottom="8dp"
-        android:text="@string/theme"
-        app:layout_constraintEnd_toStartOf="@id/tvNighMode"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="@id/tvMyShare"
-        app:layout_constraintTop_toBottomOf="@id/tvMyShare" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMyIntegral"
+                style="@style/ww_00_text_16"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="8dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_my_integral"
+                android:drawablePadding="2dp"
+                android:text="@string/my_integral"
+                app:layout_constraintBottom_toBottomOf="@id/clIntegral"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/clIntegral" />
 
 
-    <TextView
-        android:id="@+id/tvNighMode"
-        style="@style/ww_00_text_14"
-        android:drawableTop="@drawable/ic_night_model"
-        android:drawablePadding="2dp"
-        android:text="@string/nigh_mode"
-        app:layout_constraintEnd_toStartOf="@id/tvOpenSourceLicenses"
-        app:layout_constraintStart_toEndOf="@id/tvTheme"
-        app:layout_constraintTop_toTopOf="@id/tvTheme" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMyIntegralRanking"
+                style="@style/ww_00_text_16"
+                android:layout_marginEnd="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_integral_rank"
+                android:drawablePadding="2dp"
+                android:text="@string/integral_ranking"
+                app:layout_constraintBottom_toBottomOf="@id/tvMyIntegral"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvMyIntegral" />
 
-    <TextView
-        android:id="@+id/tvOpenSourceLicenses"
-        style="@style/ww_00_text_14"
-        android:drawableTop="@drawable/ic_open_source_licenses"
-        android:drawablePadding="2dp"
-        android:text="@string/open_source_licenses"
-        app:layout_constraintEnd_toStartOf="@id/tvProjectHomePage"
-        app:layout_constraintStart_toEndOf="@id/tvNighMode"
-        app:layout_constraintTop_toTopOf="@id/tvTheme" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/color_1F000000"
+                app:layout_constraintBottom_toBottomOf="@id/tvMyIntegral"
+                app:layout_constraintEnd_toStartOf="@id/tvMyIntegralRanking"
+                app:layout_constraintStart_toEndOf="@id/tvMyIntegral"
+                app:layout_constraintTop_toTopOf="@id/tvMyIntegral" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tvProjectHomePage"
-        style="@style/ww_00_text_14"
-        android:layout_marginEnd="16dp"
-        android:drawableTop="@drawable/ic_project_home_page"
-        android:drawablePadding="2dp"
-        android:text="@string/project_home_page"
-        app:layout_constraintEnd_toEndOf="@id/clFunction"
-        app:layout_constraintStart_toEndOf="@id/tvOpenSourceLicenses"
-        app:layout_constraintTop_toTopOf="@id/tvTheme" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clFunction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/color_FFFFFF"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="@id/clIntegral"
+            app:layout_constraintStart_toStartOf="@id/clIntegral"
+            app:layout_constraintTop_toBottomOf="@id/clIntegral">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMyShare"
+                style="@style/ww_00_text_14"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_outline_share"
+                android:drawablePadding="2dp"
+                android:text="@string/my_share"
+                app:layout_constraintEnd_toStartOf="@id/tvMyCollect"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="@id/clFunction"
+                app:layout_constraintTop_toTopOf="@id/clFunction" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMyCollect"
+                style="@style/ww_00_text_14"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_my_collect"
+                android:drawablePadding="2dp"
+                android:text="@string/my_collect"
+                app:layout_constraintBottom_toBottomOf="@id/tvMyShare"
+                app:layout_constraintEnd_toStartOf="@id/tvMyKuTu"
+                app:layout_constraintStart_toEndOf="@id/tvMyShare"
+                app:layout_constraintTop_toTopOf="@id/tvMyShare" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMyKuTu"
+                style="@style/ww_00_text_14"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_ku_tu"
+                android:drawablePadding="2dp"
+                android:text="@string/my_ku_tu"
+                app:layout_constraintBottom_toBottomOf="@id/tvMyShare"
+                app:layout_constraintEnd_toStartOf="@id/tvMyTool"
+                app:layout_constraintStart_toEndOf="@id/tvMyCollect"
+                app:layout_constraintTop_toTopOf="@id/tvMyShare" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMyTool"
+                style="@style/ww_00_text_14"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_my_tool"
+                android:drawablePadding="2dp"
+                android:text="@string/my_tool"
+                app:layout_constraintBottom_toBottomOf="@id/tvMyShare"
+                app:layout_constraintEnd_toEndOf="@id/clFunction"
+                app:layout_constraintStart_toEndOf="@id/tvMyKuTu"
+                app:layout_constraintTop_toTopOf="@id/tvMyShare" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTheme"
+                style="@style/ww_00_text_14"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_theme"
+                android:drawablePadding="2dp"
+                android:text="@string/theme"
+                app:layout_constraintEnd_toStartOf="@id/tvNighMode"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="@id/tvMyShare"
+                app:layout_constraintTop_toBottomOf="@id/tvMyShare" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNighMode"
+                style="@style/ww_00_text_14"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_night_model"
+                android:drawablePadding="2dp"
+                android:text="@string/nigh_mode"
+                app:layout_constraintEnd_toStartOf="@id/tvOpenSourceLicenses"
+                app:layout_constraintStart_toEndOf="@id/tvTheme"
+                app:layout_constraintTop_toTopOf="@id/tvTheme" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOpenSourceLicenses"
+                style="@style/ww_00_text_14"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_open_source_licenses"
+                android:drawablePadding="2dp"
+                android:text="@string/open_source_licenses"
+                app:layout_constraintEnd_toStartOf="@id/tvProjectHomePage"
+                app:layout_constraintStart_toEndOf="@id/tvNighMode"
+                app:layout_constraintTop_toTopOf="@id/tvTheme" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProjectHomePage"
+                style="@style/ww_00_text_14"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:drawableTop="@drawable/ic_project_home_page"
+                android:drawablePadding="2dp"
+                android:text="@string/project_home_page"
+                app:layout_constraintEnd_toEndOf="@id/clFunction"
+                app:layout_constraintStart_toEndOf="@id/tvOpenSourceLicenses"
+                app:layout_constraintTop_toTopOf="@id/tvTheme" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBrowsingHistory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/color_FFFFFF"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clFunction">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/ww_00_text_16"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/browsing_history"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNoBrowsingHistory"
+                style="@style/ww_se_00_text_14"
+                android:layout_width="0dp"
+                android:layout_height="112dp"
+                android:gravity="center"
+                android:text="暂无浏览记录"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

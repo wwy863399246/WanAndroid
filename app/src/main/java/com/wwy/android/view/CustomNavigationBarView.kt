@@ -55,7 +55,7 @@ class CustomNavigationBarView @JvmOverloads constructor(
         mTitleTextId = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_title_textId, 0)
         mTitleTextStr = obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_title_textStr)
         mTextColor = obtainStyledAttributes.getColor(R.styleable.CustomNavigationBarView_text_color, 0)
-        mShowTabLayout = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_tablayout, false)
+        mShowTabLayout = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_tab_layout, false)
         initView()
         setContentInsetsRelative(0, 0)
         obtainStyledAttributes.recycle()
