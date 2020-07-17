@@ -8,34 +8,34 @@
         android:id="@+id/viewMainProject"
         android:layout_width="0dp"
         android:layout_height="36dp"
-        android:background="@color/colorPrimary"
+        android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.angcyo.tablayout.DslTabLayout
         android:id="@+id/tlMainProject"
-        android:background="@color/colorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
+        android:background="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/viewMainProject"
         app:tab_deselect_color="@color/color_B3_F"
         app:tab_draw_indicator="true"
+        app:tab_enable_gradient_text_size="true"
+        app:tab_enable_text_bold="true"
         app:tab_indicator_anim="true"
         app:tab_indicator_color="@color/color_FFFFFF"
         app:tab_indicator_drawable="@drawable/shape_project_tab"
         app:tab_indicator_enable_flow="true"
         app:tab_indicator_height="2dp"
         app:tab_indicator_radius="2dp"
-        app:tab_indicator_y_offset="0dp"
         app:tab_indicator_style="STYLE_BOTTOM"
         app:tab_indicator_width="WRAP_CONTENT"
-        app:tab_enable_text_bold="true"
-        app:tab_enable_gradient_text_size="true"
+        app:tab_indicator_y_offset="0dp"
+        app:tab_select_color="@color/color_FFFFFF"
         app:tab_text_max_size="16sp"
-        app:tab_text_min_size="14sp"
-        app:tab_select_color="@color/color_FFFFFF" />
+        app:tab_text_min_size="14sp" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpMainProject"
@@ -46,8 +46,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewMainProject" />
 
-    <com.wwy.android.view.loadpage.loadPageViewForStatus
-        android:id="@+id/llMainProjectloadPageViewForStatus"
+    <com.wwy.android.view.loadpage.LoadPageViewForStatus
+        android:id="@+id/llMainProjectLoadPageViewForStatus"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"

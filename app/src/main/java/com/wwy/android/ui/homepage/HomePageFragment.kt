@@ -28,7 +28,7 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
     private val homePageStickAdapter = HomePageStickAdapter()
 
     private val loadPageViewForStatus : BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: loadPageViewForStatus
+    private lateinit var rootView: LoadPageViewForStatus
     private lateinit var homePageHeadView: HomePageHeadView
     override fun initVM(): HomePageViewModel =getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
@@ -37,7 +37,7 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
     }
 
     override fun initView() {
-        rootView = activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as loadPageViewForStatus
+        rootView = activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
         rootView.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }

@@ -1,19 +1,15 @@
 package com.wwy.android.ext
 
-import android.provider.ContactsContract
-import android.content.Intent
-import com.wwy.android.adapter.CheckPermissionAdapter
-import android.Manifest.permission
-import com.qw.soul.permission.SoulPermission
-import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageInfo
+import android.content.res.Resources
+import android.util.TypedValue
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.core.content.ContextCompat
-import com.qw.soul.permission.bean.Permission
 
 
 /**
@@ -21,20 +17,31 @@ import com.qw.soul.permission.bean.Permission
  *@创建时间 2019/11/14 10:03
  *@描述
  */
+const val SET_THEME = "set_theme"
 
-
+//获取包名
 fun Context.packageInfo(): PackageInfo = this.packageManager.getPackageInfo(this.packageName, 0)
 
-//扩展函数
+//获取颜色
 fun Context.color(colorRes: Int) = ContextCompat.getColor(this, colorRes)
-
 fun View.color(colorRes: Int) = context.color(colorRes)
+fun Context.text(textRes: Int) = this.resources.getString(textRes)
+fun View.text(textRes: Int) = context.text(textRes)
+
+//获取主题属性id
+fun TypedValue.resourceId(resId: Int, theme: Resources.Theme): Int {
+    theme.resolveAttribute(resId, this, true)
+    return this.resourceId
+}
+
+//加载子布局
 fun ViewGroup.inflate(@LayoutRes layoutId: Int, attachToRoot: Boolean = true): View {
     if (layoutId == -1) {
         return this
     }
     return LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
 }
+
 /***
  * 设置延迟时间的View扩展
  * @param delay Long 延迟时间，默认600毫秒

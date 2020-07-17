@@ -7,7 +7,7 @@ import com.wwy.android.adapter.NavigationAdapter
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.view.loadpage.BasePageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
-import com.wwy.android.view.loadpage.loadPageViewForStatus
+import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.vm.NavigationViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -21,13 +21,13 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class NavigationFragment : BaseVMFragment<NavigationViewModel>() {
     private val navigationAdapter = NavigationAdapter()
     private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: loadPageViewForStatus
+    private lateinit var rootView: LoadPageViewForStatus
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
 
     override fun initVM(): NavigationViewModel = getViewModel()
     override fun initView() {
         rootView =
-            activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as loadPageViewForStatus
+            activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
         rootView.apply {
             failTextView().onClick { initData() }
         }

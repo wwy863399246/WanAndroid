@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\ba78863660e87e92f0b53c4e19793eeb\\jetified-refresh-footer-classics-2.0.0\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\6d9e935bb3930f2aa2380e964ed8752a\\jetified-refresh-footer-classics-2.0.0\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -21,17 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\76adde423077a3fdea67a11741e8c443\\jetified-refresh-layout-kernel-2.0.0\\res\\values-zh\\values-zh.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,163",
-                        "endColumns": "107,91",
-                        "endOffsets": "158,250"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\b3c192cf0fbdcf78371a78e54a895504\\jetified-refresh-header-classics-2.0.0\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\69394cedb8bcc393c6260af7229c27da\\jetified-refresh-header-classics-2.0.0\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -45,6 +35,16 @@
                         "startOffsets": "633,684,735,792,846,902,956,1012",
                         "endColumns": "50,50,56,53,55,53,55,60",
                         "endOffsets": "679,730,787,841,897,951,1007,1068"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\09d531cf6009a63d53e0482fd23b403b\\jetified-refresh-layout-kernel-2.0.0\\res\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,163",
+                        "endColumns": "107,91",
+                        "endOffsets": "158,250"
                     }
                 }
             ]

@@ -7,7 +7,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.leshu.superbrain"
+        applicationId "com.wwy.android"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 103
@@ -101,4 +101,5 @@ dependencies {
     implementation 'org.koin:koin-androidx-scope:2.0.1'
     // or Koin for Android Architecture ViewModel
     implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
+    implementation 'com.tencent:mmkv-static:1.2.1'
 }

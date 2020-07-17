@@ -1,11 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.the-pig-of-jungle.smart-show:dialog:x2.8.3@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d988533112ae3a9636ce57c7abd4aae/jetified-dialog-x2.8.3/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0838a3b9b8d2538e87d2e10b7c3f69d/jetified-dialog-x2.8.3/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d988533112ae3a9636ce57c7abd4aae/jetified-dialog-x2.8.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d988533112ae3a9636ce57c7abd4aae/jetified-dialog-x2.8.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0838a3b9b8d2538e87d2e10b7c3f69d/jetified-dialog-x2.8.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0838a3b9b8d2538e87d2e10b7c3f69d/jetified-dialog-x2.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0838a3b9b8d2538e87d2e10b7c3f69d/jetified-dialog-x2.8.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -1,9 +1,12 @@
 package com.wwy.android.ui.base
 
 import android.os.Bundle
+import android.util.TypedValue
 import androidx.appcompat.app.AppCompatActivity
+import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.gyf.immersionbar.ktx.immersionBar
 import com.wwy.android.R
+import com.wwy.android.ext.resourceId
 
 /**
  *@创建者wwy
@@ -17,7 +20,20 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
         initImmersionBar()
+        setSmartSnackBar()
         initActivity(savedInstanceState)
+    }
+
+    open fun setSmartSnackBar() {
+        SmartSnackbar.setting()
+            .backgroundColorRes(
+                TypedValue().resourceId(
+                    R.attr.colorPrimary,
+                    theme
+                )
+            )
+            .dismissOnLeave(true)
+
     }
 
     protected open fun initActivity(savedInstanceState: Bundle?) {
@@ -31,7 +47,7 @@ abstract class BaseActivity : AppCompatActivity() {
     abstract fun initData()
     open fun initImmersionBar() {
         immersionBar {
-            statusBarColor(R.color.colorPrimary)
+            statusBarColor(TypedValue().resourceId(R.attr.colorPrimary, theme))
         }
     }
 

@@ -4,15 +4,17 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.wwy.android.R
 import com.wwy.android.ext.color
+import com.wwy.android.ext.resourceId
 import org.jetbrains.anko.*
 
-class loadPageViewForStatus @JvmOverloads constructor(
+class LoadPageViewForStatus @JvmOverloads constructor(
     context: Context?,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -46,7 +48,14 @@ class loadPageViewForStatus @JvmOverloads constructor(
             emptyText.layoutParams =
                 LayoutParams(wrapContent, wrapContent).also { gravity = Gravity.CENTER }
             progressBar = progressBar {
-                indeterminateTintList = ColorStateList.valueOf(color(R.color.colorPrimary))
+                indeterminateTintList = ColorStateList.valueOf(
+                    color(
+                        TypedValue().resourceId(
+                            R.attr.colorPrimary,
+                            context!!.theme
+                        )
+                    )
+                )
                 indeterminateTintMode = PorterDuff.Mode.SRC_ATOP
 
             }

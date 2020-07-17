@@ -1,5 +1,6 @@
 package com.wwy.android.ui.homepage
 
+import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.jeremyliao.liveeventbus.LiveEventBus
@@ -7,6 +8,7 @@ import com.wwy.android.R
 import com.wwy.android.adapter.MyFragmentPagerAdapter
 import com.wwy.android.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_main.*
+import org.jetbrains.anko.support.v4.indeterminateProgressDialog
 
 /**
  *@创建者wwy
@@ -15,8 +17,6 @@ import kotlinx.android.synthetic.main.fragment_main.*
  */
 class MainFragment : BaseFragment() {
     override fun setLayoutResId(): Int = R.layout.fragment_main
-
-
     override fun initData() {
         val mHomePageTabLayout =
             arrayOf(

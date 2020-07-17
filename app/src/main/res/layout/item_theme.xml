@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="?android:attr/selectableItemBackground"
+    android:layout_height="wrap_content">
+
+    <com.wwy.android.view.roundview.RoundFrameLayout
+        android:id="@+id/flThemeColor"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_backgroundColor="@color/accent_orange"
+        app:rv_cornerRadius="100dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivChooseTheme"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_baseline_check_24"
+        app:layout_constraintBottom_toBottomOf="@id/flThemeColor"
+        app:layout_constraintEnd_toEndOf="@id/flThemeColor"
+        app:layout_constraintStart_toStartOf="@id/flThemeColor"
+        app:layout_constraintTop_toTopOf="@id/flThemeColor" />
+
+    <TextView
+        android:id="@+id/tvThemeColor"
+        style="@style/ww_se_00_text_14"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvUserTheme"
+        app:layout_constraintStart_toEndOf="@id/flThemeColor"
+        app:layout_constraintTop_toTopOf="@id/tvUserTheme" />
+
+    <com.wwy.android.view.roundview.RoundTextView
+        android:id="@+id/tvUserTheme"
+        style="@style/ww_se_00_text_14"
+        android:layout_width="64dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:text="@string/theme_user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_cornerRadius="2dp"
+        app:rv_strokeColor="@color/color_8A000000"
+        app:rv_strokeWidth="1dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

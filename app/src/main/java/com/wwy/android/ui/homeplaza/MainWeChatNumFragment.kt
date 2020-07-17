@@ -29,7 +29,7 @@ class MainWeChatNumFragment : BaseVMFragment<WeChatNumViewModel>() {
     private val mFragmentList = mutableListOf<Fragment>()
     private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
     override fun initView() {
-        llMainProjectloadPageViewForStatus.failTextView().onClick { mViewModel.loadBlogType() }
+        llMainProjectLoadPageViewForStatus.failTextView().onClick { mViewModel.loadBlogType() }
         ViewPager2Delegate(vpMainProject, tlMainProject)
         vpMainProject.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             private var currentPosition = 0     //当前滑动位置
@@ -64,12 +64,12 @@ class MainWeChatNumFragment : BaseVMFragment<WeChatNumViewModel>() {
         mViewModel.apply {
             mBlogTypeListModel.observe(this@MainWeChatNumFragment, Observer { it ->
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    llMainProjectloadPageViewForStatus.visibility = View.VISIBLE
-                    loadPageViewForStatus.convert(llMainProjectloadPageViewForStatus, loadPageStatus)
+                    llMainProjectLoadPageViewForStatus.visibility = View.VISIBLE
+                    loadPageViewForStatus.convert(llMainProjectLoadPageViewForStatus, loadPageStatus)
                 }
                 it.showSuccess?.let { list ->
                     mFragmentList.clear()
-                    llMainProjectloadPageViewForStatus.visibility = View.GONE
+                    llMainProjectLoadPageViewForStatus.visibility = View.GONE
                     tlMainProject.removeAllViews()
                     list.toMutableList().apply {
                         forEach {

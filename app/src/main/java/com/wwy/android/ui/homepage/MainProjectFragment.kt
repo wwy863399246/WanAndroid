@@ -30,7 +30,7 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
     private val mFragmentList = mutableListOf<Fragment>()
     private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
     override fun initView() {
-        llMainProjectloadPageViewForStatus.failTextView()
+        llMainProjectLoadPageViewForStatus.failTextView()
             .onClick { mViewModel.loadProjectClassify() }
         ViewPager2Delegate(vpMainProject, tlMainProject)
         vpMainProject.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -66,9 +66,9 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
         mViewModel.apply {
             mMainProjectListModel.observe(this@MainProjectFragment, Observer { it ->
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    llMainProjectloadPageViewForStatus.visibility = View.VISIBLE
+                    llMainProjectLoadPageViewForStatus.visibility = View.VISIBLE
                     loadPageViewForStatus.convert(
-                        llMainProjectloadPageViewForStatus,
+                        llMainProjectLoadPageViewForStatus,
                         loadPageStatus
                     )
                 }
@@ -77,7 +77,7 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
                     val classifyResponse = ClassifyResponse(
                         null, 0, 0, getString(R.string.newest_project), 0, 0, false, 0
                     )
-                    llMainProjectloadPageViewForStatus.visibility = View.GONE
+                    llMainProjectLoadPageViewForStatus.visibility = View.GONE
                     tlMainProject.removeAllViews()
                     list.toMutableList().apply {
                         add(0, classifyResponse)

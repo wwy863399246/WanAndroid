@@ -1,22 +1,34 @@
 package com.wwy.android.ui.main
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
+import com.wwy.android.ext.SET_THEME
+import com.wwy.android.ext.getAppTheme
 import com.wwy.android.ui.base.BaseActivity
 import com.wwy.android.ui.homemine.HomeMineFragment
-import com.wwy.android.ui.homesyetem.HomeSystemFragment
-import com.wwy.android.ui.homeplaza.MainPlazaFragment
-import kotlinx.android.synthetic.main.activity_main.*
-import android.os.Bundle
 import com.wwy.android.ui.homepage.MainFragment
+import com.wwy.android.ui.homeplaza.MainPlazaFragment
+import com.wwy.android.ui.homesyetem.HomeSystemFragment
+import com.wwy.android.view.rippleAnimation.RippleAnimation
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_my_home_page.*
 
 
-class MainActivity : BaseActivity() {
+open class MainActivity : BaseActivity() {
     private val fragments = arrayListOf<Fragment>()
     private var lastPosition: Int = 0
+    private var mPosition: Int = 0
     private var currentFragment: Fragment? = null//要显示的Fragment
     private var hideFragment: Fragment? = null//要隐藏的Fragment
     override fun setLayoutId(): Int = R.layout.activity_main
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(getAppTheme())
+        super.onCreate(savedInstanceState)
+    }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -26,11 +38,14 @@ class MainActivity : BaseActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         lastPosition = savedInstanceState.getInt("last_position")//获取重建时的fragment的位置
-        setSelectedFragment(lastPosition)//恢复销毁前显示的fragment
+        setSelectedFragment(lastPosition)
         bottom_nav_view.selectedItemId = bottom_nav_view.menu.getItem(lastPosition).itemId
     }
 
     override fun initView(savedInstanceState: Bundle?) {
+        LiveEventBus.get(SET_THEME).observe(this, Observer {
+            recreate()
+        })
         fragments.apply {
             add(MainFragment())
             add(HomeSystemFragment())
@@ -67,12 +82,13 @@ class MainActivity : BaseActivity() {
         bottom_nav_view.menu.getItem(position).isChecked = true
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
-        currentFragment = fragmentManager.findFragmentByTag("fragment$position")//要显示的fragment(解决了activity重建时新建实例的问题)
-        hideFragment = fragmentManager.findFragmentByTag("fragment$lastPosition")//要隐藏的fragment(解决了activity重建时新建实例的问题)
+        currentFragment =
+            fragmentManager.findFragmentByTag("fragment$position")//要显示的fragment(解决了activity重建时新建实例的问题)
+        hideFragment =
+            fragmentManager.findFragmentByTag("fragment$lastPosition")//要隐藏的fragment(解决了activity重建时新建实例的问题)
         if (position != lastPosition) {//如果位置不同
-            if (hideFragment != null) {//如果要隐藏的fragment存在，则隐藏
-                hideFragment?.let { transaction.hide(it) }
-            }
+            //如果要隐藏的fragment存在，则隐藏
+            hideFragment?.let { transaction.hide(it) }
             if (currentFragment == null) {//如果要显示的fragment不存在，则新加并提交事务
                 currentFragment = fragments[position]
                 currentFragment?.let { transaction.add(R.id.fl_container, it, "fragment$position") }
@@ -89,5 +105,18 @@ class MainActivity : BaseActivity() {
         }
         transaction.commit()//提交事务
         lastPosition = position//更新要隐藏的fragment的位置
+        mPosition = position
+    }
+
+
+    override fun recreate() {
+        val beginTransaction = supportFragmentManager.beginTransaction()
+        for (index in 0..2) {
+            supportFragmentManager.findFragmentByTag("fragment$index")?.let {
+                beginTransaction.remove(it)
+            }
+        }
+        beginTransaction.commitAllowingStateLoss();
+        super.recreate()
     }
 }

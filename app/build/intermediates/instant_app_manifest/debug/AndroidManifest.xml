@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.leshu.superbrain"
+    package="com.wwy.android"
     android:targetSandboxVersion="2"
     android:versionCode="103"
     android:versionName="1.0.3" >
@@ -37,6 +37,7 @@
         </activity>
         <activity android:name="com.wwy.android.ui.member.LoginActivity" />
         <activity android:name="com.wwy.android.ui.main.MainActivity" />
+        <activity android:name="com.wwy.android.ui.homemine.MyThemeActivity" />
         <!-- 头条适配autosize -->
         <meta-data
             android:name="design_width_in_dp"
@@ -59,17 +60,17 @@
 
         <provider
             android:name="com.qw.soul.permission.InitProvider"
-            android:authorities="com.leshu.superbrain.permission.provider"
+            android:authorities="com.wwy.android.permission.provider"
             android:exported="false"
             android:multiprocess="true" />
         <provider
             android:name="me.jessyan.autosize.InitProvider"
-            android:authorities="com.leshu.superbrain.autosize-init-provider"
+            android:authorities="com.wwy.android.autosize-init-provider"
             android:exported="false"
             android:multiprocess="true" />
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-            android:authorities="com.leshu.superbrain.lifecycle-process"
+            android:authorities="com.wwy.android.lifecycle-process"
             android:exported="false"
             android:multiprocess="true" />
     </application>

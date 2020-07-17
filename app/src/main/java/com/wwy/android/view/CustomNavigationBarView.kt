@@ -2,6 +2,7 @@ package com.wwy.android.view
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.View
 import android.widget.*
@@ -10,7 +11,9 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.wwy.android.R
+import com.wwy.android.ext.color
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
+import org.jetbrains.anko.backgroundColor
 
 
 /**
@@ -37,25 +40,56 @@ class CustomNavigationBarView @JvmOverloads constructor(
     private var mTitleTextStr: String? = null
     private var mTitleTextId: Int = 0
     private var mTextColor: Int = 0
+    private var mNavigationBar: Int = 0
     private var mShowTabLayout: Boolean = false
 
     init {
-        val obtainStyledAttributes = context.obtainStyledAttributes(attrs, R.styleable.CustomNavigationBarView)
-        mLeftTextId = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_textId, 0)
-        mLeftTextStr = obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_left_textStr)
-        mLeftImg = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_img, 0)
-        mShowLeftImg = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_left_img, false)
-        mRightImg1 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img1, 0)
-        mRightImg2 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img2, 0)
-        mRightImg3 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img3, 0)
-        mShowRightImg1 = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_right_img1, false)
-        mShowRightImg2 = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_right_img2, false)
-        mRightImg3 = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img3, 0)
-        mShowRightImg3 = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_right_img2, false)
-        mTitleTextId = obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_title_textId, 0)
-        mTitleTextStr = obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_title_textStr)
-        mTextColor = obtainStyledAttributes.getColor(R.styleable.CustomNavigationBarView_text_color, 0)
-        mShowTabLayout = obtainStyledAttributes.getBoolean(R.styleable.CustomNavigationBarView_isShow_tab_layout, false)
+        val obtainStyledAttributes =
+            context.obtainStyledAttributes(attrs, R.styleable.CustomNavigationBarView)
+        mLeftTextId =
+            obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_textId, 0)
+        mLeftTextStr =
+            obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_left_textStr)
+        mLeftImg =
+            obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_img, 0)
+        mShowLeftImg = obtainStyledAttributes.getBoolean(
+            R.styleable.CustomNavigationBarView_isShow_left_img,
+            false
+        )
+        mRightImg1 =
+            obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img1, 0)
+        mRightImg2 =
+            obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img2, 0)
+        mRightImg3 =
+            obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img3, 0)
+        mShowRightImg1 = obtainStyledAttributes.getBoolean(
+            R.styleable.CustomNavigationBarView_isShow_right_img1,
+            false
+        )
+        mShowRightImg2 = obtainStyledAttributes.getBoolean(
+            R.styleable.CustomNavigationBarView_isShow_right_img2,
+            false
+        )
+        mRightImg3 =
+            obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_right_img3, 0)
+        mShowRightImg3 = obtainStyledAttributes.getBoolean(
+            R.styleable.CustomNavigationBarView_isShow_right_img2,
+            false
+        )
+        mTitleTextId = obtainStyledAttributes.getResourceId(
+            R.styleable.CustomNavigationBarView_title_textId,
+            0
+        )
+        mTitleTextStr =
+            obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_title_textStr)
+        mTextColor =
+            obtainStyledAttributes.getColor(R.styleable.CustomNavigationBarView_text_color, 0)
+        mShowTabLayout = obtainStyledAttributes.getBoolean(
+            R.styleable.CustomNavigationBarView_isShow_tab_layout,
+            false
+        )
+        mNavigationBar =
+            obtainStyledAttributes.getColor(R.styleable.CustomNavigationBarView_bg_color, 0)
         initView()
         setContentInsetsRelative(0, 0)
         obtainStyledAttributes.recycle()
@@ -103,7 +137,16 @@ class CustomNavigationBarView @JvmOverloads constructor(
         if (mShowTabLayout) tlNavigationBar.visibility =
             View.VISIBLE else tlNavigationBar.visibility =
             View.GONE
+
+        if (mNavigationBar != 0) {
+            navigationBarBg.backgroundColor = mNavigationBar
+        }
     }
+
+    fun setNavigationBarBackgroundColor(colorRes: Int) {
+        navigationBarBg.backgroundColor = color(colorRes)
+    }
+
 
     fun setTabLayoutData(tablayoutTitle: Array<String?>, viewPager2: ViewPager2) {
         //viewpage2 tablayout 联动

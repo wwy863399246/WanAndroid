@@ -29,6 +29,7 @@
         </activity>
         <activity android:name="com.wwy.android.ui.member.LoginActivity" />
         <activity android:name="com.wwy.android.ui.main.MainActivity" />
+        <activity android:name=".ui.homemine.MyThemeActivity"/>
         <!-- 头条适配autosize -->
         <meta-data
                 android:name="design_width_in_dp"

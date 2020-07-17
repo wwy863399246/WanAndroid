@@ -1,8 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.scwang.smart:refresh-drawable-paint:2.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fedbe69d6de4d0b8f0bc8c16f7dabc69/jetified-refresh-drawable-paint-2.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fedbe69d6de4d0b8f0bc8c16f7dabc69/jetified-refresh-drawable-paint-2.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/45bdc0958c4303434550c78a37e2f237/jetified-refresh-drawable-paint-2.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/45bdc0958c4303434550c78a37e2f237/jetified-refresh-drawable-paint-2.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/45bdc0958c4303434550c78a37e2f237/jetified-refresh-drawable-paint-2.0.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.scwang.smart/refresh-drawable-paint/2.0.0/eee46fa97f343f518f65d831259751ff5c842633/refresh-drawable-paint-2.0.0-javadoc.jar!/" />

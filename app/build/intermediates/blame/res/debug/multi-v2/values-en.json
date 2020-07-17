@@ -4,7 +4,17 @@
             "outputFile": "C:\\Users\\Administrator\\Documents\\WanAndroid\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\a8ca26ac3c952f765116c9ca022be52e\\jetified-soulpermission-1.2.2_x\\res\\values-en\\values-en.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\574f223972f4d0f0c7d4adae213eb9c7\\jetified-BaseRecyclerViewAdapterHelper-3.0.2\\res\\values-en\\values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,122,178,241",
+                        "endColumns": "66,55,62,52",
+                        "endOffsets": "117,173,236,289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\8984ad5763756c001ed7d96b4f44a367\\jetified-soulpermission-1.2.2_x\\res\\values-en\\values-en.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -18,16 +28,6 @@
                         "startOffsets": "294,362,422,486,552,667,735,807,888,952,1010,1076",
                         "endColumns": "67,59,63,65,114,67,71,80,63,57,65,67",
                         "endOffsets": "357,417,481,547,662,730,802,883,947,1005,1071,1139"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\6047dd02d08a463310b12c33b3826a79\\jetified-BaseRecyclerViewAdapterHelper-3.0.2\\res\\values-en\\values-en.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,122,178,241",
-                        "endColumns": "66,55,62,52",
-                        "endOffsets": "117,173,236,289"
                     }
                 }
             ]

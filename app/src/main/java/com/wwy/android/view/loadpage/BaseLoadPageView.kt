@@ -19,26 +19,26 @@ abstract class BasePageViewForStatus {
      * 布局中的 加载更多视图
      * @return View
      */
-    abstract fun getLoadingView(loadPageViewForStatus: loadPageViewForStatus): View
+    abstract fun getLoadingView(LoadPageViewForStatus: LoadPageViewForStatus): View
 
     /**
      * 布局中的 加载失败布局
      * @return View
      */
-    abstract fun getLoadFailView(loadPageViewForStatus: loadPageViewForStatus): View
+    abstract fun getLoadFailView(LoadPageViewForStatus: LoadPageViewForStatus): View
 
 
     /**
      * 布局中的 加载空布局
      * @return View
      */
-    abstract fun getLoadEmptyView(loadPageViewForStatus: loadPageViewForStatus): View
+    abstract fun getLoadEmptyView(LoadPageViewForStatus: LoadPageViewForStatus): View
 
     /**
      * 布局中的 加载无网络布局
      * @return View
      */
-    abstract fun getLoadNoNetView(loadPageViewForStatus: loadPageViewForStatus): View
+    abstract fun getLoadNoNetView(LoadPageViewForStatus: LoadPageViewForStatus): View
 
 
     /**
@@ -47,32 +47,32 @@ abstract class BasePageViewForStatus {
      * @param position Int
      * @param loadPageStatus loadPageStatus
      */
-    open fun convert(loadPageViewForStatus: loadPageViewForStatus, loadPageStatus: LoadPageStatus) {
+    open fun convert(LoadPageViewForStatus: LoadPageViewForStatus, loadPageStatus: LoadPageStatus) {
         when (loadPageStatus) {
 
             LoadPageStatus.Loading -> {
-                getLoadingView(loadPageViewForStatus).isVisible(true)
-                getLoadFailView(loadPageViewForStatus).isVisible(false)
-                getLoadEmptyView(loadPageViewForStatus).isVisible(false)
-                getLoadNoNetView(loadPageViewForStatus).isVisible(false)
+                getLoadingView(LoadPageViewForStatus).isVisible(true)
+                getLoadFailView(LoadPageViewForStatus).isVisible(false)
+                getLoadEmptyView(LoadPageViewForStatus).isVisible(false)
+                getLoadNoNetView(LoadPageViewForStatus).isVisible(false)
             }
             LoadPageStatus.Fail -> {
-                getLoadingView(loadPageViewForStatus).isVisible(false)
-                getLoadFailView(loadPageViewForStatus).isVisible(true)
-                getLoadEmptyView(loadPageViewForStatus).isVisible(false)
-                getLoadNoNetView(loadPageViewForStatus).isVisible(false)
+                getLoadingView(LoadPageViewForStatus).isVisible(false)
+                getLoadFailView(LoadPageViewForStatus).isVisible(true)
+                getLoadEmptyView(LoadPageViewForStatus).isVisible(false)
+                getLoadNoNetView(LoadPageViewForStatus).isVisible(false)
             }
             LoadPageStatus.Empty -> {
-                getLoadingView(loadPageViewForStatus).isVisible(false)
-                getLoadFailView(loadPageViewForStatus).isVisible(false)
-                getLoadEmptyView(loadPageViewForStatus).isVisible(true)
-                getLoadNoNetView(loadPageViewForStatus).isVisible(false)
+                getLoadingView(LoadPageViewForStatus).isVisible(false)
+                getLoadFailView(LoadPageViewForStatus).isVisible(false)
+                getLoadEmptyView(LoadPageViewForStatus).isVisible(true)
+                getLoadNoNetView(LoadPageViewForStatus).isVisible(false)
             }
             LoadPageStatus.NoNet -> {
-                getLoadingView(loadPageViewForStatus).isVisible(false)
-                getLoadFailView(loadPageViewForStatus).isVisible(false)
-                getLoadEmptyView(loadPageViewForStatus).isVisible(false)
-                getLoadNoNetView(loadPageViewForStatus).isVisible(true)
+                getLoadingView(LoadPageViewForStatus).isVisible(false)
+                getLoadFailView(LoadPageViewForStatus).isVisible(false)
+                getLoadEmptyView(LoadPageViewForStatus).isVisible(false)
+                getLoadNoNetView(LoadPageViewForStatus).isVisible(true)
             }
         }
     }

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#673AB7</color>
-    <color name="colorPrimaryDark">#673AB7</color>
-    <color name="colorAccent">#D81B60</color>
     <color name="color_000000">#000000</color>//黑色
     <color name="color_DE000000">#DE000000</color>//主要黑色文字颜色
     <color name="color_8A000000">#8A000000</color>//次等黑色文字颜色
@@ -13,13 +10,14 @@
     <color name="color_4D_F">#4DFFFFFF</color>//禁用/提示白色文字颜色
     <color name="color_1F_F">#1FFFFFFF</color>//白色分割线颜色
     <color name="color_F5F5F5">#F5F5F5</color>//灰色背景
-    <color name="color_DB4437">#DB4437</color>//红色
-    <color name="color_FB7299">#FB7299</color>//粉色
-    <color name="color_FF9800">#FF9800</color>//橙
-    <color name="color_2196F3">#2196F3</color>//蓝
-    <color name="color_0F9D58">#0F9D58</color>//绿
-    <color name="color_009688">#009688</color>//青
-    <color name="color_3F51B5">#3F51B5</color>//蓝
-    <color name="color_673AB7">#673AB7</color>//紫
-
+    <color name="accent_red">#FFDB4437</color>//红色
+    <color name="accent_pink">#FB7299</color>//粉色
+    <color name="accent_orange">#FFFF9800</color>//橙
+    <color name="accent_pale_blue">#FF2196F3</color>//蓝
+    <color name="accent_green">#FF0F9D58</color>//绿
+    <color name="accent_cyan">#FF009688</color>//青
+    <color name="accent_dark_blue">#FF3F51B5</color>//蓝
+    <color name="accent_purple">#FF673AB7</color>//紫
+    <color name="accent_brown">#FF795548</color>//紫
+    <color name="activated_orange">#FFFFB74D</color>
 </resources>

@@ -82,3 +82,13 @@ data class Navigation(
     val cid: Int,
     val name: String
 )
+
+/**
+ *主题数据
+ */
+data class Theme(
+    val color: Int,
+    val theme: Int,
+    val colorName: String,
+    var isChoose: Int
+)

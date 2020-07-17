@@ -1,8 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.the-pig-of-jungle.smart-show:bar-core:x2.8.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/280bc48f7f7834a2165f3d7711f4376d/jetified-bar-core-x2.8.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/280bc48f7f7834a2165f3d7711f4376d/jetified-bar-core-x2.8.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fc26b706b51b4f8abc6ad763e10bd36b/jetified-bar-core-x2.8.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fc26b706b51b4f8abc6ad763e10bd36b/jetified-bar-core-x2.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fc26b706b51b4f8abc6ad763e10bd36b/jetified-bar-core-x2.8.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

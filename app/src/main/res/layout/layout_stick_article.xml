@@ -12,13 +12,13 @@
         android:layout_marginStart="16dp"
         android:gravity="center"
         android:text="@string/stick"
-        android:textColor="@color/colorPrimary"
+        android:textColor="?attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@id/tvStickContent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvStickContent"
         app:rv_backgroundColor="@color/color_FFFFFF"
         app:rv_cornerRadius="2dp"
-        app:rv_strokeColor="@color/colorPrimary"
+        app:rv_strokeColor="?attr/colorPrimary"
         app:rv_strokeWidth="1dp" />
 
     <TextView

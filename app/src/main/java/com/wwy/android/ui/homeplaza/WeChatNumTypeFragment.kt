@@ -8,7 +8,7 @@ import com.wwy.android.R
 import com.wwy.android.adapter.HomePageAdapter
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.view.loadpage.BasePageViewForStatus
-import com.wwy.android.view.loadpage.loadPageViewForStatus
+import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.vm.WeChatNumViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
@@ -21,7 +21,7 @@ class WeChatNumTypeFragment : BaseVMFragment<WeChatNumViewModel>(), OnLoadMoreLi
     private val cid by lazy { arguments?.getInt(CID) }
     private val homePageAdapter = HomePageAdapter()
     private val loadPageViewForStatus : BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: loadPageViewForStatus
+    private lateinit var rootView: LoadPageViewForStatus
     private var i: Int = 0
 
     companion object {
@@ -36,7 +36,7 @@ class WeChatNumTypeFragment : BaseVMFragment<WeChatNumViewModel>(), OnLoadMoreLi
     }
 
     override fun initView() {
-        rootView = activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as loadPageViewForStatus
+        rootView = activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
         rootView.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }

@@ -3,11 +3,12 @@ package com.wwy.android.ui.homesyetem
 import androidx.lifecycle.Observer
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.coder.zzq.smartshow.toast.SmartToast
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.adapter.SystemAdapter
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.view.loadpage.BasePageViewForStatus
-import com.wwy.android.view.loadpage.loadPageViewForStatus
+import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.vm.SystemViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
@@ -22,7 +23,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class SystemFragment : BaseVMFragment<SystemViewModel>() {
     private val systemAdapter = SystemAdapter()
     private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: loadPageViewForStatus
+    private lateinit var rootView: LoadPageViewForStatus
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     override fun initVM(): SystemViewModel = getViewModel()
 
@@ -32,7 +33,7 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
 
     override fun initView() {
         rootView =
-            activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as loadPageViewForStatus
+            activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
         rootView.apply {
             failTextView().onClick { initData() }
         }
@@ -46,7 +47,7 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
             registerListener {
                 onTypeTextClick {
-                    SmartToast.show(it.toString())
+                    LiveEventBus.get("theme").post(R.style.AppTheme_Orange)
                 }
             }
         }

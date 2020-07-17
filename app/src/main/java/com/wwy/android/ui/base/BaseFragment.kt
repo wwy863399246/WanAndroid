@@ -15,24 +15,6 @@ import androidx.navigation.fragment.findNavController
  *@描述
  */
 abstract class BaseFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (callBack()) {
-            requireActivity().onBackPressedDispatcher.addCallback(
-                this,
-                object : OnBackPressedCallback(true) {
-                    override fun handleOnBackPressed() {
-                        popBackStack()
-                    }
-                })
-        }
-    }
-
-    open fun callBack(): Boolean = true
-    open fun popBackStack() {
-        findNavController().popBackStack()
-    }
-
     private var isLoaded = false
     override fun onCreateView(
         inflater: LayoutInflater,

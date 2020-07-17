@@ -14,6 +14,7 @@
     <attr name="title_textId" format="reference" /><!-- title文本-->
     <attr name="text_color" format="color" /> <!-- title文本 颜色-->
     <attr name="isShow_tab_layout" format="boolean" /> <!-- 是否显示tablayout-->
+    <attr name="bg_color" format="color" /> <!-- 背景颜色-->
     <declare-styleable name="CustomNavigationBarView">
         <attr name="left_img" />
         <attr name="left_textStr" />
@@ -29,6 +30,7 @@
         <attr name="title_textId" />
         <attr name="text_color" />
         <attr name="isShow_tab_layout" />
+        <attr name="bg_color" />
     </declare-styleable>
     <!-- 圆角矩形背景色 -->
     <attr name="rv_backgroundColor" format="color" />
@@ -187,4 +189,5 @@
         <attr name="civ_border_overlay" format="boolean" />
         <attr name="civ_circle_background_color" format="color" />
     </declare-styleable>
+    <attr name="colorPrimary" format="color" />
 </resources>

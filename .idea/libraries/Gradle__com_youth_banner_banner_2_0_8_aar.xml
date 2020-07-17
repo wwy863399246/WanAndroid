@@ -1,11 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.youth.banner:banner:2.0.8@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5f14fc4fb10f9636444d6381de7a6a6/jetified-banner-2.0.8/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bde486799306f765876ba7004c90821/jetified-banner-2.0.8/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5f14fc4fb10f9636444d6381de7a6a6/jetified-banner-2.0.8/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5f14fc4fb10f9636444d6381de7a6a6/jetified-banner-2.0.8/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bde486799306f765876ba7004c90821/jetified-banner-2.0.8/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bde486799306f765876ba7004c90821/jetified-banner-2.0.8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bde486799306f765876ba7004c90821/jetified-banner-2.0.8/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -5,16 +5,16 @@ import android.view.View
 
 
 class SimplePageViewForStatus : BasePageViewForStatus() {
-    override fun getRootView(activity: Activity): loadPageViewForStatus = loadPageViewForStatus(activity)
-    override fun getLoadingView(loadPageViewForStatus: loadPageViewForStatus): View =
-        loadPageViewForStatus.progressBarView()
+    override fun getRootView(activity: Activity): LoadPageViewForStatus = LoadPageViewForStatus(activity)
+    override fun getLoadingView(LoadPageViewForStatus: LoadPageViewForStatus): View =
+        LoadPageViewForStatus.progressBarView()
 
-    override fun getLoadFailView(loadPageViewForStatus: loadPageViewForStatus): View =
-        loadPageViewForStatus.failTextView()
+    override fun getLoadFailView(LoadPageViewForStatus: LoadPageViewForStatus): View =
+        LoadPageViewForStatus.failTextView()
 
-    override fun getLoadEmptyView(loadPageViewForStatus: loadPageViewForStatus): View =
-        loadPageViewForStatus.emptyTextView()
+    override fun getLoadEmptyView(LoadPageViewForStatus: LoadPageViewForStatus): View =
+        LoadPageViewForStatus.emptyTextView()
 
-    override fun getLoadNoNetView(loadPageViewForStatus: loadPageViewForStatus): View =
-        loadPageViewForStatus.noNetTextView()
+    override fun getLoadNoNetView(LoadPageViewForStatus: LoadPageViewForStatus): View =
+        LoadPageViewForStatus.noNetTextView()
 }

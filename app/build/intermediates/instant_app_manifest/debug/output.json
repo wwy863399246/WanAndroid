@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "applicationId": "com.leshu.superbrain",
+  "applicationId": "com.wwy.android",
   "variantType": "BASE_APK",
   "elements": [
     {
@@ -19,7 +19,7 @@
       },
       "path": "AndroidManifest.xml",
       "properties": {
-        "packageId": "com.leshu.superbrain",
+        "packageId": "com.wwy.android",
         "split": "",
         "minSdkVersion": "21"
       }
