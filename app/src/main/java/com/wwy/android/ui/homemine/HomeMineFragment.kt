@@ -7,6 +7,7 @@ import com.wwy.android.R
 import com.wwy.android.ext.OnLazyClickListener
 import com.wwy.android.ext.SET_THEME
 import com.wwy.android.ui.base.BaseFragment
+import com.wwy.android.ui.homemine.activity.MyThemeActivity
 import com.wwy.android.ui.member.LoginActivity
 import com.wwy.android.view.rippleAnimation.RippleAnimation
 import kotlinx.android.synthetic.main.fragment_home_mine.*

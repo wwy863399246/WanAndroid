@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.gyf.immersionbar.ktx.immersionBar
 import com.wwy.android.R
+import com.wwy.android.ext.getAppTheme
 import com.wwy.android.ext.resourceId
 
 /**
@@ -17,6 +18,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(getAppTheme())
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
         initImmersionBar()
@@ -40,7 +42,6 @@ abstract class BaseActivity : AppCompatActivity() {
         initView(savedInstanceState)
         initData()
     }
-
     abstract fun setLayoutId(): Int
     abstract fun initView(savedInstanceState: Bundle?)
 

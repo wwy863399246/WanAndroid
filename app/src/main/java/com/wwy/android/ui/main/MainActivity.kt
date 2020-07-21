@@ -12,9 +12,7 @@ import com.wwy.android.ui.homemine.HomeMineFragment
 import com.wwy.android.ui.homepage.MainFragment
 import com.wwy.android.ui.homeplaza.MainPlazaFragment
 import com.wwy.android.ui.homesyetem.HomeSystemFragment
-import com.wwy.android.view.rippleAnimation.RippleAnimation
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_my_home_page.*
 
 
 open class MainActivity : BaseActivity() {
@@ -24,11 +22,6 @@ open class MainActivity : BaseActivity() {
     private var currentFragment: Fragment? = null//要显示的Fragment
     private var hideFragment: Fragment? = null//要隐藏的Fragment
     override fun setLayoutId(): Int = R.layout.activity_main
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(getAppTheme())
-        super.onCreate(savedInstanceState)
-    }
-
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

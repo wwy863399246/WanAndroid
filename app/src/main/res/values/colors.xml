@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="color_00000000">#00000000</color>//透明
     <color name="color_000000">#000000</color>//黑色
     <color name="color_DE000000">#DE000000</color>//主要黑色文字颜色
     <color name="color_8A000000">#8A000000</color>//次等黑色文字颜色

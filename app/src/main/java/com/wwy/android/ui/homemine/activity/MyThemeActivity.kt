@@ -1,25 +1,20 @@
-package com.wwy.android.ui.homemine
+package com.wwy.android.ui.homemine.activity
 
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.View
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
-import com.tencent.mmkv.MMKV
 import com.wwy.android.R
 import com.wwy.android.data.bean.Theme
 import com.wwy.android.ext.*
 import com.wwy.android.ui.base.BaseActivity
-import com.wwy.android.ui.base.BaseFragment
 import com.wwy.android.view.rippleAnimation.RippleAnimation
 import kotlinx.android.synthetic.main.activity_my_theme.*
 import kotlinx.android.synthetic.main.item_theme.view.*
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.*
-import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.textColor
 
 /**
@@ -29,16 +24,12 @@ import org.jetbrains.anko.textColor
  */
 class MyThemeActivity : BaseActivity() {
     private var themes = ArrayList<Theme>()
-    private var themeAdapter = ThemeAdapter()
+    private var themeAdapter =
+        ThemeAdapter()
     private var mPosition: Int = 0
     private var isClick: Boolean = false
     private lateinit var mThemeBean: Theme
     override fun setLayoutId(): Int = R.layout.activity_my_theme
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(getAppTheme())
-        super.onCreate(savedInstanceState)
-    }
-
     override fun initImmersionBar() {
         super.initImmersionBar()
         immersionBar {

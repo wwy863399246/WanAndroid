@@ -16,9 +16,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.wwy.android.view.circleImageview.CircleImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:src="@drawable/avatar_1_raster"
         app:layout_constraintBottom_toBottomOf="@id/ivAvatarBg"
         app:layout_constraintEnd_toEndOf="@id/ivAvatarBg"
