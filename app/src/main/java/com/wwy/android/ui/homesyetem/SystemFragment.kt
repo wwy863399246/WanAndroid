@@ -47,7 +47,6 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
             registerListener {
                 onTypeTextClick {
-                    LiveEventBus.get("theme").post(R.style.AppTheme_Orange)
                 }
             }
         }

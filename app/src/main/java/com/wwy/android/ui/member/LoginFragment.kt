@@ -1,9 +1,7 @@
 package com.wwy.android.ui.member
 
-import android.util.TypedValue
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import com.gyf.immersionbar.ktx.immersionBar
 import com.wwy.android.R
 import com.wwy.android.ext.clickWithTrigger
 import com.wwy.android.ext.resourceId
@@ -24,10 +22,6 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     override fun setLayoutResId(): Int = R.layout.fragment_login
 
     override fun initView() {
-        immersionBar {
-            titleBar(R.id.loginNb)
-            statusBarColor(TypedValue().resourceId(R.attr.colorPrimary,requireActivity().theme))
-        }
         goRegister.clickWithTrigger {
             Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_registerFragment)
         }

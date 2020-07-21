@@ -105,7 +105,7 @@
         <item name="android:background">@drawable/shape_pink_border</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
-        <item name="android:padding">4dp</item>
+        <item name="android:padding">8dp</item>
     </style>
 
 

@@ -59,6 +59,7 @@ class MyThemeActivity : BaseActivity() {
                     statusBarColor(mThemeBean.color)
                 }
                 themeNv.setNavigationBarBackgroundColor(mThemeBean.color)
+                LiveEventBus.get(MY_PAGE_SET_THEME_COLOR).post(mThemeBean.color)
                 isClick = true
                 if (mPosition != -1) {
                     val themeBean = themeAdapter.data[mPosition]

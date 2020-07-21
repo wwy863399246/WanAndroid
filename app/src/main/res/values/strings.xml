@@ -12,6 +12,8 @@
     <string name="user_ranking">排名: </string>
     <string name="login">登录</string>
     <string name="register">注册</string>
+    <string name="edit_data">编辑资料</string>
+    <string name="avatar">头像</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
     <string name="go_to_register">去注册</string>

@@ -9,6 +9,7 @@ import com.angcyo.tablayout.delegate2.ViewPager2Delegate
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.adapter.MyFragmentPagerAdapter
+import com.wwy.android.ext.MAIN_PLAZA_CUT
 import com.wwy.android.ext.inflate
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.view.loadpage.BasePageViewForStatus
@@ -38,7 +39,7 @@ class MainWeChatNumFragment : BaseVMFragment<WeChatNumViewModel>() {
                 if (state == 0) {
                     if (currentPosition == oldPosition) {
                         if (currentPosition == 0)
-                            LiveEventBus.get("MAIN_PLAZA_CUT").post("")
+                            LiveEventBus.get(MAIN_PLAZA_CUT).post("")
                     }
                     oldPosition = currentPosition
                 }

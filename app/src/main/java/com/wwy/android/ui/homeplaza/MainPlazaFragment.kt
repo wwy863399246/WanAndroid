@@ -5,6 +5,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.adapter.MyFragmentPagerAdapter
+import com.wwy.android.ext.MAIN_PLAZA_CUT
 import com.wwy.android.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_plaza.*
 
@@ -18,7 +19,7 @@ class MainPlazaFragment : BaseFragment() {
 
 
     override fun initView() {
-        LiveEventBus.get("MAIN_PLAZA_CUT").observe(this, Observer {
+        LiveEventBus.get(MAIN_PLAZA_CUT).observe(this, Observer {
             homePlazaVp.setCurrentItem(0, true)
         })
         val fragments = listOf(HomePlazaFragment(), MainWeChatNumFragment())

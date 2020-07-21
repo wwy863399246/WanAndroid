@@ -34,8 +34,8 @@
     </fragment>
     <fragment
         android:id="@+id/settingAvatarFragment"
-        android:name="com.wwy.android.ui.member.SettingAvatarFragment"
+        android:name="com.wwy.android.ui.member.EditDataFragment"
         android:label="fragment_setting_avatar"
-        tools:layout="@layout/fragment_setting_avatar" />
+        tools:layout="@layout/fragment_edit_data" />
 
 </navigation>

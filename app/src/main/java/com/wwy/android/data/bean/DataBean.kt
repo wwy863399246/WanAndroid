@@ -82,6 +82,13 @@ data class Navigation(
     val cid: Int,
     val name: String
 )
+/**
+ *我的页面功能
+ */
+data class MyFunction(
+    val drawable: Int,
+    val functionName: String
+)
 
 /**
  *主题数据

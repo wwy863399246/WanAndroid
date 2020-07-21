@@ -18,6 +18,9 @@ import androidx.core.content.ContextCompat
  *@描述
  */
 const val SET_THEME = "set_theme"
+const val MY_PAGE_SET_THEME_COLOR = "my_page_set_theme_color"
+const val HOME_PAGE_CUT = "home_page_cut"
+const val MAIN_PLAZA_CUT = "main_plaza_cut"
 
 //获取包名
 fun Context.packageInfo(): PackageInfo = this.packageManager.getPackageInfo(this.packageName, 0)

@@ -9,6 +9,7 @@ import com.wwy.android.ext.SET_THEME
 import com.wwy.android.ext.getAppTheme
 import com.wwy.android.ui.base.BaseActivity
 import com.wwy.android.ui.homemine.HomeMineFragment
+import com.wwy.android.ui.homemine.MyHomePageFragment
 import com.wwy.android.ui.homepage.MainFragment
 import com.wwy.android.ui.homeplaza.MainPlazaFragment
 import com.wwy.android.ui.homesyetem.HomeSystemFragment
@@ -43,7 +44,8 @@ open class MainActivity : BaseActivity() {
             add(MainFragment())
             add(HomeSystemFragment())
             add(MainPlazaFragment())
-            add(HomeMineFragment())
+            // add(HomeMineFragment())
+            add(MyHomePageFragment())
         }
         if (savedInstanceState == null) {
             //根据传入的Bundle对象判断是正常启动还是重建 true表示正常启动，false表示重建

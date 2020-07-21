@@ -6,6 +6,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.adapter.MyFragmentPagerAdapter
+import com.wwy.android.ext.HOME_PAGE_CUT
 import com.wwy.android.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.jetbrains.anko.support.v4.indeterminateProgressDialog
@@ -27,7 +28,7 @@ class MainFragment : BaseFragment() {
     }
 
     override fun initView() {
-        LiveEventBus.get("HOME_PAGE_CUT").observe(this, Observer {
+        LiveEventBus.get(HOME_PAGE_CUT).observe(this, Observer {
             homePageVp.setCurrentItem(0, true)
         })
         val firstPageFragment = HomePageFragment()

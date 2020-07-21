@@ -10,6 +10,7 @@ import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.adapter.MyFragmentPagerAdapter
 import com.wwy.android.data.bean.ClassifyResponse
+import com.wwy.android.ext.HOME_PAGE_CUT
 import com.wwy.android.ext.inflate
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.view.loadpage.BasePageViewForStatus
@@ -40,7 +41,7 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
                 if (state == 0) {
                     if (currentPosition == oldPosition) {
                         if (currentPosition == 0)
-                            LiveEventBus.get("HOME_PAGE_CUT").post("")
+                            LiveEventBus.get(HOME_PAGE_CUT).post("")
                     }
                     oldPosition = currentPosition
                 }
