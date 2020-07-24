@@ -163,6 +163,7 @@ class RemoteDataSource {
         }
         return ResultData.Error(IOException("Failed to get systemType${systemType.errorMsg}"))
     }
+
     /**
      * 导航数据源
      *  @param getNavigationData 导航数据
@@ -192,7 +193,7 @@ class RemoteDataSource {
         if (login.errorCode == 0) {
             return ResultData.Success(login.data)
         }
-        return ResultData.Error(IOException("Failed to get login${login.errorMsg}"))
+        return ResultData.ErrorMessage(login.errorMsg)
     }
 
 }

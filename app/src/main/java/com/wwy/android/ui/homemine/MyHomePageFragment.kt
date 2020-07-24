@@ -9,6 +9,8 @@ import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.data.bean.MyFunction
+import com.wwy.android.data.bean.User
+import com.wwy.android.data.db.AppDatabase
 import com.wwy.android.ext.*
 import com.wwy.android.ui.base.BaseFragment
 import com.wwy.android.ui.homemine.activity.MyThemeActivity
@@ -17,8 +19,11 @@ import com.wwy.android.view.rippleAnimation.RippleAnimation
 import kotlinx.android.synthetic.main.fragment_my_home_page.*
 import kotlinx.android.synthetic.main.fragment_my_home_page.tvLoginImmediately
 import kotlinx.android.synthetic.main.item_my_function.view.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.support.v4.startActivity
+import org.koin.android.ext.android.get
 
 
 /**
@@ -29,6 +34,7 @@ import org.jetbrains.anko.support.v4.startActivity
 class MyHomePageFragment : BaseFragment(), OnLazyClickListener {
     private var functions = ArrayList<MyFunction>()
     private var functionAdapter = FunctionAdapter()
+    private val userDao = AppDatabase.getInstance().userDao()
     override fun setLayoutResId(): Int = R.layout.fragment_my_home_page
 
     override fun initView() {
@@ -67,6 +73,19 @@ class MyHomePageFragment : BaseFragment(), OnLazyClickListener {
             }
         }
     }
+
+    suspend fun setUserMsg() {
+        var user = getUser()
+        user.apply {
+
+        }
+       // tvLoginImmediately.text=
+    }
+
+    suspend fun getUser() = withContext(Dispatchers.IO) {
+        userDao.loadUserBean()
+    }
+
 
     override fun initData() {
         activity?.let {

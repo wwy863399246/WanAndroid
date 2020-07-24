@@ -14,6 +14,7 @@
             android:id="@+id/myHomePageNv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:bg_color="?attr/colorPrimary"
             app:isShow_right_img1="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,21 +45,15 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvLoginImmediately"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_immediately"
-                    android:textColor="@color/color_FFFFFF"
-                    android:textSize="16sp" />
+                    style="@style/ww_ff_text_16"
+                    android:text="@string/login_immediately" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvUserId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/ww_ff_text_14"
                     android:layout_marginTop="8dp"
                     android:text="@string/user_id"
-                    android:textColor="@color/color_FFFFFF"
-                    android:textSize="14sp"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
             </LinearLayout>
         </RelativeLayout>
 

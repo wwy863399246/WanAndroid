@@ -2,6 +2,7 @@ package com.wwy.android.ui.member
 
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.wwy.android.R
 import com.wwy.android.ext.clickWithTrigger
 import com.wwy.android.ext.resourceId
@@ -40,7 +41,10 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     override fun startObserve() {
         mViewModel.apply {
             user.observe(viewLifecycleOwner, Observer {
-                Timber.tag("wangwuyuan").d(user.value.toString())
+                requireActivity().finish()
+            })
+            loginErrorMsg.observe(viewLifecycleOwner, Observer {
+                SmartSnackbar.get(activity).show(it)
             })
         }
     }
