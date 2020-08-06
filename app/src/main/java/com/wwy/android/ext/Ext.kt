@@ -9,7 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.annotation.NavigationRes
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 
 
 /**
@@ -43,6 +47,11 @@ fun ViewGroup.inflate(@LayoutRes layoutId: Int, attachToRoot: Boolean = true): V
         return this
     }
     return LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
+}
+
+inline fun <reified T : ViewModel> NavController.viewModel(@NavigationRes navGraphId: Int): T {
+    val storeOwner = getViewModelStoreOwner(navGraphId)
+    return ViewModelProvider(storeOwner)[T::class.java]
 }
 
 /***

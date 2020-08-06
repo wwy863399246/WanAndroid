@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import android.util.TypedValue
 import com.coder.zzq.smartshow.core.SmartShow
-import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.BuildConfig
 import com.wwy.android.R

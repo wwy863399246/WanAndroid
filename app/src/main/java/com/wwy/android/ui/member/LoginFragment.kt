@@ -2,10 +2,13 @@ package com.wwy.android.ui.member
 
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.wwy.android.R
 import com.wwy.android.ext.clickWithTrigger
 import com.wwy.android.ext.resourceId
+import com.wwy.android.ext.viewModel
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.vm.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -18,7 +21,7 @@ import timber.log.Timber
  *@描述
  */
 class LoginFragment : BaseVMFragment<LoginViewModel>() {
-    override fun initVM(): LoginViewModel = getViewModel()
+    override fun initVM(): LoginViewModel= findNavController().viewModel(R.navigation.navigation_login)
 
     override fun setLayoutResId(): Int = R.layout.fragment_login
 
