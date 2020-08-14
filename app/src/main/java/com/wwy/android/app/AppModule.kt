@@ -19,6 +19,8 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { SystemViewModel(get(), get()) }
     viewModel { NavigationViewModel(get()) }
+    viewModel { MyHomePageViewModel(get()) }
+    viewModel { DetailViewModel(get()) }
 }
 val repositoryModule = module {
     single { RemoteDataSource() }
@@ -29,6 +31,8 @@ val repositoryModule = module {
     single { LoginRepository(get()) }
     single { SystemRepository(get()) }
     single { NavigationRepository(get()) }
+    single { GetUserMsgUserCase() }
+    single { CollectUserCase(get()) }
 
 }
 val appModule = listOf(viewModelModule, repositoryModule)

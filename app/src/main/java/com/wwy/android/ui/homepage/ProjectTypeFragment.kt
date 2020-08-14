@@ -7,12 +7,14 @@ import com.chad.library.adapter.base.listener.OnLoadMoreListener
 import com.wwy.android.R
 import com.wwy.android.adapter.HomePageAdapter
 import com.wwy.android.ui.base.BaseVMFragment
+import com.wwy.android.ui.main.DetailActivity
 import com.wwy.android.view.loadpage.BasePageViewForStatus
 import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.vm.HomeProjectViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreListener {
@@ -48,13 +50,17 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
             loadMoreModule.setOnLoadMoreListener(this@ProjectTypeFragment)
             isAnimationFirstOnly = true
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
+            setOnItemClickListener { adapter, view, position ->
+                val article = data[position]
+                startActivity<DetailActivity>(DetailActivity.PARAM_ARTICLE to article)
+            }
         }
         refreshLayout.setOnRefreshListener { refresh() }
         refreshLayout.setEnableLoadMore(false)
     }
 
     override fun startObserve() {
-        mViewModel.apply {
+        mViewModel.run {
             mProjectListModel.observe(this@ProjectTypeFragment, Observer {
                 if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()

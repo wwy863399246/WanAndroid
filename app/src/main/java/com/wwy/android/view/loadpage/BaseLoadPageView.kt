@@ -2,6 +2,7 @@ package com.wwy.android.view.loadpage
 
 import android.app.Activity
 import android.view.View
+import androidx.fragment.app.Fragment
 
 enum class LoadPageStatus {
     Loading, Fail, Empty, NoNet

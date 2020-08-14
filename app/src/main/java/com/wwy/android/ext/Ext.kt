@@ -1,5 +1,6 @@
 package com.wwy.android.ext
 
+import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.res.Resources
@@ -11,9 +12,15 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.annotation.NavigationRes
 import androidx.core.content.ContextCompat
+import androidx.core.text.HtmlCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import com.franmontiel.persistentcookiejar.PersistentCookieJar
+import com.franmontiel.persistentcookiejar.cache.SetCookieCache
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
+import com.wwy.android.app.MyApplication
 
 
 /**
@@ -25,7 +32,7 @@ const val SET_THEME = "set_theme"
 const val MY_PAGE_SET_THEME_COLOR = "my_page_set_theme_color"
 const val HOME_PAGE_CUT = "home_page_cut"
 const val MAIN_PLAZA_CUT = "main_plaza_cut"
-
+const val UPDATE_COLLECT_STATE = "update_collect_state"
 //获取包名
 fun Context.packageInfo(): PackageInfo = this.packageManager.getPackageInfo(this.packageName, 0)
 
@@ -53,6 +60,8 @@ inline fun <reified T : ViewModel> NavController.viewModel(@NavigationRes navGra
     val storeOwner = getViewModelStoreOwner(navGraphId)
     return ViewModelProvider(storeOwner)[T::class.java]
 }
+fun String?.htmlToSpanned() =
+    if (this.isNullOrEmpty()) "" else HtmlCompat.fromHtml(this, HtmlCompat.FROM_HTML_MODE_LEGACY)
 
 /***
  * 设置延迟时间的View扩展
@@ -123,4 +132,13 @@ interface OnLazyClickListener : View.OnClickListener {
     }
 
     fun onLazyClick(v: View)
+}
+/**
+ * 设置Activity的亮度
+ * @param [brightness] 0 ~ 1
+ */
+fun Activity.setBrightness(brightness: Float) {
+    val attributes = window.attributes
+    attributes.screenBrightness = brightness
+    window.attributes = attributes
 }

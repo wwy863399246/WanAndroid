@@ -64,7 +64,7 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
     }
 
     override fun startObserve() {
-        mViewModel.apply {
+        mViewModel.run {
             mMainProjectListModel.observe(this@MainProjectFragment, Observer { it ->
                 it.loadPageStatus?.value?.let { loadPageStatus ->
                     llMainProjectLoadPageViewForStatus.visibility = View.VISIBLE

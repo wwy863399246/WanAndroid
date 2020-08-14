@@ -20,12 +20,12 @@
         android:background="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/viewMainProject"
-        app:tab_deselect_color="@color/color_B3_F"
+        app:tab_deselect_color="@color/theme_text_color_primary_alpha_60"
         app:tab_draw_indicator="true"
         app:tab_enable_gradient_text_size="true"
         app:tab_enable_text_bold="true"
         app:tab_indicator_anim="true"
-        app:tab_indicator_color="@color/color_FFFFFF"
+        app:tab_indicator_color="?attr/textColorPrimary"
         app:tab_indicator_drawable="@drawable/shape_project_tab"
         app:tab_indicator_enable_flow="true"
         app:tab_indicator_height="2dp"
@@ -33,7 +33,7 @@
         app:tab_indicator_style="STYLE_BOTTOM"
         app:tab_indicator_width="WRAP_CONTENT"
         app:tab_indicator_y_offset="0dp"
-        app:tab_select_color="@color/color_FFFFFF"
+        app:tab_select_color="?attr/textColorPrimary"
         app:tab_text_max_size="16sp"
         app:tab_text_min_size="14sp" />
 

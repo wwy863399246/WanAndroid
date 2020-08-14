@@ -28,7 +28,7 @@
 
     <TextView
         android:id="@+id/tvThemeColor"
-        style="@style/ww_se_00_text_14"
+        style="@style/text_color_primary_alpha_60_14"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@id/tvUserTheme"
         app:layout_constraintStart_toEndOf="@id/flThemeColor"
@@ -36,7 +36,7 @@
 
     <com.wwy.android.view.roundview.RoundTextView
         android:id="@+id/tvUserTheme"
-        style="@style/ww_se_00_text_14"
+        style="@style/text_color_primary_alpha_60_14"
         android:layout_width="64dp"
         android:layout_height="24dp"
         android:layout_marginTop="12dp"
@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:rv_cornerRadius="2dp"
-        app:rv_strokeColor="@color/color_8A000000"
+        app:rv_strokeColor="@color/text_color_primary_alpha_60"
         app:rv_strokeWidth="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

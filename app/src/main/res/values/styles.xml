@@ -1,61 +1,5 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/accent_green</item>
-        <item name="colorPrimaryDark">@color/accent_green</item>
-        <item name="colorAccent">@color/accent_green</item>
-    </style>
-
-    <style name="AppTheme.Red" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/accent_red</item>
-        <item name="colorPrimaryDark">@color/accent_red</item>
-        <item name="colorAccent">@color/accent_red</item>
-    </style>
-
-    <style name="AppTheme.Pink" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/accent_pink</item>
-        <item name="colorPrimaryDark">@color/accent_pink</item>
-        <item name="colorAccent">@color/accent_pink</item>
-    </style>
-
-    <style name="AppTheme.Orange" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/accent_orange</item>
-        <item name="colorPrimaryDark">@color/accent_orange</item>
-        <item name="colorAccent">@color/accent_orange</item>
-        <item name="colorControlActivated">@color/activated_orange</item>
-    </style>
-
-    <style name="AppTheme.PaleBlue" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/accent_pale_blue</item>
-        <item name="colorPrimaryDark">@color/accent_pale_blue</item>
-        <item name="colorAccent">@color/accent_pale_blue</item>
-    </style>
-
-    <style name="AppTheme.Cyan" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/accent_cyan</item>
-        <item name="colorPrimaryDark">@color/accent_cyan</item>
-        <item name="colorAccent">@color/accent_cyan</item>
-    </style>
-
-    <style name="AppTheme.DarkBlue" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/accent_dark_blue</item>
-        <item name="colorPrimaryDark">@color/accent_dark_blue</item>
-        <item name="colorAccent">@color/accent_dark_blue</item>
-    </style>
-
-    <style name="AppTheme.Purple" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/accent_purple</item>
-        <item name="colorPrimaryDark">@color/accent_purple</item>
-        <item name="colorAccent">@color/accent_purple</item>
-    </style>
-
-    <style name="AppTheme.Brown" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/accent_brown</item>
-        <item name="colorPrimaryDark">@color/accent_brown</item>
-        <item name="colorAccent">@color/accent_brown</item>
-    </style>
     <!--设置TabLayout内文字的字体大小-->
     <style name="MyTabLayoutTextAppearance">
         <item name="android:textSize">16sp</item>
@@ -80,7 +24,7 @@
     <!-- 应用启动页(StartingWindow)的theme -->
     <style name="AppTheme.Splash" parent="@style/AppTheme">
         <!--也可以设置成一张图片 -->
-        <item name="android:windowBackground">@drawable/splash_logo_welcome</item>
+        <item name="android:windowBackground">@drawable/splash_logo_welcome_theme</item>
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentTransitions">false</item>

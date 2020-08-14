@@ -112,16 +112,16 @@ class CustomNavigationBarView @JvmOverloads constructor(
             View.VISIBLE else ivBackNavigationBar.visibility =
             View.GONE
         if (mRightImg1 != 0) {
-            ivSetNavigationBar.setImageResource(mRightImg1)
+            ivLeftNavigationBarOne.setImageResource(mRightImg1)
         }
-        if (mShowRightImg1) ivSetNavigationBar.visibility =
-            View.VISIBLE else ivSetNavigationBar.visibility =
+        if (mShowRightImg1) ivLeftNavigationBarOne.visibility =
+            View.VISIBLE else ivLeftNavigationBarOne.visibility =
             View.GONE
         if (mRightImg2 != 0) {
-            ivSearchNavigationBar.setImageResource(mRightImg2)
+            ivLeftNavigationBarTwo.setImageResource(mRightImg2)
         }
-        if (mShowRightImg2) ivSearchNavigationBar.visibility =
-            View.VISIBLE else ivSearchNavigationBar.visibility =
+        if (mShowRightImg2) ivLeftNavigationBarTwo.visibility =
+            View.VISIBLE else ivLeftNavigationBarTwo.visibility =
             View.GONE
         mTitleTextStr?.let {
             tvTitleNavigationBar.text = mTitleTextStr
@@ -145,6 +145,10 @@ class CustomNavigationBarView @JvmOverloads constructor(
 
     fun setNavigationBarBackgroundColor(colorRes: Int) {
         navigationBarBg.backgroundColor = color(colorRes)
+    }
+
+    fun setTitleNavigationBarColor(colorRes: Int) {
+        tvTitleNavigationBar.setTextColor(color(colorRes))
     }
 
 

@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.the-pig-of-jungle.smart-show:topbar:x2.8.3@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c73eefbb5deca818b3f056e70bf5684/jetified-topbar-x2.8.3/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b61ddc460504bdaf39b9da3e54009e41/jetified-topbar-x2.8.3/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c73eefbb5deca818b3f056e70bf5684/jetified-topbar-x2.8.3/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c73eefbb5deca818b3f056e70bf5684/jetified-topbar-x2.8.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c73eefbb5deca818b3f056e70bf5684/jetified-topbar-x2.8.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b61ddc460504bdaf39b9da3e54009e41/jetified-topbar-x2.8.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b61ddc460504bdaf39b9da3e54009e41/jetified-topbar-x2.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b61ddc460504bdaf39b9da3e54009e41/jetified-topbar-x2.8.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

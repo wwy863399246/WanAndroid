@@ -1,29 +1,31 @@
 package com.wwy.android.ui.homemine
 
+import android.content.res.Resources
 import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.coder.zzq.smartshow.toast.SmartToast
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
+import com.wwy.android.data.bean.Article
 import com.wwy.android.data.bean.MyFunction
-import com.wwy.android.data.bean.User
-import com.wwy.android.data.db.AppDatabase
 import com.wwy.android.ext.*
-import com.wwy.android.ui.base.BaseFragment
+import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.ui.homemine.activity.MyThemeActivity
+import com.wwy.android.ui.main.DetailActivity
+import com.wwy.android.ui.main.MainActivity
 import com.wwy.android.ui.member.LoginActivity
 import com.wwy.android.view.rippleAnimation.RippleAnimation
+import com.wwy.android.vm.MyHomePageViewModel
 import kotlinx.android.synthetic.main.fragment_my_home_page.*
 import kotlinx.android.synthetic.main.fragment_my_home_page.tvLoginImmediately
 import kotlinx.android.synthetic.main.item_my_function.view.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.support.v4.startActivity
-import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 
 /**
@@ -31,11 +33,26 @@ import org.koin.android.ext.android.get
  *@创建时间 2020/7/8 11:46
  *@描述
  */
-class MyHomePageFragment : BaseFragment(), OnLazyClickListener {
+class MyHomePageFragment : BaseVMFragment<MyHomePageViewModel>(), OnLazyClickListener {
     private var functions = ArrayList<MyFunction>()
     private var functionAdapter = FunctionAdapter()
-    private val userDao = AppDatabase.getInstance().userDao()
     override fun setLayoutResId(): Int = R.layout.fragment_my_home_page
+    override fun initVM(): MyHomePageViewModel = getViewModel()
+
+    override fun startObserve() {
+        mViewModel.run {
+            userLiveData.observe(viewLifecycleOwner, Observer {
+                it?.let { user ->
+                    tvLoginImmediately.text = user.publicName
+                    activity?.let { activity ->
+                        tvUserId.text = String.format(activity.text(R.string.user_id), user.id)
+                    }
+                }
+                tvUserId.visibility = if (it == null) View.GONE else View.VISIBLE
+            })
+        }
+    }
+
 
     override fun initView() {
         rvMyFunction.apply {
@@ -64,28 +81,32 @@ class MyHomePageFragment : BaseFragment(), OnLazyClickListener {
                     startActivity<MyThemeActivity>()
                 }
                 5 -> {//夜间模式
-                    RippleAnimation.create(view).setDuration(1000).start()
+                    when (getNightMode()) {
+                        AppCompatDelegate.MODE_NIGHT_YES -> {//夜间模式
+                            setNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                            (activity as MainActivity).delegate.localNightMode =
+                                AppCompatDelegate.MODE_NIGHT_NO
+                        }
+                        AppCompatDelegate.MODE_NIGHT_NO -> {
+                            setNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                            (activity as MainActivity).delegate.localNightMode =
+                                AppCompatDelegate.MODE_NIGHT_YES
+                        }
+                    }
                 }
                 6 -> {//开源协议
                 }
                 7 -> {//项目主页
+                    startActivity<DetailActivity>(
+                        DetailActivity.PARAM_ARTICLE to Article(
+                            title = (view as TextView).text.toString(),
+                            link = "https://github.com/wwy863399246/WanAndroid"
+                        )
+                    )
                 }
             }
         }
     }
-
-    suspend fun setUserMsg() {
-        var user = getUser()
-        user.apply {
-
-        }
-       // tvLoginImmediately.text=
-    }
-
-    suspend fun getUser() = withContext(Dispatchers.IO) {
-        userDao.loadUserBean()
-    }
-
 
     override fun initData() {
         activity?.let {
@@ -94,7 +115,12 @@ class MyHomePageFragment : BaseFragment(), OnLazyClickListener {
             functions.add(MyFunction(R.drawable.ic_ku_tu, it.text(R.string.my_ku_tu)))
             functions.add(MyFunction(R.drawable.ic_my_tool, it.text(R.string.my_tool)))
             functions.add(MyFunction(R.drawable.ic_theme, it.text(R.string.theme)))
-            functions.add(MyFunction(R.drawable.ic_night_model, it.text(R.string.nigh_mode)))
+            functions.add(
+                MyFunction(
+                    R.drawable.ic_night_model,
+                    it.text(if (getNightMode() == AppCompatDelegate.MODE_NIGHT_NO) R.string.nigh_mode else R.string.light_mode)
+                )
+            )
             functions.add(
                 MyFunction(
                     R.drawable.ic_open_source_licenses,
@@ -136,4 +162,6 @@ class MyHomePageFragment : BaseFragment(), OnLazyClickListener {
         }
 
     }
+
+
 }

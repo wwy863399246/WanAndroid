@@ -21,7 +21,7 @@ import timber.log.Timber
  *@描述
  */
 class LoginFragment : BaseVMFragment<LoginViewModel>() {
-    override fun initVM(): LoginViewModel= findNavController().viewModel(R.navigation.navigation_login)
+    override fun initVM(): LoginViewModel= getViewModel()
 
     override fun setLayoutResId(): Int = R.layout.fragment_login
 
@@ -42,7 +42,7 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     }
 
     override fun startObserve() {
-        mViewModel.apply {
+        mViewModel.run {
             user.observe(viewLifecycleOwner, Observer {
                 requireActivity().finish()
             })

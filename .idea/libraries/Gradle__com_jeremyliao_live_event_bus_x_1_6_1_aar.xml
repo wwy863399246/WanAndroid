@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jeremyliao:live-event-bus-x:1.6.1@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6cfa9f6b657179dd23b441903f692129/jetified-live-event-bus-x-1.6.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6cfa9f6b657179dd23b441903f692129/jetified-live-event-bus-x-1.6.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6cfa9f6b657179dd23b441903f692129/jetified-live-event-bus-x-1.6.1/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jeremyliao/live-event-bus-x/1.6.1/e5b0614c3b90a2a5daabb4fc0dd76baf295636b4/live-event-bus-x-1.6.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jeremyliao/live-event-bus-x/1.6.1/dc4be649afc9622db189ff90ea14d9765160b990/live-event-bus-x-1.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

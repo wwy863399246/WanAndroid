@@ -17,7 +17,7 @@
         app:left_textId="@string/edit_data" />
 
     <TextView
-        style="@style/ww_00_text_16"
+        style="@style/text_color_primary_alpha_16"
         android:layout_marginStart="16dp"
         android:text="@string/avatar"
         app:layout_constraintBottom_toBottomOf="@id/ivAvatar"

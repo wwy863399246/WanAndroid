@@ -1,7 +1,9 @@
 package com.wwy.android.ui.homemine.activity
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -15,6 +17,8 @@ import com.wwy.android.view.rippleAnimation.RippleAnimation
 import kotlinx.android.synthetic.main.activity_my_theme.*
 import kotlinx.android.synthetic.main.item_theme.view.*
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.*
+import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.ivBackNavigationBar
+import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
 import org.jetbrains.anko.textColor
 
 /**
@@ -58,6 +62,15 @@ class MyThemeActivity : BaseActivity() {
                 immersionBar {
                     statusBarColor(mThemeBean.color)
                 }
+                if (mThemeBean.color == R.color.color_FFFFFF) {
+                    themeNv.ivBackNavigationBar.imageTintList =
+                        ColorStateList.valueOf(color(R.color.color_000000))
+                    themeNv.tvLeftTitleNavigationBar.textColor = color(R.color.color_000000)
+                } else {
+                    themeNv.ivBackNavigationBar.imageTintList =
+                        ColorStateList.valueOf(color(R.color.color_FFFFFF))
+                    themeNv.tvLeftTitleNavigationBar.textColor = color(R.color.color_FFFFFF)
+                }
                 themeNv.setNavigationBarBackgroundColor(mThemeBean.color)
                 LiveEventBus.get(MY_PAGE_SET_THEME_COLOR).post(mThemeBean.color)
                 isClick = true
@@ -83,6 +96,14 @@ class MyThemeActivity : BaseActivity() {
     }
 
     override fun initData() {
+        themes.add(
+            Theme(
+                R.color.color_FFFFFF,
+                R.style.AppTheme_White,
+                text(R.string.theme_white),
+                0
+            )
+        )
         themes.add(Theme(R.color.accent_red, R.style.AppTheme_Red, text(R.string.theme_red), 0))
         themes.add(Theme(R.color.accent_pink, R.style.AppTheme_Pink, text(R.string.theme_pink), 0))
         themes.add(
@@ -105,8 +126,8 @@ class MyThemeActivity : BaseActivity() {
         themes.add(Theme(R.color.accent_cyan, R.style.AppTheme_Cyan, text(R.string.theme_cyan), 0))
         themes.add(
             Theme(
-                R.color.accent_dark_blue,
-                R.style.AppTheme_DarkBlue,
+                R.color.accent_indigo,
+                R.style.AppTheme_Indigo,
                 text(R.string.theme_blue),
                 0
             )
@@ -141,16 +162,22 @@ class MyThemeActivity : BaseActivity() {
             holder.apply {
                 addChildClickViewIds(R.id.tvUserTheme)
                 itemView.apply {
-                    flThemeColor.delegate.backgroundColor = color(item.color)
+                    if (item.color == R.color.color_FFFFFF) {
+                        flThemeColor.delegate.backgroundColor = color(R.color.text_color_primary_alpha_60)
+                        tvThemeColor.textColor = color(R.color.text_color_primary_alpha_60)
+                    } else {
+                        flThemeColor.delegate.backgroundColor = color(item.color)
+                        tvThemeColor.textColor = color(item.color)
+                        tvUserTheme.delegate.strokeColor =
+                            color(if (item.isChoose == 0) R.color.text_color_primary_alpha_60 else item.color)
+                        tvUserTheme.textColor =
+                            color(if (item.isChoose == 0) R.color.text_color_primary_alpha_60 else item.color)
+                    }
                     ivChooseTheme.visibility = if (item.isChoose == 0) View.GONE else View.VISIBLE
                     tvUserTheme.text =
                         if (item.isChoose == 0) text(R.string.theme_user) else text(R.string.theme_user_ing)
-                    tvUserTheme.delegate.strokeColor =
-                        color(if (item.isChoose == 0) R.color.color_8A000000 else item.color)
-                    tvUserTheme.textColor =
-                        color(if (item.isChoose == 0) R.color.color_8A000000 else item.color)
                     tvThemeColor.text = item.colorName
-                    tvThemeColor.textColor = color(item.color)
+
                 }
             }
         }

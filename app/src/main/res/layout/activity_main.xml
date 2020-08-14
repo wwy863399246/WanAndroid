@@ -25,6 +25,8 @@
         android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        app:itemIconTint="@color/bottom_navigation_view_selector_color"
+        app:itemTextColor="@color/bottom_navigation_view_selector_color"
         android:background="?android:attr/windowBackground"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"

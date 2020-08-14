@@ -51,7 +51,7 @@ class LoadPageViewForStatus @JvmOverloads constructor(
                 indeterminateTintList = ColorStateList.valueOf(
                     color(
                         TypedValue().resourceId(
-                            R.attr.colorPrimary,
+                            R.attr.colorAccent,
                             context!!.theme
                         )
                     )

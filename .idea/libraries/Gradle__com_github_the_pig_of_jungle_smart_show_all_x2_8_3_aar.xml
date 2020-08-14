@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.the-pig-of-jungle.smart-show:all:x2.8.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/118383799859df1d537ee70fb65df27f/jetified-all-x2.8.3/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/118383799859df1d537ee70fb65df27f/jetified-all-x2.8.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/118383799859df1d537ee70fb65df27f/jetified-all-x2.8.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b298a3e1526b46e882f2744ac123693/jetified-all-x2.8.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b298a3e1526b46e882f2744ac123693/jetified-all-x2.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b298a3e1526b46e882f2744ac123693/jetified-all-x2.8.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

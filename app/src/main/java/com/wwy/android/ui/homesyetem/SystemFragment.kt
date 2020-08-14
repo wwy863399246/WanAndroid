@@ -7,6 +7,7 @@ import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.adapter.SystemAdapter
 import com.wwy.android.ui.base.BaseVMFragment
+import com.wwy.android.ui.main.MainActivity
 import com.wwy.android.view.loadpage.BasePageViewForStatus
 import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
@@ -23,7 +24,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class SystemFragment : BaseVMFragment<SystemViewModel>() {
     private val systemAdapter = SystemAdapter()
     private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: LoadPageViewForStatus
+    private var rootView: LoadPageViewForStatus? = null
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     override fun initVM(): SystemViewModel = getViewModel()
 
@@ -33,8 +34,8 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
 
     override fun initView() {
         rootView =
-            activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
-        rootView.apply {
+            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
+        rootView?.apply {
             failTextView().onClick { initData() }
         }
 
@@ -56,12 +57,15 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
 
 
     override fun startObserve() {
-        mViewModel.apply {
+        mViewModel.run {
             systemClassifyListModel.observe(this@SystemFragment, Observer {
                 if (!it.isRefresh) refreshLayout.finishRefresh()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    loadPageViewForStatus.convert(rootView, loadPageStatus)
-                    systemAdapter.setEmptyView(rootView)
+                    rootView?.let { rootView ->
+                        loadPageViewForStatus.convert(rootView, loadPageStatus)
+                        systemAdapter.setEmptyView(rootView)
+                    }
+
                 }
                 it.showSuccess?.let { list ->
                     systemAdapter.setList(list)

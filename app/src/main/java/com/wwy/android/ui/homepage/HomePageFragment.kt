@@ -10,12 +10,15 @@ import com.wwy.android.adapter.HomePageAdapter
 import com.wwy.android.adapter.ImageAdapter
 import com.wwy.android.data.bean.Article
 import com.wwy.android.ui.base.BaseVMFragment
+import com.wwy.android.ui.main.DetailActivity
+import com.wwy.android.ui.main.MainActivity
 import com.wwy.android.view.HomePageHeadView
 import com.wwy.android.view.loadpage.*
 import com.wwy.android.vm.HomePageViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import kotlinx.android.synthetic.main.layout_banner.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -26,23 +29,22 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener {
     private val homePageAdapter = HomePageAdapter()
     private val homePageStickAdapter = HomePageStickAdapter()
-
-    private val loadPageViewForStatus : BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: LoadPageViewForStatus
+    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private var rootView: LoadPageViewForStatus? = null
     private lateinit var homePageHeadView: HomePageHeadView
-    override fun initVM(): HomePageViewModel =getViewModel()
+    override fun initVM(): HomePageViewModel = getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     override fun initData() {
         refresh()
     }
 
     override fun initView() {
-        rootView = activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
-        rootView.apply {
+        rootView =
+            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
+        rootView?.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }
-
         ArticleRv.apply {
             adapter = homePageAdapter
         }
@@ -52,6 +54,10 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
             isAnimationFirstOnly = true
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
             activity?.let { addHeaderView(homePageHeadView) }
+            setOnItemClickListener { adapter, view, position ->
+                val article = data[position]
+                startActivity<DetailActivity>(DetailActivity.PARAM_ARTICLE to article)
+            }
         }
         refreshLayout.setOnRefreshListener { refresh() }
         refreshLayout.setEnableLoadMore(false)
@@ -63,16 +69,18 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
     }
 
     override fun startObserve() {
-        mViewModel.apply {
+        mViewModel.run {
             mListModel.observe(this@HomePageFragment, Observer {
                 if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    loadPageViewForStatus.convert(
-                        rootView,
-                        loadPageStatus = loadPageStatus
-                    )
-                    homePageAdapter.setEmptyView(rootView)
+                    rootView?.let { rootView ->
+                        loadPageViewForStatus.convert(
+                            rootView,
+                            loadPageStatus = loadPageStatus
+                        )
+                        homePageAdapter.setEmptyView(rootView)
+                    }
                 }
                 it.showSuccess?.let { list ->
                     homePageAdapter.run {

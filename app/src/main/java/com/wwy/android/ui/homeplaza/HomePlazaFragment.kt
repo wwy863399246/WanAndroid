@@ -7,12 +7,15 @@ import com.coder.zzq.smartshow.toast.SmartToast
 import com.wwy.android.R
 import com.wwy.android.adapter.HomePageAdapter
 import com.wwy.android.ui.base.BaseVMFragment
+import com.wwy.android.ui.main.DetailActivity
+import com.wwy.android.ui.main.MainActivity
 import com.wwy.android.view.loadpage.BasePageViewForStatus
 import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.vm.HomePlazaViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -22,15 +25,16 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
  */
 class HomePlazaFragment : BaseVMFragment<HomePlazaViewModel>(), OnLoadMoreListener {
     private val homePageAdapter = HomePageAdapter()
-    private val LoadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: LoadPageViewForStatus
+    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private var rootView: LoadPageViewForStatus? = null
     override fun initVM(): HomePlazaViewModel = getViewModel()
 
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
 
     override fun initView() {
-        rootView = activity?.let { activity -> LoadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
-        rootView.apply {
+        rootView =
+            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
+        rootView?.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }
@@ -42,6 +46,10 @@ class HomePlazaFragment : BaseVMFragment<HomePlazaViewModel>(), OnLoadMoreListen
             loadMoreModule.setOnLoadMoreListener(this@HomePlazaFragment)
             isAnimationFirstOnly = true
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
+            setOnItemClickListener { adapter, view, position ->
+                val article = data[position]
+                startActivity<DetailActivity>(DetailActivity.PARAM_ARTICLE to article)
+            }
         }
         refreshLayout.setOnRefreshListener { refresh() }
         refreshLayout.setEnableLoadMore(false)
@@ -56,16 +64,19 @@ class HomePlazaFragment : BaseVMFragment<HomePlazaViewModel>(), OnLoadMoreListen
     }
 
     override fun startObserve() {
-        mViewModel.apply {
+        mViewModel.run {
             mHomePlazaListModel.observe(this@HomePlazaFragment, Observer {
                 if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    LoadPageViewForStatus.convert(
-                        rootView,
-                        loadPageStatus = loadPageStatus
-                    )
-                    homePageAdapter.setEmptyView(rootView)
+                    rootView?.let { rootView ->
+                        loadPageViewForStatus.convert(
+                            rootView,
+                            loadPageStatus = loadPageStatus
+                        )
+                        homePageAdapter.setEmptyView(rootView)
+                    }
+
                 }
                 it.showSuccess?.let { list ->
                     homePageAdapter.run {

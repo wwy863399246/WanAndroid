@@ -10,96 +10,52 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <!--============ divider ============-->
 
-
-    <!--====================== ww_ff_text =====================-->
-    <!--  ww_ff_text  wrap_wrap -->
-    <style name="ww_ff_text" parent="wrap_wrap">
-        <item name="android:textColor">@color/color_FFFFFF</item>
+    <!--====================== text_color_primary_alpha_80 =====================-->
+    <!--  text_color_primary_alpha_80  wrap_wrap -->
+    <style name="text_color_primary_alpha" parent="wrap_wrap">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <!--  ww_ff_text_18 18sp wrap_wrap -->
-    <style name="ww_ff_text_18" parent="ww_ff_text">
+    <!--  text_color_primary_alpha_80_18 18sp wrap_wrap -->
+    <style name="text_color_primary_alpha_18" parent="text_color_primary_alpha">
         <item name="android:textSize">18sp</item>
     </style>
-    <!--  ww_ff_text_16 16sp wrap_wrap -->
-    <style name="ww_ff_text_16" parent="ww_ff_text">
+    <!--  text_color_primary_alpha_80_16 16sp wrap_wrap -->
+    <style name="text_color_primary_alpha_16" parent="text_color_primary_alpha">
         <item name="android:textSize">16sp</item>
     </style>
-    <!--  ww_ff_text_14 14sp wrap_wrap -->
-    <style name="ww_ff_text_14" parent="ww_ff_text">
-        <item name="android:textSize">14sp</item>
-    </style>
-    <!--====================== ww_se_ff_text =====================-->
-    <style name="ww_se_ff_text" parent="wrap_wrap">
-        <item name="android:textColor">@color/color_B3_F</item>
-    </style>
-
-    <style name="ww_se_ff_text_14" parent="ww_se_ff_text">
+    <!--  text_color_primary_alpha_80_14 14sp wrap_wrap -->
+    <style name="text_color_primary_alpha_14" parent="text_color_primary_alpha">
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="ww_se_ff_text_12" parent="ww_se_ff_text">
-        <item name="android:textSize">12sp</item>
-    </style>
-    <!--====================== ww_th_ff_text =====================-->
-    <style name="ww_th_ff_text" parent="wrap_wrap">
-        <item name="android:textColor">@color/color_4D_F</item>
+    <!--====================== text_color_primary_alpha_80 =====================-->
+    <style name="text_color_primary_alpha_80" parent="wrap_wrap">
+        <item name="android:textColor">@color/text_color_primary_alpha_80</item>
     </style>
 
-    <style name="ww_th_ff_text_14" parent="ww_th_ff_text">
+    <style name="text_color_primary_alpha_80_14" parent="text_color_primary_alpha_80">
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="ww_th_ff_text_12" parent="ww_th_ff_text">
+    <style name="text_color_primary_alpha_80_12" parent="text_color_primary_alpha_80">
         <item name="android:textSize">12sp</item>
     </style>
 
-    <!--====================== ww_00_text =====================-->
-    <!--  ww_00_text  wrap_wrap -->
-    <style name="ww_00_text" parent="wrap_wrap">
-        <item name="android:textColor">@color/color_DE000000</item>
+    <!--====================== text_color_primary_alpha_60 =====================-->
+    <style name="text_color_primary_alpha_60" parent="wrap_wrap">
+        <item name="android:textColor">@color/text_color_primary_alpha_60</item>
     </style>
-    <!--  ww_00_text_18 18sp wrap_wrap -->
-    <style name="ww_00_text_18" parent="ww_00_text">
-        <item name="android:textSize">18sp</item>
-    </style>
-    <!--  ww_00_text_16 16sp wrap_wrap -->
-    <style name="ww_00_text_16" parent="ww_00_text">
-        <item name="android:textSize">16sp</item>
-    </style>
-    <!--  ww_00_text_14 14sp wrap_wrap -->
-    <style name="ww_00_text_14" parent="ww_00_text">
+
+    <style name="text_color_primary_alpha_60_14" parent="text_color_primary_alpha_60">
         <item name="android:textSize">14sp</item>
     </style>
 
-    <!--====================== ww_se_00_text =====================-->
-    <style name="ww_se_00_text" parent="wrap_wrap">
-        <item name="android:textColor">@color/color_8A000000</item>
-    </style>
-
-    <style name="ww_se_00_text_14" parent="ww_se_00_text">
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="ww_se_00_text_12" parent="ww_se_00_text">
+    <style name="text_color_primary_alpha_60_12" parent="text_color_primary_alpha_60">
         <item name="android:textSize">12sp</item>
     </style>
 
-    <!--====================== ww_th_00_text =====================-->
-    <style name="ww_th_00_text" parent="wrap_wrap">
-        <item name="android:textColor">@color/color_42000000</item>
-    </style>
-
-    <style name="ww_th_00_text_14" parent="ww_th_00_text">
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="ww_th_00_text_12" parent="ww_th_00_text">
-        <item name="android:textSize">12sp</item>
-    </style>
-
-    <style name="SystemTextStyle" parent="ww_se_00_text_14">
+    <style name="SystemTextStyle" parent="text_color_primary_alpha_60_14">
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:background">@drawable/shape_pink_border</item>

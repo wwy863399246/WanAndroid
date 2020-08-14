@@ -62,7 +62,7 @@ class MainWeChatNumFragment : BaseVMFragment<WeChatNumViewModel>() {
     }
 
     override fun startObserve() {
-        mViewModel.apply {
+        mViewModel.run {
             mBlogTypeListModel.observe(this@MainWeChatNumFragment, Observer { it ->
                 it.loadPageStatus?.value?.let { loadPageStatus ->
                     llMainProjectLoadPageViewForStatus.visibility = View.VISIBLE

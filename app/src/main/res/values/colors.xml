@@ -10,15 +10,33 @@
     <color name="color_B3_F">#B3FFFFFF</color>//次等白色文字颜色
     <color name="color_4D_F">#4DFFFFFF</color>//禁用/提示白色文字颜色
     <color name="color_1F_F">#1FFFFFFF</color>//白色分割线颜色
-    <color name="color_F5F5F5">#F5F5F5</color>//灰色背景
+
+    <color name="color_page_bg">#F5F5F5</color>//灰色背景
+    <color name="color_item_bg">#FFFFFF</color>//白色背景
+    <color name="color_theme_text">#FFFFFF</color>//亮色主题白色文字
+    <color name="color_on_theme_text">#CC000000</color>//黑色
+
     <color name="accent_red">#FFDB4437</color>//红色
     <color name="accent_pink">#FB7299</color>//粉色
     <color name="accent_orange">#FFFF9800</color>//橙
     <color name="accent_pale_blue">#FF2196F3</color>//蓝
     <color name="accent_green">#FF0F9D58</color>//绿
-    <color name="accent_cyan">#FF009688</color>//青
-    <color name="accent_dark_blue">#FF3F51B5</color>//蓝
-    <color name="accent_purple">#FF673AB7</color>//紫
-    <color name="accent_brown">#FF795548</color>//紫
-    <color name="activated_orange">#FFFFB74D</color>
+    <color name="accent_cyan">#FF00BCD4</color>//青
+    <color name="accent_indigo">#FF3F51B5</color>//靛蓝
+    <color name="accent_purple">#ff9c27b0</color>//紫
+    <color name="accent_brown">#FF795548</color>//灰色
+    <color name="accent_white">#ffffffff</color>
+
+    <color name="dark_red">#ffc53929</color>
+    <color name="dark_pink">#ffd66182</color>
+    <color name="dark_orange">#fff57c00</color>
+    <color name="dark_blue">#ff1976d2</color>
+    <color name="dark_green">#ff0c7e46</color>
+    <color name="dark_cyan">#ff0097a7</color>
+    <color name="dark_indigo">#ff303f9f</color>
+    <color name="dark_purple">#ff7b1fa2</color>
+    <color name="dark_dark">#ff000000</color>
+    <color name="dark_brown">#ff5d4037</color>
+    <color name="dark_white">#ff2d2d2d</color>
+
 </resources>

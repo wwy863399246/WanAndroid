@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.qw:soulpermission:1.2.2_x@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8984ad5763756c001ed7d96b4f44a367/jetified-soulpermission-1.2.2_x/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8984ad5763756c001ed7d96b4f44a367/jetified-soulpermission-1.2.2_x/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8984ad5763756c001ed7d96b4f44a367/jetified-soulpermission-1.2.2_x/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/936e9fa23440841647f716bee3f7a390/jetified-soulpermission-1.2.2_x/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/936e9fa23440841647f716bee3f7a390/jetified-soulpermission-1.2.2_x/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/936e9fa23440841647f716bee3f7a390/jetified-soulpermission-1.2.2_x/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.qw/soulpermission/1.2.2_x/2d849e1f2d8afd7b4f4e5e1094f99a47de3e066f/soulpermission-1.2.2_x-javadoc.jar!/" />

@@ -3,7 +3,7 @@
     android:id="@+id/tvTabLayoutTitle"
     android:layout_marginStart="12dp"
     android:layout_marginEnd="12dp"
-    style="@style/ww_ff_text_14"
+    style="@style/text_color_primary_alpha_14"
     android:gravity="center">
 
 </TextView>

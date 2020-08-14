@@ -2,7 +2,9 @@ package com.wwy.android.data.bean
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 
 /**
@@ -14,13 +16,11 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey
     @ColumnInfo(name = "user_id")
-    val id: Int,
-    val collectIds: List<Int>,
-    val type: Int,
+    val id: Int = 0,
     @ColumnInfo(name = "user_icon")
-    var icon: String?,
+    var icon: String? = null,
     @ColumnInfo(name = "user_public_name")
-    var publicName: String?,
+    var publicName: String? = null,
     @ColumnInfo(name = "user_name")
-    val username: String?
-)
+    val username: String? = null
+) : Serializable

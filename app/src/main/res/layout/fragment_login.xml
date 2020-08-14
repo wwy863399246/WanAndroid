@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:isShow_left_img="true"
-        app:bg_color="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,7 +50,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/goRegister"
-        style="@style/ww_se_00_text_14"
+        style="@style/text_color_primary_alpha_60_14"
         android:layout_marginEnd="20dp"
         android:text="@string/go_to_register"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,9 +63,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/colorAccent"
         android:text="@string/login"
-        android:textColor="@color/color_FFFFFF"
+        android:textColor="?attr/textColorPrimary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

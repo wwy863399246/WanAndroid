@@ -6,6 +6,7 @@ import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.wwy.android.R
 import com.wwy.android.data.bean.Article
+import com.wwy.android.ext.htmlToSpanned
 
 /**
  *@创建者wwy
@@ -19,12 +20,12 @@ class HomePageAdapter : BaseQuickAdapter<Article, BaseViewHolder>(R.layout.item_
         item.let {
             holder.setText(
                 R.id.tvHomePageItemAuthor,
-                if (it.author.isNotEmpty()) it.author else it.shareUser
+                if (it.author!!.isNotEmpty()) it.author else it.shareUser
             )
-            holder.setText(R.id.tvHomePageItemContent, Html.fromHtml(it.title))
+            holder.setText(R.id.tvHomePageItemContent, it.title.htmlToSpanned())
             holder.setText(
                 R.id.tvHomePageItemType,
-                Html.fromHtml("${it.superChapterName}·${it.chapterName}")
+                "${it.superChapterName}·${it.chapterName}".htmlToSpanned()
             )
             holder.setText(R.id.tvHomePageItemDate, it.niceDate)
         }

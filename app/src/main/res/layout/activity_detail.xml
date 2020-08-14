@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.wwy.android.view.CustomNavigationBarView
+        android:id="@+id/detailNv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShow_left_img="true"
+        app:isShow_right_img1="true"
+        app:right_img1="@drawable/ic_more_vert_black_24dp" />
+
+    <FrameLayout
+        android:id="@+id/webContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

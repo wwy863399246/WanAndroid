@@ -6,6 +6,8 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import com.wwy.android.app.MyApplication
 import com.wwy.android.data.bean.base.ResultData
+import com.wwy.android.data.bean.base.ResultDataFlow
+import kotlinx.coroutines.flow.Flow
 
 /**
  *@创建者wwy
@@ -18,9 +20,7 @@ suspend fun <T : Any> safeApiCall(call: suspend () -> ResultData<T>): ResultData
     } catch (e: Exception) {
         ResultData.Error(e)
     }
-
 }
-
 /**
  * 判断网络状态是否可用
  */

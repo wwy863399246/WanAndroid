@@ -1,44 +1,51 @@
 package com.wwy.android.data.bean
 
+import android.os.Parcelable
+import androidx.room.Ignore
+import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
-
+@Parcelize
 data class Article(
-    val id: Int,
-    val originId: Int,
-    val title: String,
-    val chapterId: Int,
-    val chapterName: String,
-    val envelopePic: String,
-    val link: String,
-    val author: String,
-    val origin: String,
-    val publishTime: Long,
-    val zan: Int,
-    val desc: String,
-    val visible: Int,
-    val niceDate: String,
-    val niceShareDate: String,
-    val courseId: Int,
-    var collect: Boolean,
-    val apkLink: String,
-    val projectLink: String,
-    val superChapterId: Int,
-    val superChapterName: String?,
-    val type: Int,
-    val fresh: Boolean,
-    val audit: Int,
-    val prefix: String,
-    val selfVisible: Int,
-    val shareDate: Long,
-    val shareUser: String,
-    val tags: Any, // Not sure
-    val userId: Int
-) : Serializable
+    var primaryKeyId: Int = 0,
+    var apkLink: String? = "",
+    var audit: Int = 0,
+    var author: String? = "",
+    var chapterId: Int = 0,
+    var chapterName: String? = "",
+    var collect: Boolean = false,
+    var courseId: Int = 0,
+    var desc: String? = "",
+    var envelopePic: String? = "",
+    var fresh: Boolean = false,
+    var id: Int = 0,
+    var link: String? = "",
+    var niceDate: String? = "",
+    var niceShareDate: String? = "",
+    var origin: String? = "",
+    var originId: Int = 0,
+    var prefix: String? = "",
+    var projectLink: String? = "",
+    var publishTime: Long = 0,
+    var selfVisible: Int = 0,
+    var shareDate: Long = 0,
+    var shareUser: String? = "",
+    var superChapterId: Int = 0,
+    var superChapterName: String? = "",
+//    @Ignore
+//    var tags: List<Tag> = emptyList(),
+    var title: String? = "",
+    var type: Int = 0,
+    var userId: Int = 0,
+    var visible: Int = 0,
+    var zan: Int = 0,
+    var top: Boolean = false
+) :  Parcelable
 
 /**
  * Banner
  */
-data class Banner(
+
+class Banner(
     val desc: String,
     val id: Int,
     val imagePath: String,

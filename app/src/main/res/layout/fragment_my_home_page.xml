@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_F5F5F5">
+    android:background="@color/color_page_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,6 @@
             android:id="@+id/myHomePageNv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:bg_color="?attr/colorPrimary"
             app:isShow_right_img1="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,14 +44,15 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvLoginImmediately"
-                    style="@style/ww_ff_text_16"
+                    android:textColor="?attr/textColorPrimary"
+                    style="@style/text_color_primary_alpha_16"
                     android:text="@string/login_immediately" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvUserId"
-                    style="@style/ww_ff_text_14"
+                    style="@style/text_color_primary_alpha_16"
+                    android:textColor="?attr/textColorPrimary"
                     android:layout_marginTop="8dp"
-                    android:text="@string/user_id"
                     android:visibility="gone" />
             </LinearLayout>
         </RelativeLayout>
@@ -74,7 +74,7 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvMyIntegral"
-                    style="@style/ww_00_text_16"
+                    style="@style/text_color_primary_alpha_16"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
@@ -87,11 +87,12 @@
                     android:layout_width="1dp"
                     android:layout_height="16dp"
                     android:layout_gravity="center"
-                    android:background="@color/color_1F000000" />
+                    android:backgroundTint="@color/color_on_surface_20"
+                    android:background="@color/color_item_bg" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvMyIntegralRanking"
-                    style="@style/ww_00_text_16"
+                    style="@style/text_color_primary_alpha_16"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
@@ -135,7 +136,7 @@
             android:layout_marginEnd="16dp">
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/ww_00_text_16"
+                style="@style/text_color_primary_alpha_16"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/browsing_history" />
@@ -152,7 +153,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvNoBrowsingHistory"
-                style="@style/ww_se_00_text_14"
+                style="@style/text_color_primary_alpha_60_14"
                 android:layout_width="match_parent"
                 android:layout_height="112dp"
                 android:background="@color/color_00000000"

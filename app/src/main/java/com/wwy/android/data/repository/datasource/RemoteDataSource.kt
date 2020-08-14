@@ -195,5 +195,31 @@ class RemoteDataSource {
         }
         return ResultData.ErrorMessage(login.errorMsg)
     }
+    /**
+     * 收藏与取消收藏
+     * @param login 登录
+     */
+    suspend fun collect(id: Int) = safeApiCall(
+        call = { requestCollect(id) }
+    )
 
+    private suspend fun requestCollect(id: Int): ResultData<Any> {
+        val collect = RetrofitClient(WAN_ANDROID).service.collect(id)
+        if (collect.errorCode == 0) {
+            return ResultData.Success(collect.data.toString())
+        }
+        return ResultData.ErrorMessage(collect.errorMsg)
+    }
+
+    suspend fun unCollect(id: Int) = safeApiCall(
+        call = { requestUnCollect(id) }
+    )
+
+    private suspend fun requestUnCollect(id: Int): ResultData<Any> {
+        val unCollect = RetrofitClient(WAN_ANDROID).service.unCollect(id)
+        if (unCollect.errorCode == 0) {
+            return ResultData.Success(unCollect.data.toString())
+        }
+        return ResultData.ErrorMessage(unCollect.errorMsg)
+    }
 }

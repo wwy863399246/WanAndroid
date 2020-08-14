@@ -1,5 +1,6 @@
 package com.wwy.android.data.api
 
+import com.wwy.android.ext.CookieClass.cookieJar
 import okhttp3.OkHttpClient
 
 /**
@@ -11,5 +12,7 @@ class RetrofitClient(hostType: Int) : BaseRetrofitClient() {
     val service by lazy { getService(ApiService::class.java, hostType) }
 
     //okhttp 扩展
-    override fun handleBuilder(builder: OkHttpClient.Builder) {}
+    override fun handleBuilder(builder: OkHttpClient.Builder) {
+        builder.cookieJar(cookieJar)
+    }
 }

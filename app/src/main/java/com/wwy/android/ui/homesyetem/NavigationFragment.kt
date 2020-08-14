@@ -5,12 +5,15 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.wwy.android.R
 import com.wwy.android.adapter.NavigationAdapter
 import com.wwy.android.ui.base.BaseVMFragment
+import com.wwy.android.ui.main.DetailActivity
+import com.wwy.android.ui.main.MainActivity
 import com.wwy.android.view.loadpage.BasePageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.vm.NavigationViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -21,14 +24,14 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class NavigationFragment : BaseVMFragment<NavigationViewModel>() {
     private val navigationAdapter = NavigationAdapter()
     private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: LoadPageViewForStatus
+    private var rootView: LoadPageViewForStatus? = null
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
 
     override fun initVM(): NavigationViewModel = getViewModel()
     override fun initView() {
         rootView =
-            activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
-        rootView.apply {
+            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
+        rootView?.apply {
             failTextView().onClick { initData() }
         }
         ArticleRv.apply {
@@ -40,7 +43,8 @@ class NavigationFragment : BaseVMFragment<NavigationViewModel>() {
             setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
             registerListener {
                 onTypeTextClick { tag, position ->
-
+                    val articles = data[position].articles
+                    startActivity<DetailActivity>(DetailActivity.PARAM_ARTICLE to articles[tag])
                 }
             }
         }
@@ -54,12 +58,16 @@ class NavigationFragment : BaseVMFragment<NavigationViewModel>() {
 
 
     override fun startObserve() {
-        mViewModel.apply {
+        mViewModel.run {
             navigationListModel.observe(viewLifecycleOwner, Observer {
                 if (!it.isRefresh) refreshLayout.finishRefresh()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    loadPageViewForStatus.convert(rootView, loadPageStatus)
-                    navigationAdapter.setEmptyView(rootView)
+                    rootView?.let { rootView ->
+                        loadPageViewForStatus.convert(
+                            rootView, loadPageStatus
+                        )
+                        navigationAdapter.setEmptyView(rootView)
+                    }
                 }
                 it.showSuccess?.let { list ->
                     navigationAdapter.setList(list)

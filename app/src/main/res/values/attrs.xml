@@ -190,4 +190,6 @@
         <attr name="civ_circle_background_color" format="color" />
     </declare-styleable>
     <attr name="colorPrimary" format="color" />
+    <attr name="colorAccent" format="color" />
+    <attr name="textColorPrimary" format="color"/>
 </resources>

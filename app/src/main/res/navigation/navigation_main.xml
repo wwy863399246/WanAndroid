@@ -39,7 +39,7 @@
             android:id="@+id/home_mine"
             android:label="@string/home_mine"
             android:name="com.wwy.android.ui.homemine.MyHomePageFragment"
-            tools:layout="@layout/fragment_home_mine">
+            tools:layout="@layout/fragment_my_home_page">
 
     </fragment>
 </navigation>

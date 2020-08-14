@@ -4,6 +4,7 @@ import com.wwy.android.data.bean.User
 import com.wwy.android.data.bean.base.ResultData
 import com.wwy.android.data.db.AppDatabase
 import com.wwy.android.data.repository.datasource.RemoteDataSource
+import com.wwy.android.ext.setLoginState
 
 /**
  *@创建者wwy
@@ -23,5 +24,6 @@ class LoginRepository(private val remoteDataSource: RemoteDataSource) {
     private fun setLoggedInUser(loggedInUser: User?) {
         userDao.deleteAll()
         userDao.insert(loggedInUser)
+        setLoginState(true)
     }
 }

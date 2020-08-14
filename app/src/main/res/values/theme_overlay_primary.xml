@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.Red" parent="">
+        <item name="colorPrimary">@color/accent_red</item>
+        <item name="colorPrimaryDark">@color/dark_red</item>
+        <item name="colorAccent">@color/accent_red</item>
+        <item name="textColorPrimary">@color/color_theme_text</item>
+    </style>
+    <style name="AppTheme.White" parent="">
+        <item name="colorPrimary">@color/accent_white</item>
+        <item name="colorPrimaryDark">@color/dark_white</item>
+        <item name="colorAccent">@color/accent_green</item>
+        <item name="textColorPrimary">@color/color_on_theme_text</item>
+    </style>
+
+    <style name="AppTheme.Pink" parent="">
+        <item name="colorPrimary">@color/accent_pink</item>
+        <item name="colorPrimaryDark">@color/dark_pink</item>
+        <item name="colorAccent">@color/accent_pink</item>
+        <item name="textColorPrimary">@color/color_theme_text</item>
+    </style>
+
+    <style name="AppTheme.Orange" parent="">
+        <item name="colorPrimary">@color/accent_orange</item>
+        <item name="colorPrimaryDark">@color/dark_orange</item>
+        <item name="colorAccent">@color/accent_orange</item>
+        <item name="textColorPrimary">@color/color_theme_text</item>
+    </style>
+
+    <style name="AppTheme.PaleBlue" parent="">
+        <item name="colorPrimary">@color/accent_pale_blue</item>
+        <item name="colorPrimaryDark">@color/dark_blue</item>
+        <item name="colorAccent">@color/accent_pale_blue</item>
+        <item name="textColorPrimary">@color/color_theme_text</item>
+    </style>
+
+    <style name="AppTheme.Cyan" parent="">
+        <item name="colorPrimary">@color/accent_cyan</item>
+        <item name="colorPrimaryDark">@color/dark_cyan</item>
+        <item name="colorAccent">@color/accent_cyan</item>
+        <item name="textColorPrimary">@color/color_theme_text</item>
+    </style>
+
+    <style name="AppTheme.Indigo" parent="">
+        <item name="colorPrimary">@color/accent_indigo</item>
+        <item name="colorPrimaryDark">@color/dark_indigo</item>
+        <item name="colorAccent">@color/accent_indigo</item>
+        <item name="textColorPrimary">@color/color_theme_text</item>
+    </style>
+
+    <style name="AppTheme.Purple" parent="">
+        <item name="colorPrimary">@color/accent_purple</item>
+        <item name="colorPrimaryDark">@color/dark_purple</item>
+        <item name="colorAccent">@color/accent_purple</item>
+        <item name="textColorPrimary">@color/color_theme_text</item>
+    </style>
+
+    <style name="AppTheme.Brown" parent="">
+        <item name="colorPrimary">@color/accent_brown</item>
+        <item name="colorPrimaryDark">@color/dark_brown</item>
+        <item name="colorAccent">@color/accent_brown</item>
+        <item name="textColorPrimary">@color/color_theme_text</item>
+    </style>
+</resources>

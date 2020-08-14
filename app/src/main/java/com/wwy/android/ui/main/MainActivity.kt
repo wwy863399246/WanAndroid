@@ -6,9 +6,7 @@ import androidx.lifecycle.Observer
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.ext.SET_THEME
-import com.wwy.android.ext.getAppTheme
 import com.wwy.android.ui.base.BaseActivity
-import com.wwy.android.ui.homemine.HomeMineFragment
 import com.wwy.android.ui.homemine.MyHomePageFragment
 import com.wwy.android.ui.homepage.MainFragment
 import com.wwy.android.ui.homeplaza.MainPlazaFragment
@@ -40,6 +38,7 @@ open class MainActivity : BaseActivity() {
         LiveEventBus.get(SET_THEME).observe(this, Observer {
             recreate()
         })
+
         fragments.apply {
             add(MainFragment())
             add(HomeSystemFragment())

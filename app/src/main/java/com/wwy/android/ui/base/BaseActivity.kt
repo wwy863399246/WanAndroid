@@ -3,10 +3,12 @@ package com.wwy.android.ui.base
 import android.os.Bundle
 import android.util.TypedValue
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.gyf.immersionbar.ktx.immersionBar
 import com.wwy.android.R
 import com.wwy.android.ext.getAppTheme
+import com.wwy.android.ext.getNightMode
 import com.wwy.android.ext.resourceId
 
 /**
@@ -15,9 +17,8 @@ import com.wwy.android.ext.resourceId
  *@描述
  */
 abstract class BaseActivity : AppCompatActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        delegate.localNightMode = getNightMode()
         setTheme(getAppTheme())
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
@@ -30,7 +31,7 @@ abstract class BaseActivity : AppCompatActivity() {
         SmartSnackbar.setting()
             .backgroundColorRes(
                 TypedValue().resourceId(
-                    R.attr.colorPrimary,
+                    R.attr.colorAccent,
                     theme
                 )
             )
@@ -42,13 +43,19 @@ abstract class BaseActivity : AppCompatActivity() {
         initView(savedInstanceState)
         initData()
     }
+
     abstract fun setLayoutId(): Int
     abstract fun initView(savedInstanceState: Bundle?)
 
     abstract fun initData()
     open fun initImmersionBar() {
         immersionBar {
-            statusBarColor(TypedValue().resourceId(R.attr.colorPrimary, theme))
+            statusBarColor(
+                TypedValue().resourceId(
+                    R.attr.colorPrimary,
+                    theme
+                )
+            ).autoStatusBarDarkModeEnable(true, 0.2f)
         }
     }
 
