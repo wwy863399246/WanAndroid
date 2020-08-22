@@ -9,5 +9,5 @@
 #### 效果图展示 
 ![项目效果图](https://source.acexy.cn/view/XQXWOxb)
  #### APK下载：
-- [Github下载](https://github.com/hegaojian/JetpackMvvm/releases/download/1.1.8/app-release.apk)
+- [Github下载](https://github.com/wwy863399246/WanAndroid/releases/app-debug.apk)
 
