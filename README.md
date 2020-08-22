@@ -19,14 +19,30 @@ val viewModelModule = module {
 val repositoryModule = module {
     single { RemoteDataSource() }
     single { ArticleUserCase(get()) }
+    single { MainRepository(get()) }
 }
 val appModule = listOf(viewModelModule, repositoryModule)
 ```
-- **1.1 Application**
+- **1.2 MyApplication**
 ```
 startKoin {
             androidLogger(Level.INFO)
             androidContext(this@MyApplication)
             modules(appModule)
         }
+```
+- **1.2 Repository，Viewmodel**
+```
+class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
+}
+class MainRepository(private val homeRemoteDataSource: RemoteDataSource) {
+}
+class HomePageViewModel(private val mainRepository : MainRepository, private val articleUserCase:ArticleUserCase) : BaseViewModel() {
+}
+```
+- **1.2 Activity,Fragment中**
+```
+class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener {
+   override fun initVM(): HomePageViewModel = getViewModel()
+}
 ```
