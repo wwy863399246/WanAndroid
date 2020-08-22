@@ -1,10 +1,12 @@
 package com.wwy.android.ui.member
 
+import androidx.navigation.fragment.findNavController
 import com.wwy.android.R
 import com.wwy.android.ext.clickWithTrigger
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.vm.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_edit_data.*
+import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -18,14 +20,17 @@ class EditDataFragment : BaseVMFragment<LoginViewModel>() {
     override fun setLayoutResId(): Int = R.layout.fragment_edit_data
 
     override fun initView() {
-
         settingAvatarButton.clickWithTrigger {
-            activity?.finish()
+            findNavController().popBackStack()
+        }
+        editDataNv.ivBackNavigationBar.clickWithTrigger {
+            findNavController().popBackStack()
         }
     }
 
     override fun initData() {
     }
+
     override fun startObserve() {
     }
 }

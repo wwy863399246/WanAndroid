@@ -3,6 +3,8 @@
     <attr name="left_img" format="reference" /> <!--  左边图标-->
     <attr name="left_textStr" format="reference" /> <!--  左边文本-->
     <attr name="left_textId" format="reference" /><!-- 左边文本id-->
+    <attr name="right_textStr" format="reference" /> <!--  右边文本-->
+    <attr name="right_textId" format="reference" /><!-- 右边文本id-->
     <attr name="isShow_left_img" format="boolean" /> <!--  是否显示左边图标-->
     <attr name="right_img1" format="reference" /><!-- 右边图标1 -->
     <attr name="isShow_right_img1" format="boolean" /><!--是否显示右边图标1 -->
@@ -19,6 +21,8 @@
         <attr name="left_img" />
         <attr name="left_textStr" />
         <attr name="left_textId" />
+        <attr name="right_textStr" />
+        <attr name="right_textId" />
         <attr name="isShow_left_img" />
         <attr name="right_img1" />
         <attr name="isShow_right_img1" />

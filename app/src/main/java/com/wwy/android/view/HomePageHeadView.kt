@@ -5,7 +5,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.wwy.android.R
@@ -16,6 +15,7 @@ import org.jetbrains.anko.include
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.startActivity
 
+@SuppressLint("ViewConstructor")
 class HomePageHeadView @JvmOverloads constructor(
     context: Context?,
     homePageStickAdapter: HomePageFragment.HomePageStickAdapter?,

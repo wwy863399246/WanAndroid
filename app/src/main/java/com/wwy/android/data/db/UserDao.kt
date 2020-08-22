@@ -24,7 +24,7 @@ interface UserDao {
     //获取id
     @Transaction
     @Query("SELECT user_id FROM User")
-    fun loadUid(): Int
+    fun loadUid(): LiveData<Int>
 
     //获取用户公开name
     @Transaction
@@ -44,7 +44,7 @@ interface UserDao {
     //删除全部数据
     @Transaction
     @Query("DELETE FROM User")
-    fun deleteAll()
+    suspend fun deleteAll()
 
     //通过id删除全部数据 适合多账户
     @Transaction

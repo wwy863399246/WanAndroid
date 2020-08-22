@@ -19,8 +19,15 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { SystemViewModel(get(), get()) }
     viewModel { NavigationViewModel(get()) }
-    viewModel { MyHomePageViewModel(get()) }
-    viewModel { DetailViewModel(get()) }
+    viewModel { MyHomePageViewModel(get(), get()) }
+    viewModel { DetailViewModel(get(), get()) }
+    viewModel { MyCollectAndShareViewModel(get(), get(), get()) }
+    viewModel { PointViewModel(get()) }
+    viewModel { PointRankingViewModel(get()) }
+    viewModel { SettingViewModel(get()) }
+    viewModel { KuTuViewModel(get()) }
+    viewModel { ReadHistoryViewMode(get()) }
+    viewModel { SearchViewModel(get(),get()) }
 }
 val repositoryModule = module {
     single { RemoteDataSource() }
@@ -33,6 +40,12 @@ val repositoryModule = module {
     single { NavigationRepository(get()) }
     single { GetUserMsgUserCase() }
     single { CollectUserCase(get()) }
+    single { ShareRepository(get()) }
+    single { PointRepository(get()) }
+    single { PointRankRepository(get()) }
+    single { KuTuRepository(get()) }
+    single { ReadHistoryUserCase() }
+    single { SearchRepository(get()) }
 
 }
 val appModule = listOf(viewModelModule, repositoryModule)

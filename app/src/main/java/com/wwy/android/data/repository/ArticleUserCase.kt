@@ -10,6 +10,7 @@ import java.net.UnknownHostException
 
 class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
     private var currentPage = 0
+    private var currentKeywords = ""
 
     sealed class ArticleType {
         object Home : ArticleType()                 // 首页
@@ -19,6 +20,8 @@ class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
         object Collection : ArticleType()           // 收藏
         object SystemType : ArticleType()           // 体系分类
         object Blog : ArticleType()                 // 公众号
+        object Share : ArticleType()                 // 分享
+        object Search : ArticleType()                 // 文章搜索
     }
 
     suspend fun getHomeArticleList(
@@ -66,16 +69,36 @@ class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
         cid: Int
     ) = getArticleList(ArticleType.Blog, isRefresh, listModel, loadPageStatus, cid)
 
+    suspend fun getShareArticleList(
+        isRefresh: Boolean = false,
+        listModel: MutableLiveData<ListModel<Article>>?,
+        loadPageStatus: MutableLiveData<LoadPageStatus>
+    ) = getArticleList(ArticleType.Share, isRefresh, listModel, loadPageStatus)
+
+    suspend fun getSearchArticleList(
+        keywords: String = currentKeywords,
+        isRefresh: Boolean = false,
+        listModel: MutableLiveData<ListModel<Article>>?,
+        loadPageStatus: MutableLiveData<LoadPageStatus>
+    ) {
+        if (currentKeywords != keywords) {
+            currentKeywords = keywords
+        }
+        getArticleList(ArticleType.Search, isRefresh, listModel, loadPageStatus, 0, keywords)
+    }
+
     private suspend fun getArticleList(
         articleType: ArticleType,
         isRefresh: Boolean = false,
         listModel: MutableLiveData<ListModel<Article>>?,
         loadPageStatus: MutableLiveData<LoadPageStatus>,
-        cid: Int = 0
+        cid: Int = 0,
+        keywords: String = ""
     ) {
         loadPageStatus.postValue(LoadPageStatus.Loading)
         listModel?.postValue(ListModel(loadPageStatus = loadPageStatus))
-        if (isRefresh) currentPage = if (articleType is ArticleType.ProjectDetailList) 1 else 0
+        if (isRefresh) currentPage =
+            if (articleType is ArticleType.ProjectDetailList || articleType is ArticleType.Share) 1 else 0
         val result = when (articleType) {
             ArticleType.Home -> remoteDataSource.getHomeArticles(currentPage)
             ArticleType.Square -> remoteDataSource.getSquareArticleList(currentPage)
@@ -84,13 +107,15 @@ class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
                 currentPage,
                 cid
             )
-            ArticleType.Collection -> remoteDataSource.getHomeArticles(currentPage)
+            ArticleType.Collection -> remoteDataSource.getCollectionList(currentPage)
             ArticleType.SystemType -> remoteDataSource.getHomeArticles(currentPage)
-            ArticleType.Blog -> remoteDataSource.getBlogDataByType(cid,currentPage)
+            ArticleType.Blog -> remoteDataSource.getBlogDataByType(cid, currentPage)
+            ArticleType.Share -> remoteDataSource.getSharedArticleList(currentPage)
+            ArticleType.Search -> remoteDataSource.searchArticle(keywords, currentPage)
         }
         if (result is ResultData.Success) {
             val data = result.data
-            if (data.datas.isNullOrEmpty() && currentPage == 0) {//开始加载无数据
+            if (data.datas.isNullOrEmpty() && currentPage == if (articleType is ArticleType.ProjectDetailList || articleType is ArticleType.Share) 1 else 0) {//开始加载无数据
                 loadPageStatus.postValue(LoadPageStatus.Empty) //显示空界面
                 listModel?.postValue(
                     ListModel(
@@ -101,7 +126,7 @@ class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
                 )
                 return
             }
-            if (data.offset >= data.total) {//最后一页 showLoading 可以用来加载dialog
+            if (data.offset >= data.total) {//最后一页  showLoading 可以用来加载dialog
                 listModel?.postValue(
                     ListModel(
                         isRefreshSuccess = true,

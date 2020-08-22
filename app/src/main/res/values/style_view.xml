@@ -11,54 +11,64 @@
     </style>
 
 
-    <!--====================== text_color_primary_alpha_80 =====================-->
-    <!--  text_color_primary_alpha_80  wrap_wrap -->
+    <!--====================== text_color_primary_alpha_65 =====================-->
+    <!--  text_color_primary_alpha_65  wrap_wrap -->
     <style name="text_color_primary_alpha" parent="wrap_wrap">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">@color/text_color_primary_alpha_80</item>
     </style>
-    <!--  text_color_primary_alpha_80_18 18sp wrap_wrap -->
+    <!--  text_color_primary_alpha_65_18 18sp wrap_wrap -->
     <style name="text_color_primary_alpha_18" parent="text_color_primary_alpha">
         <item name="android:textSize">18sp</item>
     </style>
-    <!--  text_color_primary_alpha_80_16 16sp wrap_wrap -->
+    <!--  text_color_primary_alpha_65_16 16sp wrap_wrap -->
     <style name="text_color_primary_alpha_16" parent="text_color_primary_alpha">
         <item name="android:textSize">16sp</item>
     </style>
-    <!--  text_color_primary_alpha_80_14 14sp wrap_wrap -->
+    <!--  text_color_primary_alpha_65_14 14sp wrap_wrap -->
     <style name="text_color_primary_alpha_14" parent="text_color_primary_alpha">
         <item name="android:textSize">14sp</item>
     </style>
 
-    <!--====================== text_color_primary_alpha_80 =====================-->
-    <style name="text_color_primary_alpha_80" parent="wrap_wrap">
-        <item name="android:textColor">@color/text_color_primary_alpha_80</item>
+    <!--====================== text_color_primary_alpha_65 =====================-->
+    <style name="text_color_primary_alpha_65" parent="wrap_wrap">
+        <item name="android:textColor">@color/text_color_primary_alpha_65</item>
     </style>
 
-    <style name="text_color_primary_alpha_80_14" parent="text_color_primary_alpha_80">
+    <style name="text_color_primary_alpha_65_14" parent="text_color_primary_alpha_65">
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="text_color_primary_alpha_80_12" parent="text_color_primary_alpha_80">
+    <style name="text_color_primary_alpha_65_12" parent="text_color_primary_alpha_65">
         <item name="android:textSize">12sp</item>
     </style>
 
-    <!--====================== text_color_primary_alpha_60 =====================-->
-    <style name="text_color_primary_alpha_60" parent="wrap_wrap">
-        <item name="android:textColor">@color/text_color_primary_alpha_60</item>
+    <!--====================== text_color_primary_alpha_50 =====================-->
+    <style name="text_color_primary_alpha_50" parent="wrap_wrap">
+        <item name="android:textColor">@color/text_color_primary_alpha_50</item>
     </style>
 
-    <style name="text_color_primary_alpha_60_14" parent="text_color_primary_alpha_60">
+    <style name="text_color_primary_alpha_50_14" parent="text_color_primary_alpha_50">
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="text_color_primary_alpha_60_12" parent="text_color_primary_alpha_60">
+    <style name="text_color_primary_alpha_50_12" parent="text_color_primary_alpha_50">
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="SystemTextStyle" parent="text_color_primary_alpha_60_14">
+    <style name="SystemTextStyle" parent="text_color_primary_alpha_50_14">
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:background">@drawable/shape_pink_border</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <style name="SearchHistoryStyle" parent="wrap_wrap">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/color_theme_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/shape_hot_search</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
         <item name="android:padding">8dp</item>

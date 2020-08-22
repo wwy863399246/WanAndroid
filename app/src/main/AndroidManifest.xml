@@ -20,6 +20,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name="com.wwy.android.ui.WelcomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,13 +28,51 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.wwy.android.ui.member.LoginActivity" />
-        <activity android:name="com.wwy.android.ui.main.MainActivity" />
-        <activity android:name=".ui.homemine.activity.MyThemeActivity" />
+        <activity
+            android:name="com.wwy.android.ui.member.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wwy.android.ui.main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.MyThemeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.MyCollectListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.MyShareListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.ShareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.MyPointActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.PointRankingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.MyKuTuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homesyetem.SystemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.homemine.activity.ReadHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.search.SearchActivity"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.main.DetailActivity"
             android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true" />
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
         <!-- 头条适配autosize -->
         <meta-data
             android:name="design_width_in_dp"

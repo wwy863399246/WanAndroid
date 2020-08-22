@@ -2,6 +2,7 @@ package com.wwy.android.ui.base
 
 import android.os.Bundle
 import android.util.TypedValue
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.coder.zzq.smartshow.snackbar.SmartSnackbar
@@ -10,6 +11,7 @@ import com.wwy.android.R
 import com.wwy.android.ext.getAppTheme
 import com.wwy.android.ext.getNightMode
 import com.wwy.android.ext.resourceId
+import com.wwy.android.ui.main.ProgressDialogFragment
 
 /**
  *@创建者wwy
@@ -17,8 +19,8 @@ import com.wwy.android.ext.resourceId
  *@描述
  */
 abstract class BaseActivity : AppCompatActivity() {
+    private lateinit var progressDialogFragment: ProgressDialogFragment
     override fun onCreate(savedInstanceState: Bundle?) {
-        delegate.localNightMode = getNightMode()
         setTheme(getAppTheme())
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
@@ -36,7 +38,6 @@ abstract class BaseActivity : AppCompatActivity() {
                 )
             )
             .dismissOnLeave(true)
-
     }
 
     protected open fun initActivity(savedInstanceState: Bundle?) {
@@ -59,5 +60,25 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * 显示加载(转圈)对话框
+     */
+    fun showProgressDialog(@StringRes message: Int) {
+        if (!this::progressDialogFragment.isInitialized) {
+            progressDialogFragment = ProgressDialogFragment.newInstance()
+        }
+        if (!progressDialogFragment.isAdded) {
+            progressDialogFragment.show(supportFragmentManager, message, false)
+        }
+    }
+
+    /**
+     * 隐藏加载(转圈)对话框
+     */
+    fun dismissProgressDialog() {
+        if (this::progressDialogFragment.isInitialized && progressDialogFragment.isVisible) {
+            progressDialogFragment.dismissAllowingStateLoss()
+        }
+    }
 
 }

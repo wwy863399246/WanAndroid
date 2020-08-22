@@ -28,21 +28,21 @@ class LoadPageViewForStatus @JvmOverloads constructor(
         verticalLayout {
             failText = textView {
                 textSize = 14f
-                textColor = color(R.color.color_8A000000)
+                textColor = color(R.color.text_color_primary_alpha_80)
                 text = "加载错误,点我重试"
             }
             failText.layoutParams =
                 LayoutParams(wrapContent, wrapContent).also { gravity = Gravity.CENTER }
             noNetText = textView {
                 textSize = 14f
-                textColor = color(R.color.color_8A000000)
+                textColor = color(R.color.text_color_primary_alpha_80)
                 text = "网络错误,点我重试"
             }
             noNetText.layoutParams =
                 LayoutParams(wrapContent, wrapContent).also { gravity = Gravity.CENTER }
             emptyText = textView {
                 textSize = 14f
-                textColor = R.color.color_8A000000
+                textColor = color(R.color.text_color_primary_alpha_80)
                 text = "还木有数据哦"
             }
             emptyText.layoutParams =

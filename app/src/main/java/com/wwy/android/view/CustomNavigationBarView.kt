@@ -11,9 +11,13 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.wwy.android.R
+import com.wwy.android.ext.clickWithTrigger
 import com.wwy.android.ext.color
+import com.wwy.android.ext.text
+import com.wwy.android.ui.main.search.SearchActivity
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
 import org.jetbrains.anko.backgroundColor
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -30,6 +34,8 @@ class CustomNavigationBarView @JvmOverloads constructor(
     private var mLeftImg: Int = 0
     private var mLeftTextStr: String? = null
     private var mLeftTextId: Int = 0
+    private var mRightTextStr: String? = null
+    private var mRightTextId: Int = 0
     private var mRightImg1: Int = 0
     private var mRightImg2: Int = 0
     private var mRightImg3: Int = 0
@@ -50,6 +56,13 @@ class CustomNavigationBarView @JvmOverloads constructor(
             obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_textId, 0)
         mLeftTextStr =
             obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_left_textStr)
+        mRightTextId =
+            obtainStyledAttributes.getResourceId(
+                R.styleable.CustomNavigationBarView_right_textId,
+                0
+            )
+        mRightTextStr =
+            obtainStyledAttributes.getString(R.styleable.CustomNavigationBarView_right_textStr)
         mLeftImg =
             obtainStyledAttributes.getResourceId(R.styleable.CustomNavigationBarView_left_img, 0)
         mShowLeftImg = obtainStyledAttributes.getBoolean(
@@ -97,9 +110,6 @@ class CustomNavigationBarView @JvmOverloads constructor(
 
     private fun initView() {
         View.inflate(context, R.layout.layout_custom_navigationbar_view, this)
-        if (mLeftImg != 0) {
-            ivBackNavigationBar.setImageResource(mLeftImg)
-        }
         mLeftTextStr?.let {
             tvLeftTitleNavigationBar.text = mLeftTextStr
             tvLeftTitleNavigationBar.visibility = View.VISIBLE
@@ -108,21 +118,27 @@ class CustomNavigationBarView @JvmOverloads constructor(
             tvLeftTitleNavigationBar.setText(mLeftTextId)
             tvLeftTitleNavigationBar.visibility = View.VISIBLE
         }
-        if (mShowLeftImg) ivBackNavigationBar.visibility =
-            View.VISIBLE else ivBackNavigationBar.visibility =
-            View.GONE
+        mRightTextStr?.let {
+            tvRightTitleNavigationBar.text = mRightTextStr
+            tvRightTitleNavigationBar.visibility = View.VISIBLE
+        }
+        if (mRightTextId != 0) {
+            tvRightTitleNavigationBar.setText(mRightTextId)
+            tvRightTitleNavigationBar.visibility = View.VISIBLE
+        }
+        if (mLeftImg != 0) {
+            ivBackNavigationBar.setImageResource(mLeftImg)
+        }
+        ivBackNavigationBar.visibility = if (mShowLeftImg) View.VISIBLE else View.GONE
+
         if (mRightImg1 != 0) {
-            ivLeftNavigationBarOne.setImageResource(mRightImg1)
+            ivRightNavigationBarOne.setImageResource(mRightImg1)
         }
-        if (mShowRightImg1) ivLeftNavigationBarOne.visibility =
-            View.VISIBLE else ivLeftNavigationBarOne.visibility =
-            View.GONE
+        ivRightNavigationBarOne.visibility = if (mShowRightImg1) View.VISIBLE else View.GONE
         if (mRightImg2 != 0) {
-            ivLeftNavigationBarTwo.setImageResource(mRightImg2)
+            ivRightNavigationBarSearch.setImageResource(mRightImg2)
         }
-        if (mShowRightImg2) ivLeftNavigationBarTwo.visibility =
-            View.VISIBLE else ivLeftNavigationBarTwo.visibility =
-            View.GONE
+        ivRightNavigationBarSearch.visibility = if (mShowRightImg2) View.VISIBLE else View.GONE
         mTitleTextStr?.let {
             tvTitleNavigationBar.text = mTitleTextStr
             tvTitleNavigationBar.visibility = View.VISIBLE
@@ -134,12 +150,13 @@ class CustomNavigationBarView @JvmOverloads constructor(
         if (mTextColor != 0) {
             tvTitleNavigationBar.setTextColor(mTextColor)
         }
-        if (mShowTabLayout) tlNavigationBar.visibility =
-            View.VISIBLE else tlNavigationBar.visibility =
-            View.GONE
+        tlNavigationBar.visibility = if (mShowTabLayout) View.VISIBLE else View.GONE
 
         if (mNavigationBar != 0) {
             navigationBarBg.backgroundColor = mNavigationBar
+        }
+        ivRightNavigationBarSearch.clickWithTrigger {
+            context.startActivity<SearchActivity>()
         }
     }
 
@@ -149,6 +166,21 @@ class CustomNavigationBarView @JvmOverloads constructor(
 
     fun setTitleNavigationBarColor(colorRes: Int) {
         tvTitleNavigationBar.setTextColor(color(colorRes))
+    }
+
+    fun setLeftTitleNavigationBarText(textRes: Int) {
+        tvLeftTitleNavigationBar.visibility = View.VISIBLE
+        tvLeftTitleNavigationBar.text = text(textRes)
+    }
+
+    fun setLeftTitleNavigationBarText(textRes: String) {
+        tvLeftTitleNavigationBar.visibility = View.VISIBLE
+        tvLeftTitleNavigationBar.text = textRes
+    }
+
+    fun setIvRightNavigationBarOne(drawableRes: Int) {
+        ivRightNavigationBarOne.visibility = View.VISIBLE
+        ivRightNavigationBarOne.setImageResource(drawableRes)
     }
 
 

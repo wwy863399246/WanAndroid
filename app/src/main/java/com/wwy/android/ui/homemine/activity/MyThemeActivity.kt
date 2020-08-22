@@ -2,6 +2,7 @@ package com.wwy.android.ui.homemine.activity
 
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.SimpleItemAnimator
@@ -43,6 +44,7 @@ class MyThemeActivity : BaseActivity() {
 
     override fun initView(savedInstanceState: Bundle?) {
         themeNv.apply {
+            setLeftTitleNavigationBarText(R.string.theme)
             ivBackNavigationBar.clickWithTrigger {
                 finish()
             }
@@ -57,19 +59,20 @@ class MyThemeActivity : BaseActivity() {
                     RippleAnimation.create(tvUserTheme).setDuration(1000).start()
                 }
                 mThemeBean = themeAdapter.data[position]
+                setAppTheme(mThemeBean.theme)
                 mThemeBean.isChoose = 1
                 themeAdapter.setData(position, mThemeBean)
                 immersionBar {
                     statusBarColor(mThemeBean.color)
                 }
-                if (mThemeBean.color == R.color.color_FFFFFF) {
+                if (mThemeBean.color == R.color.accent_white) {
                     themeNv.ivBackNavigationBar.imageTintList =
-                        ColorStateList.valueOf(color(R.color.color_000000))
-                    themeNv.tvLeftTitleNavigationBar.textColor = color(R.color.color_000000)
+                        ColorStateList.valueOf(color(R.color.color_on_theme_text))
+                    themeNv.tvLeftTitleNavigationBar.textColor = color(R.color.color_on_theme_text)
                 } else {
                     themeNv.ivBackNavigationBar.imageTintList =
-                        ColorStateList.valueOf(color(R.color.color_FFFFFF))
-                    themeNv.tvLeftTitleNavigationBar.textColor = color(R.color.color_FFFFFF)
+                        ColorStateList.valueOf(color(R.color.color_theme_text))
+                    themeNv.tvLeftTitleNavigationBar.textColor = color(R.color.color_theme_text)
                 }
                 themeNv.setNavigationBarBackgroundColor(mThemeBean.color)
                 LiveEventBus.get(MY_PAGE_SET_THEME_COLOR).post(mThemeBean.color)
@@ -98,7 +101,7 @@ class MyThemeActivity : BaseActivity() {
     override fun initData() {
         themes.add(
             Theme(
-                R.color.color_FFFFFF,
+                R.color.accent_white,
                 R.style.AppTheme_White,
                 text(R.string.theme_white),
                 0
@@ -162,16 +165,17 @@ class MyThemeActivity : BaseActivity() {
             holder.apply {
                 addChildClickViewIds(R.id.tvUserTheme)
                 itemView.apply {
-                    if (item.color == R.color.color_FFFFFF) {
-                        flThemeColor.delegate.backgroundColor = color(R.color.text_color_primary_alpha_60)
-                        tvThemeColor.textColor = color(R.color.text_color_primary_alpha_60)
+                    if (item.color == R.color.accent_white) {
+                        flThemeColor.delegate.backgroundColor =
+                            color(R.color.text_color_primary_alpha_50)
+                        tvThemeColor.textColor = color(R.color.text_color_primary_alpha_50)
                     } else {
                         flThemeColor.delegate.backgroundColor = color(item.color)
                         tvThemeColor.textColor = color(item.color)
                         tvUserTheme.delegate.strokeColor =
-                            color(if (item.isChoose == 0) R.color.text_color_primary_alpha_60 else item.color)
+                            color(if (item.isChoose == 0) R.color.text_color_primary_alpha_50 else item.color)
                         tvUserTheme.textColor =
-                            color(if (item.isChoose == 0) R.color.text_color_primary_alpha_60 else item.color)
+                            color(if (item.isChoose == 0) R.color.text_color_primary_alpha_50 else item.color)
                     }
                     ivChooseTheme.visibility = if (item.isChoose == 0) View.GONE else View.VISIBLE
                     tvUserTheme.text =

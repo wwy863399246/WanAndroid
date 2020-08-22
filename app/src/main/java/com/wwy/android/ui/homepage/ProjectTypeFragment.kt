@@ -8,6 +8,7 @@ import com.wwy.android.R
 import com.wwy.android.adapter.HomePageAdapter
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.ui.main.DetailActivity
+import com.wwy.android.ui.main.MainActivity
 import com.wwy.android.view.loadpage.BasePageViewForStatus
 import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
@@ -22,8 +23,8 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     private val cid by lazy { arguments?.getInt(CID) }// cid==0是最新项目 否项目分类
     private val homePageAdapter = HomePageAdapter()
-    private val loadPageViewForStatus : BasePageViewForStatus = SimplePageViewForStatus()
-    private lateinit var rootView: LoadPageViewForStatus
+    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private var rootView: LoadPageViewForStatus? = null
     private var i: Int = 0
 
     companion object {
@@ -38,8 +39,9 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
     }
 
     override fun initView() {
-        rootView = activity?.let { activity -> loadPageViewForStatus.getRootView(activity) } as LoadPageViewForStatus
-        rootView.apply {
+        rootView =
+            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
+        rootView?.apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }
@@ -65,11 +67,14 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
                 if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    loadPageViewForStatus.convert(
-                        rootView,
-                        loadPageStatus = loadPageStatus
-                    )
-                    homePageAdapter.setEmptyView(rootView)
+                    rootView?.let { rootView ->
+                        loadPageViewForStatus.convert(
+                            rootView,
+                            loadPageStatus = loadPageStatus
+                        )
+                        homePageAdapter.setEmptyView(rootView)
+                    }
+
                 }
                 it.showSuccess?.let { list ->
                     homePageAdapter.apply {
@@ -93,7 +98,6 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
     }
 
     private fun refresh() {
-        homePageAdapter.loadMoreModule.isEnableLoadMore = false
         cid?.let { mViewModel.loadProjectArticles(true, it) }
     }
 

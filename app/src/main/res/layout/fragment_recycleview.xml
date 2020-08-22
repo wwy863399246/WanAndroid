@@ -10,7 +10,6 @@
         android:id="@+id/ArticleRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_item_bg"
         android:clipToPadding="false"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />

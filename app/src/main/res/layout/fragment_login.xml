@@ -7,7 +7,7 @@
     tools:context=".ui.main.MainActivity">
 
     <com.wwy.android.view.CustomNavigationBarView
-        android:id="@+id/loginNb"
+        android:id="@+id/loginNv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:isShow_left_img="true"
@@ -21,7 +21,7 @@
         style="@style/TextInputLayout"
         android:layout_marginTop="80dp"
         android:hint="@string/username"
-        app:layout_constraintTop_toBottomOf="@id/loginNb"
+        app:layout_constraintTop_toBottomOf="@id/loginNv"
         tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -50,7 +50,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/goRegister"
-        style="@style/text_color_primary_alpha_60_14"
+        style="@style/text_color_primary_alpha_50_14"
         android:layout_marginEnd="20dp"
         android:text="@string/go_to_register"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
         android:layout_marginEnd="20dp"
         android:background="?attr/colorAccent"
         android:text="@string/login"
-        android:textColor="?attr/textColorPrimary"
+        android:textColor="@color/color_theme_text"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

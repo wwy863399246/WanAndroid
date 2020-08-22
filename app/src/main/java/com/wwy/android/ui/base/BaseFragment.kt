@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.wwy.android.ui.main.ProgressDialogFragment
 
 /**
  *@创建者wwy
@@ -15,6 +17,7 @@ import androidx.navigation.fragment.findNavController
  *@描述
  */
 abstract class BaseFragment : Fragment() {
+    private lateinit var progressDialogFragment: ProgressDialogFragment
     private var isLoaded = false
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,4 +50,26 @@ abstract class BaseFragment : Fragment() {
     abstract fun initView()
 
     abstract fun initData()
+
+    /**
+     * 显示加载(转圈)对话框
+     */
+    fun showProgressDialog(@StringRes message: Int) {
+        if (!this::progressDialogFragment.isInitialized) {
+            progressDialogFragment = ProgressDialogFragment.newInstance()
+        }
+        if (!progressDialogFragment.isAdded) {
+            activity?.supportFragmentManager?.let { progressDialogFragment.show(it, message, false) }
+        }
+    }
+
+    /**
+     * 隐藏加载(转圈)对话框
+     */
+    fun dismissProgressDialog() {
+        if (this::progressDialogFragment.isInitialized && progressDialogFragment.isVisible) {
+            progressDialogFragment.dismissAllowingStateLoss()
+        }
+    }
+
 }

@@ -22,8 +22,8 @@ class NavigationAdapter : BaseQuickAdapter<Navigation, BaseViewHolder>(R.layout.
             tvSystemItemTitle.text = item.name
             item.articles.size.let {
                 for (index in 0 until it) {
-                    flexBoxSystemItem?.let { flexBoxSystemItem ->
-                        flexBoxSystemItem.inflate(R.layout.item_system_textview, false).apply {
+                    flexBoxSystemItem?.run {
+                        inflate(R.layout.item_system_textview, false).apply {
                             tvSystemTypeText.text = item.articles[index].title
                             tvSystemTypeText.tag = index
                             tvSystemTypeText.onClick {
@@ -34,7 +34,7 @@ class NavigationAdapter : BaseQuickAdapter<Navigation, BaseViewHolder>(R.layout.
                                     )
                                 }
                             }
-                            flexBoxSystemItem.addView(this)
+                            addView(this)
                         }
                     }
                 }

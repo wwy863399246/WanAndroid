@@ -6,6 +6,7 @@ import com.coder.zzq.smartshow.toast.SmartToast
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.adapter.SystemAdapter
+import com.wwy.android.ext.color
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.ui.main.MainActivity
 import com.wwy.android.view.loadpage.BasePageViewForStatus
@@ -13,7 +14,9 @@ import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.vm.SystemViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
+import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -41,18 +44,28 @@ class SystemFragment : BaseVMFragment<SystemViewModel>() {
 
         ArticleRv.apply {
             //  addItemDecoration(SpacesItemDecoration(dip(8), LinearLayoutManager.VERTICAL))
-            adapter = systemAdapter
-        }
-        systemAdapter.apply {
-            isAnimationFirstOnly = true
-            setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
-            registerListener {
-                onTypeTextClick {
+            adapter = systemAdapter.apply {
+                isAnimationFirstOnly = true
+                setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
+                setOnItemClickListener { adapter, view, position ->
+                    val classifyResponse = data[position]
+                    startActivity<SystemActivity>(SystemActivity.CLASSIFY_RESPONSE to classifyResponse)
+                }
+                registerListener {
+                    onTypeTextClick { tag, position ->
+                        startActivity<SystemActivity>(
+                            SystemActivity.CLASSIFY_RESPONSE to data[position],
+                            SystemActivity.PITCH_ITEM to tag
+                        )
+                    }
                 }
             }
+            backgroundColor = color(R.color.color_page_bg)
         }
-        refreshLayout.setOnRefreshListener { initData() }
-        refreshLayout.setEnableLoadMore(false)
+        refreshLayout.apply {
+            setOnRefreshListener { initData() }
+            setEnableLoadMore(false)
+        }
     }
 
 

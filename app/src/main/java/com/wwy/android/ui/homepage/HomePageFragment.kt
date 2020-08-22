@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnLoadMoreListener
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.coder.zzq.smartshow.toast.SmartToast
 import com.wwy.android.R
 import com.wwy.android.adapter.HomePageAdapter
@@ -61,7 +62,6 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
         }
         refreshLayout.setOnRefreshListener { refresh() }
         refreshLayout.setEnableLoadMore(false)
-
     }
 
     private fun refresh() {

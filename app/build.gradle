@@ -11,12 +11,20 @@ android {
         applicationId "com.wwy.android"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 103
-        versionName "1.0.3"
+        versionCode 100
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation"  : "$projectDir/build/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
         }
     }
     kotlinOptions{
@@ -66,7 +74,8 @@ dependencies {
     //添加Room的依赖
     implementation 'androidx.room:room-runtime:2.2.5'
     implementation 'androidx.room:room-ktx:2.2.5'
-    kapt 'android.arch.persistence.room:compiler:2.2.5'
+    kapt 'androidx.room:room-compiler:2.2.5'
+
     //paging
     implementation 'androidx.paging:paging-runtime-ktx:2.1.2'
     //glide

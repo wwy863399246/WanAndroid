@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.coder.zzq.smartshow.toast.SmartToast
 import com.wwy.android.data.api.RetrofitClient
+import com.wwy.android.data.bean.Article
 import com.wwy.android.data.bean.base.ResultData
 import com.wwy.android.data.repository.CollectUserCase
-import com.wwy.android.data.repository.GetUserMsgUserCase
+import com.wwy.android.data.repository.ReadHistoryUserCase
 import com.wwy.android.ext.CookieClass
 import com.wwy.android.ext.getLoginState
 import com.wwy.android.vm.base.BaseViewModel
@@ -22,7 +23,8 @@ import kotlinx.coroutines.withContext
  *@描述
  */
 class DetailViewModel(
-    private val collectUserCase: CollectUserCase
+    private val collectUserCase: CollectUserCase,
+    private val readHistoryUserCase: ReadHistoryUserCase
 ) : BaseViewModel() {
     var collectLiveData: MutableLiveData<Int> = MutableLiveData()
     var unCollectLiveData: MutableLiveData<Int> = MutableLiveData()
@@ -57,5 +59,8 @@ class DetailViewModel(
 //    }
 
     fun isLogin(): Boolean = getLoginState() && CookieClass.hasCookie()
+    fun saveReadHistory(article: Article) = launchUI {
+        withContext(Dispatchers.IO) { readHistoryUserCase.addReadHistory(article) }
+    }
 
 }

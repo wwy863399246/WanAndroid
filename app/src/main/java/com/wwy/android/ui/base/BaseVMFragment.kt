@@ -1,5 +1,6 @@
 package com.wwy.android.ui.base
 
+import com.wwy.android.vm.SearchViewModel
 import com.wwy.android.vm.base.BaseViewModel
 
 

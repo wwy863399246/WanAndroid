@@ -7,7 +7,7 @@
     tools:context=".ui.main.MainActivity">
 
     <com.wwy.android.view.CustomNavigationBarView
-        android:id="@+id/registerNb"
+        android:id="@+id/registerNv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:isShow_left_img="true"
@@ -21,12 +21,14 @@
         style="@style/TextInputLayout"
         android:layout_marginTop="80dp"
         android:hint="@string/username"
-        app:layout_constraintTop_toBottomOf="@id/registerNb"
+        app:layout_constraintTop_toBottomOf="@id/registerNv"
         tools:ignore="MissingConstraints">
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength="20"
+            android:maxLines="1"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -40,9 +42,29 @@
         app:passwordToggleEnabled="true"
         tools:ignore="MissingConstraints">
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/againPswLayout"
+        style="@style/TextInputLayout"
+        android:hint="@string/againPassword"
+        app:layout_constraintTop_toBottomOf="@id/pswLayout"
+        app:passwordToggleEnabled="true"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="20"
+            android:maxLines="1"
             android:inputType="textPassword"
             android:singleLine="true" />
 
@@ -50,14 +72,15 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/settingAvatar"
-        style="@style/text_color_primary_alpha_60_14"
+        style="@style/text_color_primary_alpha_50_14"
         android:layout_marginEnd="20dp"
         android:text="@string/avatar_setting"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pswLayout" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginButton"
+        android:id="@+id/registerButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -65,10 +88,10 @@
         android:layout_marginEnd="20dp"
         android:background="?attr/colorAccent"
         android:text="@string/register"
-        android:textColor="?attr/textColorPrimary"
+        android:textColor="@color/color_theme_text"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settingAvatar"
+        app:layout_constraintTop_toBottomOf="@id/againPswLayout"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

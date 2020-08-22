@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.wwy.android.view.CustomNavigationBarView
+        android:id="@+id/shareNv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShow_right_img1="false"
+        app:isShow_right_img2="false"
+        app:left_textId="@string/share_article"
+        app:right_textId="@string/submit"
+        app:isShow_left_img="true" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_item_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/title"
+                android:textColor="@color/text_color_primary_alpha_80"
+                android:textSize="13sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/acetTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/shape_share_input"
+                android:gravity="start"
+                android:hint="@string/title_hint"
+                android:lineSpacingExtra="4dp"
+                android:lines="2"
+                android:maxLength="100"
+                android:maxLines="3"
+                android:padding="8dp"
+                android:textColor="@color/text_color_primary_alpha_80"
+                android:textColorHint="@color/text_color_primary_alpha_65"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/link"
+                android:textColor="@color/text_color_primary_alpha_80"
+                android:textSize="13sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/acetlink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/shape_share_input"
+                android:gravity="start"
+                android:hint="@string/link_hint"
+                android:imeOptions="actionDone"
+                android:lineSpacingExtra="4dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:padding="8dp"
+                android:textColor="@color/text_color_primary_alpha_80"
+                android:textColorHint="@color/text_color_primary_alpha_65"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/share_people"
+                android:textColor="@color/text_color_primary_alpha_80"
+                android:textSize="13sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/acetSharePeople"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/shape_share_input"
+                android:enabled="false"
+                android:lineSpacingExtra="4dp"
+                android:lines="1"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/text_color_primary_alpha_80"
+                android:textColorHint="@color/text_color_primary_alpha_65"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/tips"
+                android:textColor="@color/text_color_primary_alpha_80"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:lineSpacingExtra="2dp"
+                android:text="@string/tips_content"
+                android:textColor="@color/text_color_primary_alpha_80"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

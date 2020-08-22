@@ -9,6 +9,7 @@ import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
 import androidx.annotation.NavigationRes
 import androidx.core.content.ContextCompat
@@ -21,6 +22,10 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.wwy.android.app.MyApplication
+import com.wwy.android.ui.member.LoginActivity
+import org.jetbrains.anko.startActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -33,12 +38,14 @@ const val MY_PAGE_SET_THEME_COLOR = "my_page_set_theme_color"
 const val HOME_PAGE_CUT = "home_page_cut"
 const val MAIN_PLAZA_CUT = "main_plaza_cut"
 const val UPDATE_COLLECT_STATE = "update_collect_state"
+
 //获取包名
 fun Context.packageInfo(): PackageInfo = this.packageManager.getPackageInfo(this.packageName, 0)
 
 //获取颜色
 fun Context.color(colorRes: Int) = ContextCompat.getColor(this, colorRes)
 fun View.color(colorRes: Int) = context.color(colorRes)
+//设置颜色
 fun Context.text(textRes: Int) = this.resources.getString(textRes)
 fun View.text(textRes: Int) = context.text(textRes)
 
@@ -60,6 +67,7 @@ inline fun <reified T : ViewModel> NavController.viewModel(@NavigationRes navGra
     val storeOwner = getViewModelStoreOwner(navGraphId)
     return ViewModelProvider(storeOwner)[T::class.java]
 }
+
 fun String?.htmlToSpanned() =
     if (this.isNullOrEmpty()) "" else HtmlCompat.fromHtml(this, HtmlCompat.FROM_HTML_MODE_LEGACY)
 
@@ -133,6 +141,7 @@ interface OnLazyClickListener : View.OnClickListener {
 
     fun onLazyClick(v: View)
 }
+
 /**
  * 设置Activity的亮度
  * @param [brightness] 0 ~ 1
@@ -142,3 +151,39 @@ fun Activity.setBrightness(brightness: Float) {
     attributes.screenBrightness = brightness
     window.attributes = attributes
 }
+
+/**
+ * 弹出软键盘
+ */
+fun View.showSoftInput() {
+    requestFocus()
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+}
+
+/**
+ * 隐藏软键盘
+ */
+fun View.hideSoftInput() {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(windowToken, 0)
+}
+
+fun Long.toDateTime(pattern: String): String =
+    SimpleDateFormat(pattern, Locale.getDefault()).format(this)
+
+/**
+ * 是否登录，如果登录了就执行then，没有登录就直接跳转登录界面
+ * @return true-已登录，false-未登录
+ */
+fun Context.checkLogin(then: (() -> Unit)? = null): Boolean {
+    return if (isLogin()) {
+        then?.invoke()
+        true
+    } else {
+        this.startActivity<LoginActivity>()
+        false
+    }
+}
+
+fun isLogin(): Boolean = getLoginState() && CookieClass.hasCookie()

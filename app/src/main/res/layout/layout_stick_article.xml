@@ -6,7 +6,7 @@
 
     <com.wwy.android.view.roundview.RoundTextView
         android:id="@+id/rtvStick"
-        style="@style/text_color_primary_alpha_80_14"
+        style="@style/text_color_primary_alpha_65_14"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

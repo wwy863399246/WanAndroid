@@ -28,7 +28,10 @@ class SystemAdapter : BaseQuickAdapter<ClassifyResponse, BaseViewHolder>(R.layou
                             tvSystemTypeText.tag = index
                             tvSystemTypeText.onClick {
                                 if (::mListener.isInitialized) {
-                                    mListener.typeTextClick?.invoke(tvSystemTypeText.tag as Int)
+                                    mListener.typeTextClick?.invoke(
+                                        tvSystemTypeText.tag as Int,
+                                        holder.layoutPosition
+                                    )
                                 }
                             }
                             flexBoxSystemItem.addView(this)
@@ -44,8 +47,8 @@ class SystemAdapter : BaseQuickAdapter<ClassifyResponse, BaseViewHolder>(R.layou
     }
 
     inner class ListenerBuilder {
-        internal var typeTextClick: ((tag: Int) -> Unit)? = null
-        fun onTypeTextClick(action: (tag: Int) -> Unit) {
+        internal var typeTextClick: ((tag: Int, position: Int) -> Unit)? = null
+        fun onTypeTextClick(action: (tag: Int, position: Int) -> Unit) {
             typeTextClick = action
         }
     }

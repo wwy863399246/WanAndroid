@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.wwy.android.R
 import com.wwy.android.adapter.NavigationAdapter
+import com.wwy.android.ext.color
 import com.wwy.android.ui.base.BaseVMFragment
 import com.wwy.android.ui.main.DetailActivity
 import com.wwy.android.ui.main.MainActivity
@@ -12,6 +13,7 @@ import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.view.loadpage.LoadPageViewForStatus
 import com.wwy.android.vm.NavigationViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
+import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -37,6 +39,7 @@ class NavigationFragment : BaseVMFragment<NavigationViewModel>() {
         ArticleRv.apply {
             //  addItemDecoration(SpacesItemDecoration(dip(8), LinearLayoutManager.VERTICAL))
             adapter = navigationAdapter
+            backgroundColor = color(R.color.color_page_bg)
         }
         navigationAdapter.apply {
             isAnimationFirstOnly = true

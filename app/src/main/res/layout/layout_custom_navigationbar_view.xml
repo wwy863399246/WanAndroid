@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigationBarBg"
-    android:background="?attr/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
     android:minHeight="48dp">
 
 
@@ -18,10 +18,10 @@
         android:paddingBottom="8dp"
         android:src="@drawable/ic_arrow_black"
         android:visibility="gone"
-        app:tint="?attr/textColorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/textColorPrimary"
         tools:ignore="RtlSymmetry" />
 
 
@@ -29,12 +29,22 @@
         android:id="@+id/tvLeftTitleNavigationBar"
         style="@style/text_color_primary_alpha_18"
         android:layout_marginStart="16dp"
-        android:visibility="gone"
         android:textColor="?attr/textColorPrimary"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/ivBackNavigationBar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginStart="16dp" />
+
+    <TextView
+        android:id="@+id/tvRightTitleNavigationBar"
+        style="@style/text_color_primary_alpha_18"
+        android:layout_marginEnd="16dp"
+        android:textColor="?attr/textColorPrimary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tlNavigationBar"
@@ -56,11 +66,11 @@
         android:id="@+id/tvTitleNavigationBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?attr/textColorPrimary"
-        android:textSize="18sp"
-        android:singleLine="true"
         android:ellipsize="end"
         android:maxEms="12"
+        android:singleLine="true"
+        android:textColor="?attr/textColorPrimary"
+        android:textSize="18sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +78,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivLeftNavigationBarOne"
+        android:id="@+id/ivRightNavigationBarOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
@@ -81,19 +91,19 @@
         tools:ignore="ContentDescription" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivLeftNavigationBarTwo"
+        android:id="@+id/ivRightNavigationBarSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="4dp"
         android:paddingTop="12dp"
         android:paddingRight="4dp"
         android:paddingBottom="12dp"
-        app:tint="?attr/textColorPrimary"
         android:src="@drawable/ic_search_black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/ivLeftNavigationBarOne"
+        app:layout_constraintEnd_toStartOf="@id/ivRightNavigationBarOne"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginEnd="12dp" />
+        app:layout_goneMarginEnd="12dp"
+        app:tint="?attr/textColorPrimary" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

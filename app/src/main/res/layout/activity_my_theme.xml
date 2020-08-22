@@ -12,8 +12,7 @@
         app:isShow_left_img="true"
         app:isShow_right_img1="false"
         app:isShow_right_img2="false"
-        app:isShow_tab_layout="true"
-        app:left_textId="@string/theme" />
+        app:isShow_tab_layout="false" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/themeRv"

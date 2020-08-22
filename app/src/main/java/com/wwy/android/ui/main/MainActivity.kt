@@ -3,6 +3,7 @@ package com.wwy.android.ui.main
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.wwy.android.R
 import com.wwy.android.ext.SET_THEME
@@ -112,5 +113,15 @@ open class MainActivity : BaseActivity() {
         }
         beginTransaction.commitAllowingStateLoss();
         super.recreate()
+    }
+    private var previousTimeMillis = 0L
+    override fun onBackPressed() {
+        val currentTimMillis = System.currentTimeMillis()
+        if (currentTimMillis - previousTimeMillis < 2000) {
+            super.onBackPressed()
+        } else {
+            SmartSnackbar.get(this).show(R.string.press_again_to_exit)
+            previousTimeMillis = currentTimMillis
+        }
     }
 }

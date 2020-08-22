@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wwy.android.view.CustomNavigationBarView
+        android:id="@+id/systemNv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShow_left_img="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewMainSystem"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/systemNv" />
+
+    <com.angcyo.tablayout.DslTabLayout
+        android:id="@+id/tlMainSystem"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewMainSystem"
+        app:tab_deselect_color="@color/theme_text_color_primary_alpha_60"
+        app:tab_draw_indicator="true"
+        app:tab_enable_gradient_text_size="true"
+        app:tab_enable_text_bold="true"
+        app:tab_indicator_anim="true"
+        app:tab_indicator_color="?attr/textColorPrimary"
+        app:tab_indicator_drawable="@drawable/shape_project_tab"
+        app:tab_indicator_enable_flow="true"
+        app:tab_indicator_height="2dp"
+        app:tab_indicator_radius="2dp"
+        app:tab_indicator_style="STYLE_BOTTOM"
+        app:tab_indicator_width="WRAP_CONTENT"
+        app:tab_indicator_y_offset="0dp"
+        app:tab_select_color="?attr/textColorPrimary"
+        app:tab_text_max_size="16sp"
+        app:tab_text_min_size="14sp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpMainSystem"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewMainSystem" />
+</androidx.constraintlayout.widget.ConstraintLayout>

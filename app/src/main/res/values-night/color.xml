@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_page_bg">#101010</color>//灰色背景
-    <color name="color_item_bg">#FF000000</color>//黑色背景
-    <color name="color_on_theme_text">#CCFFFFFF</color>//白色
+    <color name="color_item_bg">#1E1E1E</color>//日间模式白色背景对应夜间模式背景
+    <color name="bgColorThird">#262626</color>
+
     <color name="color_theme_text">#CCFFFFFF</color>//黑暗主题白色文字
+    <color name="color_on_theme_text">#CCFFFFFF</color>//白色
+
+
 
     <color name="accent_red">#ffc53929</color>
     <color name="accent_pink">#ffd66182</color>

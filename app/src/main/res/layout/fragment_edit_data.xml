@@ -7,7 +7,7 @@
     tools:context=".ui.main.MainActivity">
 
     <com.wwy.android.view.CustomNavigationBarView
-        android:id="@+id/editDataNb"
+        android:id="@+id/editDataNv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:isShow_left_img="true"
@@ -33,7 +33,7 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/avatar_1_raster"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editDataNb" />
+        app:layout_constraintTop_toBottomOf="@id/editDataNv" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/settingAvatarButton"
@@ -42,9 +42,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="40dp"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/colorAccent"
         android:text="@string/confirm"
-        android:textColor="@color/color_FFFFFF"
+        android:textColor="@color/color_theme_text"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

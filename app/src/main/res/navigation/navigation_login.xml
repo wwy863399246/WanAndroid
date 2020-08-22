@@ -30,12 +30,26 @@
             app:enterAnim="@anim/login_slide_in_right"
             app:exitAnim="@anim/login_slide_out_left"
             app:popEnterAnim="@anim/login_slide_in_left"
-            app:popExitAnim="@anim/login_slide_out_right" />
+            app:popExitAnim="@anim/login_slide_out_right"
+            app:popUpTo="@+id/registerFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/settingAvatarFragment"
         android:name="com.wwy.android.ui.member.EditDataFragment"
         android:label="fragment_setting_avatar"
-        tools:layout="@layout/fragment_edit_data" />
+        tools:layout="@layout/fragment_edit_data">
+<!--        <action-->
+<!--            android:id="@+id/action_settingAvatarFragment_to_loginFragment"-->
+<!--            app:destination="@id/loginFragment"-->
+<!--            app:enterAnim="@anim/login_slide_in_right"-->
+<!--            app:exitAnim="@anim/login_slide_out_left"-->
+<!--            app:popEnterAnim="@anim/login_slide_in_left"-->
+<!--            app:popExitAnim="@anim/login_slide_out_right"-->
+<!--            app:popUpTo="@+id/loginFragment"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            />-->
+
+    </fragment>
 
 </navigation>

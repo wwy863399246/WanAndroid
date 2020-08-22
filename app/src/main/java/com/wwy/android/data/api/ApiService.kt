@@ -1,6 +1,7 @@
 package com.wwy.android.data.api
 
 import com.wwy.android.data.bean.*
+import com.wwy.android.data.bean.base.GankResponse
 import com.wwy.android.data.bean.base.WanResponse
 import retrofit2.http.*
 
@@ -18,6 +19,17 @@ interface ApiService {
     suspend fun login(
         @Field("username") userName: String,
         @Field("password") passWord: String
+    ): WanResponse<User>
+
+    /**
+     * 注册
+     */
+    @FormUrlEncoded
+    @POST("user/register")
+    suspend fun register(
+        @Field("username") username: String,
+        @Field("password") password: String,
+        @Field("repassword") repassword: String
     ): WanResponse<User>
 
     /**
@@ -103,4 +115,75 @@ interface ApiService {
      */
     @POST("lg/uncollect_originId/{id}/json")
     suspend fun unCollect(@Path("id") id: Int): WanResponse<Any?>
+
+    /**
+     *获取个人积分
+     */
+    @GET("lg/coin/userinfo/json")
+    suspend fun getPoints(): WanResponse<PointRank>
+
+    /**
+     *积分获取记录
+     */
+    @GET("lg/coin/list/{page}/json")
+    suspend fun getPointsRecord(@Path("page") page: Int): WanResponse<WanListResponse<MutableList<PointRecord>>>
+
+    /**
+     *积分排行榜
+     */
+    @GET("coin/rank/{page}/json")
+    suspend fun getPointsRank(@Path("page") page: Int): WanResponse<WanListResponse<MutableList<PointRank>>>
+
+    /**
+     *我的收藏
+     */
+    @GET("lg/collect/list/{page}/json")
+    suspend fun getCollectionList(@Path("page") page: Int): WanResponse<WanListResponse<MutableList<Article>>>
+
+    /**
+     *我的分享
+     */
+    @GET("user/lg/private_articles/{page}/json")
+    suspend fun getSharedArticleList(@Path("page") page: Int): WanResponse<Shared>
+
+    /**
+     *删除分享
+     */
+    @POST("lg/user_article/delete/{id}/json")
+    suspend fun deleteShare(@Path("id") id: Int): WanResponse<Any?>
+
+    /**
+     *添加分享
+     */
+    @FormUrlEncoded
+    @POST("lg/user_article/add/json")
+    suspend fun shareArticle(
+        @Field("title") title: String,
+        @Field("link") link: String
+    ): WanResponse<Any?>
+
+    /**
+     *获取图片
+     */
+    @GET("api/v2/data/category/Girl/type/Girl/page/{page}/count/{count}")
+    suspend fun getMeiZi(
+        @Path("page") page: Int,
+        @Path("count") count: Int
+    ): GankResponse<MutableList<MeiZi>>
+
+    /**
+     *获取热门搜索
+     */
+    @GET("hotkey/json")
+    suspend fun getHotWords(): WanResponse<MutableList<HotWord>>
+
+    /**
+     *文章搜索
+     */
+    @FormUrlEncoded
+    @POST("article/query/{page}/json")
+    suspend fun search(
+        @Field("k") keywords: String,
+        @Path("page") page: Int
+    ): WanResponse<WanListResponse<MutableList<Article>>>
 }

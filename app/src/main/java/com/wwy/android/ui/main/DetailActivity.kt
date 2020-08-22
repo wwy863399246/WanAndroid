@@ -13,10 +13,7 @@ import com.coder.zzq.smartshow.snackbar.SmartSnackbar
 import com.coder.zzq.smartshow.toast.SmartToast
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
-import com.just.agentweb.AgentWeb
-import com.just.agentweb.DefaultWebClient
-import com.just.agentweb.WebChromeClient
-import com.just.agentweb.WebViewClient
+import com.just.agentweb.*
 import com.wwy.android.R
 import com.wwy.android.data.bean.Article
 import com.wwy.android.ext.*
@@ -66,11 +63,11 @@ class DetailActivity : BaseVMActivity<DetailViewModel>() {
             ivBackNavigationBar.clickWithTrigger {
                 ActivityHelper.finish(DetailActivity::class.java)
             }
-            ivLeftNavigationBarOne.clickWithTrigger {
+            ivRightNavigationBarOne.clickWithTrigger {
                 ActionFragment.newInstance(article).show(supportFragmentManager)
             }
         }
-        if(getNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
+        if (getNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             setBrightness(0.08f)
         }
     }
@@ -105,6 +102,9 @@ class DetailActivity : BaseVMActivity<DetailViewModel>() {
     }
 
     override fun initData() {
+        if (article.id != 0) {
+            mViewModel.saveReadHistory(article)
+        }
         rootView = pageViewForStatus.getRootView(this) as LoadPageViewForStatus
         rootView.apply {
             pageViewForStatus.convert(this, LoadPageStatus.NoNet)
@@ -114,6 +114,7 @@ class DetailActivity : BaseVMActivity<DetailViewModel>() {
             .useDefaultIndicator(color(R.color.color_on_surface_60), 2)
             .interceptUnkownUrl()
             .setMainFrameErrorView(rootView)
+            .setAgentWebWebSettings(AgentWebSettingsImpl.getInstance())
             .setSecurityType(AgentWeb.SecurityType.STRICT_CHECK)
             .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.DISALLOW)
 //            .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.ASK)//打开其他应用时，弹窗咨询用户是否前往其他应用
@@ -144,6 +145,7 @@ class DetailActivity : BaseVMActivity<DetailViewModel>() {
             .createAgentWeb()
             .ready()
             .get()
+
         agentWeb?.webCreator?.webView?.run {
             overScrollMode = WebView.OVER_SCROLL_NEVER
             settings.run {

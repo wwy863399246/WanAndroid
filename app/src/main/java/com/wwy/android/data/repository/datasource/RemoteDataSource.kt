@@ -1,5 +1,6 @@
 package com.wwy.android.data.repository.datasource
 
+import com.wwy.android.data.api.GANK_IO
 import com.wwy.android.data.api.RetrofitClient
 import com.wwy.android.data.api.WAN_ANDROID
 import com.wwy.android.data.bean.*
@@ -183,9 +184,49 @@ class RemoteDataSource {
     /**
      * 我的界面数据源
      * @param login 登录
+     * @param getPoints 我的积分
+     * @param getPointsRecord 积分签到记录
+     * @param getCollectionList 我的收藏
+     * @param getSharedArticleList 我的分享
      */
     suspend fun login(username: String, password: String) = safeApiCall(
         call = { requestLogin(username, password) }
+    )
+
+    suspend fun register(username: String, password: String, repassword: String) = safeApiCall(
+        call = { requestRegister(username, password, repassword) }
+    )
+
+    suspend fun getPoints() = safeApiCall(
+        call = { requestGetPoints() }
+    )
+
+    suspend fun getPointsRecord(page: Int) = safeApiCall(
+        call = { requestGetPointsRecord(page) }
+    )
+
+    suspend fun getPointsRank(page: Int) = safeApiCall(
+        call = { requestGetPointsRank(page) }
+    )
+
+    suspend fun getCollectionList(page: Int) = safeApiCall(
+        call = { requestGetCollectionList(page) }
+    )
+
+    suspend fun getSharedArticleList(page: Int) = safeApiCall(
+        call = { requestGetSharedArticleList(page) }
+    )
+
+    suspend fun deleteShare(id: Int) = safeApiCall(
+        call = { requestGetDeleteShare(id) }
+    )
+
+    suspend fun shareArticle(title: String, link: String) = safeApiCall(
+        call = { requestShareArticle(title, link) }
+    )
+
+    suspend fun getMeiZi(page: Int, count: Int = 10) = safeApiCall(
+        call = { requestMeiZi(page, count) }
     )
 
     private suspend fun requestLogin(username: String, password: String): ResultData<User> {
@@ -195,6 +236,84 @@ class RemoteDataSource {
         }
         return ResultData.ErrorMessage(login.errorMsg)
     }
+
+    private suspend fun requestRegister(
+        username: String,
+        password: String,
+        repassword: String
+    ): ResultData<User> {
+        val register = RetrofitClient(WAN_ANDROID).service.register(username, password, repassword)
+        if (register.errorCode == 0) {
+            return ResultData.Success(register.data)
+        }
+        return ResultData.ErrorMessage(register.errorMsg)
+    }
+
+    private suspend fun requestGetPoints(): ResultData<PointRank> {
+        val myPoint = RetrofitClient(WAN_ANDROID).service.getPoints()
+        if (myPoint.errorCode == 0) {
+            return ResultData.Success(myPoint.data)
+        }
+        return ResultData.Error(IOException("Failed to get homeArticles${myPoint.errorMsg}"))
+    }
+
+    private suspend fun requestGetPointsRecord(page: Int): ResultData<WanListResponse<MutableList<PointRecord>>> {
+        val myPointsRecord = RetrofitClient(WAN_ANDROID).service.getPointsRecord(page)
+        if (myPointsRecord.errorCode == 0) {
+            return ResultData.Success(myPointsRecord.data)
+        }
+        return ResultData.Error(IOException("Failed to get homeArticles${myPointsRecord.errorMsg}"))
+    }
+
+    private suspend fun requestGetPointsRank(page: Int): ResultData<WanListResponse<MutableList<PointRank>>> {
+        val pointsRank = RetrofitClient(WAN_ANDROID).service.getPointsRank(page)
+        if (pointsRank.errorCode == 0) {
+            return ResultData.Success(pointsRank.data)
+        }
+        return ResultData.Error(IOException("Failed to get homeArticles${pointsRank.errorMsg}"))
+    }
+
+    private suspend fun requestGetCollectionList(page: Int): ResultData<WanListResponse<MutableList<Article>>> {
+        val myCollectionList = RetrofitClient(WAN_ANDROID).service.getCollectionList(page)
+        if (myCollectionList.errorCode == 0) {
+            return ResultData.Success(myCollectionList.data)
+        }
+        return ResultData.Error(IOException("Failed to get homeArticles${myCollectionList.errorMsg}"))
+    }
+
+    private suspend fun requestGetSharedArticleList(page: Int): ResultData<WanListResponse<MutableList<Article>>> {
+        val mySharedArticleList = RetrofitClient(WAN_ANDROID).service.getSharedArticleList(page)
+        if (mySharedArticleList.errorCode == 0) {
+            return ResultData.Success(mySharedArticleList.data.shareArticles)
+        }
+        return ResultData.Error(IOException("Failed to get homeArticles${mySharedArticleList.errorMsg}"))
+    }
+
+    private suspend fun requestGetDeleteShare(id: Int): ResultData<Any> {
+        val deleteShare = RetrofitClient(WAN_ANDROID).service.deleteShare(id)
+        if (deleteShare.errorCode == 0) {
+            return ResultData.Success(deleteShare.data.toString())
+        }
+        return ResultData.ErrorMessage(deleteShare.errorMsg)
+    }
+
+    private suspend fun requestShareArticle(title: String, link: String): ResultData<Any> {
+        val shareArticle = RetrofitClient(WAN_ANDROID).service.shareArticle(title, link)
+        if (shareArticle.errorCode == 0) {
+            return ResultData.Success(shareArticle.data.toString())
+        }
+        return ResultData.ErrorMessage(shareArticle.errorMsg)
+    }
+
+    private suspend fun requestMeiZi(page: Int, count: Int = 10): ResultData<MutableList<MeiZi>> {
+        val meiZi = RetrofitClient(GANK_IO).service.getMeiZi(page, count)
+        if (meiZi.status == 100) {
+            return ResultData.Success(meiZi.data)
+        }
+        return ResultData.ErrorMessage("error")
+    }
+
+
     /**
      * 收藏与取消收藏
      * @param login 登录
@@ -221,5 +340,34 @@ class RemoteDataSource {
             return ResultData.Success(unCollect.data.toString())
         }
         return ResultData.ErrorMessage(unCollect.errorMsg)
+    }
+
+    suspend fun getHotWord() = safeApiCall(
+        call = { requestHotWord() }
+    )
+
+    private suspend fun requestHotWord(): ResultData<MutableList<HotWord>> {
+        val hotWords = RetrofitClient(WAN_ANDROID).service.getHotWords()
+        if (hotWords.errorCode == 0) {
+            return ResultData.Success(hotWords.data)
+        }
+        return ResultData.ErrorMessage(hotWords.errorMsg)
+
+    }
+
+    suspend fun searchArticle(key: String, page: Int) = safeApiCall(
+        call = { requestSearchArticle(key, page) }
+    )
+
+    private suspend fun requestSearchArticle(
+        key: String,
+        page: Int
+    ): ResultData<WanListResponse<MutableList<Article>>> {
+        val search = RetrofitClient(WAN_ANDROID).service.search(key, page)
+        if (search.errorCode == 0) {
+            return ResultData.Success(search.data)
+        }
+        return ResultData.ErrorMessage(search.errorMsg)
+
     }
 }
