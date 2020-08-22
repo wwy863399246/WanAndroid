@@ -10,7 +10,7 @@
 ![项目效果图](https://source.acexy.cn/view/XQXWOxb)
  #### APK下载：
 - [Github下载](https://github.com/wwy863399246/WanAndroid/releases/download/1.0.0/app-debug.apk)
-## 1.添加依赖后如何使用koin依赖注入viewmodel,repository
+## 添加依赖后如何使用koin依赖注入viewmodel,repository
 - **1.1 新建AppModulel类**
 ```
 val viewModelModule = module {
@@ -46,7 +46,8 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
    override fun initVM(): HomePageViewModel = getViewModel()
 }
 ```
-
+## 关于Android应用架构指南可参考文章
+- [把 "格子衫" 改造得更时尚 | Kotlin & Jetpack 最佳实践技巧](https://juejin.im/post/6844903961384714248#heading-3)
 ## 开源库
 - [ImmersionBar -- android 4.4以上沉浸式实现](https://github.com/gyf-dev/ImmersionBar)
 - [一个依赖注入框架koin](https://github.com/InsertKoinIO/koin)
