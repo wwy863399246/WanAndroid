@@ -10,4 +10,23 @@
 ![项目效果图](https://source.acexy.cn/view/XQXWOxb)
  #### APK下载：
 - [Github下载https://github.com/wwy863399246/WanAndroid/releases/download/1.0.0/app-debug.apk)
-
+## 1.添加依赖后如何使用koin依赖注入viewmodel,repository
+- **1.1 新建AppModulel类**
+```
+val viewModelModule = module {
+    viewModel { HomePageViewModel(get(), get()) }
+}
+val repositoryModule = module {
+    single { RemoteDataSource() }
+    single { ArticleUserCase(get()) }
+}
+val appModule = listOf(viewModelModule, repositoryModule)
+```
+- **1.1 Application**
+```
+startKoin {
+            androidLogger(Level.INFO)
+            androidContext(this@MyApplication)
+            modules(appModule)
+        }
+```
