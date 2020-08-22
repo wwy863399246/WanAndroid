@@ -31,7 +31,7 @@ startKoin {
             modules(appModule)
         }
 ```
-- **1.2 Repository，Viewmodel**
+- **1.3 Repository，Viewmodel**
 ```
 class ArticleUserCase(private val remoteDataSource: RemoteDataSource) {
 }
@@ -40,7 +40,7 @@ class MainRepository(private val homeRemoteDataSource: RemoteDataSource) {
 class HomePageViewModel(private val mainRepository : MainRepository, private val articleUserCase:ArticleUserCase) : BaseViewModel() {
 }
 ```
-- **1.2 Activity,Fragment中**
+- **1.4 Activity,Fragment中**
 ```
 class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener {
    override fun initVM(): HomePageViewModel = getViewModel()
