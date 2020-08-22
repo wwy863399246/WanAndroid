@@ -19,37 +19,6 @@ package com.wwy.android.util
 import androidx.lifecycle.LiveData
 import com.wwy.android.view.loadpage.LoadPageStatus
 
-enum class Status {
-    RUNNING,
-    SUCCESS,
-    FAILED,
-    HIDDEN,
-    EMPTY,
-    END
-}
-
-@Suppress("DataClassPrivateConstructor")
-data class ListStatus private constructor(
-    val status: Status
-) {
-    companion object {
-        val EMPTY = ListStatus(Status.EMPTY)
-        val END = ListStatus(Status.END)
-    }
-}
-
-@Suppress("DataClassPrivateConstructor")
-data class NetworkState private constructor(
-    val status: Status
-) {
-    companion object {
-        val LOADED = NetworkState(Status.SUCCESS)
-        val LOADING = NetworkState(Status.RUNNING)
-        val HIDDEN = NetworkState(Status.HIDDEN)
-        val FAILED = NetworkState(Status.FAILED)
-    }
-}
-
 data class ListModel<T>(
     val showSuccess: List<T>? = null,
     val showLoading: Boolean = false,
