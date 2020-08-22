@@ -47,7 +47,7 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
 }
 ```
 
-## 项目中用到的开源库
+## 开源库
 - [ImmersionBar -- android 4.4以上沉浸式实现](https://github.com/gyf-dev/ImmersionBar)
 - [一个依赖注入框架koin](https://github.com/InsertKoinIO/koin)
 - [处理网络请求的框架-Okhttp](https://github.com/square/okhttp)
