@@ -57,7 +57,6 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
 - [屏幕适配AndroidAutoSize](https://github.com/JessYanCoding/AndroidAutoSize)
 - [Toast & Snackbar & TopBar & Dialog-smart-sho](https://github.com/opensource-zhuzhiqiang/smart-show)
 - [Android界最万能的TabLayout(不仅仅是TabLayout). 高能自绘控件, 继承自ViewGroup, 非组合控件.](https://github.com/angcyo/DslTabLayout)
-- [一个增强BottomNavigationView的安卓库-BottomNavigationViewEx](https://github.com/ittianyu/BottomNavigationViewEx)
 - [anko](https://github.com/Kotlin/anko)
 - [一个强大的轮播库-BGABanner-Android](https://github.com/bingoogolapple/BGABanner-Android)
 - [一个强大并且灵活的RecyclerViewAdapter-BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper))
