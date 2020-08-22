@@ -64,4 +64,4 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
 - [基于mmap内存映射的移动端通用 key-value 组件-MMKV](https://github.com/Tencent/MMKV)
 
 ## 特别感谢
-- 感谢[鸿洋大神](https://github.com/hongyangAndroid)提供的[WanAndroid开放API](https://www.wanandroid.com/blog/show/2)
+- 感谢[鸿洋大神](https://github.com/hongyangAndroid)提供的[WanAndroid开放API](https://www.wanandroid.com/blog/show/2),和里面的一些优秀开源项目和文章
