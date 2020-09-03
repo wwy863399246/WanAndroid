@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.scwang.smart:refresh-header-classics:2.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2e12be06558acfb5d8fd940a20cf2670/jetified-refresh-header-classics-2.0.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2e12be06558acfb5d8fd940a20cf2670/jetified-refresh-header-classics-2.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2e12be06558acfb5d8fd940a20cf2670/jetified-refresh-header-classics-2.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1377ab504881aab5cbd840b8acc822d1/jetified-refresh-header-classics-2.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1377ab504881aab5cbd840b8acc822d1/jetified-refresh-header-classics-2.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1377ab504881aab5cbd840b8acc822d1/jetified-refresh-header-classics-2.0.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.scwang.smart/refresh-header-classics/2.0.0/128fd93373c6b46113c0fe8efe839a30d057a825/refresh-header-classics-2.0.0-javadoc.jar!/" />

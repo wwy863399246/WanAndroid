@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.just.agentweb:agentweb:4.1.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/769524426f20603c5ce6e5a43eeb392a/jetified-agentweb-4.1.3/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/769524426f20603c5ce6e5a43eeb392a/jetified-agentweb-4.1.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/769524426f20603c5ce6e5a43eeb392a/jetified-agentweb-4.1.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9cbb1ac50a290592c459d7809602c579/jetified-agentweb-4.1.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9cbb1ac50a290592c459d7809602c579/jetified-agentweb-4.1.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9cbb1ac50a290592c459d7809602c579/jetified-agentweb-4.1.3/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.just.agentweb/agentweb/4.1.3/3c59bb659c4409e722c957ad75dda86fb55caa4/agentweb-4.1.3-javadoc.jar!/" />
