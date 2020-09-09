@@ -28,6 +28,7 @@ import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -38,7 +39,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class MyShareListActivity : BaseVMActivity<MyCollectAndShareViewModel>(), OnLoadMoreListener {
     private val homePageAdapter = HomePageAdapter()
     private var mPosition: Int = -1
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     private var rootView: LoadPageViewForStatus? = null
     override fun initVM(): MyCollectAndShareViewModel = getViewModel()
     override fun setLayoutId(): Int = R.layout.activity_my_recycleview
@@ -50,8 +51,7 @@ class MyShareListActivity : BaseVMActivity<MyCollectAndShareViewModel>(), OnLoad
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        rootView = loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus
-        rootView?.run {
+        rootView = (loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus).apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }

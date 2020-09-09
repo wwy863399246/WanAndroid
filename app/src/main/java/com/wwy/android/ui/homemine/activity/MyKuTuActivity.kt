@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -34,7 +35,7 @@ class MyKuTuActivity : BaseVMActivity<KuTuViewModel>(), OnLoadMoreListener {
     override fun initVM(): KuTuViewModel = getViewModel()
     override fun setLayoutId(): Int = R.layout.activity_my_recycleview
     private val kuTuAdapter = KuTuAdapter()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     private var rootView: LoadPageViewForStatus? = null
     override fun initImmersionBar() {
         super.initImmersionBar()
@@ -44,8 +45,7 @@ class MyKuTuActivity : BaseVMActivity<KuTuViewModel>(), OnLoadMoreListener {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        rootView = loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus
-        rootView?.apply {
+        rootView = (loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus).apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }
@@ -60,7 +60,7 @@ class MyKuTuActivity : BaseVMActivity<KuTuViewModel>(), OnLoadMoreListener {
             setEnableLoadMore(false)
         }
         activityRecycleRv.apply {
-            layoutManager = GridLayoutManager(this@MyKuTuActivity,2)
+            layoutManager = GridLayoutManager(this@MyKuTuActivity, 2)
             backgroundColor = color(R.color.color_page_bg)
             adapter = kuTuAdapter.apply {
                 loadMoreModule.setOnLoadMoreListener(this@MyKuTuActivity)

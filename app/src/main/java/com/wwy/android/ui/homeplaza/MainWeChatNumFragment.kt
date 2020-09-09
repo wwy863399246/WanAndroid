@@ -17,6 +17,7 @@ import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.vm.WeChatNumViewModel
 import kotlinx.android.synthetic.main.fragment_main_project.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -28,7 +29,7 @@ class MainWeChatNumFragment : BaseVMFragment<WeChatNumViewModel>() {
     override fun setLayoutResId(): Int = R.layout.fragment_main_project
     override fun initVM(): WeChatNumViewModel = getViewModel()
     private val mFragmentList = mutableListOf<Fragment>()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     override fun initView() {
         llMainProjectLoadPageViewForStatus.failTextView().onClick { mViewModel.loadBlogType() }
         ViewPager2Delegate(vpMainProject, tlMainProject)

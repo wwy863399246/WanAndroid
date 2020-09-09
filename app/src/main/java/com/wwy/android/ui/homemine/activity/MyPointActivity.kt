@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.header_mine_points.view.*
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -31,7 +32,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class MyPointActivity : BaseVMActivity<PointViewModel>(), OnLoadMoreListener {
     override fun initVM(): PointViewModel = getViewModel()
     private val minePointsAdapter = MinePointsAdapter()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     private var rootView: LoadPageViewForStatus? = null
     private lateinit var mHeaderView: View
     override fun setLayoutId(): Int = R.layout.activity_my_recycleview
@@ -44,8 +45,7 @@ class MyPointActivity : BaseVMActivity<PointViewModel>(), OnLoadMoreListener {
 
     override fun initView(savedInstanceState: Bundle?) {
         mHeaderView = LayoutInflater.from(this).inflate(R.layout.header_mine_points, null)
-        rootView = loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus
-        rootView?.apply {
+        rootView = (loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus).apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }

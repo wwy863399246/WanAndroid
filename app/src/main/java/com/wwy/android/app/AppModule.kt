@@ -2,6 +2,9 @@ package com.wwy.android.app
 
 import com.wwy.android.data.repository.*
 import com.wwy.android.data.repository.datasource.RemoteDataSource
+import com.wwy.android.view.loadpage.BasePageViewForStatus
+import com.wwy.android.view.loadpage.LoadPageViewForStatus
+import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.vm.*
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -27,7 +30,7 @@ val viewModelModule = module {
     viewModel { SettingViewModel(get()) }
     viewModel { KuTuViewModel(get()) }
     viewModel { ReadHistoryViewMode(get()) }
-    viewModel { SearchViewModel(get(),get()) }
+    viewModel { SearchViewModel(get(), get()) }
 }
 val repositoryModule = module {
     single { RemoteDataSource() }
@@ -46,6 +49,6 @@ val repositoryModule = module {
     single { KuTuRepository(get()) }
     single { ReadHistoryUserCase() }
     single { SearchRepository(get()) }
-
+    single<BasePageViewForStatus> { SimplePageViewForStatus() }
 }
 val appModule = listOf(viewModelModule, repositoryModule)

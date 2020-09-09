@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_recycleview.*
 import kotlinx.android.synthetic.main.layout_banner.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.startActivity
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -30,7 +31,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener {
     private val homePageAdapter = HomePageAdapter()
     private val homePageStickAdapter = HomePageStickAdapter()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     private var rootView: LoadPageViewForStatus? = null
     private lateinit var homePageHeadView: HomePageHeadView
     override fun initVM(): HomePageViewModel = getViewModel()
@@ -41,11 +42,10 @@ class HomePageFragment : BaseVMFragment<HomePageViewModel>(), OnLoadMoreListener
 
     override fun initView() {
         rootView =
-            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
-        rootView?.apply {
-            failTextView().onClick { refresh() }
-            noNetTextView().onClick { refresh() }
-        }
+            (loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus).apply {
+                failTextView().onClick { refresh() }
+                noNetTextView().onClick { refresh() }
+            }
         ArticleRv.apply {
             adapter = homePageAdapter
         }

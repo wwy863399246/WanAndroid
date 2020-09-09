@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_my_recycleview.*
 import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -30,7 +31,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class PointRankingActivity : BaseVMActivity<PointRankingViewModel>(), OnLoadMoreListener {
     override fun initVM(): PointRankingViewModel = getViewModel()
     private val pointsRankAdapter = PointsRankAdapter()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     private var rootView: LoadPageViewForStatus? = null
     override fun setLayoutId(): Int = R.layout.activity_my_recycleview
     override fun initImmersionBar() {
@@ -41,8 +42,7 @@ class PointRankingActivity : BaseVMActivity<PointRankingViewModel>(), OnLoadMore
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        rootView = loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus
-        rootView?.apply {
+        rootView = (loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus).apply {
             failTextView().onClick { refresh() }
             noNetTextView().onClick { refresh() }
         }

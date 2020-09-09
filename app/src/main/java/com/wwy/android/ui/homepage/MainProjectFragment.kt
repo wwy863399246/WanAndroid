@@ -18,6 +18,7 @@ import com.wwy.android.view.loadpage.SimplePageViewForStatus
 import com.wwy.android.vm.HomeProjectViewModel
 import kotlinx.android.synthetic.main.fragment_main_project.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -29,7 +30,7 @@ class MainProjectFragment : BaseVMFragment<HomeProjectViewModel>() {
     override fun initVM(): HomeProjectViewModel = getViewModel()
     override fun setLayoutResId(): Int = R.layout.fragment_main_project
     private val mFragmentList = mutableListOf<Fragment>()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     override fun initView() {
         llMainProjectLoadPageViewForStatus.failTextView()
             .onClick { mViewModel.loadProjectClassify() }

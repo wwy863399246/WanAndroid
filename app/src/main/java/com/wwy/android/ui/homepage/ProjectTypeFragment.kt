@@ -16,6 +16,7 @@ import com.wwy.android.vm.HomeProjectViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.startActivity
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreListener {
@@ -23,7 +24,7 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     private val cid by lazy { arguments?.getInt(CID) }// cid==0是最新项目 否项目分类
     private val homePageAdapter = HomePageAdapter()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     private var rootView: LoadPageViewForStatus? = null
     private var i: Int = 0
 
@@ -40,11 +41,10 @@ class ProjectTypeFragment : BaseVMFragment<HomeProjectViewModel>(), OnLoadMoreLi
 
     override fun initView() {
         rootView =
-            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
-        rootView?.apply {
-            failTextView().onClick { refresh() }
-            noNetTextView().onClick { refresh() }
-        }
+            (loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus).apply {
+                failTextView().onClick { refresh() }
+                noNetTextView().onClick { refresh() }
+            }
         ArticleRv.apply {
             adapter = homePageAdapter
         }

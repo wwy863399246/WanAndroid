@@ -16,6 +16,7 @@ import com.wwy.android.vm.WeChatNumViewModel
 import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.startActivity
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class WeChatNumTypeFragment : BaseVMFragment<WeChatNumViewModel>(), OnLoadMoreListener {
@@ -23,8 +24,8 @@ class WeChatNumTypeFragment : BaseVMFragment<WeChatNumViewModel>(), OnLoadMoreLi
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
     private val cid by lazy { arguments?.getInt(CID) }
     private val homePageAdapter = HomePageAdapter()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
-    private var rootView: LoadPageViewForStatus?=null
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
+    private var rootView: LoadPageViewForStatus? = null
     private var i: Int = 0
 
     companion object {
@@ -40,11 +41,10 @@ class WeChatNumTypeFragment : BaseVMFragment<WeChatNumViewModel>(), OnLoadMoreLi
 
     override fun initView() {
         rootView =
-            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
-        rootView?.apply {
-            failTextView().onClick { refresh() }
-            noNetTextView().onClick { refresh() }
-        }
+            (loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus).apply {
+                failTextView().onClick { refresh() }
+                noNetTextView().onClick { refresh() }
+            }
 
         ArticleRv.apply {
             adapter = homePageAdapter
@@ -68,7 +68,7 @@ class WeChatNumTypeFragment : BaseVMFragment<WeChatNumViewModel>(), OnLoadMoreLi
                 if (it.isRefresh) refreshLayout.finishRefresh(it.isRefreshSuccess)
                 if (it.showEnd) homePageAdapter.loadMoreModule.loadMoreEnd()
                 it.loadPageStatus?.value?.let { loadPageStatus ->
-                    rootView?.let { rootView->
+                    rootView?.let { rootView ->
                         loadPageViewForStatus.convert(
                             rootView,
                             loadPageStatus = loadPageStatus

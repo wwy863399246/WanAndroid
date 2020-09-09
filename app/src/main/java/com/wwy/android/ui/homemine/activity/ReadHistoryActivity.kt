@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.layout_custom_navigationbar_view.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.textColor
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -36,7 +37,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class ReadHistoryActivity : BaseVMActivity<ReadHistoryViewMode>() {
     private val homePageAdapter = HomePageAdapter()
     private var mPosition: Int = -1
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     private var rootView: LoadPageViewForStatus? = null
     override fun initVM(): ReadHistoryViewMode = getViewModel()
     override fun setLayoutId(): Int = R.layout.activity_read_history
@@ -87,10 +88,8 @@ class ReadHistoryActivity : BaseVMActivity<ReadHistoryViewMode>() {
     }
 
 
-
     override fun initView(savedInstanceState: Bundle?) {
-        rootView = loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus
-        rootView?.run {
+        rootView = (loadPageViewForStatus.getRootView(this) as LoadPageViewForStatus).apply {
             failTextView().onClick { initData() }
         }
         activityRecycleNv.run {

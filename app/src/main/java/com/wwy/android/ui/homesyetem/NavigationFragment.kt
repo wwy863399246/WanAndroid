@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_recycleview.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.startActivity
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -25,17 +26,16 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
  */
 class NavigationFragment : BaseVMFragment<NavigationViewModel>() {
     private val navigationAdapter = NavigationAdapter()
-    private val loadPageViewForStatus: BasePageViewForStatus = SimplePageViewForStatus()
+    private val loadPageViewForStatus: BasePageViewForStatus by inject()
     private var rootView: LoadPageViewForStatus? = null
     override fun setLayoutResId(): Int = R.layout.fragment_recycleview
 
     override fun initVM(): NavigationViewModel = getViewModel()
     override fun initView() {
         rootView =
-            loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus
-        rootView?.apply {
-            failTextView().onClick { initData() }
-        }
+            (loadPageViewForStatus.getRootView(activity as MainActivity) as LoadPageViewForStatus).apply {
+                failTextView().onClick { initData() }
+            }
         ArticleRv.apply {
             //  addItemDecoration(SpacesItemDecoration(dip(8), LinearLayoutManager.VERTICAL))
             adapter = navigationAdapter
@@ -51,8 +51,10 @@ class NavigationFragment : BaseVMFragment<NavigationViewModel>() {
                 }
             }
         }
-        refreshLayout.setOnRefreshListener { initData() }
-        refreshLayout.setEnableLoadMore(false)
+        refreshLayout.apply {
+            setOnRefreshListener { initData() }
+            setEnableLoadMore(false)
+        }
     }
 
     override fun initData() {
