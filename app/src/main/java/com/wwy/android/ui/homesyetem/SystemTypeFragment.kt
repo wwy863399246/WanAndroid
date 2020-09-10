@@ -97,7 +97,7 @@ class SystemTypeFragment : BaseVMFragment<SystemViewModel>(), OnLoadMoreListener
     }
 
     override fun initData() {
-        if (i != 0) homePageAdapter.setList(null) //viewpge缓存4个界面 界面重新加载的时候清空数据重新获取
+        if (i != 0) homePageAdapter.setList(null) //viewpage缓存4个页面 页面重新加载的时候清空数据重新获取
         refresh()
         i++
     }
