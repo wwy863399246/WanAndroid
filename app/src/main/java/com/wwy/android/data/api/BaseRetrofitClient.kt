@@ -55,13 +55,15 @@ abstract class BaseRetrofitClient {
     }
 
     protected abstract fun handleBuilder(builder: OkHttpClient.Builder)
+    protected abstract fun retrofitBuilder(builder: Retrofit.Builder)
 
     fun <S> getService(serviceClass: Class<S>, hostType: Int): S {
-        return Retrofit.Builder()
+        val builder: Retrofit.Builder = Retrofit.Builder()
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(getHost(hostType))
-            .build().create(serviceClass)
+        retrofitBuilder(builder)
+        return builder.build().create(serviceClass)
     }
 }
 

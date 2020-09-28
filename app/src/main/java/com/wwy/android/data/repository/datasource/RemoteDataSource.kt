@@ -33,7 +33,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestHomeArticles(page: Int): ResultData<WanListResponse<List<Article>>> {
-        val homeArticles = RetrofitClient(WAN_ANDROID).service.getHomeArticles(page)
+        val homeArticles = RetrofitClient.getInStance(WAN_ANDROID).service.getHomeArticles(page)
         if (homeArticles.errorCode == 0) {
             return ResultData.Success(homeArticles.data)
         }
@@ -41,7 +41,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestBanners(): ResultData<List<Banner>> {
-        val banner = RetrofitClient(WAN_ANDROID).service.getBanner()
+        val banner = RetrofitClient.getInStance(WAN_ANDROID).service.getBanner()
         if (banner.errorCode == 0) {
             return ResultData.Success(banner.data)
         }
@@ -49,7 +49,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestStickArticles(): ResultData<List<Article>> {
-        val stickArticles = RetrofitClient(WAN_ANDROID).service.getStickArticles()
+        val stickArticles = RetrofitClient.getInStance(WAN_ANDROID).service.getStickArticles()
         if (stickArticles.errorCode == 0) {
             return ResultData.Success(stickArticles.data)
         }
@@ -75,7 +75,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestSquareArticleList(page: Int): ResultData<WanListResponse<MutableList<Article>>> {
-        val squareArticleList = RetrofitClient(WAN_ANDROID).service.getSquareArticleList(page)
+        val squareArticleList = RetrofitClient.getInStance(WAN_ANDROID).service.getSquareArticleList(page)
         if (squareArticleList.errorCode == 0) {
             return ResultData.Success(squareArticleList.data)
         }
@@ -83,7 +83,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestBlogType(): ResultData<MutableList<ClassifyResponse>> {
-        val blogType = RetrofitClient(WAN_ANDROID).service.getBlogType()
+        val blogType = RetrofitClient.getInStance(WAN_ANDROID).service.getBlogType()
         if (blogType.errorCode == 0) {
             return ResultData.Success(blogType.data)
         }
@@ -94,7 +94,7 @@ class RemoteDataSource {
         id: Int,
         page: Int
     ): ResultData<WanListResponse<MutableList<Article>>> {
-        val blogDataByType = RetrofitClient(WAN_ANDROID).service.getBlogDataByType(id, page)
+        val blogDataByType = RetrofitClient.getInStance(WAN_ANDROID).service.getBlogDataByType(id, page)
         if (blogDataByType.errorCode == 0) {
             return ResultData.Success(blogDataByType.data)
         }
@@ -121,7 +121,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestProjectClassify(): ResultData<List<ClassifyResponse>> {
-        val projectClassify = RetrofitClient(WAN_ANDROID).service.getProjectTypes()
+        val projectClassify = RetrofitClient.getInStance(WAN_ANDROID).service.getProjectTypes()
         if (projectClassify.errorCode == 0) {
             return ResultData.Success(projectClassify.data)
         }
@@ -129,7 +129,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestLatestProjectList(page: Int): ResultData<WanListResponse<MutableList<Article>>> {
-        val projectNewData = RetrofitClient(WAN_ANDROID).service.getProjectNewData(page)
+        val projectNewData = RetrofitClient.getInStance(WAN_ANDROID).service.getProjectNewData(page)
         if (projectNewData.errorCode == 0) {
             return ResultData.Success(projectNewData.data)
         }
@@ -140,7 +140,7 @@ class RemoteDataSource {
         page: Int,
         cid: Int
     ): ResultData<WanListResponse<List<Article>>> {
-        val projectDataByType = RetrofitClient(WAN_ANDROID).service.getProjectDataByType(page, cid)
+        val projectDataByType = RetrofitClient.getInStance(WAN_ANDROID).service.getProjectDataByType(page, cid)
         if (projectDataByType.errorCode == 0) {
             return ResultData.Success(projectDataByType.data)
         }
@@ -158,7 +158,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestSystemType(): ResultData<MutableList<ClassifyResponse>> {
-        val systemType = RetrofitClient(WAN_ANDROID).service.getSystemType()
+        val systemType = RetrofitClient.getInStance(WAN_ANDROID).service.getSystemType()
         if (systemType.errorCode == 0) {
             return ResultData.Success(systemType.data)
         }
@@ -174,7 +174,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestNavigationData(): ResultData<MutableList<Navigation>> {
-        val navigationData = RetrofitClient(WAN_ANDROID).service.getNavigationData()
+        val navigationData = RetrofitClient.getInStance(WAN_ANDROID).service.getNavigationData()
         if (navigationData.errorCode == 0) {
             return ResultData.Success(navigationData.data)
         }
@@ -230,7 +230,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestLogin(username: String, password: String): ResultData<User> {
-        val login = RetrofitClient(WAN_ANDROID).service.login(username, password)
+        val login = RetrofitClient.getInStance(WAN_ANDROID).service.login(username, password)
         if (login.errorCode == 0) {
             return ResultData.Success(login.data)
         }
@@ -242,7 +242,7 @@ class RemoteDataSource {
         password: String,
         repassword: String
     ): ResultData<User> {
-        val register = RetrofitClient(WAN_ANDROID).service.register(username, password, repassword)
+        val register = RetrofitClient.getInStance(WAN_ANDROID).service.register(username, password, repassword)
         if (register.errorCode == 0) {
             return ResultData.Success(register.data)
         }
@@ -250,7 +250,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestGetPoints(): ResultData<PointRank> {
-        val myPoint = RetrofitClient(WAN_ANDROID).service.getPoints()
+        val myPoint = RetrofitClient.getInStance(WAN_ANDROID).service.getPoints()
         if (myPoint.errorCode == 0) {
             return ResultData.Success(myPoint.data)
         }
@@ -258,7 +258,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestGetPointsRecord(page: Int): ResultData<WanListResponse<MutableList<PointRecord>>> {
-        val myPointsRecord = RetrofitClient(WAN_ANDROID).service.getPointsRecord(page)
+        val myPointsRecord = RetrofitClient.getInStance(WAN_ANDROID).service.getPointsRecord(page)
         if (myPointsRecord.errorCode == 0) {
             return ResultData.Success(myPointsRecord.data)
         }
@@ -266,7 +266,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestGetPointsRank(page: Int): ResultData<WanListResponse<MutableList<PointRank>>> {
-        val pointsRank = RetrofitClient(WAN_ANDROID).service.getPointsRank(page)
+        val pointsRank = RetrofitClient.getInStance(WAN_ANDROID).service.getPointsRank(page)
         if (pointsRank.errorCode == 0) {
             return ResultData.Success(pointsRank.data)
         }
@@ -274,7 +274,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestGetCollectionList(page: Int): ResultData<WanListResponse<MutableList<Article>>> {
-        val myCollectionList = RetrofitClient(WAN_ANDROID).service.getCollectionList(page)
+        val myCollectionList = RetrofitClient.getInStance(WAN_ANDROID).service.getCollectionList(page)
         if (myCollectionList.errorCode == 0) {
             return ResultData.Success(myCollectionList.data)
         }
@@ -282,7 +282,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestGetSharedArticleList(page: Int): ResultData<WanListResponse<MutableList<Article>>> {
-        val mySharedArticleList = RetrofitClient(WAN_ANDROID).service.getSharedArticleList(page)
+        val mySharedArticleList = RetrofitClient.getInStance(WAN_ANDROID).service.getSharedArticleList(page)
         if (mySharedArticleList.errorCode == 0) {
             return ResultData.Success(mySharedArticleList.data.shareArticles)
         }
@@ -290,7 +290,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestGetDeleteShare(id: Int): ResultData<Any> {
-        val deleteShare = RetrofitClient(WAN_ANDROID).service.deleteShare(id)
+        val deleteShare = RetrofitClient.getInStance(WAN_ANDROID).service.deleteShare(id)
         if (deleteShare.errorCode == 0) {
             return ResultData.Success(deleteShare.data.toString())
         }
@@ -298,7 +298,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestShareArticle(title: String, link: String): ResultData<Any> {
-        val shareArticle = RetrofitClient(WAN_ANDROID).service.shareArticle(title, link)
+        val shareArticle = RetrofitClient.getInStance(WAN_ANDROID).service.shareArticle(title, link)
         if (shareArticle.errorCode == 0) {
             return ResultData.Success(shareArticle.data.toString())
         }
@@ -306,7 +306,7 @@ class RemoteDataSource {
     }
 
     private suspend fun requestMeiZi(page: Int, count: Int = 10): ResultData<MutableList<MeiZi>> {
-        val meiZi = RetrofitClient(GANK_IO).service.getMeiZi(page, count)
+        val meiZi = RetrofitClient.getInStance(GANK_IO).service.getMeiZi(page, count)
         if (meiZi.status == 100) {
             return ResultData.Success(meiZi.data)
         }
@@ -323,7 +323,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestCollect(id: Int): ResultData<Any> {
-        val collect = RetrofitClient(WAN_ANDROID).service.collect(id)
+        val collect = RetrofitClient.getInStance(WAN_ANDROID).service.collect(id)
         if (collect.errorCode == 0) {
             return ResultData.Success(collect.data.toString())
         }
@@ -335,7 +335,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestUnCollect(id: Int): ResultData<Any> {
-        val unCollect = RetrofitClient(WAN_ANDROID).service.unCollect(id)
+        val unCollect = RetrofitClient.getInStance(WAN_ANDROID).service.unCollect(id)
         if (unCollect.errorCode == 0) {
             return ResultData.Success(unCollect.data.toString())
         }
@@ -347,7 +347,7 @@ class RemoteDataSource {
     )
 
     private suspend fun requestHotWord(): ResultData<MutableList<HotWord>> {
-        val hotWords = RetrofitClient(WAN_ANDROID).service.getHotWords()
+        val hotWords = RetrofitClient.getInStance(WAN_ANDROID).service.getHotWords()
         if (hotWords.errorCode == 0) {
             return ResultData.Success(hotWords.data)
         }
@@ -363,7 +363,7 @@ class RemoteDataSource {
         key: String,
         page: Int
     ): ResultData<WanListResponse<MutableList<Article>>> {
-        val search = RetrofitClient(WAN_ANDROID).service.search(key, page)
+        val search = RetrofitClient.getInStance(WAN_ANDROID).service.search(key, page)
         if (search.errorCode == 0) {
             return ResultData.Success(search.data)
         }
